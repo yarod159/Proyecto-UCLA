@@ -243,6 +243,13 @@ function Navbar() {
                     </ul>
                   </div>
                 </li>
+                <li onClick={(event) => showSubMenu(event)}>
+                <Link to="/productos">
+                  <a onClick={handleClick} href="#">
+                    Nosotros
+                  </a>
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
