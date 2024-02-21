@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./navbar.css";
 import logo from "../../assets/Logos/logo1.png";
-
+import Carrito from "../../assets/icon/carro-de-la-compra.png"
 import RsTw from "../../assets/redes-sociales/twitter.png";
 import Tlf from "../../assets/redes-sociales/telefono.png";
 import RsIg from "../../assets/redes-sociales/Instagram.png";
@@ -73,7 +73,7 @@ function Navbar() {
         <p>0251-4354820</p>
       </div>
       <div className="container">
-        <div className="row v-center size padding-top">
+        <div className="row v-center size padding-top navbar-rigth">
           <div className="header-item item-left">
             <div className="logo">
               <img style={{width:"75px", height:"75px", marginLeft:"25px"}} src={logo} alt="DCYT Logo" />
@@ -246,6 +246,11 @@ function Navbar() {
               </ul>
             </nav>
           </div>
+
+          <div className="header-item-carrito">
+            <img  style={{width:"25px" , cursor:"pointer",marginRight:"0px"}} src={Carrito} alt="carrito" />
+          </div>
+
           <div className="header-item item-right">
             <div className="mobile-menu-trigger" onClick={toggleMenu}>
               <span />

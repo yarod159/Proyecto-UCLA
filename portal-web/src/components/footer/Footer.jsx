@@ -3,33 +3,33 @@ import Fc from "../../assets/redes-sociales/fc.png";
 import Ig from "../../assets/redes-sociales/ig.png";
 import Tw from "../../assets/redes-sociales/tw.png";
 import Discord from "../../assets/redes-sociales/discord.png";
-import Chicks from "../../assets/Logos/chicks-logo.svg";
-import Trust from "../../assets/Logos/trustpilot.png";
+import logo from "../../assets/Logos/logo1.png";
+
 
 function Footer() {
   return (
     <div className="container-footer">
       <div className="wrapper-footer-social-networks ">
         <div>
-          <a href="https://www.facebook.com/Chicksgroup">
+          <a href="https://www.facebook.com/">
             {" "}
             <img src={Fc} alt="" />
           </a>
         </div>
         <div>
-          <a href="https://www.instagram.com/chicksgold/">
+          <a href="https://www.instagram.com/">
             {" "}
             <img src={Ig} alt="" />
           </a>
         </div>
         <div>
-          <a href="https://twitter.com/chicksgold">
+          <a href="https://twitter.com/">
             {" "}
             <img src={Tw} alt="" />
           </a>
         </div>
         <div>
-          <a href="https://discord.com/invite/chicksgold">
+          <a href="https://discord.com/invite/">
             <img src={Discord} alt="" />
           </a>
         </div>
@@ -37,27 +37,27 @@ function Footer() {
 
       <div className="wrapper-footer conteiner row">
         <div className="footer-col footer-cg-logo">
-          <img src={Chicks} alt="" />
+          <img style={{width:"90px", height:"90px" , borderRadius:"10px"}} src={logo} alt="" />
           <ul>
             <li>
-              <a href="#">support@chicksgold.com</a>
+              <a href="#">support@kinetika.com</a>
             </li>
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Chicks Gold</h4>
+          <h4>Kinetika</h4>
           <ul>
             <li>
-              <a href="#">Games</a>
+              <a href="#">Item</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="#">Item</a>
             </li>
             <li>
-              <a href="#">Blog</a>
+              <a href="#">Item</a>
             </li>
             <li>
-              <a href="#">Sitemap</a>
+              <a href="#">Item</a>
             </li>
           </ul>
         </div>
@@ -68,7 +68,7 @@ function Footer() {
               <a href="#">Contact Us</a>
             </li>
             <li>
-              <a href="#">FAQ</a>
+              <a href="#">Item</a>
             </li>
           </ul>
         </div>
@@ -87,16 +87,16 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-col footer-trust">
-          <img src={Trust} alt="" />
-          <a href="https://www.trustpilot.com/">Trustpilot Reviews</a>
+         
         </div>
       </div>
 
       <div className="wrapper-footer-reserved">
-        <div>
-          <p>© 2017 - 2020 Chicksgold.com.</p>
+        <div >
+          <p style={{color:"#fff"}}>© 2024 Kinetika.com. <br />  All Rights Reserved. </p>
         </div>
-        <div>All Rights Reserved.</div>
+        
+        <div></div>
       </div>
     </div>
   );
