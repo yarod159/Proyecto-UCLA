@@ -17,7 +17,7 @@ export default
     "caracteristicas": ["Soporta velocidades de hasta 1.3 Gbps", "Puertos Ethernet Gigabit", "Wi-Fi AC1750", "Soporta QoS"],
     "color": "Negro",
     "precio": 150,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/dlink.jpg",
     "categoria" : "router"
   },
   {
@@ -27,7 +27,7 @@ export default
     "caracteristicas": ["5 puertos Ethernet Gigabit", "Soporta PoE", "Auto MDI/MDIX"],
     "color": "Blanco",
     "precio": 50,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/switch.webp",
     "categoria" : "switch"
   },
   {
@@ -37,7 +37,7 @@ export default
     "caracteristicas": ["Resolución de 8 megapixeles", "Visión nocturna por infrarrojos", "Detección de movimiento", "Soporte para grabación en la nube"],
     "color": "Blanco",
     "precio": 200,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/camarahk.jpg",
     "categoria" : "camara"
   },
   {
@@ -47,7 +47,7 @@ export default
     "caracteristicas": ["Soporta velocidades de hasta 2.4 Gbps", "Puertos Ethernet Gigabit", "Wi-Fi AC2300", "Soporta VoIP"],
     "color": "Negro",
     "precio": 250,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/modemot.jpg",
     "categoria" : "modem"
   },
   {
@@ -57,7 +57,7 @@ export default
     "caracteristicas": ["Soporta velocidades de hasta 5.4 Gbps", "Puertos Ethernet Gigabit", "Wi-Fi AX5400", "Soporta QoS"],
     "color": "Blanco",
     "precio": 300,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/routerasus.jpg",
     "categoria" : "router"
   },
   {
@@ -67,7 +67,7 @@ export default
     "caracteristicas": ["8 puertos Ethernet Gigabit", "Soporta PoE", "Auto MDI/MDIX"],
     "color": "Negro",
     "precio": 70,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/switch3.jpg",
     "categoria" : "switch"
   },
   {
@@ -77,7 +77,7 @@ export default
     "caracteristicas": ["Resolución de 4 megapixeles", "Visión nocturna por infrarrojos", "Detección de movimiento", "Soporte para grabación en la nube"],
     "color": "Blanco",
     "precio": 150,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/camara2.jpg",
     "categoria" : "camara"
   },
   {
@@ -87,7 +87,7 @@ export default
     "caracteristicas": ["Diámetro de 80 cm", "Soporte para señal HD"],
     "color": "Blanco",
     "precio": 100,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/antenadirectv.jpg",
     "categoria" : "switch"
   },
   {
@@ -97,7 +97,7 @@ export default
     "caracteristicas": ["Soporta señal HD", "DVR", "Grabadora de voz"],
     "color": "Negro",
     "precio": 200,
-    "foto" :"../../public/router.webp",
+    "foto" :"../../public/deco.jpg",
     "categoria" : "decodificador"
   }
 
