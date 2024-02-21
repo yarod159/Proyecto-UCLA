@@ -1,0 +1,50 @@
+.container-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.columnas-nosotros {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1000px;
+  margin-top: 50px;
+  overflow: auto;
+}
+
+.mision, .vision {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.mision img {
+  float: left;
+  margin-right: 20px;
+  max-width: 200px;
+}
+
+.texto-mision {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.mision h2, .vision h2 {
+  font-size: 16px;
+}
+
+.mision p, .vision p {
+  font-size: 14px;
+  text-align: justify;
+  margin-top: 10em; 
+}
+.spacer {
+  width: 200px;
+}

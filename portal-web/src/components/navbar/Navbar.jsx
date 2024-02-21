@@ -98,6 +98,13 @@ function Navbar() {
                     Inicio
                   </a>
                 </li>
+                <li onClick={(event) => showSubMenu(event)}>
+                <Link to="/nosotros">
+                  <a href="#">
+                    Nosotros
+                  </a>
+                  </Link>
+                </li>
                 <li className="menu-item-has-children">
                   <Link to="/productos">
                     <a href="#">

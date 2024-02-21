@@ -6,7 +6,7 @@ import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 import ProductsData from "../utils/ProductsData.js";
 
-import we from "../pages/we/we.jsx";
+
 
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 
