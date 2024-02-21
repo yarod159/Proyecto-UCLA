@@ -5,7 +5,11 @@ import Error404 from "../components/404/Error404.jsx";
 import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 import ProductsData from "../utils/ProductsData.js";
+
 import we from "../pages/we/we.jsx";
+
+import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
+
 function AppRoutes() {
   return (
     <BrowserRouter>

@@ -55,6 +55,10 @@ body {
   width: 15px;
 }
 
+.navbar-rigth{
+  justify-content: space-between;
+}
+
 .logo {
   width: 300px;
   margin-right: 100px;
