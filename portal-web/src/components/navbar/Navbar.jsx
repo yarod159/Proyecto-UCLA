@@ -153,9 +153,11 @@ function Navbar() {
 
                
                 <li className="menu-item-has-children">
+                <Link to="/servicios">
                   <a href="#">
                     Servicios <i className="fas fa-angle-down" />
                   </a>
+                  </Link>
                   <div
                     className={`sub-menu mega-menu mega-menu-column-4 ${
                       openSubMenu === "Servicios" ? "active" : ""
