@@ -6,6 +6,7 @@ import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 import ProductsData from "../utils/ProductsData.js";
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
+
 function AppRoutes() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function AppRoutes() {
         <Route path="/productos" element={<Product />} />
         <Route path="/producto/:productId" element={<ProductDetail />} />
         <Route path="/carrito" element={<Ecommerce />} />
+       
       </Routes>
     </BrowserRouter>
   );
