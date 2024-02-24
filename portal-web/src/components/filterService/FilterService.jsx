@@ -63,12 +63,12 @@ function FilterService() {
 
   return (
     <>
-      <div className="filter-container">
-        <div className="container-filter-checkbox">
-          <div className="price-filters">
-            <label htmlFor="precioMin">Precio mínimo:</label>
+      <div className="Sfilter-container">
+        <div className="Scontainer-filter-checkbox">
+          <div className="Sprice-filters">
+            <label htmlFor="SprecioMin">Precio mínimo:</label>
             <input
-              className="range-input"
+              className="Srange-input"
               type="range"
               min="0"
               max="1000" // Adjust the maximum according to your data
@@ -76,11 +76,11 @@ function FilterService() {
               onChange={handlePrecioMinChange}
               id="precioMin"
             />
-            <span className="range-value">${precioMin}</span>
+            <span className="Srange-value">${precioMin}</span>
             <br />
             <label htmlFor="precioMax">Precio máximo:</label>
             <input
-              className="range-input"
+              className="Srange-input"
               type="range"
               min="0"
               max="1000" // Adjust the maximum according to your data
@@ -88,18 +88,19 @@ function FilterService() {
               onChange={handlePrecioMaxChange}
               id="precioMax"
             />
-            <span className="range-value">${precioMax}</span>
+            <span className="Srange-value">${precioMax}</span>
           </div>
           <label className="name-categoria-service" htmlFor="categoriaSeleccionada">Categoría:</label>
           <select
-            className="category-select"
+            className="Scategory-select"
             value={categoriaSeleccionada}
             onChange={handleCategoriaChange}
             id="categoriaSeleccionada"
           >
             <option value="todos">Todos</option>
-            <option value="router">Routers</option>
-            <option value="modem">Modems</option>
+            <option value="internet">Internet</option>
+            <option value="telefonia">Telefonia Movil</option>
+            <option value="tv">Television por cable</option>
           </select>
         </div>
         <div className="container-service"> {services}</div>

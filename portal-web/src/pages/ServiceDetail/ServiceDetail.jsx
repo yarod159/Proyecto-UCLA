@@ -35,8 +35,6 @@ function ServiceDetail() {
             <h1>{thisService.nombre}</h1> <br />
             <p>Precio: ${thisService.precio}</p> <br />
             <p>{thisService.caracteristicas}</p> <br />
-            <p> Color ( {thisService.color} ) disponible</p> <br />
-            <p> Cantidad : ( {thisService.cantidad} ) disponible</p> <br />
             <button onClick={handleAddToCart }>Comprar ahora</button>
           </div>
         </div>

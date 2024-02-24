@@ -4,8 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import "./Service.css";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";
-import FilterProduct from "../../components/filterProduct/FilterProduct";
-
+import FilterService from "../../components/filterService/FilterService";
 function Service() {
   {
     /*
@@ -36,6 +35,7 @@ function Service() {
       <Navbar />
       <div className="service-background">
       <h1 className="service-h1">Página de Servicios</h1>
+      <FilterService />
       </div>
       {/*<div className="service-background">
         <h1 className="service-h1">Services Page</h1>
