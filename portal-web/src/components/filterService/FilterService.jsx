@@ -65,31 +65,7 @@ function FilterService() {
     <>
       <div className="Sfilter-container">
         <div className="Scontainer-filter-checkbox">
-          <div className="Sprice-filters">
-            <label htmlFor="SprecioMin">Precio mínimo:</label>
-            <input
-              className="Srange-input"
-              type="range"
-              min="0"
-              max="1000" // Adjust the maximum according to your data
-              value={precioMin}
-              onChange={handlePrecioMinChange}
-              id="precioMin"
-            />
-            <span className="Srange-value">${precioMin}</span>
-            <br />
-            <label htmlFor="precioMax">Precio máximo:</label>
-            <input
-              className="Srange-input"
-              type="range"
-              min="0"
-              max="1000" // Adjust the maximum according to your data
-              value={precioMax}
-              onChange={handlePrecioMaxChange}
-              id="precioMax"
-            />
-            <span className="Srange-value">${precioMax}</span>
-          </div>
+          
           <label className="name-categoria-service" htmlFor="categoriaSeleccionada">Categoría:</label>
           <select
             className="Scategory-select"

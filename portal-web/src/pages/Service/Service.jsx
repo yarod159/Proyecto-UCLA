@@ -34,7 +34,6 @@ function Service() {
     <>
       <Navbar />
       <div className="service-background">
-      <h1 className="service-h1">Página de Servicios</h1>
       <FilterService />
       </div>
       {/*<div className="service-background">
