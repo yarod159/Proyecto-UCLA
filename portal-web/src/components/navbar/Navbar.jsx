@@ -98,6 +98,13 @@ function Navbar() {
                     Inicio
                   </a>
                 </li>
+                <li onClick={(event) => showSubMenu(event)}>
+                <Link to="/nosotros">
+                  <a href="#">
+                    Nosotros
+                  </a>
+                  </Link>
+                </li>
                 <li className="menu-item-has-children">
                   <Link to="/productos">
                     <a href="#">
@@ -144,62 +151,13 @@ function Navbar() {
                   </div>
                 </li>
 
+               
                 <li className="menu-item-has-children">
-                  <a href="#">
-                    Postgrados <i className="fa fa-angle-down" />
-                  </a>
-                  <div
-                    className={`sub-menu mega-menu mega-menu-column-4 ${
-                      openSubMenu === "Postgrados" ? "active" : ""
-                    }`}
-                  >
-                    <div className="list-item">
-                      <ul>
-                        <li>
-                          <a href="#">Informacíon General</a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            Maestría en Ciencias: Física Matemática
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">Maestría en Ciencias: Matemática</a>
-                        </li>
-                        <li>
-                          <a href="#">Maestría en Ciencias: Optimización</a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            Maestría en Ciencias de la Computación: Ingeniería
-                            de Software
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            Maestría en Ciencias de la Computación: Inteligencia
-                            Artificial
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            Maestría en Ciencias de la Computación: Redes de
-                            Computadores
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            Especialización en Sistemas de Información
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li className="menu-item-has-children">
+                <Link to="/servicios">
                   <a href="#">
                     Servicios <i className="fas fa-angle-down" />
                   </a>
+                  </Link>
                   <div
                     className={`sub-menu mega-menu mega-menu-column-4 ${
                       openSubMenu === "Servicios" ? "active" : ""
@@ -224,25 +182,7 @@ function Navbar() {
                     </ul>
                   </div>
                 </li>
-                <li className="menu-item-has-children">
-                  <a href="#">
-                    Cursos <i className="fas fa-angle-down" />
-                  </a>
-                  <div
-                    className={`sub-menu mega-menu mega-menu-column-4 ${
-                      openSubMenu === "Cursos" ? "active" : ""
-                    }`}
-                  >
-                    <ul>
-                      <li>
-                        <a href="#">Coordinación de Fomento</a>
-                      </li>
-                      <li>
-                        <a href="#">Gestión de desarrollo de software</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                
               </ul>
             </nav>
           </div>
