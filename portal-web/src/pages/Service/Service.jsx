@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ServicesData from "../../utils/ServicesData";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Service.css";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";
