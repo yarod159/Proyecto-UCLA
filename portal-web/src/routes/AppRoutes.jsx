@@ -10,6 +10,7 @@ import ServiceDetail from "../pages/ServiceDetail/ServiceDetail.jsx";
 import We from "../pages/we/Nosotros.jsx";
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 import Register from "../pages/Forms/Register.jsx";
+import Invoice from "../pages/Forms/Invoice.jsx";
 
 
 function AppRoutes() {
@@ -25,6 +26,7 @@ function AppRoutes() {
         <Route path="/carrito" element={<Ecommerce />} />
         <Route path="/nosotros" element={<We />} />
         <Route path="/registrarse" element={<Register />} />
+        <Route path="/factura" element={<Invoice />} />
        
       </Routes>
     </BrowserRouter>

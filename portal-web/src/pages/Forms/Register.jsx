@@ -1,62 +1,106 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { Container, TextField, Button, Typography, Box, Grid } from '@mui/material';
 import Navbar from '../../components/responsiveAppBar/ResponsiveAppBar';
 import Footer from '../../components/footer/Footer';
 
 function Register() {
   const [nombre, setNombre] = useState('');
+  const [apellidos, setApellidos] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [cedula, setCedula] = useState(''); // Nuevo estado para la cédula
-  const [direccion, setDireccion] = useState(''); // Nuevo estado para la dirección
+  const [cedula, setCedula] = useState('');
+  const [direccion, setDireccion] = useState('');
+  const [fechaNacimiento, setFechaNacimiento] = useState('');
+  const [telefonoPrincipal, setTelefonoPrincipal] = useState(''); // Nuevo estado para teléfono principal
+  const [telefonoAlternativo, setTelefonoAlternativo] = useState(''); // Nuevo estado para teléfono alternativo
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para manejar el registro, por ejemplo, enviar los datos al servidor
-    console.log({ nombre, email, password, cedula, direccion });
+    console.log({ nombre, apellidos, email, password, cedula, direccion, fechaNacimiento, telefonoPrincipal, telefonoAlternativo });
   };
 
   return (
     <>
       <Navbar />
       <Container maxWidth="sm">
-     
         <Box
           component="form"
           onSubmit={handleSubmit}
           noValidate
           autoComplete="off"
           sx={{
-            width: '80%',
-            boxShadow:  3, // Sombra
-            p:  2, // Padding
-            borderRadius:  1, // Bordes redondeados
-            marginTop:  2, // Margen superior
-            marginBottom:  2, // Margen inferior
+            boxShadow:   3,
+            p:   2,
+            borderRadius:   1,
+            marginTop:   2,
+            marginBottom:   2,
           }}
         >
-           <Typography variant="h4" gutterBottom sx={{
-      color: 'primary.main', // Cambia el color del texto al color primario del tema
-      textAlign: 'center', // Centra el texto horizontalmente
-      fontWeight: 'bold', // Hace el texto en negrita
-      padding: '16px  0', // Añade un padding vertical para darle más espacio
-      fontFamily: 'calibri', 
-    }}>
-      Registro de Cliente
-    </Typography>
+          <Typography variant="h4" gutterBottom sx={{
+            color: 'primary.main',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            padding: '14px   0',
+            fontFamily: 'calibri',
+          }}>
+            Datos Básicos
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Nombre"
+                variant="standard"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Apellidos"
+                variant="standard"
+                value={apellidos}
+                onChange={(e) => setApellidos(e.target.value)}
+                required
+              />
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Cédula de Identidad"
+                variant="standard"
+                value={cedula}
+                onChange={(e) => setCedula(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Fecha de Nacimiento"
+                variant="standard"
+                type="date"
+                value={fechaNacimiento}
+                onChange={(e) => setFechaNacimiento(e.target.value)}
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Grid>
+          </Grid>
           <TextField
             fullWidth
-            margin="10px" 
-            label="Nombre"
-            variant="standard"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-          <TextField
-            fullWidth
-            margin="10px" 
+            margin="10px"
             label="Email"
             variant="standard"
             value={email}
@@ -65,25 +109,39 @@ function Register() {
           />
           <TextField
             fullWidth
-            margin="10px" 
-            label="Cédula"
-            variant="standard"
-            value={cedula}
-            onChange={(e) => setCedula(e.target.value)}
-            required
-          />
-          <TextField
-            fullWidth
-            margin="10px" 
+            margin="10px"
             label="Dirección"
             variant="standard"
             value={direccion}
             onChange={(e) => setDireccion(e.target.value)}
             required
           />
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Teléfono Principal"
+                variant="standard"
+                value={telefonoPrincipal}
+                onChange={(e) => setTelefonoPrincipal(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                margin="10px"
+                label="Teléfono Alternativo"
+                variant="standard"
+                value={telefonoAlternativo}
+                onChange={(e) => setTelefonoAlternativo(e.target.value)}
+              />
+            </Grid>
+          </Grid>
           <TextField
             fullWidth
-            margin="10px" 
+            margin="10px"
             label="Contraseña"
             variant="standard"
             type="password"
@@ -93,7 +151,7 @@ function Register() {
           />
           <TextField
             fullWidth
-            margin="10px" 
+            margin="10px"
             label="Confirmar Contraseña"
             variant="standard"
             type="password"
@@ -101,7 +159,7 @@ function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <Button type="submit" variant="contained" color="primary" sx={{ width: 150, margin: "10px"   }}>
+          <Button type="submit" variant="contained" color="primary" sx={{ width:   150, margin: "10px" }}>
             Registrarse
           </Button>
         </Box>

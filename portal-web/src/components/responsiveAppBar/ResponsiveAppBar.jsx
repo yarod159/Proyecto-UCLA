@@ -43,7 +43,7 @@ function Navbar() {
             variant="contained"
             color="inherit"
             sx={{ backgroundColor: 'white', color: 'black',  mr:  5 }}
-            onClick={() => navigate('/iniciar-sesion')}
+            onClick={() => navigate('/factura')}
           >
             Iniciar sesión
           </Button>
