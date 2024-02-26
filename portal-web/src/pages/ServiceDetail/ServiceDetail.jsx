@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from 'react-router-dom';
 
