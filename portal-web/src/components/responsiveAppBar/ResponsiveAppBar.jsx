@@ -7,7 +7,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="sticky" sx={{ bgcolor: '#03bb85' }}>
+    <AppBar position="sticky" sx={{ bgcolor: '#15297c' }}>
       <Container maxWidth="lg">
         <Toolbar>
           <Box

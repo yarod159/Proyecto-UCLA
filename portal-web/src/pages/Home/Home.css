@@ -1,0 +1,16 @@
+.logo {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .texto {
+    float: left;
+  }
+  .Hcontainer {
+    display: flex;
+    align-items: center; /* Esto alinea verticalmente el texto y la imagen */
+   }
+   
+   .Hcontainer p {
+    margin-right: 10px; /* Añade un poco de espacio entre el texto y la imagen */
+   }

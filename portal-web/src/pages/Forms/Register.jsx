@@ -38,7 +38,7 @@ function Register() {
           }}
         >
           <Typography variant="h4" gutterBottom sx={{
-            color: 'primary.main',
+            color: '#15297c',
             textAlign: 'center',
             fontWeight: 'bold',
             padding: '14px   0',
