@@ -9,12 +9,16 @@ import Service from "../pages/Service/Service.jsx";
 import ServiceDetail from "../pages/ServiceDetail/ServiceDetail.jsx";
 import Nosotros from "../pages/we/Nosotros.jsx"
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
+import UserHome from "../pages/UserHome/UserHome.jsx"
+import UserService from "../pages/UserService/UserS.jsx"
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<UserService />} />
+        <Route path="/UserHome" element={<UserHome />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/404" element={<Error404 />} />
         <Route path="/productos" element={<Product />} />
