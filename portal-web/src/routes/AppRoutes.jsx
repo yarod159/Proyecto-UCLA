@@ -11,12 +11,14 @@ import Nosotros from "../pages/we/Nosotros.jsx"
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 import UserHome from "../pages/UserHome/UserHome.jsx"
 import UserService from "../pages/UserService/UserS.jsx"
+import UserFact from "../pages/UserFact/UserFact.jsx";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<UserService />} />
+        <Route path="/" element={<UserFact />} />
+        <Route path="/UserService" element={<UserService />} />
         <Route path="/UserHome" element={<UserHome />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/login" element={<Login />} />

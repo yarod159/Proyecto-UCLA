@@ -1,5 +1,5 @@
 import UserNavbar from "../../components/UserNavBar/UserNavBar"
-import "./UserS.css";
+import "./UserFact.css";
 import * as React from 'react';
 import Footer from "../../components/footer/Footer"
 import Card from '@mui/material/Card';
@@ -24,38 +24,41 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const columns = [
-    { id: 'servicio', label: 'Servicio', minWidth: 170 },
+    //{ id: 'servicio', label: 'Servicio', minWidth: 170 },
     
     {
       id: 'numFact',
       label: 'N.\u00a0Factura',
       minWidth: 170,
-      align: 'right',
+      align: 'center',
       format: (value) => value.toLocaleString('en-US'),
     },
+    
     {
       id: 'monto',
       label: 'Precio',
       minWidth: 170,
-      align: 'right',
+      align: 'center',
       format: (value) => value.toLocaleString('en-US'),
     },
+
+    { id: 'metodPago', label: 'Metodo\u00a0de\u00a0Pago', minWidth: 170, align: 'center' },
     
 ];
 
-function createData(servicio, numFact, monto,) {
+function createData(numFact, monto, metodPago,) {
     
-    return { servicio, numFact, monto};
+    return { numFact, monto, metodPago};
 }
 
 const rows = [
-    createData('Mantenimiento', 1244, 440.0),
-    createData('Instalacion', 1284, 550.42),
-    createData('Mantenimeinto', 1315, 448.25),
+    createData(1244, 440.0, 'Pago Móvil'),
+    createData(1284, 550.42, 'Efectivo'),
+    createData(1315, 448.25, 'Transferencia'),
     
 ];
 
-function UserService() {
+function UserFact() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
   
@@ -189,4 +192,4 @@ function UserService() {
     )
 }
 
-export default UserService
+export default UserFact
