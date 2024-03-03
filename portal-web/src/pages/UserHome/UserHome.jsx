@@ -25,10 +25,11 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: '#fafafa',
-  border: '2px solid #fff',
+  bgcolor: '#fff',
+  border: '12px solid #18a0a6',
   boxShadow: 24,
   p: 4,
+  borderRadius:'8px'
 };
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -69,6 +70,7 @@ function UserHome() {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        
       >
         <Box sx={style}>
           <Typography
@@ -88,17 +90,23 @@ function UserHome() {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="servicio">Servicio:</label>
-                <input
+                <br />
+                <select
                   type="text"
                   id="servicio"
                   name="servicio"
                   value={servicio}
                   onChange={(e) => setServicio(e.target.value)}
                   required
-                />
+                >
+                  <option value="instalación">Instalación</option>
+                  <option value="mantenimiento">Mantenimiento</option>
+                  <option value="reparacion">Reparación</option>
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="metodoPago">Método de Pago:</label>
+                <br />
                 <select
                   id="metodoPago"
                   name="metodoPago"
@@ -107,12 +115,14 @@ function UserHome() {
                   required
                 >
                   <option value="efectivo">Efectivo</option>
-                  <option value="tarjeta">Tarjeta de crédito</option>
+                  <option value="Divisas">Divisas</option>
                   <option value="transferencia">Transferencia bancaria</option>
+                  <option value="transferencia">Pago Móvil</option>
                 </select>
               </div>
               <div className="form-group">
                 <label htmlFor="referenciaPago">Referencia de Pago:</label>
+                <br />
                 <input
                   type="text"
                   id="referenciaPago"
@@ -124,6 +134,7 @@ function UserHome() {
               </div>
               <div className="form-group">
                 <label htmlFor="montoPagado">Monto Pagado:</label>
+                <br />
                 <input
                   type="number"
                   id="montoPagado"
