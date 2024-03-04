@@ -17,14 +17,10 @@ function Home() {
       <div className="Hcontainer" style={{ backgroundImage: `url(${img2})`, width: '100%', height: '500px', position: 'relative' }}>
 
 
-
       </div>
       
       <SliderHome />
       <div className="Hcontainer" style={{ backgroundImage: `url(${img3})`, width: '100%', height: '500px', position: 'relative' }}>
-
-
-        
       </div>
       <Services />
       <div className="Hcontainer" style={{ backgroundImage: `url(${img})`, width: '100%', height: '500px', position: 'relative' }}>
@@ -44,6 +40,11 @@ function Home() {
         <img src={logo} alt="Logo" style={{ marginLeft: '180px' }} /> {/* Añade un margen a la izquierda de la imagen para separarla del texto */}
       </div>
       <FilterService />
+      <div>
+    
+
+      </div>
+      
       <Footer />
     </div>
  );

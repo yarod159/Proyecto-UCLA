@@ -11,7 +11,9 @@ import ServicesData from "../utils/ServicesData.js";
 import Nosotros from "../pages/we/Nosotros.jsx"
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 import Register from "../pages/Forms/Register.jsx";
-import Invoice from "../pages/Forms/Invoice.jsx";
+
+
+
 
 function AppRoutes() {
   return (
@@ -26,7 +28,7 @@ function AppRoutes() {
         <Route path="/servicio/:serviceId" element={<ServiceDetails />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/registrarse" element={<Register />} />
-        <Route path="/factura" element={<Invoice />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -31,6 +31,9 @@ function Navbar() {
           <Button color="inherit" onClick={() => navigate('/servicios')}>
             Servicios
           </Button>
+          <Button color="inherit" onClick={() => navigate('/pagos')}>
+            Pagos
+          </Button>
           <Button
             variant="contained"
             color="inherit"
