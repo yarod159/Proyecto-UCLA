@@ -18,6 +18,7 @@ const pages = ['Inicio', 'Productos', 'Servicios'];
 const settings = ['Perfil', 'Carrito de compras', 'Salir'];
 
 function ResponsiveAppBar() {
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -106,15 +107,35 @@ function ResponsiveAppBar() {
             />
                       </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                onClick={handleCloseNavMenu} href='/'
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Inicio
               </Button>
-            ))}
+              
+              <Button
+                onClick={handleCloseNavMenu} href='/productos'
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Productos
+              </Button>
+
+              <Button
+                onClick={handleCloseNavMenu} href='/UserService'
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Consultar servicios
+              </Button>
+
+              <Button
+                onClick={handleCloseNavMenu} href='/UserFact'
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Consultar Factura
+              </Button>
+          
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

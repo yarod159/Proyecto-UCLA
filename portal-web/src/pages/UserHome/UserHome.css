@@ -6,7 +6,7 @@
     margin-bottom: 8px;
 }
 
-.Prod h1, h3{
+.Prod h3{
     color: #fff;
 }
 
@@ -33,7 +33,7 @@
 
 .Serv{
     background: #fff;
-    height: 280px;
+    height: 380px;
     margin-bottom: 8px;
 }
 
@@ -47,14 +47,16 @@
 
 .P4{
     position: absolute;
-    margin-left: 280px;
-    margin-top: 20px;
+    margin-left: 290px;
+    margin-top: 0px;
     
 }
 
 .P4 img{
-    height: 240px;
-    width: 240px;
+    height: 400px;
+    width: 286px;
+    margin-top: -12px;
+
 }
 
 .Serv button{
@@ -149,7 +151,7 @@
 }
 
 .CardHome3 Button{
-    color: #454545;
+    color: #fff;
 }
 
 .form-group{

@@ -8,9 +8,9 @@ import {
 } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import FPrincipal from "../../../../assets/sliderHome/1.png";
-import Fprueba from "../../../../assets/sliderHome/2.png";
-import Fprueba3 from "../../../../assets/sliderHome/3.png";
+import FPrincipal from "../../../../assets/UserHome/slider1.png";
+import Fprueba from "../../../../assets/UserHome/slider2.png";
+import Fprueba3 from "../../../../assets/UserHome/slider3.png";
 import Fprueba4 from "../../../../assets/sliderHome/4.png";
 // Import Swiper styles
 import "swiper/css";

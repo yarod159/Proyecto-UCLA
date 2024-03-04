@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Footer from "../../components/footer/Footer"
 import ImgProd from "../../assets/UserHome/Productos.png"
+import ImgServ from "../../assets/UserHome/ServicioT.png"
 import "./UserHome.css";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,7 +13,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import IMG1 from "../../assets/UserHome/Iguana1.jpg"
+import IMG1 from "../../assets/UserHome/Productos.jpg"
+import IMG2 from "../../assets/UserHome/Servicio.png"
+import IMG3 from "../../assets/UserHome/Cliente.png"
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -63,8 +66,6 @@ function UserHome() {
       
       <UserNavbar/>
       <SliderUser/>
-
-      <Button onClick={handleOpen}>Contratar Servicio</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -162,7 +163,7 @@ function UserHome() {
                 <CardMedia
                   sx={{ height: 180, borderRadius: '4px' }}
                   image={IMG1}
-                  title="The Maximus Iguana"
+                  title="Productos"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -175,7 +176,7 @@ function UserHome() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Ir al catálogo</Button>
+                  <Button size="small" href="/productos" sx={{color:'#fff'}}>Ir al catálogo</Button>
                   <Button size="small">Leer más</Button>
                 </CardActions>
               </Card>
@@ -186,8 +187,8 @@ function UserHome() {
               <Card class="CardHome2">
                 <CardMedia
                   sx={{ height: 180, borderRadius: '4px' }}
-                  image={IMG1}
-                  title="The Maximus Iguana"
+                  image={IMG2}
+                  title="Servicios"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -211,8 +212,8 @@ function UserHome() {
               <Card class="CardHome3">
                 <CardMedia
                   sx={{ height: 180, borderRadius: '4px' }}
-                  image={IMG1}
-                  title="The Maximus Iguana"
+                  image={IMG3}
+                  title="Atención al cliente"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -224,7 +225,7 @@ function UserHome() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Contratar servicio</Button>
+                  <Button size="small" onClick={handleOpen}>Contratar servicio</Button>
                   <Button size="small">Leer mas</Button>
                 </CardActions>
               </Card> 
@@ -238,10 +239,10 @@ function UserHome() {
       <div class="Prod">
         <div class="P1">
           <h1>Productos</h1>
-          <h3>Aqui va la información</h3>
+          <h3>Tenemos para tí los mejores productos</h3>
           <ButtonGroup variant="contained" aria-label="Basic button group">
-            <Button>Ir al catálogo</Button>
-            <Button>Más información</Button>
+            <Button onClick href='/productos' sx={{bgcolor:'#fff', color:'#18a0a6', ":hover":{bgcolor: '#18a0a6', color:'#fff'} }}>Ir al catálogo</Button>
+            <Button onClick href="" sx={{bgcolor:'#fff', color:'#18a0a6', ":hover":{bgcolor: '#18a0a6', color:'#fff'} }}>Más información</Button>
           </ButtonGroup>
         </div>
 
@@ -253,16 +254,17 @@ function UserHome() {
       <div class="Serv">
         
         <div class="P4">
-          <img src={ImgProd} alt="" />
+          <img src={ImgServ} alt="" />
         </div>
         
         
         <div class="P3">
-          <h1>Productos</h1>
-          <h3>Aqui va la información</h3>
+          <h1>Servicios</h1>
+          <h3>Te ofrecemos lo mejor en servicios de instalación, <br></br> mantenimiento y reparación de equipos.
+          </h3>
           <ButtonGroup variant="contained" aria-label="Basic button group">
-            <Button>Contratar servicio</Button>
-            <Button>Más información</Button>
+            <Button onClick={handleOpen} sx={{bgcolor:'#18a0a6', color:'#fff', ":hover":{bgcolor: '#fff', color:'#18a0a6'} }}>Contratar servicio</Button>
+            <Button onClick href="/productos" sx={{bgcolor:'#18a0a6', color:'#fff', ":hover":{bgcolor: '#fff', color:'#18a0a6'} }}>Más información</Button>
           </ButtonGroup>
         </div>
 

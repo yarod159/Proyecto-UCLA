@@ -132,7 +132,7 @@ function UserService() {
                 </Stack>
             </div>
             <Paper sx={{ width: '100%', maxWidth:'922px', overflow: 'hidden', marginLeft:'200px', marginBottom: '8px', marginTop:'8px'}}>
-            <TableContainer sx={{height: 440}}>
+            <TableContainer sx={{height: 240}}>
                 <Table stickyHeader aria-label="sticky table" >
                 <TableHead>
                     <TableRow>
