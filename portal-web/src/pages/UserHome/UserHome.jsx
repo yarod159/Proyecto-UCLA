@@ -46,8 +46,8 @@ function UserHome() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [servicio, setServicio] = useState('');
-  const [metodoPago, setMetodoPago] = useState('efectivo');
+  const [servicio, setServicio] = useState('--Seleccionar--');
+  const [metodoPago, setMetodoPago] = useState('--Seleccionar--');
   const [referenciaPago, setReferenciaPago] = useState('');
   const [montoPagado, setMontoPagado] = useState('');
   const handleSubmit = (e) => {
@@ -232,9 +232,6 @@ function UserHome() {
             </Item>
           </Stack>
       </div>
-
-
-
        
       <div class="Prod">
         <div class="P1">
@@ -270,10 +267,6 @@ function UserHome() {
 
 
       </div>
-
-     
-
-
       <Footer/>
     </div>
   )
