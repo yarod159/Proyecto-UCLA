@@ -3,7 +3,7 @@ import Fc from "../../assets/redes-sociales/fc.png";
 import Ig from "../../assets/redes-sociales/ig.png";
 import Tw from "../../assets/redes-sociales/tw.png";
 import Discord from "../../assets/redes-sociales/discord.png";
-import logo from "../../assets/Logos/logo1.png";
+import logo from "../../assets/Logos/logo-blanco.png";
 
 
 function Footer() {
@@ -37,7 +37,7 @@ function Footer() {
 
       <div className="wrapper-footer conteiner row">
         <div className="footer-col footer-cg-logo">
-          <img style={{width:"90px", height:"90px" , borderRadius:"10px"}} src={logo} alt="" />
+          <img style={{width:"90px", height:"104px" , borderRadius:"10px"}} src={logo} alt="" />
           <ul>
             <li>
               <a href="#">support@kinetika.com</a>
@@ -48,16 +48,16 @@ function Footer() {
           <h4>Kinetika</h4>
           <ul>
             <li>
-              <a href="#">Item</a>
+              <a href="#">Inicio</a>
             </li>
             <li>
-              <a href="#">Item</a>
+              <a href="#">Productos</a>
             </li>
             <li>
-              <a href="#">Item</a>
+              <a href="#">Servicios</a>
             </li>
             <li>
-              <a href="#">Item</a>
+              <a href="#">Cerrar sesión</a>
             </li>
           </ul>
         </div>

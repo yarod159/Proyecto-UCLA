@@ -1,0 +1,161 @@
+.Prod{
+    background: #70decd;
+    color: #fff;
+    box-shadow: 4px;
+    height: 280px;
+    margin-bottom: 8px;
+}
+
+.Prod h3{
+    color: #fff;
+}
+
+.Prod button{
+    background: #fff;
+    color: #18a0a6;
+}
+
+.P1{
+    padding: 54px 0px 0px 240px;
+}
+
+.P2{
+    position: absolute;
+    margin-left: 840px;
+    margin-top: -200px;
+    
+}
+
+.P2 img{
+    height: 240px;
+    width: 240px;
+}
+
+.Serv{
+    background: #fff;
+    height: 380px;
+    margin-bottom: 8px;
+}
+
+.Serv h1, h3{
+    color: #18a0a6;
+}
+
+.P3{
+    padding: 54px 0px 0px 640px;
+}
+
+.P4{
+    position: absolute;
+    margin-left: 290px;
+    margin-top: 0px;
+    
+}
+
+.P4 img{
+    height: 400px;
+    width: 286px;
+    margin-top: -12px;
+
+}
+
+.Serv button{
+    background: #18a0a6;
+}
+
+.CardHome12{
+    background: #18a0a6;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 140px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome12 Button{
+    color: #fff;
+}
+
+
+.CardHome23{
+    background: #fafafa;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 520px;
+    margin-top: -389px;
+    color: #18a0a6;
+    position: relative;
+}
+
+.CardHome23 Button{
+    color: #18a0a6;
+}
+
+.CardHome34{
+    background: #70decd;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 910px;
+    margin-top: -389px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome34 Button{
+    color: #fff;
+}
+
+
+.CardHome1{
+    background: #18a0a6;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome1 Button{
+    color: #fff;
+}
+
+.CardHome2{
+    background: #fafafa;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #18a0a6;
+    position: relative;
+}
+
+.CardHome2 Button{
+    color: #18a0a6;
+}
+
+.CardHome3{
+    background: #70decd;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome3 Button{
+    color: #fff;
+}
+
+.form-group{
+    margin: 8px;
+    width: 100%;
+    
+}
