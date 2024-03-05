@@ -2,10 +2,17 @@ import React from 'react'
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
 import productData from '../../data/productData';
 
+
+const ProductNameTooltip = ({ row }) => {
+  return (
+    <div style={{ position: "absolute", bottom: "-50px", left: "0", zIndex: 10 }}>
+      {row.nombre}
+    </div>
+  );
+};
 
 function Productos() {
 
@@ -18,6 +25,12 @@ function Productos() {
         headerName: "Nombre",
         flex: 1,
         cellClassName: "name-column--cell",
+        renderCell: (params) => (
+          <>
+            <span>{params.value}</span>
+            <ProductNameTooltip row={params.row} />
+          </>
+        ),
       },
       {
         field: "cantidad",

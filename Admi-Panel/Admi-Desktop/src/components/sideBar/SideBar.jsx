@@ -11,6 +11,9 @@ import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import ReportIcon from '@mui/icons-material/Report';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import PaidIcon from '@mui/icons-material/Paid';
 
 import { Link } from "react-router-dom";
 
@@ -29,70 +32,78 @@ export default function Sidebar() {
             </Link>
             <li className="sidebarListItem">
               <TimelineIcon className="sidebarIcon" />
-              Analytics
+              Analitica
             </li>
             <li className="sidebarListItem">
               <TrendingUpIcon className="sidebarIcon" />
-              Sales
+              Ventas
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
+          <h3 className="sidebarTitle">Menu Rapido</h3>
           <ul className="sidebarList">
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentityIcon className="sidebarIcon" />
-                Users
+                Usuarios
               </li>
             </Link>
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <StorefrontIcon className="sidebarIcon" />
-                Products
+                Productos
               </li>
             </Link>
             <li className="sidebarListItem">
               <AttachMoneyIcon className="sidebarIcon" />
-              Transactions
+              transacciones
             </li>
             <li className="sidebarListItem">
               <BarChartIcon  className="sidebarIcon" />
-              Reports
+              Reportes
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">Gestión de Servicios</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               < MailOutlineIcon className="sidebarIcon" />
-              Mail
+              Manejo de Solicitudes
             </li>
             <li className="sidebarListItem">
-              <DynamicFeedIcon className="sidebarIcon" />
-              Feedback
+            <PermIdentityIcon className="sidebarIcon" />
+              Atención Post/Servicio
             </li>
             <li className="sidebarListItem">
-              <ChatBubbleOutlineIcon className="sidebarIcon" />
-              Messages
+              <PaidIcon className="sidebarIcon" />
+              Control de Pagos
+            </li>
+            <li className="sidebarListItem">
+              <StarHalfIcon className="sidebarIcon" />
+              Evaluación y/o Calificación
+            </li>
+            <li className="sidebarListItem">
+              <ConfirmationNumberIcon className="sidebarIcon" />
+              Promociones
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
+          <h3 className="sidebarTitle">Personal</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <WorkOutlineIcon className="sidebarIcon" />
-              Manage
+              Administrar
             </li>
             <li className="sidebarListItem">
               <TimelineIcon className="sidebarIcon" />
-              Analytics
+              Analitica
             </li>
             <li className="sidebarListItem">
               <ReportIcon className="sidebarIcon" />
-              Reports
+              Informe
             </li>
           </ul>
         </div>
