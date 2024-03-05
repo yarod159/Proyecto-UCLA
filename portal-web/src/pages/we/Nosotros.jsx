@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Nosotros.css";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";

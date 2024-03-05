@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import "./ServiceDetail.css";
 import { useState } from "react";
 import ServicesData from "../../utils/ServicesData";
-function ServiceDetail() {
+function ServiceDetails() {
   const navigate = useNavigate();
   const { serviceId } = useParams();
   const thisService = ServicesData.find((serv) => serv.id === serviceId);
@@ -44,4 +44,4 @@ function ServiceDetail() {
   );
 }
 
-export default ServiceDetail;
+export default ServiceDetails;

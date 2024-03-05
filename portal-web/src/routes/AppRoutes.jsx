@@ -21,8 +21,11 @@ function AppRoutes() {
         <Route path="/404" element={<Error404 />} />
         <Route path="/productos" element={<Product />} />
         <Route path="/producto/:productId" element={<ProductDetail />} />
-        <Route path="/carrito" element={<Ecommerce />} />
-       
+        <Route path="/servicios" element={<Service />} />
+        <Route path="/servicio/:serviceId" element={<ServiceDetails />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/registrarse" element={<Register />} />
+
       </Routes>
     </BrowserRouter>
   );
