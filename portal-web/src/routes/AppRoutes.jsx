@@ -8,11 +8,17 @@ import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 import UserHome from "../pages/UserHome/UserHome.jsx"
 import UserService from "../pages/UserService/UserS.jsx"
 import UserFact from "../pages/UserFact/UserFact.jsx";
+import Service from "../pages/Service/Service.jsx";
+import ServiceDetails from "../pages/ServiceDetail/SeviceDetails.jsx"
+import Nosotros from "../pages/we/Nosotros.jsx"
+import Register from "../pages/Forms/Register.jsx"
+import UserProfile from "../pages/UserProfile/UserProfile.jsx";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/UserFact" element={<UserFact />} />
         <Route path="/UserService" element={<UserService />} />
         <Route path="/" element={<UserHome />} />
