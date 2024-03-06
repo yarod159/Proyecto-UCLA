@@ -15,9 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import LogoPrincipal from "../../assets/Logos/logo-blanco.png";
 
 const pages = ['Inicio', 'Productos', 'Servicios'];
-const settings = ['Perfil', 'Carrito de compras', 'Salir'];
 
-function ResponsiveAppBar() {
+function UserNavbar() {
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -160,11 +159,16 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+
+              <MenuItem onClick={handleCloseUserMenu}>
+              <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseUserMenu}>
+              <Button href='/UserProfile'><Typography textAlign="center">Cerrar sesión</Typography></Button>
+              </MenuItem>
+
+
             </Menu>
           </Box>
         </Toolbar>
@@ -172,4 +176,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default UserNavbar;

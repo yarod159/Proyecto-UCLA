@@ -21,6 +21,11 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const style = {
   position: 'absolute',
@@ -32,7 +37,8 @@ const style = {
   border: '12px solid #18a0a6',
   boxShadow: 24,
   p: 4,
-  borderRadius:'8px'
+  borderRadius:'8px',
+  '& > :not(style)' : { m: 1, width: '25ch' },
 };
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -60,6 +66,17 @@ function UserHome() {
       montoPagado,
     });
   };
+
+  const [Servicio, setservicio] = React.useState('');
+  const [metPago, setmetPago] = React.useState('');
+
+  const handleChange = (event) => {
+    setservicio(event.target.value);
+  };
+
+  const handleChanged = (event) => {
+    setmetPago(event.target.value);
+  };
  
   return (
     <div>
@@ -78,77 +95,77 @@ function UserHome() {
             id="modal-modal-title"
             variant="h6"
             component="h2"
-            color="#fff"
-            bgcolor="#18a0a6"
+            color="#18a0a6"
+            textAlign={"center"}
           >
             Contratación de servicio
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          
+          <Typography id="modal-modal-description" sx={{ mt: 2, width:'80px' }}>
             Por favor rellene este formulario con sus datos para realizar la
             contratación del servicio.
           </Typography>
-          <div className="container">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="servicio">Servicio:</label>
-                <br />
-                <select
-                  type="text"
-                  id="servicio"
-                  name="servicio"
-                  value={servicio}
-                  onChange={(e) => setServicio(e.target.value)}
-                  required
-                >
-                  <option value="instalación">Instalación</option>
-                  <option value="mantenimiento">Mantenimiento</option>
-                  <option value="reparacion">Reparación</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="metodoPago">Método de Pago:</label>
-                <br />
-                <select
-                  id="metodoPago"
-                  name="metodoPago"
-                  value={metodoPago}
-                  onChange={(e) => setMetodoPago(e.target.value)}
-                  required
-                >
-                  <option value="efectivo">Efectivo</option>
-                  <option value="Divisas">Divisas</option>
-                  <option value="transferencia">Transferencia bancaria</option>
-                  <option value="transferencia">Pago Móvil</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="referenciaPago">Referencia de Pago:</label>
-                <br />
-                <input
-                  type="text"
-                  id="referenciaPago"
-                  name="referenciaPago"
-                  value={referenciaPago}
-                  onChange={(e) => setReferenciaPago(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="montoPagado">Monto Pagado:</label>
-                <br />
-                <input
-                  type="number"
-                  id="montoPagado"
-                  name="montoPagado"
-                  step="0.01"
-                  value={montoPagado}
-                  onChange={(e) => setMontoPagado(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
+          
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-standard-label">
+              Servicio
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={Servicio}
+              onChange={handleChange}
+              label="Servicio"
+            >
+              <MenuItem value="">
+                <em>--</em>
+              </MenuItem>
+              <MenuItem value="Instalación">Instalación</MenuItem>
+              <MenuItem value="Mantenimiento">Mantenimiento</MenuItem>
+              <MenuItem value="Reparacion">Reparación</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-standard-label">
+              Método de Pago
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={metPago}
+              onChange={handleChanged}
+              label="MetPago"
+            >
+              <MenuItem value="">
+                <em>--</em>
+              </MenuItem>
+              <MenuItem value="Transferencia">Transferencia Bancaria</MenuItem>
+              <MenuItem value="PagoMovil">Pago móvil</MenuItem>
+            </Select>
+          </FormControl>
+
+          <TextField
+            id="standard-basic"
+            label="Referencia de Pago"
+            variant="standard"
+          />
+
+          <TextField id="standard-basic" label="Monto" variant="standard" />
+
+          <TextField id="standard-basic" label="Descripción" variant="standard" />
+
+          <Button type="submit"
+            variant="outlined"
+            sx={{
+              bgcolor: '#18a0a6',
+              color: '#fff',
+              marginTop:'40px',
+              ':hover': { color: '#18a0a6' },
+            }}
+          >
+            Contratar
+          </Button>
         </Box>
       </Modal>
 

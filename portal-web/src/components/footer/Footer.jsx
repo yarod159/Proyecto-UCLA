@@ -62,13 +62,10 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Support</h4>
+          <h4>Soporte</h4>
           <ul>
             <li>
-              <a href="#">Contact Us</a>
-            </li>
-            <li>
-              <a href="#">Item</a>
+              <a href="#">Contáctanos</a>
             </li>
           </ul>
         </div>
@@ -76,13 +73,13 @@ function Footer() {
           <h4>Legal</h4>
           <ul>
             <li>
-              <a href="#">Privacy Policy</a>
+              <a href="#">Politica de Privacidad</a>
             </li>
             <li>
-              <a href="#">Terms of Services</a>
+              <a href="#">Terminos de Servicio</a>
             </li>
             <li>
-              <a href="#">Copyright Policy</a>
+              <a href="#">Política de Copyright</a>
             </li>
           </ul>
         </div>

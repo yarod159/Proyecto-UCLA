@@ -7,7 +7,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import IMG1 from "../../assets/UserHome/Iguana1.jpg"
+import IMG1 from "../../assets/UserHome/Servicio.png"
+import IMG2 from "../../assets/UserHome/Mantenimiento.jpeg"
+import IMG3 from "../../assets/UserHome/Reparacion.jpg"
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -17,6 +19,30 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { CardActionArea } from '@mui/material';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: '#fff',
+  border: '12px solid #18a0a6',
+  boxShadow: 24,
+  p: 4,
+  borderRadius:'8px',
+  '& > :not(style)' : { m: 1, width: '25ch' },
+};
 
 const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
@@ -59,6 +85,10 @@ const rows = [
 ];
 
 function UserFact() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
   
@@ -71,71 +101,94 @@ function UserFact() {
       setPage(0);
     };
 
+    const [Servicio, setservicio] = React.useState('');
+    const [metPago, setmetPago] = React.useState('');
+  
+    const handleChange = (event) => {
+      setservicio(event.target.value);
+    };
+  
+    const handleChanged = (event) => {
+      setmetPago(event.target.value);
+    };
+
+
     return (
         <div>
             <UserNavbar/>
+            
             <div>
                 <Stack direction="row" spacing={0}
                     sx={{marginBottom:'8px', marginLeft: '200px', marginTop:'8px'}}>
                     <Item sx={{backgroundColor: '#18a0a6'}}>     
                         <Card class="CardHome1">
-                            <CardMedia
-                            sx={{ height: 180, borderRadius: '4px' }}
-                            image={IMG1}
-                            title="The Maximus Iguana"
-                            />
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Instalación
-                            </Typography>
-                            <Typography variant="body2" color="#fff">
-                                Aqui va un texto referente al servicio de instalación
-                            </Typography>
-                            </CardContent>
+                            <CardActionArea onClick={handleOpen}>
+                                <CardMedia
+                                sx={{ height: 180, borderRadius: '4px' }}
+                                image={IMG1}
+                                title="Instalación"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    Instalación
+                                </Typography>
+                                <Typography variant="body2" color="#fff">
+                                    Realizamos la instalación del servicio en tu hogar u oficina.
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
                         </Card>
                     </Item>
                     
                     
                     <Item>
                     <Card class="CardHome2">
-                        <CardMedia
-                        sx={{ height: 180, borderRadius: '4px' }}
-                        image={IMG1}
-                        title="The Maximus Iguana"
-                        />
-                        <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Mantenimiento
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Aqui va un texto referente al servicio de mantenimiento
-                        </Typography>
-                        </CardContent>
+                        <CardActionArea onClick={handleOpen}>
+                            <CardMedia
+                            sx={{ height: 180, borderRadius: '4px' }}
+                            image={IMG2}
+                            title="Mantenimiento de equipos"
+                            />
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Mantenimiento
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Mantén tus equipos en optimas condiciones con nuestro servicio.
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
                     </Card>
                     </Item>
 
 
                     <Item sx={{backgroundColor: '#70decd'}}>
                     <Card class="CardHome3">
-                        <CardMedia
-                        sx={{ height: 180, borderRadius: '4px' }}
-                        image={IMG1}
-                        title="The Maximus Iguana"
-                        />
-                        <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Reparación
-                        </Typography>
-                        <Typography variant="body2" color="#454545">
-                            Aqui va un texto referente al servicio de reparación.
-                        </Typography>
-                        </CardContent>
+                        <CardActionArea onClick={handleOpen}>
+                            <CardMedia
+                            sx={{ height: 180, borderRadius: '4px' }}
+                            image={IMG3}
+                            title="Reparación de equipos"
+                            />
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Reparación
+                            </Typography>
+                            <Typography variant="body2" color="#454545">
+                                ¿Tienes algún equipo que no funciona? Lo reparamos sin problemas.
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
                     </Card> 
                     </Item>
                 </Stack>
+
             </div>
+            
+            
+            
             <Paper sx={{ width: '100%', maxWidth:'922px', overflow: 'hidden', marginLeft:'200px', marginBottom: '8px', marginTop:'8px'}}>
-            <TableContainer sx={{height: 440}}>
+            <TableContainer sx={{height: 240}}>
                 <Table stickyHeader aria-label="sticky table" >
                 <TableHead>
                     <TableRow>
@@ -183,7 +236,91 @@ function UserFact() {
             />
             </Paper>
 
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                
+            >
+                <Box sx={style}>
+                <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    color="#18a0a6"
+                    textAlign={"center"}
+                >
+                    Contratación de servicio
+                </Typography>
+                
+                <Typography id="modal-modal-description" sx={{ mt: 2, width:'80px' }}>
+                    Por favor rellene este formulario con sus datos para realizar la
+                    contratación del servicio.
+                </Typography>
+                
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="demo-simple-select-standard-label">
+                    Servicio
+                    </InputLabel>
+                    <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={Servicio}
+                    onChange={handleChange}
+                    label="Servicio"
+                    >
+                    <MenuItem value="">
+                        <em>--</em>
+                    </MenuItem>
+                    <MenuItem value="Instalación">Instalación</MenuItem>
+                    <MenuItem value="Mantenimiento">Mantenimiento</MenuItem>
+                    <MenuItem value="Reparacion">Reparación</MenuItem>
+                    </Select>
+                </FormControl>
 
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="demo-simple-select-standard-label">
+                    Método de Pago
+                    </InputLabel>
+                    <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={metPago}
+                    onChange={handleChanged}
+                    label="MetPago"
+                    >
+                    <MenuItem value="">
+                        <em>--</em>
+                    </MenuItem>
+                    <MenuItem value="Transferencia">Transferencia Bancaria</MenuItem>
+                    <MenuItem value="PagoMovil">Pago móvil</MenuItem>
+                    </Select>
+                </FormControl>
+
+                <TextField
+                    id="standard-basic"
+                    label="Referencia de Pago"
+                    variant="standard"
+                />
+
+                <TextField id="standard-basic" label="Monto" variant="standard" />
+
+                <TextField id="standard-basic" label="Descripción" variant="standard" />
+
+                <Button type="submit"
+                    variant="outlined"
+                    sx={{
+                    bgcolor: '#18a0a6',
+                    color: '#fff',
+                    marginTop:'40px',
+                    ':hover': { color: '#18a0a6' },
+                    }}
+                >
+                    Contratar
+                </Button>
+                </Box>
+            </Modal>
 
 
             <Footer/>
