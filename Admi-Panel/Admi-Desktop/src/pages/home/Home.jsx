@@ -1,4 +1,6 @@
 import Chart from "../../components/chart/Chart";
+import ChartCategoria from "../../components/chartCategoria/ChartCategoria";
+import ChartServives from "../../components/chartServices/ChartServices";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import Sidebar from "../../components/sideBar/SideBar";
 import Topbar from "../../components/topBar/TopBar";
@@ -14,6 +16,10 @@ export default function Home() {
         <div className="others">
           <FeaturedInfo />
           <Chart />
+          <div className="widgets-row">
+            <ChartCategoria />
+            <ChartServives />
+          </div>
           <div className="widgets-row">
             <WidgetSm />
             <WidgetLg />

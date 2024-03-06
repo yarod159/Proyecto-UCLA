@@ -4,7 +4,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 export default function WidgetSm() {
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">Nuevos miembros</span>
       <ul className="widgetSmList">
         <li className="widgetSmListItem">
           <img
@@ -18,7 +18,7 @@ export default function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <VisibilityIcon className="widgetSmIcon" />
-            Display
+            Mostrar
           </button>
         </li>
         <li className="widgetSmListItem">
@@ -33,7 +33,7 @@ export default function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <VisibilityIcon className="widgetSmIcon" />
-            Display
+            Mostrar
           </button>
         </li>
         <li className="widgetSmListItem">
@@ -48,7 +48,7 @@ export default function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <VisibilityIcon className="widgetSmIcon" />
-            Display
+            Mostrar
           </button>
         </li>
         <li className="widgetSmListItem">
@@ -63,7 +63,7 @@ export default function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <VisibilityIcon className="widgetSmIcon" />
-            Display
+            Mostrar
           </button>
         </li>
         <li className="widgetSmListItem">
@@ -78,7 +78,7 @@ export default function WidgetSm() {
           </div>
           <button className="widgetSmButton">
             <VisibilityIcon className="widgetSmIcon" />
-            Display
+           Mostrar
           </button>
         </li>
       </ul>

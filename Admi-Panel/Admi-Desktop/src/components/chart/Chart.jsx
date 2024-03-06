@@ -11,7 +11,7 @@ import {
 
 import { userData } from '../../data'; 
 
-export default function Chart({ title, dataKey = "Active User", grid }) {
+export default function Chart({ title, dataKey = "Usuarios Registrados", grid }) {
   return (
     <div className="chart">
       <h3 className="chartTitle">{title}</h3>
