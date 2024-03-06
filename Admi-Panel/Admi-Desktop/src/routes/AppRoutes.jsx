@@ -7,6 +7,8 @@ import User from "../pages/user/User.jsx";
 import ProductList from "../pages/productList/ProductList.jsx";
 import Product from "../pages/product/Product.jsx";
 import NewProduct from "../pages/newProduct/NewProduct.jsx";
+import Transactions from "../pages/transactionsList/Transactions.jsx";
+import SolicitudList from "../pages/solicitudList/SolicitudList.jsx";
 
 
 function AppRoutes() {
@@ -20,7 +22,8 @@ function AppRoutes() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/newProduct" element={<NewProduct />} />
-        
+        <Route path="/transacciones" element={<Transactions />} />
+        <Route path="/solicitudes" element={<SolicitudList />} />
 
        
       </Routes>
