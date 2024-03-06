@@ -6,40 +6,44 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
+import axios from 'axios';
+import React, {  useEffect } from 'react';
+
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await axios.get('http://localhost:3000/get-users');
+         if (response.data.success) {
+           setData(response.data.data);
+         } else {
+           console.error("Error al obtener los usuarios:", response.data.message);
+         }
+       } catch (error) {
+         console.error("Error al realizar la solicitud:", error);
+       }
+     };
+ 
+     fetchData();
+  }, []); // El array vacío como segundo argumento asegura que la función solo se ejecute una vez al montar el componente
+ 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+     setData(data.filter((item) => item.id !== id));
   };
+ 
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "user",
-      headerName: "User",
+      field: "name",
+      headerName: "Name",
       width: 250,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
     },
     { field: "email", headerName: "Email", width: 250 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 200,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 160,
-    },
+   
     {
       field: "action",
       headerName: "Action",
@@ -64,7 +68,7 @@ export default function UserList() {
     <div>
       <Topbar />
       <div className="container">
-      <Sidebar />
+        <Sidebar />
         <div className="userList">
           <DataGrid
             rows={data}
@@ -72,6 +76,7 @@ export default function UserList() {
             columns={columns}
             pageSize={8}
             checkboxSelection
+            getRowId={(row) => row._id}
           />
         </div>
       </div>
