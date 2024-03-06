@@ -2,7 +2,26 @@ import { useState } from "react";
 import "./login.css";
 import axios from 'axios';
 
+
+
+function SuccessModal({ showModal, setShowModal }) {
+  return (
+     showModal && (
+       <div className="modal">
+         <div className="modal-content">
+           <h2>¡Registro exitoso!</h2>
+           <p>Has sido registrado correctamente.</p>
+           <button onClick={() => setShowModal(false)}>Cerrar</button>
+         </div>
+       </div>
+     )
+  );
+ }
+ 
+
 function Login() {
+  const [showModal, setShowModal] = useState(false);
+
   const [active, setActive] = useState(false);
   const [error, setError] = useState(null); // Maneja los errores
   const [formData, setFormData] = useState({ name: "", email: "", password: "" }); // Maneja los datos del formulario
@@ -18,24 +37,27 @@ function Login() {
     });
   };
 
+
   const handleRegistration = async (event) => {
     event.preventDefault(); // Previene el envío del formulario
-
+   
     try {
-      const response = await axios.post("http://localhost:3000/register", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
-
-      console.log(response.data); // Maneja el registro exitoso
-      setError(null); // Limpia los errores
-
+       const response = await axios.post("http://localhost:3000/register", {
+         name: formData.name,
+         email: formData.email,
+         password: formData.password,
+       });
+   
+       console.log(response.data); // Maneja el registro exitoso
+       setError(null); // Limpia los errores
+       setShowModal(true); // Muestra el modal de éxito
+   
     } catch (error) {
-      console.error(error.response.data); // Registra el error para depuración
-      setError(error.response.data?.message || "Registration failed"); // Mensaje de error para el usuario
+       console.error(error.response.data); // Registra el error para depuración
+       setError(error.response.data?.message || "Registration failed"); // Mensaje de error para el usuario
     }
-  };
+   };
+   
 
  return (
     <div className="container-L">
@@ -114,6 +136,8 @@ function Login() {
           </div>
         </div>
       </div>
+      <SuccessModal showModal={showModal} setShowModal={setShowModal} />
+
     </div>
  );
 }

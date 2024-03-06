@@ -9,6 +9,15 @@ import Sidebar from "../../components/sideBar/SideBar";
 import axios from 'axios';
 import React, {  useEffect } from 'react';
 
+function generarIdAleatorio() {
+  var longitud = 8,
+      caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+  for (var i = 0, n = caracteres.length; i < longitud; ++i) {
+      retVal += caracteres.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+}
 
 export default function UserList() {
   const [data, setData] = useState([]);
