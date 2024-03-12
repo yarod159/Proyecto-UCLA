@@ -1,9 +1,13 @@
 .Prod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     background: #70decd;
     color: #fff;
     box-shadow: 4px;
-    height: 280px;
-    margin-bottom: 8px;
+   
+   
 }
 
 .Prod h3{
@@ -16,13 +20,18 @@
 }
 
 .P1{
-    padding: 54px 0px 0px 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+   
 }
 
 .P2{
-    position: absolute;
-    margin-left: 840px;
-    margin-top: -200px;
+
+   padding-top: 40px;
+   padding-bottom:40px ;
     
 }
 
@@ -32,25 +41,24 @@
 }
 
 .Serv{
-    background: #fff;
-    height: 380px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
     margin-bottom: 8px;
+    background: #fff;
+    margin-bottom: -7px;
+    margin-top: 100px;
+    padding: 0 20px 0 20px;
+   
 }
 
 .Serv h1, h3{
     color: #18a0a6;
 }
 
-.P3{
-    padding: 54px 0px 0px 640px;
-}
 
-.P4{
-    position: absolute;
-    margin-left: 290px;
-    margin-top: 0px;
-    
-}
+
 
 .P4 img{
     height: 400px;
@@ -78,6 +86,14 @@
 
 .CardHome12 Button{
     color: #fff;
+}
+
+.userHome-cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 50px 0;
 }
 
 
@@ -119,6 +135,7 @@
 
 
 .CardHome1{
+    width: 300px;
     background: #18a0a6;
     max-width: 300px;
     border-radius: 4px;
@@ -131,6 +148,7 @@
 }
 
 .CardHome2{
+    width: 300px;
     background: #fafafa;
     max-width: 300px;
     border-radius: 4px;
@@ -143,6 +161,8 @@
 }
 
 .CardHome3{
+    
+    width: 300px;
     background: #70decd;
     max-width: 300px;
     border-radius: 4px;
