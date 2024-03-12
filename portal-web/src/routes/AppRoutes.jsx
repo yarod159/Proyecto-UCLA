@@ -23,7 +23,7 @@ function AppRoutes() {
         <Route path="/UserService" element={<UserService />} />
         <Route path="/" element={<UserHome />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Login />} />
         <Route path="/404" element={<Error404 />} />
         <Route path="/productos" element={<Product />} />
         <Route path="/producto/:productId" element={<ProductDetail />} />

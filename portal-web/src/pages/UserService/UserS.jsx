@@ -29,6 +29,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import { Margin } from "@mui/icons-material";
 
 const style = {
   position: 'absolute',
@@ -126,12 +127,12 @@ function UserService() {
       };
 
     return (
-        <div>
+        <div >
             <UserNavbar/>
 
             
             
-            <div>
+            <div >
                 <Stack direction="row" spacing={0}
                     sx={{marginBottom:'8px', marginLeft: '200px', marginTop:'8px'}}>
                     <Item sx={{backgroundColor: '#18a0a6'}}>     

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+:root {
+  --gris: #fafafa; /* Light gray tone */
+  --green-claro: #70decd; /* Lighter green for accessibility */
+  --green-dark: #18a0a6; /* Darker green for contrast */
+  --marron: #454545; /* Darker brown for better contrast */
+
+  /* Accessibility considerations: */
+  --font-size: 16px; /* Base font size */
+  --line-height: 1.5; /* Line height for improved readability */
+  --contrast-ratio: 4.5; /* Aim for WCAG contrast requirements */
+}
+
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+.others{
+  flex:6;
+}
+.widgets-row {
+  display: flex; /* Make the container a flexbox */
+  flex-direction: row; /* Align elements horizontally */
+}
+
+
+
+
+
+.wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.size {
+  height: 100px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
+}

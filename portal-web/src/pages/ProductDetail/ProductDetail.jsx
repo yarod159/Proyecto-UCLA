@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 
 import "./productDetail.css";
 import { useState } from "react";
+
 function ProductDetail() {
+
   const navigate = useNavigate();
   const { productId } = useParams();
   const thisProduct = ProductsData.find((prod) => prod.id === productId);
