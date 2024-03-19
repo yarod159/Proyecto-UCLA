@@ -70,15 +70,16 @@ const FormPago = () => {
                 <Grid item  md={80} >
                     <Item sx={{padding:4, borderRadius: '12px'}}>
                         <form>
-                            <Typography variant="h5" >SOLICITUD DE SERVICIOS</Typography>
-                            <Typography variant="h8" gutterBottom>Por favor rellene los datos</Typography>
+                            <Typography variant="h5" gutterBottom >SOLICITUD DE SERVICIOS</Typography>
+                            <Typography variant="h8" sx={{marginBottom: 4}}>Por favor rellene los datos</Typography>
                             <hr/>
                             <FormControl fullWidth variant="standard" sx={{marginTop: 4, marginBottom: 4}}>
-                                <InputLabel>Selecciona un servicio</InputLabel>
+                                <InputLabel>Selecciona un Servicio</InputLabel>
                                 <Select value={selectedOption} onChange={handleOptionChange}>
                                     <MenuItem value="">Selecciona una opción</MenuItem>
                                     <MenuItem value="Instalación">Instalación</MenuItem>
                                     <MenuItem value="Mantemimiento">Mantenimiento</MenuItem>
+                                    <MenuItem value="Reparación">Reparación</MenuItem>
                                     
                                 </Select>
                             </FormControl>
@@ -94,18 +95,7 @@ const FormPago = () => {
 
                                 <div>
                                     
-                                    <FormLabel>Datos de Dirección</FormLabel>
-
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 0}}>
-                                    <InputLabel>Tipo de servicio</InputLabel>
-                                    <Select value={value} onChange={handleOptionChange}>
-                                        <MenuItem value="">Selecciona una opción</MenuItem>
-                                        <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
-                                        <MenuItem value="Inst2">Internet</MenuItem>
-                                        <MenuItem value="Inst3">Televisión por cable</MenuItem>
-                                        
-                                    </Select>
-                                    </FormControl>
+                                    <FormLabel>Datos Generales</FormLabel>
 
                                     <TextField
                                     fullWidth
@@ -127,15 +117,76 @@ const FormPago = () => {
 
                                     <TextField
                                     fullWidth
+                                    label="Correo electrónico"
+                                    name="correo"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Estado</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Lara">Lara</MenuItem>
+                                            <MenuItem value="Otro">Otro</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Municipio</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
+                                            <MenuItem value="Crespo">Crespo</MenuItem>
+                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
+                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
+                                            <MenuItem value="Morán">Morán</MenuItem>
+                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
+                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
+                                            <MenuItem value="Torres">Torres</MenuItem>
+                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+                                    
+                                    
+                                    <TextField
+                                    fullWidth
+                                    label="Código Postal"
+                                    name="codPostal"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
                                     label="Dirección de instalación"
                                     name="dir"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, marginBottom: 4}}
                                     
                                     />
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+
+                                    <FormLabel sx={{marginTop: 4}}>Datos para la instalación</FormLabel>
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 0}}>
+                                    <InputLabel>Tipo de servicio</InputLabel>
+                                    <Select value={value} onChange={handleOptionChange}>
+                                        
+                                        <MenuItem value="">Selecciona una opción</MenuItem>
+                                        <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
+                                        <MenuItem value="Inst2">Internet</MenuItem>
+                                        <MenuItem value="Inst3">Televisión por cable</MenuItem>
+                                        
+                                    </Select>
+                                    </FormControl>
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2, marginBottom: 4}}>
                                     <InputLabel>Tipo de vivienda</InputLabel>
                                     <Select value={value} onChange={handleOptionChange}>
                                         <MenuItem value="">Selecciona una opción</MenuItem>
@@ -145,8 +196,10 @@ const FormPago = () => {
                                     </Select>
                                     </FormControl>
 
-                                    
-                                    <Button variant="contained" onClick={() => console.log(formData)} sx={{marginTop:4}}>
+                                   
+                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
+                                    ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
                                         Contratar 
                                     </Button>
 
@@ -156,13 +209,271 @@ const FormPago = () => {
                             )}
 
                             {selectedOption === "Mantemimiento" && (
-                                <TextField
-                                fullWidth
-                                label="Mantenimiento"
-                                name="campo2"
-                                variant="outlined"
-                                onChange={handleInputChange}
-                                />
+                                
+                                <div>
+                                    
+                                    <FormLabel>Datos Generales</FormLabel>
+
+                                    <TextField
+                                    fullWidth
+                                    label="Nombre completo"
+                                    name="nombre"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Teléfono de contacto - Ejemplo: +584126202525"
+                                    name="telf"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Correo electrónico"
+                                    name="correo"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Estado</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Lara">Lara</MenuItem>
+                                            <MenuItem value="Otro">Otro</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Municipio</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
+                                            <MenuItem value="Crespo">Crespo</MenuItem>
+                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
+                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
+                                            <MenuItem value="Morán">Morán</MenuItem>
+                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
+                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
+                                            <MenuItem value="Torres">Torres</MenuItem>
+                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+                                    
+                                    
+                                    <TextField
+                                    fullWidth
+                                    label="Código Postal"
+                                    name="codPostal"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Dirección de instalación"
+                                    name="dir"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2, marginBottom: 4}}
+                                    
+                                    />
+
+                                    <FormLabel>Datos para el Mantenimiento</FormLabel>
+
+                                    <TextField
+                                    fullWidth
+                                    label="Marca del Equipo"
+                                    name="Marca"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Modelo del Equipo"
+                                    name="modelo"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Numero de serie del equipo"
+                                    name="numSerie"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Descripción del problema"
+                                    name="descr"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+                                    
+                                  
+                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
+                                    ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
+                                        Contratar 
+                                    </Button>
+
+
+                                </div>
+
+                            )}
+
+                            {selectedOption === "Reparación" && (
+                                
+                                <div>
+                                    
+                                    <FormLabel>Datos Generales</FormLabel>
+
+                                    <TextField
+                                    fullWidth
+                                    label="Nombre completo"
+                                    name="nombre"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Teléfono de contacto - Ejemplo: +584126202525"
+                                    name="telf"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Correo electrónico"
+                                    name="correo"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Estado</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Lara">Lara</MenuItem>
+                                            <MenuItem value="Otro">Otro</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+
+                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                        <InputLabel>Municipio</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
+                                            <MenuItem value="Crespo">Crespo</MenuItem>
+                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
+                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
+                                            <MenuItem value="Morán">Morán</MenuItem>
+                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
+                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
+                                            <MenuItem value="Torres">Torres</MenuItem>
+                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
+                                                                                    
+                                        </Select>
+                                    </FormControl>
+                                    
+                                    
+                                    <TextField
+                                    fullWidth
+                                    label="Código Postal"
+                                    name="codPostal"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Dirección de instalación"
+                                    name="dir"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2, marginBottom: 4}}
+                                    
+                                    />
+
+                                    <FormLabel>Datos para la Reparación</FormLabel>
+
+                                    <TextField
+                                    fullWidth
+                                    label="Marca del Equipo"
+                                    name="Marca"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Modelo del Equipo"
+                                    name="modelo"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Numero de serie del equipo"
+                                    name="numSerie"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+
+                                    <TextField
+                                    fullWidth
+                                    label="Descripción del problema"
+                                    name="descr"
+                                    variant="standard"
+                                    onChange={handleInputChange}
+                                    sx={{marginTop: 2}}
+                                    
+                                    />
+                                    
+                                  
+                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
+                                    ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
+                                        Contratar 
+                                    </Button>
+
+
+                                </div>
+
                             )}
 
                             
