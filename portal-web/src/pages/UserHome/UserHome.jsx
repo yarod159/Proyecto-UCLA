@@ -228,7 +228,8 @@ function UserHome() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" onClick={handleOpen}>
+                  {/*onClick={handleOpen}*/}
+                  <Button size="small" href="/FormServ" sx={{ color: "#18a0a6" }} >
                     Contratar servicio
                   </Button>
                   <Button size="small">Leer mas</Button>
@@ -311,8 +312,10 @@ function UserHome() {
               mantenimiento y reparación de equipos.
             </h3>
             <ButtonGroup variant="contained" aria-label="Basic button group">
+              {/*onClick={handleOpen}*/}
               <Button
-                onClick={handleOpen}
+                
+                href="/FormServ"
                 sx={{
                   bgcolor: "#18a0a6",
                   color: "#fff",
