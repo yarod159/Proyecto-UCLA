@@ -14,6 +14,7 @@ import ReportIcon from "@mui/icons-material/Report";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import PaidIcon from "@mui/icons-material/Paid";
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import { Link } from "react-router-dom";
 
@@ -47,6 +48,12 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <PermIdentityIcon className="sidebarIcon" />
                 Usuarios
+              </li>
+            </Link>
+            <Link to="/empleados" className="link">
+              <li className="sidebarListItem">
+              <PermIdentityIcon className="sidebarIcon" />
+                Empleados
               </li>
             </Link>
             <Link to="/products" className="link">
@@ -110,6 +117,18 @@ export default function Sidebar() {
               <ReportIcon className="sidebarIcon" />
               Informe
             </li>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Configuracion</h3>
+          <ul className="sidebarList">
+          <Link to="/configuracion" className="link"> 
+            <li className="sidebarListItem">
+              <SettingsIcon className="sidebarIcon" />
+              Ajustes del Sistemas
+            </li>
+          </Link>
+           
           </ul>
         </div>
       </div>

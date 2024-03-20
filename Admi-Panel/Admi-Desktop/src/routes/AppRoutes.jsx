@@ -9,6 +9,8 @@ import Product from "../pages/product/Product.jsx";
 import NewProduct from "../pages/newProduct/NewProduct.jsx";
 import Transactions from "../pages/transactionsList/Transactions.jsx";
 import SolicitudList from "../pages/solicitudList/SolicitudList.jsx";
+import EmpleadosList from "../pages/EmpladoList/EmpleadosList.jsx";
+import CrearEmpleado from "../pages/CrearEmpleado/CrearEmpleado.jsx";
 
 
 function AppRoutes() {
@@ -24,7 +26,8 @@ function AppRoutes() {
         <Route path="/newProduct" element={<NewProduct />} />
         <Route path="/transacciones" element={<Transactions />} />
         <Route path="/solicitudes" element={<SolicitudList />} />
-
+        <Route path="/empleados" element={<EmpleadosList />} />
+        <Route path="/crearEmpleado" element={<CrearEmpleado />} />
        
       </Routes>
     </BrowserRouter>
