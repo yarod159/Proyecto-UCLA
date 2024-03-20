@@ -122,7 +122,7 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Configuracion</h3>
           <ul className="sidebarList">
-          <Link to="/configuracion" className="link"> 
+          <Link to="/ajustes" className="link"> 
             <li className="sidebarListItem">
               <SettingsIcon className="sidebarIcon" />
               Ajustes del Sistemas
