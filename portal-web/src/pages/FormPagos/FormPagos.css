@@ -1,0 +1,36 @@
+.container-user-profile {
+    position: relative;
+  }
+  .wrapper-user-profile {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-pagos{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  
+  .form-datos-de-pago{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+  }
+
+
+
+  /* Original styles (unchanged) */
+  
+  @media (max-width: 600px) {
+      .wrapper-user-profile > :nth-child(1) {
+        order: 2 ;
+      }
+    }
+   
