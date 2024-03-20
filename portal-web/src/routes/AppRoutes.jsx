@@ -13,13 +13,13 @@ import ServiceDetails from "../pages/ServiceDetail/SeviceDetails.jsx"
 import Nosotros from "../pages/we/Nosotros.jsx"
 import Register from "../pages/Forms/Register.jsx"
 import UserProfile from "../pages/UserProfile/UserProfile.jsx";
-import FormPago from "../pages/FormPago/FormPago.jsx";
+import FormServ from "../pages/FormPago/FormServ.jsx";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<FormPago />} />
+        <Route path="/" element={<FormServ />} />
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/UserFact" element={<UserFact />} />
         <Route path="/UserService" element={<UserService />} />

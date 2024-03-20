@@ -4,7 +4,7 @@ import UserNavBar from "../../components/UserNavBar/UserNavBar";
 import Footer from "../../components/footer/Footer";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import './FormPago.css'
+import './FormServ.css'
 import { Box, Select, Radio, RadioGroup, FormLabel, FormGroup } from '@mui/material';
 import { useState } from "react";
 import { FormControl, InputLabel, MenuItem } from '@mui/material';
@@ -93,38 +93,53 @@ const FormPago = () => {
                             
                             {selectedOption === "Instalación" && (
 
-                                <div>
+                                
+                                <div className="form-instalacion">
                                     
                                     <FormLabel>Datos Generales</FormLabel>
+                                    <div className="form-nombre-apellido">
+                                        <TextField
+                                        fullWidth
+                                        label="Nombre"
+                                        name="nombre"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
 
-                                    <TextField
-                                    fullWidth
-                                    label="Nombre completo"
-                                    name="nombre"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
-                                    />
+                                        <TextField
+                                        fullWidth
+                                        label="Apellido"
+                                        name="apellido"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
 
+                                    </div>
+                                    
+                                    <div className="Form-telefono-correo">
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Teléfono de contacto - Ejemplo: +584126202525"
                                     name="telf"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
 
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Correo electrónico"
                                     name="correo"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
+                                    </div>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <div className="Form-estado-municipio">
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Estado</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -134,7 +149,7 @@ const FormPago = () => {
                                         </Select>
                                     </FormControl>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Municipio</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -150,7 +165,7 @@ const FormPago = () => {
                                                                                     
                                         </Select>
                                     </FormControl>
-                                    
+                                    </div>
                                     
                                     <TextField
                                     fullWidth
@@ -173,29 +188,30 @@ const FormPago = () => {
 
 
                                     <FormLabel sx={{marginTop: 4}}>Datos para la instalación</FormLabel>
+                                    
+                                    <div className="form-tipInstalacion-tipVivienda">
+                                        <FormControl variant="standard" sx={{marginTop: 2, width: 320}}>
+                                        <InputLabel>Tipo de servicio</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
+                                            <MenuItem value="Inst2">Internet</MenuItem>
+                                            <MenuItem value="Inst3">Televisión por cable</MenuItem>
+                                            
+                                        </Select>
+                                        </FormControl>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 0}}>
-                                    <InputLabel>Tipo de servicio</InputLabel>
-                                    <Select value={value} onChange={handleOptionChange}>
-                                        
-                                        <MenuItem value="">Selecciona una opción</MenuItem>
-                                        <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
-                                        <MenuItem value="Inst2">Internet</MenuItem>
-                                        <MenuItem value="Inst3">Televisión por cable</MenuItem>
-                                        
-                                    </Select>
-                                    </FormControl>
-
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2, marginBottom: 4}}>
-                                    <InputLabel>Tipo de vivienda</InputLabel>
-                                    <Select value={value} onChange={handleOptionChange}>
-                                        <MenuItem value="">Selecciona una opción</MenuItem>
-                                        <MenuItem value="Casa">Casa</MenuItem>
-                                        <MenuItem value="Apartamento">Apartamento</MenuItem>
-                                                                                
-                                    </Select>
-                                    </FormControl>
-
+                                        <FormControl variant="standard" sx={{marginTop: 2, marginBottom: 4, width: 310}}>
+                                        <InputLabel>Tipo de vivienda</InputLabel>
+                                        <Select value={value} onChange={handleOptionChange}>
+                                            <MenuItem value="">Selecciona una opción</MenuItem>
+                                            <MenuItem value="Casa">Casa</MenuItem>
+                                            <MenuItem value="Apartamento">Apartamento</MenuItem>
+                                                                                    
+                                        </Select>
+                                        </FormControl>
+                                    </div>
                                    
                                     <Button variant="contained" onClick={() => console.log(formData)} 
                                     sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
@@ -210,38 +226,52 @@ const FormPago = () => {
 
                             {selectedOption === "Mantemimiento" && (
                                 
-                                <div>
+                                <div className="form-mantenimiento">
                                     
                                     <FormLabel>Datos Generales</FormLabel>
+                                    <div className="form-nombre-apellido">
+                                        <TextField
+                                        fullWidth
+                                        label="Nombre"
+                                        name="nombre"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
 
-                                    <TextField
-                                    fullWidth
-                                    label="Nombre completo"
-                                    name="nombre"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
-                                    />
+                                        <TextField
+                                        fullWidth
+                                        label="Apellido"
+                                        name="apellido"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
 
+                                    </div>
+                                    
+                                    <div className="Form-telefono-correo">
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Teléfono de contacto - Ejemplo: +584126202525"
                                     name="telf"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
 
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Correo electrónico"
                                     name="correo"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
+                                    </div>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <div className="Form-estado-municipio">
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Estado</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -251,7 +281,7 @@ const FormPago = () => {
                                         </Select>
                                     </FormControl>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Municipio</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -267,7 +297,7 @@ const FormPago = () => {
                                                                                     
                                         </Select>
                                     </FormControl>
-                                    
+                                    </div>
                                     
                                     <TextField
                                     fullWidth
@@ -289,14 +319,14 @@ const FormPago = () => {
                                     />
 
                                     <FormLabel>Datos para el Mantenimiento</FormLabel>
-
+                                    <div className="form-datos">
                                     <TextField
                                     fullWidth
                                     label="Marca del Equipo"
                                     name="Marca"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -306,7 +336,7 @@ const FormPago = () => {
                                     name="modelo"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -316,7 +346,7 @@ const FormPago = () => {
                                     name="numSerie"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -326,9 +356,10 @@ const FormPago = () => {
                                     name="descr"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
+                                    </div>
                                     
                                   
                                     <Button variant="contained" onClick={() => console.log(formData)} 
@@ -344,38 +375,53 @@ const FormPago = () => {
 
                             {selectedOption === "Reparación" && (
                                 
-                                <div>
+                                <div className="form-reparacion">
                                     
                                     <FormLabel>Datos Generales</FormLabel>
 
-                                    <TextField
-                                    fullWidth
-                                    label="Nombre completo"
-                                    name="nombre"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
-                                    />
+                                    <div className="form-nombre-apellido">
+                                        <TextField
+                                        fullWidth
+                                        label="Nombre"
+                                        name="nombre"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
 
+                                        <TextField
+                                        fullWidth
+                                        label="Apellido"
+                                        name="apellido"
+                                        variant="standard"
+                                        onChange={handleInputChange}
+                                        sx={{marginTop: 2, width: 300}}
+                                        />
+
+                                    </div>
+                                    
+                                    <div className="Form-telefono-correo">
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Teléfono de contacto - Ejemplo: +584126202525"
                                     name="telf"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
 
                                     <TextField
-                                    fullWidth
+                                    
                                     label="Correo electrónico"
                                     name="correo"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     />
+                                    </div>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <div className="Form-estado-municipio">
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Estado</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -385,7 +431,7 @@ const FormPago = () => {
                                         </Select>
                                     </FormControl>
 
-                                    <FormControl fullWidth variant="standard" sx={{marginTop: 2}}>
+                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Municipio</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
@@ -401,7 +447,7 @@ const FormPago = () => {
                                                                                     
                                         </Select>
                                     </FormControl>
-                                    
+                                    </div>
                                     
                                     <TextField
                                     fullWidth
@@ -423,14 +469,14 @@ const FormPago = () => {
                                     />
 
                                     <FormLabel>Datos para la Reparación</FormLabel>
-
+                                    <div className="form-datos">
                                     <TextField
                                     fullWidth
                                     label="Marca del Equipo"
                                     name="Marca"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -440,7 +486,7 @@ const FormPago = () => {
                                     name="modelo"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -450,7 +496,7 @@ const FormPago = () => {
                                     name="numSerie"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
 
@@ -460,9 +506,10 @@ const FormPago = () => {
                                     name="descr"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
+                                    sx={{marginTop: 2, width: 310}}
                                     
                                     />
+                                    </div>
                                     
                                   
                                     <Button variant="contained" onClick={() => console.log(formData)} 
