@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Typography, Grid, TextField, Button } from "@mui/material";
+import { Typography, Grid, TextField, Button } from "@mui/material";
 import UserNavBar from "../../components/UserNavBar/UserNavBar";
 import Footer from "../../components/footer/Footer";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import './FormServ.css'
-import { Box, Select, Radio, RadioGroup, FormLabel, FormGroup } from '@mui/material';
+import { Box, Select, FormLabel,} from '@mui/material';
 import { useState } from "react";
 import { FormControl, InputLabel, MenuItem } from '@mui/material';
 
@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const FormPago = () => {
+const FormServ = () => {
 
     const [formData, setFormData] = useState({
         direccion: "",
@@ -213,7 +213,7 @@ const FormPago = () => {
                                         </FormControl>
                                     </div>
                                    
-                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    <Button variant="contained" onClick={() => console.log(formData)} href="/FormPagos" 
                                     sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
                                     ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
                                         Contratar 
@@ -362,7 +362,7 @@ const FormPago = () => {
                                     </div>
                                     
                                   
-                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    <Button variant="contained" onClick={() => console.log(formData)} href="/FormPagos"
                                     sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
                                     ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
                                         Contratar 
@@ -512,7 +512,7 @@ const FormPago = () => {
                                     </div>
                                     
                                   
-                                    <Button variant="contained" onClick={() => console.log(formData)} 
+                                    <Button variant="contained" onClick={() => console.log(formData)} href="/FormPagos" 
                                     sx={{marginTop:4, color:'#fff', bgcolor:'#18a0a6', 
                                     ":hover":{bgcolor:'#fff', color:'#18a0a6'}}}>
                                         Contratar 
@@ -548,4 +548,4 @@ const FormPago = () => {
 
 };
 
-export default FormPago;
+export default FormServ;
