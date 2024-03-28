@@ -61,6 +61,7 @@ const FormServ = () => {
   return (
     
     <div className="container-user-profile">
+      
       <UserNavBar />
 
       <div className="wrapper-user-profile">
@@ -71,54 +72,34 @@ const FormServ = () => {
                     <Item sx={{padding:4, borderRadius: '12px'}}>
                         <form>
                             <Typography variant="h5" gutterBottom >SOLICITUD DE SERVICIOS</Typography>
-                            <Typography variant="h8" sx={{marginBottom: 4}}>Por favor rellene los datos</Typography>
-                            <hr/>
-                            <FormControl fullWidth variant="standard" sx={{marginTop: 4, marginBottom: 4}}>
-                                <InputLabel>Selecciona un Servicio</InputLabel>
-                                <Select value={selectedOption} onChange={handleOptionChange}>
-                                    <MenuItem value="">Selecciona una opción</MenuItem>
-                                    <MenuItem value="Instalación">Instalación</MenuItem>
-                                    <MenuItem value="Mantemimiento">Mantenimiento</MenuItem>
-                                    <MenuItem value="Reparación">Reparación</MenuItem>
-                                    
-                                </Select>
-                            </FormControl>
-                            
-                           
-                           
-
-                            {/*<TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                            <TextField id="filled-basic" label="Filled" variant="filled" />
-                            <TextField id="standard-basic" label="Standard" variant="standard" />*/}
-                            
-                            {selectedOption === "Instalación" && (
-
-                                
-                                <div className="form-instalacion">
-                                    
-                                    <FormLabel>Datos Generales</FormLabel>
-                                    <div className="form-nombre-apellido">
-                                        <TextField
-                                        fullWidth
+                            <Typography variant="h8" gutterBottom >Por favor rellene los datos</Typography>
+                            <hr />
+                            <br />
+                            <div>
+                                <FormLabel>Datos Generales</FormLabel>
+                            </div>
+                                <div className="form-nombre-apellido">
+                                    <TextField
+                                    fullWidth
                                         label="Nombre"
                                         name="nombre"
                                         variant="standard"
                                         onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
+                                        sx={{marginTop: 0, width: 310}}
+                                    />
 
-                                        <TextField
+                                    <TextField
                                         fullWidth
                                         label="Apellido"
                                         name="apellido"
                                         variant="standard"
                                         onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
+                                        sx={{marginTop: 0, width: 310}}
+                                    />
 
-                                    </div>
+                                </div>
                                     
-                                    <div className="Form-telefono-correo">
+                                <div className="Form-telefono-correo">
                                     <TextField
                                     
                                     label="Teléfono de contacto - Ejemplo: +584126202525"
@@ -136,9 +117,9 @@ const FormServ = () => {
                                     onChange={handleInputChange}
                                     sx={{marginTop: 2, width: 310}}
                                     />
-                                    </div>
+                                </div>
 
-                                    <div className="Form-estado-municipio">
+                                <div className="Form-estado-municipio">
                                     <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Estado</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
@@ -165,32 +146,56 @@ const FormServ = () => {
                                                                                     
                                         </Select>
                                     </FormControl>
-                                    </div>
+                                </div>
                                     
-                                    <TextField
+                                <TextField
                                     fullWidth
                                     label="Código Postal"
                                     name="codPostal"
                                     variant="standard"
                                     onChange={handleInputChange}
                                     sx={{marginTop: 2}}
-                                    />
+                                />
 
-                                    <TextField
+                                <TextField
                                     fullWidth
                                     label="Dirección de instalación"
                                     name="dir"
                                     variant="standard"
                                     onChange={handleInputChange}
-                                    sx={{marginTop: 2, marginBottom: 4}}
+                                    sx={{marginTop: 2}}
                                     
-                                    />
+                                />
 
 
+
+                            <FormControl fullWidth variant="standard" sx={{marginTop: 2, marginBottom: 4}}>
+                                <InputLabel>Selecciona un Servicio</InputLabel>
+                                <Select value={selectedOption} onChange={handleOptionChange}>
+                                    <MenuItem value="">Selecciona una opción</MenuItem>
+                                    <MenuItem value="Instalación">Instalación</MenuItem>
+                                    <MenuItem value="Mantemimiento">Mantenimiento</MenuItem>
+                                    <MenuItem value="Reparación">Reparación</MenuItem>
+                                    
+                                </Select>
+                            </FormControl>
+                            
+                           
+                           
+
+                            {/*<TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                            <TextField id="filled-basic" label="Filled" variant="filled" />
+                            <TextField id="standard-basic" label="Standard" variant="standard" />*/}
+                            
+                            {selectedOption === "Instalación" && (
+
+                                
+                                <div className="form-instalacion">
+                                    
                                     <FormLabel sx={{marginTop: 4}}>Datos para la instalación</FormLabel>
                                     
                                     <div className="form-tipInstalacion-tipVivienda">
-                                        <FormControl variant="standard" sx={{marginTop: 2, width: 320}}>
+                                        <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Tipo de servicio</InputLabel>
                                         <Select value={value} onChange={handleOptionChange}>
                                             
@@ -227,96 +232,6 @@ const FormServ = () => {
                             {selectedOption === "Mantemimiento" && (
                                 
                                 <div className="form-mantenimiento">
-                                    
-                                    <FormLabel>Datos Generales</FormLabel>
-                                    <div className="form-nombre-apellido">
-                                        <TextField
-                                        fullWidth
-                                        label="Nombre"
-                                        name="nombre"
-                                        variant="standard"
-                                        onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
-
-                                        <TextField
-                                        fullWidth
-                                        label="Apellido"
-                                        name="apellido"
-                                        variant="standard"
-                                        onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
-
-                                    </div>
-                                    
-                                    <div className="Form-telefono-correo">
-                                    <TextField
-                                    
-                                    label="Teléfono de contacto - Ejemplo: +584126202525"
-                                    name="telf"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, width: 310}}
-                                    />
-
-                                    <TextField
-                                    
-                                    label="Correo electrónico"
-                                    name="correo"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, width: 310}}
-                                    />
-                                    </div>
-
-                                    <div className="Form-estado-municipio">
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Estado</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Lara">Lara</MenuItem>
-                                            <MenuItem value="Otro">Otro</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
-
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Municipio</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
-                                            <MenuItem value="Crespo">Crespo</MenuItem>
-                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
-                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
-                                            <MenuItem value="Morán">Morán</MenuItem>
-                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
-                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
-                                            <MenuItem value="Torres">Torres</MenuItem>
-                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
-                                    </div>
-                                    
-                                    <TextField
-                                    fullWidth
-                                    label="Código Postal"
-                                    name="codPostal"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
-                                    />
-
-                                    <TextField
-                                    fullWidth
-                                    label="Dirección de instalación"
-                                    name="dir"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, marginBottom: 4}}
-                                    
-                                    />
 
                                     <FormLabel>Datos para el Mantenimiento</FormLabel>
                                     <div className="form-datos">
@@ -377,97 +292,6 @@ const FormServ = () => {
                                 
                                 <div className="form-reparacion">
                                     
-                                    <FormLabel>Datos Generales</FormLabel>
-
-                                    <div className="form-nombre-apellido">
-                                        <TextField
-                                        fullWidth
-                                        label="Nombre"
-                                        name="nombre"
-                                        variant="standard"
-                                        onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
-
-                                        <TextField
-                                        fullWidth
-                                        label="Apellido"
-                                        name="apellido"
-                                        variant="standard"
-                                        onChange={handleInputChange}
-                                        sx={{marginTop: 2, width: 300}}
-                                        />
-
-                                    </div>
-                                    
-                                    <div className="Form-telefono-correo">
-                                    <TextField
-                                    
-                                    label="Teléfono de contacto - Ejemplo: +584126202525"
-                                    name="telf"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, width: 310}}
-                                    />
-
-                                    <TextField
-                                    
-                                    label="Correo electrónico"
-                                    name="correo"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, width: 310}}
-                                    />
-                                    </div>
-
-                                    <div className="Form-estado-municipio">
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Estado</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Lara">Lara</MenuItem>
-                                            <MenuItem value="Otro">Otro</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
-
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Municipio</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
-                                            <MenuItem value="Crespo">Crespo</MenuItem>
-                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
-                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
-                                            <MenuItem value="Morán">Morán</MenuItem>
-                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
-                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
-                                            <MenuItem value="Torres">Torres</MenuItem>
-                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
-                                    </div>
-                                    
-                                    <TextField
-                                    fullWidth
-                                    label="Código Postal"
-                                    name="codPostal"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2}}
-                                    />
-
-                                    <TextField
-                                    fullWidth
-                                    label="Dirección de instalación"
-                                    name="dir"
-                                    variant="standard"
-                                    onChange={handleInputChange}
-                                    sx={{marginTop: 2, marginBottom: 4}}
-                                    
-                                    />
-
                                     <FormLabel>Datos para la Reparación</FormLabel>
                                     <div className="form-datos">
                                     <TextField

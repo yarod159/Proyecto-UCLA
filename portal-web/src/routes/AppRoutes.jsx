@@ -4,7 +4,6 @@ import Home from "../pages/Home/Home.jsx";
 import Error404 from "../components/404/Error404.jsx";
 import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
-import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 import UserHome from "../pages/UserHome/UserHome.jsx"
 import UserService from "../pages/UserService/UserS.jsx"
 import UserFact from "../pages/UserFact/UserFact.jsx";
