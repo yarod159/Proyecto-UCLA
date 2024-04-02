@@ -1,102 +1,54 @@
-import "./footer.css";
-import Fc from "../../assets/redes-sociales/fc.png";
-import Ig from "../../assets/redes-sociales/ig.png";
-import Tw from "../../assets/redes-sociales/tw.png";
-import Discord from "../../assets/redes-sociales/discord.png";
+import React from 'react';
+import "./footer.css"; // Asegúrate de que el archivo CSS esté importado correctamente
 import logo from "../../assets/Logos/logo-blanco.png";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
-
-function Footer() {
-  return (
-    <div className="container-footer">
-      <div className="wrapper-footer-social-networks ">
-        <div>
-          <a href="https://www.facebook.com/">
-            {" "}
-            <img src={Fc} alt="" />
-          </a>
+const Footer = () => {
+ return (
+    <footer className="pie-pagina">
+      <div className="grupo-1">
+        <div className="box">
+          <figure>
+            <a href="#">
+            <img src={logo} alt="" />
+            </a>
+          </figure>
         </div>
-        <div>
-          <a href="https://www.instagram.com/">
-            {" "}
-            <img src={Ig} alt="" />
-          </a>
+        <div className="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>Kinetika</p>
+          <p></p>
         </div>
-        <div>
-          <a href="https://twitter.com/">
-            {" "}
-            <img src={Tw} alt="" />
-          </a>
-        </div>
-        <div>
-          <a href="https://discord.com/invite/">
-            <img src={Discord} alt="" />
-          </a>
+        <div className="box">
+          <h2>SIGUENOS</h2>
+          <div className="red-social">
+            <a href="#"><FacebookIcon className="sidebarIcon"/></a>
+            <a href="#"><InstagramIcon 
+              sx={{
+                ":hover": {
+                  color: '#454545', // Cambia el color de fondo al pasar el cursor
+                },
+              }}
+            className="sidebarIcon"
+            
+            
+            
+            /></a>
+          </div>
         </div>
       </div>
-
-      <div className="wrapper-footer conteiner row">
-        <div className="footer-col footer-cg-logo">
-          <img style={{width:"90px", height:"104px" , borderRadius:"10px"}} src={logo} alt="" />
-          <ul>
-            <li>
-              <a href="#">support@kinetika.com</a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>Kinetika</h4>
-          <ul>
-            <li>
-              <a href="#">Inicio</a>
-            </li>
-            <li>
-              <a href="#">Productos</a>
-            </li>
-            <li>
-              <a href="#">Servicios</a>
-            </li>
-            <li>
-              <a href="#">Cerrar sesión</a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>Soporte</h4>
-          <ul>
-            <li>
-              <a href="#">Contáctanos</a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li>
-              <a href="#">Politica de Privacidad</a>
-            </li>
-            <li>
-              <a href="#">Terminos de Servicio</a>
-            </li>
-            <li>
-              <a href="#">Política de Copyright</a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-col footer-trust">
-         
-        </div>
+      <div className="grupo-2">
+        <small>&copy; 2024 <b>Desarrollado por: Kinetika</b></small>
       </div>
-
-      <div className="wrapper-footer-reserved">
-        <div >
-          <p style={{color:"#fff"}}>© 2024 Kinetika.com. <br />  All Rights Reserved. </p>
-        </div>
-        
-        <div></div>
+      <div className="grupo-2">
+      <small>
+       Solicitud de Servicio: 0251-7181107 / Soporte Técnico 0251-7181108
+       </small>
       </div>
-    </div>
-  );
-}
+    
+    </footer>
+ );
+};
 
 export default Footer;

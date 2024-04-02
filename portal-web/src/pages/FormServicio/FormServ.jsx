@@ -162,6 +162,7 @@ const FormServ = () => {
                                     label="Dirección de instalación"
                                     name="dir"
                                     variant="standard"
+                                    multiline
                                     onChange={handleInputChange}
                                     sx={{marginTop: 2}}
                                     
