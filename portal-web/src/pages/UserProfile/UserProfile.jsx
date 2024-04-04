@@ -56,6 +56,7 @@ const UserProfile = () => {
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
+                      disabled
                       id="UserName"
                       label="Nombre"
                       value={nombre}
@@ -65,6 +66,7 @@ const UserProfile = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
+                      disabled
                       id="cedula"
                       label="Cédula"
                       value={cedula}
@@ -74,6 +76,7 @@ const UserProfile = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
+                      disabled
                       id="email"
                       label="Email"
                       value={email}
@@ -83,6 +86,7 @@ const UserProfile = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
+                      disabled
                       id="UserNacimiento"
                       label="Fecha de nacimiento"
                       value={FechaNacimiento}
@@ -92,6 +96,7 @@ const UserProfile = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
+                      disabled
                       id="DirUsuario"
                       label="Dirección"
                       value={DirUsuario}
@@ -131,7 +136,7 @@ const UserProfile = () => {
           sx={{ marginBottom: "8px", marginTop: "8px", padding:"40px 0 40px 0" }}
         >   
 
-        <Card
+          <Card
               sx={{
                 width: "300px",
                 height: "254px",
@@ -161,7 +166,7 @@ const UserProfile = () => {
                 </Typography>
               </CardContent>
             </Card>
-            </Stack>
+          </Stack>
        
       </div>
       <Footer />

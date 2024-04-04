@@ -36,7 +36,7 @@ function SliderHome() {
     };
   }, []);
   return (
-    <div class="SP" style={{ position: "relative" }}>
+    <div className="SP" style={{ position: "relative" }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={100}
