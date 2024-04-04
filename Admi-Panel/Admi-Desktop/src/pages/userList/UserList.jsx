@@ -25,7 +25,7 @@ export default function UserList() {
   useEffect(() => {
      const fetchData = async () => {
        try {
-         const response = await axios.get('http://localhost:3000/get-users');
+         const response = await axios.get('http://localhost:3000/users/get-users');
          if (response.data.success) {
            setData(response.data.data);
          } else {
@@ -45,7 +45,7 @@ export default function UserList() {
  
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 90 },
     {
       field: "name",
       headerName: "Name",
@@ -60,7 +60,7 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/user/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutlineIcon

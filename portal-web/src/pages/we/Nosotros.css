@@ -3,37 +3,63 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background-color: #f7f7f7;
+ margin-top: 60px;
 }
 
 .columnas-nosotros {
   display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+ 
+  max-width: 1200px;
+   margin: 0 auto;
+}
+.seccion-mision{
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  width: 80%;
-  max-width: 1000px;
-  margin-top: 50px;
-  overflow: auto;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.texto-mision{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 500px;
 }
 
-.mision, .vision {
-  flex: 1;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: justify;
-  margin-bottom: 20px;
+.seccion-vision{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.seccion-vision > img{
+  width: 100%;
+ height: auto;
+ object-fit: contain;
+
 }
 
-.mision img {
-  float: left;
-  margin-right: 20px;
-  max-width: 200px;
+.seccion-mision > img{
+  width: 100%;
+ height: auto;
+ object-fit: contain;
+
 }
 
-.texto-mision {
-  margin-top: 20px;
-  text-align: justify;
+.texto-vision {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 500px;
 }
 
 .mision h2, .vision h2 {
@@ -47,4 +73,19 @@
 }
 .spacer {
   width: 200px;
+}
+
+.seccion-mision > img,
+.seccion-vision > img {
+ width: 500px;
+ height: auto;
+ object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+ .seccion-mision > img,
+ .seccion-vision > img {
+    object-fit: cover; /* La imagen cubrirá completamente el contenedor, recortando si es necesario */
+ }
 }

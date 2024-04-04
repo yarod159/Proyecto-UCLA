@@ -9,6 +9,7 @@
     justify-content: space-between;
   }
   
+  
   .productAddButton {
     width: 80px;
     border: none;
@@ -20,6 +21,12 @@
     cursor: pointer;
   }
   
+  .newProduct{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .productTop {
     display: flex;
   }
@@ -30,6 +37,13 @@
   }
   
   .productTopRight {
+    padding: 20px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  }
+
+  .addProductForm{
     padding: 20px;
     margin: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);

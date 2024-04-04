@@ -1,0 +1,23 @@
+.empleado-button-container {
+  display: flex;
+  
+  justify-content: flex-end;
+}
+
+.empleado-button-crear > button {
+  border-radius: 10px;
+  width: 150px;
+  height: 60px;
+  margin: 0 0 20px 0;
+  background-color: #59007a;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.empleado-button-crear > button:hover {
+  background-color: #aaaaaa;
+  color: #000000;
+}
+
+

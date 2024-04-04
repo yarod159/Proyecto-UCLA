@@ -87,8 +87,6 @@ export default function Product() {
   return (
     <div>
       <Topbar />
-      
-
       <div className="container">
         <Sidebar />
 
