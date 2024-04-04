@@ -2,13 +2,40 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Nosotros.css";
 import Footer from "../../components/footer/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import imagen1 from "../../assets/imagenes/imagen1.jpg";
 import imagen2 from "../../assets/imagenes/vision1.png";
+import axios from "axios";
 
 import React from "react";
 
 const Nosotros = () => {
+
+  const [instalacion, setInstalacion] = useState({ mision: "", vision: "" });
+
+  useEffect(() => {
+    
+    const fetchData = async () => {
+       try {
+         const response = await axios.get("http://localhost:3000/instalador/get-instalacion");
+         // Access the nested data property
+         const data = response.data.data;
+         if (data && data.length > 0) {
+           // Assuming you want to display the first company's mission and vision
+           const firstCompany = data[0];
+           setInstalacion({ mision: firstCompany.mision, vision: firstCompany.vision });
+         } else {
+           console.log("No data found in response");
+         }
+       } catch (error) {
+         console.error("Error fetching data:", error);
+       }
+    };
+   
+    fetchData();
+   }, []);
+
+
   return (
     <>
       <Navbar />
@@ -23,12 +50,8 @@ const Nosotros = () => {
             <div className="texto-mision">
               <h2>Misión</h2>
               <p>
-                Ser la empresa líder en telecomunicaciones del Estado
-                venezolano, reconocida por su eficiencia, innovación y
-                compromiso social. TELECOM se dedica a ofrecer servicios de alta
-                calidad al pueblo venezolano, a la vez que fortalece el talento
-                humano, promueve la creatividad e innovación, y contribuye al
-                desarrollo social y económico del país.
+              {instalacion.mision}
+              
               </p>
             </div>
           </div>
@@ -37,9 +60,7 @@ const Nosotros = () => {
             <div className="texto-vision">
               <h2>Visión</h2>
               <p>
-                Transformar el futuro de las telecomunicaciones en Venezuela,
-                agregando valor y calidad de vida a nuestros clientes,
-                colaboradores y al país.
+              {instalacion.vision}
               </p>
             </div>
             <img

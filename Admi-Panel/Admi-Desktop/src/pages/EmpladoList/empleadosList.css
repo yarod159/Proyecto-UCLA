@@ -1,7 +1,7 @@
 .empleado-button-container {
   display: flex;
   
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .empleado-button-crear > button {
@@ -16,8 +16,8 @@
 }
 
 .empleado-button-crear > button:hover {
-  background-color: #aaaaaa;
-  color: #000000;
+  background-color: #59007ac0;
+  color: #fff;
 }
 
 

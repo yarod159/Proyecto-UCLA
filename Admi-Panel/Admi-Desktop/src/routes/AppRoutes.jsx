@@ -12,6 +12,7 @@ import SolicitudList from "../pages/solicitudList/SolicitudList.jsx";
 import EmpleadosList from "../pages/EmpladoList/EmpleadosList.jsx";
 import CrearEmpleado from "../pages/CrearEmpleado/CrearEmpleado.jsx";
 import Ajustes from "../pages/AjustesDelSistemas/Ajustes.jsx";
+import Instalacion from "../pages/instalacion/Instalacion.jsx";
 
 
 function AppRoutes() {
@@ -30,6 +31,7 @@ function AppRoutes() {
         <Route path="/empleados" element={<EmpleadosList />} />
         <Route path="/crearEmpleado" element={<CrearEmpleado />} />
         <Route path="/ajustes" element={<Ajustes />} />
+        <Route path="/instalacion" element={<Instalacion />} />
        
       </Routes>
     </BrowserRouter>

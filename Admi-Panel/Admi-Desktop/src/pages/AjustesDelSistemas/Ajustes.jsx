@@ -1,5 +1,6 @@
 import Sidebar from "../../components/sideBar/SideBar";
 import Topbar from "../../components/topBar/TopBar";
+import axios from "axios";
 import React, { useState } from "react";
 import {
   TextField,
@@ -11,6 +12,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 // Estilos personalizados para el botón de subida de archivos
 const StyledButton = styled(Button)({
@@ -18,23 +20,50 @@ const StyledButton = styled(Button)({
 });
 
 export default function Ajustes() {
-  const [nombreEmpresa, setNombreEmpresa] = useState("");
-  const [contacto, setContacto] = useState("");
-  const [colorCorporativo, setColorCorporativo] = useState("#000000");
+  const [numeroTelefono, setNumeroTelefono] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const { theme, setTheme } = useContext(ThemeContext);
+
+  const [nombreEmpresa, setNombreEmpresa] = useState("");
+  const [mision, setMision] = useState("");
+  const [vision, setVision] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const instalacionData = {
+      numeroTelefono,
+      nombreEmpresa,
+      mision,
+      vision,
+    };
+
+    try {
+      await axios
+        .post("http://localhost:3000/instalador/post-instalacion", instalacionData)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error al enviar la solicitud:", error.response.data);
+        });
+    } catch (error) {
+      console.error("Error al enviar la solicitud:", error);
+    }
+
+  };
 
   const handleColorChange = (event) => {
-     setTheme(createTheme({
-       palette: {
-         primary: {
-           main: event.target.value, // New primary color
-         },
-         secondary: {
-           main: theme.palette.secondary.main, // Keep secondary color the same
-         },
-       },
-     }));
+    setTheme(
+      createTheme({
+        palette: {
+          primary: {
+            main: event.target.value, // New primary color
+          },
+          secondary: {
+            main: theme.palette.secondary.main, // Keep secondary color the same
+          },
+        },
+      })
+    );
   };
 
   const handleFileChange = (event) => {
@@ -50,16 +79,14 @@ export default function Ajustes() {
     console.log("Archivo seleccionado:", selectedFile);
   };
 
-  
-
   return (
     <div>
-      <Topbar />
+    
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
         <div className="newProduct">
           <h1>Ajustes del Sistema</h1>
-          <form>
+          <form onSubmit={handleSubmit}>  
             <TextField
               label="Nombre de la Empresa"
               value={nombreEmpresa}
@@ -69,18 +96,16 @@ export default function Ajustes() {
             />
             <TextField
               label="Número de Contacto"
-              value={contacto}
-              onChange={(e) => setContacto(e.target.value)}
+              value={numeroTelefono}
+              onChange={(e) => setNumeroTelefono(e.target.value)}
               fullWidth
               margin="normal"
             />
+            <TextField label="Mision" value={mision} fullWidth margin="normal"  onChange={(e) => setMision(e.target.value)} />
+            <TextField label="Vision" value={vision} fullWidth margin="normal"  onChange={(e) => setVision(e.target.value)} />
             <FormControl fullWidth margin="normal">
               <InputLabel id="color-label">Color Corporativo</InputLabel>
-              <Select
-                labelId="color-label"
-                value={theme.palette.primary.main}
-                onChange={handleColorChange}
-              >
+              <Select labelId="color-label" onChange={handleColorChange}>
                 <MenuItem value="#FF0000">Rojo</MenuItem>
                 <MenuItem value="#00FF00">Verde</MenuItem>
                 <MenuItem value="#0000FF">Azul</MenuItem>
@@ -100,9 +125,9 @@ export default function Ajustes() {
                 Subir Logotipo Corporativo
               </StyledButton>
             </label>
-            <Button variant="contained" onClick={handleUpload}>
-              Subir
-            </Button>
+            <button className="addProductButton" type="submit">
+              Guardar{" "}
+            </button>
           </form>
         </div>
       </div>

@@ -1,13 +1,14 @@
 import Sidebar from "../../components/sideBar/SideBar";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 import Topbar from "../../components/topBar/TopBar";
 import "./newProduct.css";
 
 export default function NewProduct() {
   return (
     <div>
-      <Topbar />
+     
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
         <div className="newProduct">
           <h1 className="addProductTitle">New Product</h1>
           <form className="addProductForm">

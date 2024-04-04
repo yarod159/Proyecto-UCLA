@@ -6,9 +6,18 @@ import { Link } from "react-router-dom";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import "./empleadosList.css";
+import SidebarMui from "../../components/sideBar/SidebarMui";
+import { Box } from "@mui/material";
+import MUIDataTable from "mui-datatables";
 
 export default function EmpleadosList() {
   const [data, setData] = useState([]);
+
+  const handleDelete = (id) => {
+    // Aquí va la lógica para eliminar el empleado por ID
+    console.log("Eliminar empleado con ID:", id);
+   };
+   
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,65 +42,64 @@ export default function EmpleadosList() {
   }, []); // El array vacío como segundo argumento asegura que la función solo se ejecute una vez al montar el componente
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
-    {
-      field: "cedula",
-      headerName: "Cedula",
-      width: 100,
-    },
-    {
-      field: "nombre",
-      headerName: "Nombre",
-      width: 100,
-    },
-    {
-      field: "apellido",
-      headerName: "Apellido",
-      width: 100,
-    },
-    {
-      field: "telefono",
-      headerName: "Telefono",
-      width: 150,
-    },
-    {
-      field: "direccion",
-      headerName: "Direccion",
-      width: 200,
-    },
-    {
-      field: "dateCumple",
-      headerName: "Fecha de Nacimiento",
-      width: 105,
-    },
-
-    {
-      field: "ocupacion",
-      headerName: "Ocupacion",
-      width: 200,
-    },
-
-    {
-      field: "estatus",
-      headerName: "Estatus",
-      width: 100,
-    },
-
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
+      { name: "_id", label: "ID" },
+      {
+        name: "cedula",
+        label: "Cedula",
+       
+      },
+      {
+        name: "nombre",
+        label: "Nombre",
+       
+      },
+      {
+        name: "apellido",
+        label: "Apellido",
+       
+      },
+      {
+        name: "telefono",
+        label: "Telefono",
+       
+      },
+      {
+        name: "direccion",
+        label: "Direccion",
+        
+      },
+      {
+        name: "dateCumple",
+        label: "Fecha de Nacimiento",
+       
+      },
+      
+      {
+        name: "ocupacion",
+        label: "Ocupacion",
+       
+      },
+      
+      {
+        name: "estatus",
+        label: "Estatus",
+       
+      },
+      
+      {
+        name: "action",
+        label: "Action",
+        renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
-            </Link>
-            <DeleteOutlineIcon
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
-          </>
+          <Link to={"/user/" + params.row._id}>
+            <button className="userListEdit">Edit</button>
+          </Link>
+          <DeleteOutlineIcon
+            className="userListDelete"
+            onClick={() => handleDelete(params.row._id)}
+          />
+        </>
         );
       },
     },
@@ -99,9 +107,9 @@ export default function EmpleadosList() {
 
   return (
     <div>
-      <Topbar />
+      
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
         <div className="userList">
           <div className="empleado-button-container">
             <Link to={"/crearEmpleado/"}>
@@ -110,16 +118,12 @@ export default function EmpleadosList() {
               </div>
             </Link>
           </div>
-
-          <DataGrid
-            rows={data}
-            disableSelectionOnClick
+    <Box> <MUIDataTable
+            data={data}
+            title="Empleados"
             columns={columns}
-            pageSize={10}
-            checkboxSelection
-            getRowId={(row) => row._id}
-            autoHeight={true}
-          />
+          /></Box>
+         
         </div>
       </div>
     </div>

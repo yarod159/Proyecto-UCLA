@@ -12,6 +12,7 @@ import "./user.css";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import { useState } from "react";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 const roles = [
   { label: "Admin", value: "admin" },
@@ -27,9 +28,9 @@ export default function User() {
 
   return (
     <div>
-      <Topbar />
+    
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
 
         <div className="user">
           <div className="userTitleContainer">
