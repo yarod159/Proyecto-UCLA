@@ -1,0 +1,181 @@
+.Prod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #70decd;
+    color: #fff;
+    box-shadow: 4px;
+   
+   
+}
+
+.Prod h3{
+    color: #fff;
+}
+
+.Prod button{
+    background: #fff;
+    color: #18a0a6;
+}
+
+.P1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+   
+}
+
+.P2{
+
+   padding-top: 40px;
+   padding-bottom:40px ;
+    
+}
+
+.P2 img{
+    height: 240px;
+    width: 240px;
+}
+
+.Serv{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    background: #fff;
+    margin-bottom: -7px;
+    margin-top: 100px;
+    padding: 0 20px 0 20px;
+   
+}
+
+.Serv h1, h3{
+    color: #18a0a6;
+}
+
+
+
+
+.P4 img{
+    height: 400px;
+    width: 286px;
+    margin-top: -12px;
+
+}
+
+.Serv button{
+    background: #18a0a6;
+}
+
+.CardHome12{
+    background: #18a0a6;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 140px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome12 Button{
+    color: #fff;
+}
+
+.userHome-cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+}
+
+
+.CardHome23{
+    background: #fafafa;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 520px;
+    margin-top: -389px;
+    color: #18a0a6;
+    position: relative;
+}
+
+.CardHome23 Button{
+    color: #18a0a6;
+}
+
+.CardHome34{
+    background: #70decd;
+    max-width: 300px;
+    border-radius: 12px;
+    -webkit-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    -moz-box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    box-shadow: 6px 2px 6px -2px rgba(0,0,0,0.52);
+    margin-bottom: 10px;
+    margin-left: 910px;
+    margin-top: -389px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome34 Button{
+    color: #fff;
+}
+
+
+.CardHome1{
+    width: 300px;
+    background: #18a0a6;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome1 Button{
+    color: #fff;
+}
+
+.CardHome2{
+    width: 300px;
+    background: #fafafa;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #18a0a6;
+    position: relative;
+}
+
+.CardHome2 Button{
+    color: #18a0a6;
+}
+
+.CardHome3{
+    
+    width: 300px;
+    background: #70decd;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+}
+
+.CardHome3 Button{
+    color: #fff;
+}
+
+.form-group{
+    margin: 8px;
+    width: 100%;
+    
+}

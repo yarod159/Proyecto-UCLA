@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ProductsData from "../../utils/ProductsData";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./product.css";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";

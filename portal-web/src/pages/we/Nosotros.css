@@ -1,0 +1,91 @@
+.container-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ margin-top: 60px;
+}
+
+.columnas-nosotros {
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+ 
+  max-width: 1200px;
+   margin: 0 auto;
+}
+.seccion-mision{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.texto-mision{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 500px;
+}
+
+.seccion-vision{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.seccion-vision > img{
+  width: 100%;
+ height: auto;
+ object-fit: contain;
+
+}
+
+.seccion-mision > img{
+  width: 100%;
+ height: auto;
+ object-fit: contain;
+
+}
+
+.texto-vision {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 500px;
+}
+
+.mision h2, .vision h2 {
+  font-size: 16px;
+}
+
+.mision p, .vision p {
+  font-size: 14px;
+  text-align: justify;
+  margin-top: 10em; 
+}
+.spacer {
+  width: 200px;
+}
+
+.seccion-mision > img,
+.seccion-vision > img {
+ width: 500px;
+ height: auto;
+ object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+ .seccion-mision > img,
+ .seccion-vision > img {
+    object-fit: cover; /* La imagen cubrirá completamente el contenedor, recortando si es necesario */
+ }
+}

@@ -1,0 +1,81 @@
+.container-user-profile {
+    position: relative;
+  }
+  .wrapper-user-profile {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-instalacion{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .form-mantenimiento{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .form-reparacion{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  
+  .Form-estado-municipio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+
+  }
+
+  .Form-telefono-correo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+  }
+
+  .form-nombre-apellido{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+   
+  }
+
+  .form-tipInstalacion-tipVivienda{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+  }
+
+  .form-datos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+  }
+
+  .DatosGenerales{
+    margin-top: 8px;
+  }
+  /* Original styles (unchanged) */
+  
+  @media (max-width: 600px) {
+      .wrapper-user-profile > :nth-child(1) {
+        order: 2 ;
+      }
+    }
+   
+    

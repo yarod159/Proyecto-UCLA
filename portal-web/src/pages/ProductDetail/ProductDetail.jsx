@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import ProductsData from "../../utils/ProductsData";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from 'react-router-dom';
 
 
 import "./productDetail.css";
 import { useState } from "react";
+
 function ProductDetail() {
+
   const navigate = useNavigate();
   const { productId } = useParams();
   const thisProduct = ProductsData.find((prod) => prod.id === productId);
