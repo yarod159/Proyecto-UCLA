@@ -30,6 +30,7 @@
     flex-direction: row;
     flex-wrap: wrap;
    justify-content: space-between;
+   gap: 1rem;
 
   }
 
@@ -38,6 +39,7 @@
     flex-direction: row;
     flex-wrap: wrap;
    justify-content: space-between;
+   gap: 1rem;
   }
 
   .form-nombre-apellido{
@@ -46,6 +48,7 @@
     flex-direction: row;
     flex-wrap: wrap;
    justify-content: space-between;
+   
   }
 
   .form-tipInstalacion-tipVivienda{
@@ -62,6 +65,10 @@
     flex-wrap: wrap;
    justify-content: space-between;
    gap: 1rem;
+  }
+
+  .DatosGenerales{
+    margin-top: 8px;
   }
   /* Original styles (unchanged) */
   
