@@ -11,6 +11,7 @@ import Transactions from "../pages/transactionsList/Transactions.jsx";
 import SolicitudList from "../pages/solicitudList/SolicitudList.jsx";
 import EmpleadosList from "../pages/EmpladoList/EmpleadosList.jsx";
 import CrearEmpleado from "../pages/CrearEmpleado/CrearEmpleado.jsx";
+import Ajustes from "../pages/AjustesDelSistemas/Ajustes.jsx";
 
 
 function AppRoutes() {
@@ -28,6 +29,7 @@ function AppRoutes() {
         <Route path="/solicitudes" element={<SolicitudList />} />
         <Route path="/empleados" element={<EmpleadosList />} />
         <Route path="/crearEmpleado" element={<CrearEmpleado />} />
+        <Route path="/ajustes" element={<Ajustes />} />
        
       </Routes>
     </BrowserRouter>

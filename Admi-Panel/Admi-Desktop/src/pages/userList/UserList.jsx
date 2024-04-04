@@ -80,12 +80,13 @@ export default function UserList() {
         <Sidebar />
         <div className="userList">
           <DataGrid
-            rows={data}
-            disableSelectionOnClick
-            columns={columns}
-            pageSize={8}
-            checkboxSelection
-            getRowId={(row) => row._id}
+           rows={data}
+           disableSelectionOnClick
+           columns={columns}
+           pageSize={10}
+           checkboxSelection
+           getRowId={(row) => row._id}
+           autoHeight={true}
           />
         </div>
       </div>
