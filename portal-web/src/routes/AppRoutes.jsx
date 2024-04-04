@@ -5,9 +5,6 @@ import Error404 from "../components/404/Error404.jsx";
 import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 import ProductsData from "../utils/ProductsData.js";
-import Service from "../pages/Service/Service.jsx";
-import ServiceDetail from "../pages/ServiceDetail/ServiceDetail.jsx";
-import Nosotros from "../pages/we/Nosotros.jsx"
 import Ecommerce from "../pages/Ecommerce/Ecommerce.jsx";
 
 function AppRoutes() {
