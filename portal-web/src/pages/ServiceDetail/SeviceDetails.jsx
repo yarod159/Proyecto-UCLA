@@ -4,9 +4,8 @@ import Footer from "../../components/footer/Footer";
 import { useNavigate } from 'react-router-dom';
 
 
-import "./ServiceDetail.css";
+
 import { useState } from "react";
-import ServicesData from "../../utils/ServicesData";
 function ServiceDetails() {
   const navigate = useNavigate();
   const { serviceId } = useParams();
