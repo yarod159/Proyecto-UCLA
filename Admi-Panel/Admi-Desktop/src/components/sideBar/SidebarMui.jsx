@@ -579,6 +579,28 @@ export default function SidebarMui() {
               <ListItemText primary="instalacion" />
             </ListItem>
           </Link>
+
+          <Link
+            to="/InformacionGeneral"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <SettingsIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary="Informacion General" />
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </Box>
