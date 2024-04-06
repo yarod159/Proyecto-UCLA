@@ -52,16 +52,14 @@ export default function MetodosPago() {
           <form onSubmit={handleSubmit}>
             <Box sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } }}>
               <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={12} sm={6} md={6}>
-                 <FormControl fullWidth>
-                    <InputLabel id="banco-label">Banco</InputLabel>
+                <Grid sx={{marginTop:2}} item xs={12} sm={6} md={6}>
                     <Select
-                      labelId="banco-label"
                       id="banco-select"
                       value={formData.banco}
                       label="Banco"
                       name="banco"
                       onChange={handleInputChange}
+                      fullWidth
                     >
                       <MenuItem value="">
                         <em>Ninguno</em>
@@ -70,7 +68,7 @@ export default function MetodosPago() {
                       <MenuItem value={20}>Banco 2</MenuItem>
                       <MenuItem value={30}>Banco 3</MenuItem>
                     </Select>
-                 </FormControl>
+                 
                 </Grid>
                 <Grid  item xs={12} sm={6} md={6}>
                   <TextField
