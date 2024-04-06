@@ -14,13 +14,14 @@ import CrearEmpleado from "../pages/CrearEmpleado/CrearEmpleado.jsx";
 import Ajustes from "../pages/AjustesDelSistemas/Ajustes.jsx";
 import Instalacion from "../pages/instalacion/Instalacion.jsx";
 import InformacionGeneral from "../pages/AjustesDelSistemas/InformacionGeneral.jsx";
+import Faq from "../pages/AjustesDelSistemas/preguntasFrecuentes.jsx";
 
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-       
+      <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
