@@ -22,7 +22,7 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-       
+      <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
