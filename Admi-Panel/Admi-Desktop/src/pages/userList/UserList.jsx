@@ -8,6 +8,7 @@ import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import axios from 'axios';
 import React, {  useEffect } from 'react';
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 function generarIdAleatorio() {
   var longitud = 8,
@@ -75,17 +76,18 @@ export default function UserList() {
 
   return (
     <div>
-      <Topbar />
+    
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
         <div className="userList">
           <DataGrid
-            rows={data}
-            disableSelectionOnClick
-            columns={columns}
-            pageSize={8}
-            checkboxSelection
-            getRowId={(row) => row._id}
+           rows={data}
+           disableSelectionOnClick
+           columns={columns}
+           pageSize={10}
+           checkboxSelection
+           getRowId={(row) => row._id}
+           autoHeight={true}
           />
         </div>
       </div>

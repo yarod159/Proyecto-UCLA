@@ -137,7 +137,8 @@ function UserService() {
                     sx={{marginBottom:'8px', marginLeft: '200px', marginTop:'8px'}}>
                     <Item sx={{backgroundColor: '#18a0a6'}}>     
                         <Card class="CardHome1">
-                            <CardActionArea onClick={handleOpen}>
+                          {/*onClick={handleOpen}*/}
+                            <CardActionArea href="/FormServ" >
                                 <CardMedia
                                 sx={{ height: 180, borderRadius: '4px' }}
                                 image={IMG1}
@@ -158,7 +159,7 @@ function UserService() {
                     
                     <Item>
                     <Card class="CardHome2">
-                        <CardActionArea onClick={handleOpen}>
+                        <CardActionArea href="/FormServ">
                             <CardMedia
                             sx={{ height: 180, borderRadius: '4px' }}
                             image={IMG2}
@@ -179,7 +180,7 @@ function UserService() {
 
                     <Item sx={{backgroundColor: '#70decd'}}>
                     <Card class="CardHome3">
-                        <CardActionArea onClick={handleOpen}>
+                        <CardActionArea href="/FormServ">
                             <CardMedia
                             sx={{ height: 180, borderRadius: '4px' }}
                             image={IMG3}

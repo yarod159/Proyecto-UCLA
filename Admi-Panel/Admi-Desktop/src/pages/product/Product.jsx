@@ -19,6 +19,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import ProductMes from "../../utils/ProductMes";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 const mes = [
   {
@@ -86,9 +87,9 @@ export default function Product() {
  
   return (
     <div>
-      <Topbar />
+      
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
 
         <div className="product">
           <div className="productTitleContainer">

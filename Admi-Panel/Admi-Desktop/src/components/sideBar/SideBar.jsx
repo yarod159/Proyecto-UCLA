@@ -14,7 +14,7 @@ import ReportIcon from "@mui/icons-material/Report";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import PaidIcon from "@mui/icons-material/Paid";
-import SettingsIcon from '@mui/icons-material/Settings';
+import SettingsIcon from "@mui/icons-material/Settings";
 
 import { Link } from "react-router-dom";
 
@@ -52,7 +52,7 @@ export default function Sidebar() {
             </Link>
             <Link to="/empleados" className="link">
               <li className="sidebarListItem">
-              <PermIdentityIcon className="sidebarIcon" />
+                <PermIdentityIcon className="sidebarIcon" />
                 Empleados
               </li>
             </Link>
@@ -77,12 +77,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Gestión de Servicios</h3>
           <ul className="sidebarList">
-          <Link to="/solicitudes" className="link"> 
-            <li className="sidebarListItem">
-              <MailOutlineIcon className="sidebarIcon" />
-              Solicitudes
-            </li>
-          </Link>
+            <Link to="/solicitudes" className="link">
+              <li className="sidebarListItem">
+                <MailOutlineIcon className="sidebarIcon" />
+                Solicitudes
+              </li>
+            </Link>
 
             <li className="sidebarListItem">
               <PermIdentityIcon className="sidebarIcon" />
@@ -122,13 +122,19 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Configuracion</h3>
           <ul className="sidebarList">
-          <Link to="/configuracion" className="link"> 
-            <li className="sidebarListItem">
-              <SettingsIcon className="sidebarIcon" />
-              Ajustes del Sistemas
-            </li>
-          </Link>
-           
+            <Link to="/ajustes" className="link">
+              <li className="sidebarListItem">
+                <SettingsIcon className="sidebarIcon" />
+                Ajustes del Sistemas
+              </li>
+            </Link>
+
+            <Link to="/instalacion" className="link">
+              <li className="sidebarListItem">
+                <SettingsIcon className="sidebarIcon" />
+                Instalacion
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

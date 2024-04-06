@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 export default function ProductList() {
   const [data, setData] = useState(ProductData);  
@@ -78,8 +79,8 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/newEmpleado" }>
-              <button className="productListEdit">Ver</button>
+           <Link to={"/product/" + params.row.id}>
+              <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutlineIcon
               className="productListDelete"
@@ -93,9 +94,9 @@ export default function ProductList() {
 
   return (
     <div>
-      <Topbar />
+     
       <div className="container">
-        <Sidebar/>
+        <SidebarMui/>
       <div className="productList">
         <DataGrid
           rows={data}

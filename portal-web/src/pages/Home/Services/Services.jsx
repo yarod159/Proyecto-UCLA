@@ -1,8 +1,11 @@
 import "./service.css"
 
-function ServiceCard({ icon, heading, description,backgroundImage }) {
+
+
+
+function ServiceCard({ icon, heading, description }) {
   return (
-    <div className="card-services" >
+    <div className="card-services">
       <div className="icon-wrapper">
         <i className={icon} />
       </div>
@@ -16,11 +19,13 @@ function ServiceCard({ icon, heading, description,backgroundImage }) {
 export default function Services() {
 
     const services = [
-        { icon: 'fas fa-phone', heading: 'Instalacion', description: 'Lorem ipsum dolor...'  },
-        { icon: 'fas fa-tv', heading: 'Mantenimiento', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-globe', heading: 'Reparación', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-tv', heading: 'Productos', description: 'Lorem ipsum dolor...' },
-        ];
+        { icon: 'fas fa-phone', heading: 'Telefonía móvil', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-tv', heading: 'Telefonía móvil', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-globe', heading: 'Internet', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-tv', heading: 'Televisión por cable', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-satellite-dish', heading: 'Televisión por satélite', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-headphones', heading: 'Servicios de consultoría', description: 'Lorem ipsum dolor...' },
+      ];
   return (
     <section>
     <div className="row-service">

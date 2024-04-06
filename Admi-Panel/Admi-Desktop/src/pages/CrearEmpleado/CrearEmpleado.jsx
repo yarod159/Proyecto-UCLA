@@ -3,6 +3,7 @@ import axios from "axios";
 import Sidebar from "../../components/sideBar/SideBar";
 import Topbar from "../../components/topBar/TopBar";
 import "./crearEmpleado.css";
+import SidebarMui from "../../components/sideBar/SidebarMui";
 
 export default function CrearEmpleado() {
   const [cedula, setCedula] = useState("");
@@ -57,9 +58,9 @@ export default function CrearEmpleado() {
 
   return (
     <div>
-      <Topbar />
+      
       <div className="container">
-        <Sidebar />
+        <SidebarMui />
         <div className="newProduct">
           <h2 className="addProductTitle">Crear Empleado</h2>
           <form className="addProductForm" onSubmit={handleSubmit}>
