@@ -107,6 +107,7 @@ export default function MetodosPago() {
                     onChange={handleInputChange}
                   />
                 </Grid>
+                
                 <Grid  item xs={12} sm={6} md={6}>
                   
                   <button className="addProductButton" type="submit">

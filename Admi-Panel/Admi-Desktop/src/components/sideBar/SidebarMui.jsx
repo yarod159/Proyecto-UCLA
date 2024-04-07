@@ -643,6 +643,27 @@ export default function SidebarMui() {
               <ListItemText primary="Metodos de Pago" />
             </ListItem>
           </Link>
+          <Link
+            to="/ComponenteSistema"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <SettingsIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary="Componentes de Sistema" />
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </Box>
