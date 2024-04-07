@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Nosotros.css";
-import Footer from "../../components/footer/Footer";
+
 import { useEffect, useState } from "react";
-import imagen1 from "../../assets/imagenes/imagen1.jpg";
-import imagen2 from "../../assets/imagenes/vision1.png";
+
+import imagen2 from "../../assets/imagenes/Tel1.jpg";
 import axios from "axios";
 
 import React from "react";

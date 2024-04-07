@@ -5,7 +5,7 @@ import Services from "./Services/Services";
 import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import img from "../../assets/imagenes/blanco.jpg";
 import logo from "../../assets/Logos/logo2.png"; // Import the logo image
-import FilterService from "../../components/filterService/FilterService";
+
 import img2 from "../../assets/imagenes/Tel5.jpg";
 import img3 from "../../assets/imagenes/Tel1.jpg";
 import "./Home2.css";
