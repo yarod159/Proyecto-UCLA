@@ -52,7 +52,6 @@ export default function ChartCategoria({ title, dataKey = "Active Product", grid
         <PieChart>
           <Pie
             dataKey="value"
-            data={data}
             cx="50%"
             cy="50%"
             fill="#8884d8"
