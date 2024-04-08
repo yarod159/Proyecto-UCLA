@@ -71,5 +71,21 @@ const postPreguntaFaq =async (req, res) => {
   }
 };
 
+const getFaq = async (req, res) => {
+  try {
+    const faq = await Faq.find();
+    res.status(200).json({
+      success: true,
+      data: faq,
+    });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener la informacion",
+    });
+  }
+};
 
-module.exports = { postInstalacion, getInstalacion,postPreguntaFaq };
+
+module.exports = { postInstalacion, getInstalacion,postPreguntaFaq,getFaq };

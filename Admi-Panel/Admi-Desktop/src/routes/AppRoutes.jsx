@@ -14,6 +14,7 @@ import CrearEmpleado from "../pages/CrearEmpleado/CrearEmpleado.jsx";
 import Ajustes from "../pages/AjustesDelSistemas/Ajustes.jsx";
 import Instalacion from "../pages/instalacion/Instalacion.jsx";
 import InformacionGeneral from "../pages/AjustesDelSistemas/InformacionGeneral.jsx";
+import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
 
 
 function AppRoutes() {
@@ -34,6 +35,7 @@ function AppRoutes() {
         <Route path="/ajustes" element={<Ajustes />} />
         <Route path="/instalacion" element={<Instalacion />} />
         <Route path="/InformacionGeneral" element={<InformacionGeneral />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
     </BrowserRouter>
   );
