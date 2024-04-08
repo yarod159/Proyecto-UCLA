@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 function ServiceDetails() {
   const navigate = useNavigate();
-  const { serviceId } = useParams();
-  const thisService = ServicesData.find((serv) => serv.id === serviceId);
+  
+ 
 
   const [carrito, setCarrito] = useState([]);
 

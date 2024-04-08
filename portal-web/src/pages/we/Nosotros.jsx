@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Nosotros.css";
-import Footer from "../../components/footer/Footer";
+
 import { useEffect, useState } from "react";
 
 import axios from "axios";
