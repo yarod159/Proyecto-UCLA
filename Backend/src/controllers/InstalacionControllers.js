@@ -1,4 +1,5 @@
 const Instalacion = require("../models/Instalacion");
+const Faq = require("../models/Faq");
 // Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 const postInstalacion = async (req, res) => {
@@ -44,4 +45,31 @@ const getInstalacion = async (req, res) => {
   }
 };
 
-module.exports = { postInstalacion, getInstalacion };
+const postPreguntaFaq =async (req, res) => {
+  try {
+    // Crear una nueva instancia de Empleado con los datos del formulario
+    const faq = new Faq({
+      
+      PreguntaFaq : req.body.PreguntaFaq,
+      RespuestaFaq : req.body.RespuestaFaq 
+    });
+
+    // Guardar el empleado en la base de datos
+    await faq.save();
+
+    // Enviar una respuesta al cliente
+    res.status(201).json({
+      success: true,
+      data:faq,
+    });
+  } catch (error) {
+    // Enviar un mensaje de error al cliente
+    res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
+
+module.exports = { postInstalacion, getInstalacion,postPreguntaFaq };
