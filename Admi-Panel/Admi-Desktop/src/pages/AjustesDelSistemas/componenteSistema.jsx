@@ -25,6 +25,10 @@ export default function ComponenteSistema() {
     products: false, // Estado para Productos
     maintenance: false, // Estado para Mantenimiento
     repair: false, // Estado para Reparación
+<<<<<<< HEAD
+=======
+    // Otros campos...
+>>>>>>> Staging
  });
 
  const handleSwitchChange = (event, switchName) => {
@@ -51,7 +55,11 @@ export default function ComponenteSistema() {
             <Box sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } }}>
               <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} sm={6} md={6}>
+<<<<<<< HEAD
                  <Typography variant="h5">Instalación</Typography>
+=======
+                 <Typography variant="h4">Instalación</Typography>
+>>>>>>> Staging
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <Switch
@@ -61,7 +69,11 @@ export default function ComponenteSistema() {
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
+<<<<<<< HEAD
                  <Typography variant="h5">Productos</Typography>
+=======
+                 <Typography variant="h4">Productos</Typography>
+>>>>>>> Staging
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <Switch
@@ -71,7 +83,11 @@ export default function ComponenteSistema() {
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
+<<<<<<< HEAD
                  <Typography variant="h5">Mantenimiento</Typography>
+=======
+                 <Typography variant="h4">Mantenimiento</Typography>
+>>>>>>> Staging
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <Switch
@@ -81,7 +97,11 @@ export default function ComponenteSistema() {
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
+<<<<<<< HEAD
                  <Typography variant="h5">Reparación</Typography>
+=======
+                 <Typography variant="h4">Reparación</Typography>
+>>>>>>> Staging
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <Switch

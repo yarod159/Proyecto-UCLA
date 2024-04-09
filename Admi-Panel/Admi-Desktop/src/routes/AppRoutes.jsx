@@ -17,13 +17,17 @@ import InformacionGeneral from "../pages/AjustesDelSistemas/InformacionGeneral.j
 import InformacionEmpresa from "../pages/AjustesDelSistemas/informacionEmpresa.jsx";
 import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
+<<<<<<< HEAD
+=======
+import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
+>>>>>>> Staging
 
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-       
+      <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/responsiveAppBar/ResponsiveAppBar";
 import "./Nosotros.css";
-import Footer from "../../components/footer/Footer";
+
 import { useEffect, useState } from "react";
-import imagen1 from "../../assets/imagenes/imagen1.jpg";
-import imagen2 from "../../assets/imagenes/vision1.png";
+
 import axios from "axios";
 
 import React from "react";
@@ -43,10 +42,7 @@ const Nosotros = () => {
       <div className="container-nosotros">
         <div className="columnas-nosotros">
           <div className="seccion-mision">
-            <img
-              src={imagen2}
-              alt="Visión de la empresa"
-            />
+            
             <div className="texto-mision">
               <h2>Misión</h2>
               <p>
@@ -63,11 +59,7 @@ const Nosotros = () => {
               {instalacion.vision}
               </p>
             </div>
-            <img
-              src={imagen2}
-              alt="Visión de la empresa"
-
-            />
+            
           </div>
         </div>
       </div>

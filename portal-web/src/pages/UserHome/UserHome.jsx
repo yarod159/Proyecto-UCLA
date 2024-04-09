@@ -26,6 +26,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Faq from "../Home/components/FAQ/Faq";
 
 const style = {
   position: "absolute",
@@ -340,6 +341,8 @@ function UserHome() {
             </ButtonGroup>
           </div>
         </div>
+
+        <Faq/>
         <Footer />
       </div>
     </div>
