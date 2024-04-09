@@ -686,11 +686,8 @@ export default function SidebarMui() {
               <ListItemIcon>
                 <SettingsIcon className="sidebarIcon" />
               </ListItemIcon>
-<<<<<<< HEAD
               <ListItemText primary="Componente de Sistema" />
-=======
               <ListItemText primary="Componentes de Sistema" />
->>>>>>> Staging
             </ListItem>
           </Link>
         </List>
