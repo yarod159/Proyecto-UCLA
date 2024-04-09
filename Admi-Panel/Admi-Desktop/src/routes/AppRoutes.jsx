@@ -17,6 +17,7 @@ import InformacionGeneral from "../pages/AjustesDelSistemas/InformacionGeneral.j
 import InformacionEmpresa from "../pages/AjustesDelSistemas/informacionEmpresa.jsx";
 import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
+import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
 
 
 function AppRoutes() {

@@ -3,10 +3,23 @@ import React, { useState } from "react";
 import { TextField, Button, Box, Grid } from "@mui/material";
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import "./informacionGeneral.css";
+import FaqWeb from "../../../../../portal-web/src/pages/Home/components/FAQ/Faq";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+
+const isDesktopAdminPanel = true;
 
 export default function Faq() {
   const [PreguntaFaq, setPreguntaFaq] = useState("");
   const [RespuestaFaq, setRespuestaFaq] = useState("");
+  const [faqs, setFaqs] = useState([]); // State to hold all FAQs
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,17 +29,20 @@ export default function Faq() {
     };
 
     try {
-        await axios
-          .post("http://localhost:3000/instalador/post-faq", faqData)
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((error) => {
-            console.error("Error al enviar la solicitud:", error.response.data);
-          });
-      } catch (error) {
-        console.error("Error al enviar la solicitud:", error);
-      }
+      await axios
+        .post("http://localhost:3000/instalador/post-faq", faqData)
+        .then((response) => {
+          console.log(response.data);
+          
+          setOpen(true);
+         
+        })
+        .catch((error) => {
+          console.error("Error al enviar la solicitud:", error.response.data);
+        });
+    } catch (error) {
+      console.error("Error al enviar la solicitud:", error);
+    }
   };
 
   return (
@@ -71,10 +87,20 @@ export default function Faq() {
                   </button>
                 </Grid>
               </Grid>
+              <FaqWeb showDeleteButton={isDesktopAdminPanel} />
             </Box>
           </form>
         </div>
       </div>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Guardado con éxito</DialogTitle>
+        <DialogContent>
+          <p>La pregunta FAQ ha sido guardada con éxito.</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cerrar</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
