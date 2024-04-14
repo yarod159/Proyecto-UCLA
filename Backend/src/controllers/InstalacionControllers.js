@@ -1,5 +1,6 @@
 const Instalacion = require("../models/Instalacion");
 const Faq = require("../models/Faq");
+const MetPago = require("../models/MetodoPago");
 // Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 const postInstalacion = async (req, res) => {
@@ -87,5 +88,49 @@ const getFaq = async (req, res) => {
   }
 };
 
+const postMetPago = async (req, res) => {
+  try {
+    // Crear una nueva instancia de Empleado con los datos del formulario
+    const metodoPago = new MetPago({
+      Banco: req.body.Banco,
+      Identificacion: req.body.Identificacion,
+      Beneficiario: req.body.Beneficiario,
+      NumeroTelefono: req.body.NumeroTelefono,
+      NumeroCuenta: req.body.NumeroCuenta,
+    });
 
-module.exports = { postInstalacion, getInstalacion,postPreguntaFaq,getFaq };
+    // Guardar el empleado en la base de datos
+    await metodoPago.save();
+
+    // Enviar una respuesta al cliente
+    res.status(201).json({
+      success: true,
+      data: metodoPago,
+    });
+  } catch (error) {
+    // Enviar un mensaje de error al cliente
+    res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
+const getMetPago = async (req, res) => {
+  try {
+    const metodoPago = await MetPago.find();
+    res.status(200).json({
+      success: true,
+      data: metodoPago,
+    });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener la informacion",
+    });
+  }
+};
+
+
+module.exports = { postInstalacion, getInstalacion, postPreguntaFaq, getFaq, postMetPago,  getMetPago };
