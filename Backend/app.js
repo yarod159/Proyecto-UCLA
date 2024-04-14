@@ -24,6 +24,7 @@ const userRouter = require("./src/routes/userRoutes");
 app.use("/auth", require("./src/routes/authRoutes"));
 app.use("/empleado", require('./src/routes/crearEmpleadoRoutes'))
 app.use("/instalador", require('./src/routes/instalacionRoutes'))
+app.use("/informacionGeneral", require('./src/routes/infoGeneralRoutes'))
 app.use("/users", userRouter); // Usa userRouter como middleware
 
 // Inicio del servidor
