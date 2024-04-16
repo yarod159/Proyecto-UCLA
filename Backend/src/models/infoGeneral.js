@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const infoGeneralSchema = new mongoose.Schema(
- {
+const infoGeneralSchema = new Schema({
     nombreEmpresa: {
       type: String,
       required: true,
@@ -43,10 +42,7 @@ const infoGeneralSchema = new mongoose.Schema(
       trim: true,
     },
  },
- {
-    timestamps: true,
-    versionKey: false,
- }
+ 
 );
 
 const InfoGeneral = mongoose.model("InfoGeneral", infoGeneralSchema);
