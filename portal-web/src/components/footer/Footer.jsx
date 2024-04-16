@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
 
-  const [footerGet, setFooterGet] = useState({ nombreEmpresa: "" });
+  const [footerGet, setFooterGet] = useState({ nombreEmpresa: "", telefono:"" });
 
   useEffect(() => {
     
@@ -18,8 +18,15 @@ const Footer = () => {
          const data = response.data.data;
          if (data && data.length > 0) {
            // Assuming you want to display the first company's mission and vision
-           const firstCompany = data[0];
-           setFooterGet({ nombreEmpresa: firstCompany.nombreEmpresa });
+           const firstCompany = data[1];
+           setFooterGet({ nombreEmpresa: firstCompany.nombreEmpresa, 
+                          rifEmpresa: firstCompany.rifEmpresa, 
+                          correo: firstCompany.correo,
+                          ubicacion: firstCompany.ubicacion,  
+                          telefono:firstCompany.telefono,
+                          linkFacebook: firstCompany.linkFacebook,
+                          linkInstagram: firstCompany.linkInstagram
+                        });
          } else {
            console.log("No data found in response");
          }
@@ -49,17 +56,20 @@ const Footer = () => {
         <div className="box">
           <h2>SIGUENOS</h2>
           <div className="red-social">
-            <a target="_blank" rel="noopener noreferrer"><FacebookIcon className="sidebarIcon"/></a>
-            <a target="_blank" rel="noopener noreferrer"><InstagramIcon className="sidebarIcon"/></a>
+            <a href={footerGet.linkFacebook} target="_blank" rel="noopener noreferrer"><FacebookIcon className="sidebarIcon"/></a>
+            <a href={footerGet.linkInstagram} target="_blank" rel="noopener noreferrer"><InstagramIcon className="sidebarIcon"/></a>
           </div>
         </div>
       </div>
       <div className="grupo-2">
-        <small>&copy; 2024 <b>Desarrollado por: {footerGet.nombreEmpresa}</b></small>
+        <small>&copy; 2024 <b>Empresa: {footerGet.nombreEmpresa}  rif:  {footerGet.rifEmpresa}</b></small>
+      </div>
+      <div className="grupo-2">
+        <small><b>Ubicación: {footerGet.ubicacion}   Correo: {footerGet.correo}  </b></small>
       </div>
       <div className="grupo-2">
         <small>
-          Solicitud de Servicio: 0251-7181107 / Soporte Técnico 0251-7181108
+          Solicitud de Servicio: {footerGet.telefono} 
         </small>
       </div>
     </footer>
