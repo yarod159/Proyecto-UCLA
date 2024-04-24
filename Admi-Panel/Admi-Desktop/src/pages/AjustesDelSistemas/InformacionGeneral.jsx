@@ -1,10 +1,13 @@
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import {
  TextField,
  Button,
  Box,
  Grid,
+ Snackbar,
+ Alert,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import SidebarMui from "../../components/sideBar/SidebarMui";
@@ -16,12 +19,19 @@ const StyledButton = styled(Button)({
 
 export default function InformacionGeneral() {
  const [formData, setFormData] = useState({
-    companyName: "",
-    rif: "",
-    mission: "",
-    vision: "",
-    corporateColor: "",
+    nombreEmpresa: "",
+    rifEmpresa: "",
+    telefono: "",
+    correo: "",
+    ubicacion: "",
+    linkFacebook: "",
+    linkInstagram: "",
  });
+
+ const [errors, setErrors] = useState({});
+ const [open, setOpen] = useState(false);
+ const [message, setMessage] = useState('');
+ const [severity, setSeverity] = useState('success');
 
  const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -31,27 +41,41 @@ export default function InformacionGeneral() {
  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Preparar los datos del formulario
-    const formData = new FormData();
-    Object.keys(formData).forEach((key) => {
-      formData.append(key, formData[key]);
-    });
+    // Verificar si todos los campos están llenos
+    const newErrors = {};
+    for (const key in formData) {
+       if (!formData[key]) {
+         newErrors[key] = 'Este campo es requerido';
+       }
+    }
 
+    // Si hay errores, actualizar el estado y no enviar los datos
+    if (Object.keys(newErrors).length > 0) {
+       setErrors(newErrors);
+       return; // No enviar los datos
+    }
+
+    // Si no hay errores, proceder con el envío de los datos
     try {
-      // Realizar la petición POST con Axios
-      const response = await axios.post("http://localhost:3000/informacionGeneral/post-infoGeneral", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      // Manejar la respuesta
-      console.log(response.data);
-      // Aquí puedes manejar la respuesta, por ejemplo, mostrando un mensaje de éxito
+      const response = await axios.post("http://localhost:3000/informacionGeneral/post-infoGeneral", formData);
+      console.log('Form data submitted successfully:', response.data);
+      setMessage('Datos guardados con éxito');
+      setSeverity('success');
+      setOpen(true);
+      setErrors({}); // Limpiar los errores después de un envío exitoso
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
-      // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje de error
+      setMessage('Error al guardar los datos');
+      setSeverity('error');
+      setOpen(true);
     }
+ };
+
+ const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
  };
 
  return (
@@ -68,74 +92,107 @@ export default function InformacionGeneral() {
                  <TextField
                     label="Nombre de la Empresa"
                     name="nombreEmpresa"
+                    value={formData.nombreEmpresa}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.nombreEmpresa}
+                    helperText={errors.nombreEmpresa}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Rif de la empresa"
                     name="rifEmpresa"
+                    value={formData.rifEmpresa}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.rifEmpresa}
+                    helperText={errors.rifEmpresa}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Numero de Telefono"
                     name="telefono"
+                    value={formData.telefono}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.telefono}
+                    helperText={errors.telefono}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Ubicacion"
                     name="ubicacion"
+                    value={formData.ubicacion}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
                     multiline
+                    error={!!errors.ubicacion}
+                    helperText={errors.ubicacion}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Correo electronico"
                     name="correo"
+                    value={formData.correo}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.correo}
+                    helperText={errors.correo}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Link de Facebook"
                     name="linkFacebook"
+                    value={formData.linkFacebook}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.linkFacebook}
+                    helperText={errors.linkFacebook}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <TextField
                     label="Link de Instagram"
                     name="linkInstagram"
+                    value={formData.linkInstagram}
                     fullWidth
                     margin="normal"
                     onChange={handleInputChange}
+                    error={!!errors.linkInstagram}
+                    helperText={errors.linkInstagram}
                  />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                  <StyledButton type="submit">Guardar</StyledButton>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6}>
+                 <Link to="/InformacionGeneralList">
+                   <StyledButton variant="contained" component="span">
+                     Consultar Información General
+                   </StyledButton>
+                 </Link>
                 </Grid>
               </Grid>
             </Box>
           </form>
         </div>
       </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
     </div>
  );
 }

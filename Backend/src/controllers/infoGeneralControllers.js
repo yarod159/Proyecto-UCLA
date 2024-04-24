@@ -74,5 +74,31 @@ const deleteInfoGeneral = async (req, res) => {
      });
   }
  };
+ const patchInfoGeneral = async (req, res) => {
+  try {
+     const infoGeneralId = req.params.id;
+     const updateFields = req.body;
+     const result = await InfoGeneral.findByIdAndUpdate(infoGeneralId, { $set: updateFields }, { new: true });
+ 
+     if (!result) {
+       return res.status(404).json({
+         success: false,
+         message: "No se encontró la información General con el ID proporcionado",
+       });
+     }
+ 
+     res.status(200).json({
+       success: true,
+       data: result,
+       message: "Información General actualizada exitosamente",
+     });
+  } catch (error) {
+     res.status(500).json({
+       success: false,
+       message: "Error al intentar actualizar la información General",
+       error: error.message,
+     });
+  }
+ };
 
-module.exports = { postInfoGeneral, getInfoGeneral, deleteInfoGeneral };
+module.exports = { postInfoGeneral, getInfoGeneral, deleteInfoGeneral, patchInfoGeneral };
