@@ -118,7 +118,8 @@ export default function EmpleadosList() {
               </div>
             </Link>
           </div>
-    <Box> <MUIDataTable
+         <Box>
+           <MUIDataTable
             data={data}
             title="Empleados"
             columns={columns}

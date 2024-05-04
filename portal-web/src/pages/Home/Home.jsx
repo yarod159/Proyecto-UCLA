@@ -73,7 +73,7 @@ function Home() {
         <img src={logo} alt="Logo" style={{ marginLeft: "180px" }} />{" "}
         {/* Añade un margen a la izquierda de la imagen para separarla del texto */}
       </div>
-      <FilterService />
+     
       <div>
         <Faq/>
       </div>
