@@ -47,12 +47,34 @@ const FormServ = () => {
 
     
 
-    const [selectedOption, setSelectedOption] = useState('');
+    const [servicio, setservicio] = useState('');
+    const [tipServicio, setTipServicio] = useState('');
+    const [estado, setEstado] = useState('');
+    const [municipio, setMunicipio] = useState('');
+    const [tipVivienda, setTipVivienda] = useState('');
     const [value, setvalue] = useState('');
+    const [value2, setvalue2] = useState('');
     
 
     const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);};
+    setservicio(event.target.value);
+    };
+
+    const handleOptionChangeTip = (event) => { 
+        setTipServicio(event.target.value)
+    };
+
+    const handleEstado = (event) => {
+        setEstado(event.target.value);
+    }
+
+    const handleMunicipio = (event) => {
+        setMunicipio(event.target.value);
+    }
+
+    const handleTipVivienda = (event) => {
+        setTipVivienda(event.target.value);
+    }
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -122,7 +144,7 @@ const FormServ = () => {
                                 <div className="Form-estado-municipio">
                                     <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Estado</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
+                                        <Select value={estado} onChange={handleEstado}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
                                             <MenuItem value="Lara">Lara</MenuItem>
                                             <MenuItem value="Otro">Otro</MenuItem>
@@ -132,7 +154,7 @@ const FormServ = () => {
 
                                     <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Municipio</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
+                                        <Select value={municipio} onChange={handleMunicipio}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
                                             <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
                                             <MenuItem value="Crespo">Crespo</MenuItem>
@@ -172,7 +194,7 @@ const FormServ = () => {
 
                             <FormControl fullWidth variant="standard" sx={{marginTop: 2, marginBottom: 4}}>
                                 <InputLabel>Selecciona un Servicio</InputLabel>
-                                <Select value={selectedOption} onChange={handleOptionChange}>
+                                <Select value={servicio} onChange={handleOptionChange}>
                                     <MenuItem value="">Selecciona una opción</MenuItem>
                                     <MenuItem value="Instalación">Instalación</MenuItem>
                                     <MenuItem value="Mantemimiento">Mantenimiento</MenuItem>
@@ -188,7 +210,7 @@ const FormServ = () => {
                             <TextField id="filled-basic" label="Filled" variant="filled" />
                             <TextField id="standard-basic" label="Standard" variant="standard" />*/}
                             
-                            {selectedOption === "Instalación" && (
+                            {servicio === "Instalación" && (
 
                                 
                                 <div className="form-instalacion">
@@ -198,7 +220,7 @@ const FormServ = () => {
                                     <div className="form-tipInstalacion-tipVivienda">
                                         <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
                                         <InputLabel>Tipo de servicio</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
+                                        <Select value={tipServicio} onChange={handleOptionChangeTip}>
                                             
                                             <MenuItem value="">Selecciona una opción</MenuItem>
                                             <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
@@ -210,7 +232,7 @@ const FormServ = () => {
 
                                         <FormControl variant="standard" sx={{marginTop: 2, marginBottom: 4, width: 310}}>
                                         <InputLabel>Tipo de vivienda</InputLabel>
-                                        <Select value={value} onChange={handleOptionChange}>
+                                        <Select value={tipVivienda} onChange={handleTipVivienda}>
                                             <MenuItem value="">Selecciona una opción</MenuItem>
                                             <MenuItem value="Casa">Casa</MenuItem>
                                             <MenuItem value="Apartamento">Apartamento</MenuItem>
@@ -230,7 +252,7 @@ const FormServ = () => {
 
                             )}
 
-                            {selectedOption === "Mantemimiento" && (
+                            {servicio === "Mantemimiento" && (
                                 
                                 <div className="form-mantenimiento">
 
@@ -289,7 +311,7 @@ const FormServ = () => {
 
                             )}
 
-                            {selectedOption === "Reparación" && (
+                            {servicio === "Reparación" && (
                                 
                                 <div className="form-reparacion">
                                     
