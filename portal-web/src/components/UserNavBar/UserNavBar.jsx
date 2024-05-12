@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import LogoPrincipal from "../../assets/Logos/logo-blanco.png";
+import LogoPrincipal from "../../assets/Logos/logo1-hor-blanco.png";
 
 const pages = ['Inicio', 'Productos', 'Servicios'];
 
@@ -38,12 +38,28 @@ function UserNavbar() {
     <AppBar position="static" sx={{ bgcolor: '#18a0a6' }}>
       <Container>
         <Toolbar disableGutters>
+        <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/UserHome"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
           <Box
             component="img"
             src={LogoPrincipal}
-            sx={{ height: '64px', maxWidth: '60px', marginRight: '40px' }}
+            sx={{ height: '50px', maxWidth: '200px',}}
             alt="Logo"
           />
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -92,6 +108,30 @@ function UserNavbar() {
               </Button>
             ))}
           </Box>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="/UserHome"
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <Box
+            component="img"
+            src={LogoPrincipal}
+            sx={{ height: '50px', maxWidth: '200px',}}
+            alt="Logo"
+          />
+          </Typography>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Abrir opciones">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -118,7 +158,7 @@ function UserNavbar() {
                 <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
-                <Button href='/UserProfile'><Typography textAlign="center">Cerrar sesión</Typography></Button>
+                <Button href='/Home'><Typography textAlign="center">Cerrar sesión</Typography></Button>
               </MenuItem>
             </Menu>
           </Box>
