@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
       <div className="grupo-2">
         <small>
-          Solicitud de Servicio: {footerGet.telefono} / Soporte Técnico:  {footerGet.telefono}
+          Solicitud de Servicio: {footerGet.telefono} / Soporte Técnico:  {footerGet.telefono} Todos los derechos reservados. 2024
         </small>
       </div>
     </footer>

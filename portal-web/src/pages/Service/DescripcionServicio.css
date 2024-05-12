@@ -1,0 +1,12 @@
+.descripcion-servicio {
+    padding: 20px;
+  }
+  
+  .productos,.nuestros-servicios,.reparacion {
+    margin-bottom: 20px;
+  }
+  
+  .descripcion-servicio p {
+    line-height: 1.6;
+  }
+  

@@ -418,6 +418,7 @@ import {
     Snackbar,
     Alert,
     InputLabel,
+    Paper,
    } from "@mui/material";
    import { styled } from "@mui/system";
    import SidebarMui from "../../components/sideBar/SidebarMui";
@@ -487,7 +488,7 @@ const InformacionGeneralList = () => {
        <h1 className="informacionGeneral-h1">Información General</h1>
        {message && <div>{message}</div>} {/* Mostrar el mensaje si existe */}
        <form onSubmit={handleSubmit(onSubmit)}>
-         <Box sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } }}>
+         <Paper elevation={3} sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } }}>
            <Grid container spacing={2}>
              <Grid item xs={12} sm={6} md={6}>
                <TextField
@@ -577,14 +578,19 @@ const InformacionGeneralList = () => {
                <Button type="submit" variant="contained" color="primary">
                  Guardar Cambios
                </Button>
+               <a href="/login">
+                <StyledButton variant="contained" color="secondary">
+                  Login
+                </StyledButton>
+                </a>
              </Grid>
            </Grid>
-         </Box>
+         </Paper>
        </form>
      </div>
   </div>
- </div>
- 
+</div>
+
  );
 };
 

@@ -22,6 +22,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { Link } from 'react-router-dom';
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -206,7 +207,13 @@ function UserHome() {
                   <Button size="small" href="/productos" sx={{ color: "#fff" }}>
                     Ir al catálogo
                   </Button>
-                  <Button size="small">Leer más</Button>
+                  <Button
+  size="small"
+  onClick={() => document.getElementById('productos').scrollIntoView({ behavior: 'smooth' })}
+  sx={{ color: "#fff" }}
+>
+  Leer más1
+</Button>
                 </CardActions>
               </Card>
             </Item>
@@ -233,7 +240,9 @@ function UserHome() {
                   <Button size="small" href="/FormServ" sx={{ color: "#18a0a6" }} >
                     Contratar servicio
                   </Button>
-                  <Button size="small">Leer mas</Button>
+                  <Button size="small" component={Link} to="/DescripcionServicio">
+  Leer más2
+</Button>
                 </CardActions>
               </Card>
             </Item>
@@ -259,7 +268,9 @@ function UserHome() {
                   <Button size="small" onClick={handleOpen}>
                     Contratar servicio
                   </Button>
-                  <Button size="small">Leer mas</Button>
+                  <Button size="small" component={Link} to="/DescripcionServicio#productos">
+  Leer más3
+</Button>
                 </CardActions>
               </Card>
             </Item>

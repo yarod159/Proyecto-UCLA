@@ -33,6 +33,13 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import Payments from "@mui/icons-material/Payments";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import InfoIcon from '@mui/icons-material/Info';
+import AppsIcon from '@mui/icons-material/Apps';
 
 const drawerWidth = 240;
 
@@ -574,7 +581,7 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <InstallDesktopIcon className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="instalacion" />
             </ListItem>
@@ -596,7 +603,7 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <SettingsApplicationsIcon className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="Informacion General" />
             </ListItem>
@@ -620,7 +627,7 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <HelpCenterIcon className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="Faq" />
             </ListItem>
@@ -642,7 +649,7 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <InfoIcon className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="Informacion Empresa" />
             </ListItem>
@@ -663,7 +670,7 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <Payments className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="Metodos de Pago" />
             </ListItem>
@@ -684,10 +691,10 @@ export default function SidebarMui() {
                 },
               }}>
               <ListItemIcon>
-                <SettingsIcon className="sidebarIcon" />
+                <AppsIcon className="sidebarIcon" />
               </ListItemIcon>
               <ListItemText primary="Componente de Sistema" />
-              <ListItemText primary="Componentes de Sistema" />
+              
             </ListItem>
           </Link>
         </List>

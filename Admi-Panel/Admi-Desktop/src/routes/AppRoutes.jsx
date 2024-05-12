@@ -18,6 +18,8 @@ import InformacionEmpresa from "../pages/AjustesDelSistemas/informacionEmpresa.j
 import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
 import InformacionGeneralList from "../pages/AjustesDelSistemas/informacionGeneralList.jsx";
+import Login from "../pages/login/login.jsx";
+
 
 function AppRoutes() {
   return (
@@ -40,6 +42,7 @@ function AppRoutes() {
         <Route path="/MetodosPago" element={<MetodosPago />} />
         <Route path="/ComponenteSistema" element={<ComponenteSistema />} />
         <Route path="/InformacionGeneralList" element={<InformacionGeneralList />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
