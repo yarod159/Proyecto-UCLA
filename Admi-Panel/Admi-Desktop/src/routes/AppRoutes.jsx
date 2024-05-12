@@ -18,17 +18,14 @@ import InformacionEmpresa from "../pages/AjustesDelSistemas/informacionEmpresa.j
 import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
 import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
-<<<<<<< HEAD
-=======
-import Reports from "../pages/ServicioAlCliente/ReporteClienteList.jsx";
->>>>>>> web-Hector
+import ReporteClienteList from "../pages/ServicioAlCliente/ReporteClienteList.jsx";
 
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/reports" element={<Reports />} />
+        <Route path="/reports" element={<ReporteClienteList />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
