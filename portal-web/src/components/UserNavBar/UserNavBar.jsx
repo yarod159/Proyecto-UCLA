@@ -1,5 +1,4 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -11,17 +10,46 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import LogoPrincipal from "../../assets/Logos/logo-blanco.png";
+import LogoPrincipal from "../../assets/Logos/logo1-hor-blanco.png";
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import { styled, useTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiAppBar from '@mui/material/AppBar';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const pages = ['Inicio', 'Productos', 'Servicios'];
 
-function UserNavbar() {
- const [anchorElNav, setAnchorElNav] = React.useState(null);
- const [anchorElUser, setAnchorElUser] = React.useState(null);
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+}));
 
- const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
- };
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-end',
+}));
+
+function UserNavbar() {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
  const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
  };
@@ -34,97 +62,211 @@ function UserNavbar() {
     setAnchorElUser(null);
  };
 
+ const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setOpen(open);
+  };
+
+  const theme = useTheme();
+ 
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const DrawerList = (
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <DrawerHeader>
+        <Typography variant="h6" noWrap component="div">
+          Menú
+        </Typography>
+        <IconButton onClick={handleDrawerClose}>
+          {theme.direction === 'ltr' ? (
+            <ChevronLeftIcon />
+          ) : (
+            <ChevronRightIcon />
+          )}
+        </IconButton>
+      </DrawerHeader>
+      <Divider />
+      <List>
+      <ListItem disablePadding>
+          <ListItemButton href='/inicio' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+
+            <ListItemText>Inicio</ListItemText>
+          </ListItemButton>
+      </ListItem>
+
+      <ListItem disablePadding>
+          <ListItemButton href='/productos' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+
+            <ListItemText>Productos</ListItemText>
+          </ListItemButton>
+      </ListItem>
+
+      <ListItem disablePadding>
+          <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+
+            <ListItemText>Servicios</ListItemText>
+          </ListItemButton>
+      </ListItem>
+
+      </List>
+      <Divider />
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton href='/UserProfile' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+
+            <ListItemText>Perfil</ListItemText>
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton href='/Home' sx={{ ":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+
+            <ListItemText>Cerrar Sesión</ListItemText>
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Box>
+  );
+
+ 
+
  return (
-    <AppBar position="static" sx={{ bgcolor: '#18a0a6' }}>
-      <Container>
-        <Toolbar disableGutters>
-          <Box
-            component="img"
-            src={LogoPrincipal}
-            sx={{ height: '64px', maxWidth: '60px', marginRight: '40px' }}
-            alt="Logo"
-          />
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                 <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                href={`/${page.toLowerCase()}`}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+    <div>
+
+        <Box sx={{display:'flex'}}>
+        <CssBaseline />
+        <AppBar position="fixed" sx={{ bgcolor: '#18a0a6' }} open={open}>
+          
+          <Container>
+            <Toolbar disableGutters>
+            <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="/inicio"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
               >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Abrir opciones">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/broken-image.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
-              </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Button href='/UserProfile'><Typography textAlign="center">Cerrar sesión</Typography></Button>
-              </MenuItem>
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              <Box
+                component="img"
+                src={LogoPrincipal}
+                sx={{ height: '50px', maxWidth: '200px',}}
+                alt="Logo"
+              />
+              </Typography>
+              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={toggleDrawer(true)}
+                  edge="start"
+                  sx={{ mr: 2, }}
+                >
+                  <MenuIcon />
+                </IconButton>
+
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    href={`/${page.toLowerCase()}`}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </Box>
+              <Typography
+                variant="h5"
+                noWrap
+                component="a"
+                href="/inicio"
+                sx={{
+                  mr: 2,
+                  display: { xs: 'flex', md: 'none' },
+                  flexGrow: 1,
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+              >
+                <Box
+                component="img"
+                src={LogoPrincipal}
+                sx={{ height: '50px', maxWidth: '200px',}}
+                alt="Logo"
+              />
+              </Typography>
+
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Abrir opciones">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/broken-image.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/Home'><Typography textAlign="center">Cerrar sesión</Typography></Button>
+                  </MenuItem>
+                </Menu>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+        </Box>
+
+        <Drawer open={open} onClose={toggleDrawer(false)}>
+        {DrawerList}
+        </Drawer>
+    </div>
+
  );
 }
 
