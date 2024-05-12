@@ -10,8 +10,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import FPrincipal from "../../../../assets/UserHome/slider1.png";
 import Fprueba from "../../../../assets/UserHome/slider2.png";
-import Fprueba3 from "../../../../assets/UserHome/slider3.png";
-import Fprueba4 from "../../../../assets/sliderHome/4.png";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -60,20 +59,6 @@ function SliderHome() {
         <SwiperSlide>
           <img
             src={Fprueba}
-            alt="Descripción de la imagen 1"
-            
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-        <img
-            src={Fprueba3}
-            alt="Descripción de la imagen 1"
-            
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-        <img
-            src={Fprueba4}
             alt="Descripción de la imagen 1"
             
           />
