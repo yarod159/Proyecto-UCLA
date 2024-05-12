@@ -28,7 +28,7 @@ function AppRoutes() {
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/UserFact" element={<UserFact />} />
         <Route path="/UserService" element={<UserService />} />
-        <Route path="/UserHome" element={<UserHome />} />
+        <Route path="/inicio" element={<UserHome />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/register" element={<Login />} />
         <Route path="/404" element={<Error404 />} />

@@ -42,7 +42,7 @@ function UserNavbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/UserHome"
+            href="/inicio"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -112,7 +112,7 @@ function UserNavbar() {
             variant="h5"
             noWrap
             component="a"
-            href="/UserHome"
+            href="/inicio"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

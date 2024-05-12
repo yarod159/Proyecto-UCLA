@@ -15,7 +15,7 @@ import Fprueba from "../../../../assets/UserHome/slider2.png";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./slider.css";
+import "./slider1.css";
 function SliderHome() {
   const [progress, setProgress] = useState(0);
 
@@ -35,7 +35,7 @@ function SliderHome() {
     };
   }, []);
   return (
-    <div className="SP" style={{ position: "relative" }}>
+    <div className="SP">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={100}
