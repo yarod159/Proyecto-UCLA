@@ -37,8 +37,8 @@ function UserHome() {
         <div className="userHome-cards">
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 2, sm: 8 }}
-            sx={{ marginBottom: 2, marginLeft: { xs: 0, sm: 0 } }}
+            spacing={{ xs: 2, sm: 2 }}
+            sx={{ marginBottom: 0, marginLeft: { xs: 0, sm: 0 } }}
           >
             <Item>
               <Card class="CardHome1">
@@ -102,17 +102,17 @@ function UserHome() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Reparación
+                    Atención al cliente
                   </Typography>
                   <Typography variant="body2" color="#454545">
-                    Nuestros técnicos estan dispuestos para ayudarte con la
-                    reparación de tus equipos averiados. Para lo que necesites,
-                    tenemos la solución
+                    ¿Necesitas ayuda? Podemos ayudarte.
+                    En esta sección podrás contactarte con nosotros y te
+                    ayudaremos a solucionar cualquier problema.
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" >
-                    Contratar servicio
+                  <Button size="small" href='/AtencionAlCliente' sx={{ color: "#fff" }} >
+                    Ir a Atención al cliente
                   </Button>
                   <Button size="small">Leer mas</Button>
                 </CardActions>
