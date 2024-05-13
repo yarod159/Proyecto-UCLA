@@ -1,26 +1,30 @@
 @import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
 
-  .row-service {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  .column-service {
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 0 1em 1em 1em;
-    text-align: center;
-    margin:30px;
-   
-  }
-  .card-services {
-    width: 230px;
-   
+
+.services-section {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+  align-items: center;
+  position: relative;
+  top: -240px;
+  z-index: 2;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column-service {
+    margin: 40px;
+}
+.card-services {
+    width: 230px;   
     height: 19rem;
     padding: 2em 1.5em;
-    background: linear-gradient(#dbd9d9 50%, #099A9F 50%);
+    background: linear-gradient(#fff 50%, #099A9F 50%);
     background-size: 100% 200%;
     background-position: 0 2.5%;
     border-radius: 5px;

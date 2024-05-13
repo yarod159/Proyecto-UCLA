@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function Faq({ showDeleteButton }) {
  const [faqs, setFaqs] = useState([]);
+ const [activeFaq, setActiveFaq] = useState(null);
 
 
  const fetchFaqs = async () => {
@@ -42,15 +43,18 @@ const handleDelete = async (faqId) => {
  }
 };
 
+const handleAccordionClick = (faqId) => {
+  setActiveFaq(faqId);
+};
 
  return (
-    <Box sx={{ width: '100%', maxWidth: 1200, margin: 'auto', paddingTop: 10 }}>
-      <Typography variant="h4" gutterBottom align="center">
+    <Box sx={{ width: '100%', maxWidth: 1200, margin: 'auto' }}>
+      <Typography variant="h4" gutterBottom align="center" style={{color:"#18a0a6", fontWeight:"bold", fontSize:"25px", paddingBottom:"60px"}}>
         Preguntas Frecuentes
       </Typography>
 
       {faqs.map((faq, index) => (
-        <Accordion key={faq._id} sx={{ mb: 2, marginBottom: 2 }}>
+        <Accordion key={faq._id} sx={{ mb: 2, marginBottom: 2 ,}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel${index}-content`}
@@ -68,7 +72,7 @@ const handleDelete = async (faqId) => {
             )}
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+          <Typography style={activeFaq === faq._id ? { color: '#18a0a6' } : { color: '#18a0a6' }}>
               {faq.RespuestaFaq}
             </Typography>
           </AccordionDetails>

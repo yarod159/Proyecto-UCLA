@@ -1,8 +1,6 @@
 import "./service.css"
 
 
-
-
 function ServiceCard({ icon, heading, description }) {
   return (
     <div className="card-services">
@@ -23,18 +21,18 @@ export default function Services() {
         { icon: 'fas fa-tv', heading: 'Telefonía móvil', description: 'Lorem ipsum dolor...' },
         { icon: 'fas fa-globe', heading: 'Internet', description: 'Lorem ipsum dolor...' },
         { icon: 'fas fa-tv', heading: 'Televisión por cable', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-satellite-dish', heading: 'Televisión por satélite', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-headphones', heading: 'Servicios de consultoría', description: 'Lorem ipsum dolor...' },
+       
       ];
   return (
-    <section>
-    <div className="row-service">
-      {services.map((service) => (
-        <div className="column-service" key={service.heading}>
-          <ServiceCard {...service} />
-        </div>
-      ))}
-    </div>
+    <section className="services-section">
+    <ul className="service-list">
+        {services.map((service) => (
+          <li key={service.heading} className="column-service">
+            <ServiceCard {...service} />
+          </li>
+        ))}
+      </ul>
+    
   </section>    
   )
 }
