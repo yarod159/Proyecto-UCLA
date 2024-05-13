@@ -1,5 +1,6 @@
 const Instalacion = require("../models/Instalacion");
 const Faq = require("../models/Faq");
+const MetPago = require("../models/MetodoPago");
 // Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 const postInstalacion = async (req, res) => {

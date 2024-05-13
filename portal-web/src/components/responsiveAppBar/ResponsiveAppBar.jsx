@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Button, Typography, Container, Box, IconButton, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logo from "../../assets/Logos/logo2.png";
+import Logo from "../../assets/Logos/logo1-hor-blanco.png";
 
 function Navbar() {
  const navigate = useNavigate();
@@ -20,12 +20,53 @@ function Navbar() {
     <AppBar position="sticky" sx={{ bgcolor: '#15297c' }}>
       <Container maxWidth="lg">
         <Toolbar>
+        <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/Home"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
           <Box
             component="img"
             src={Logo}
-            sx={{ height: 64, marginRight: 2 }}
-            alt="Logo de Kinetika"
+            sx={{ height: '50px', maxWidth: '200px',}}
+            alt="Logo"
           />
+          </Typography>
+
+
+        <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="/Home"
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <Box
+            component="img"
+            src={Logo}
+            sx={{ height: '50px', maxWidth: '200px',}}
+            alt="Logo"
+          />
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {/* Aquí puedes agregar el título de tu sitio */}
           </Typography>
@@ -45,22 +86,13 @@ function Navbar() {
             <Button color="inherit" onClick={() => navigate('/pagos')}>
               Pagos
             </Button>
-            <Button
-              variant="contained"
-              color="inherit"
-              sx={{ backgroundColor: 'white', color: 'black', mr: 2 }}
-              onClick={() => navigate('/registrarse')}
-            >
-              Registrarse
-            </Button>
-            <Button
-              variant="contained"
-              color="inherit"
-              sx={{ backgroundColor: 'white', color: 'black', mr: 5 }}
-              onClick={() => navigate('/factura')}
-            >
+            <Button color="inherit" onClick={() => navigate('/UserHome')}>
               Iniciar sesión
             </Button>
+            <Button color="inherit" onClick={() => navigate('/registrarse')}>
+              Registrarse
+            </Button>
+
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton

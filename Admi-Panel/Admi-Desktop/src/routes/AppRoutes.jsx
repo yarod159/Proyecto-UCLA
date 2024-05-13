@@ -19,12 +19,16 @@ import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
 import InformacionGeneralList from "../pages/AjustesDelSistemas/informacionGeneralList.jsx";
 import Login from "../pages/login/login.jsx";
+import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
+import ReporteClienteList from "../pages/ServicioAlCliente/ReporteClienteList.jsx";
 
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/reports" element={<ReporteClienteList />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
