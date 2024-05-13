@@ -19,9 +19,6 @@ import IMG3 from "../../assets/UserHome/Cliente.png";
 import Faq from '../Home/components/FAQ/Faq';
 import { styled } from '@mui/system';
 import "./UserHome.css";
-
-
-function UserHome() {
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -34,6 +31,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Faq from "../Home/components/FAQ/Faq";
+
+function UserHome() {
+
 
 const style = {
   position: "absolute",
