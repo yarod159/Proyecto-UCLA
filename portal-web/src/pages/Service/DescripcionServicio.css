@@ -1,5 +1,6 @@
 .descripcion-servicio {
     padding: 20px;
+    padding: 2rem;
   }
   
   .productos,.nuestros-servicios,.reparacion {
@@ -10,3 +11,10 @@
     line-height: 1.6;
   }
   
+  .section {
+    margin-bottom: 2rem;
+  }
+  
+  .section h2 {
+    margin-top: 0;
+  }

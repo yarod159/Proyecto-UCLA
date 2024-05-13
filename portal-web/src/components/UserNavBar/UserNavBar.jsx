@@ -16,6 +16,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import LockIcon from '@mui/icons-material/Lock';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -25,6 +26,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import HomeIcon from '@mui/icons-material/Home';
 
 const pages = ['Inicio', 'Productos', 'Servicios'];
 
@@ -93,7 +98,7 @@ function UserNavbar() {
       <ListItem disablePadding>
           <ListItemButton href='/inicio' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
-              <MailIcon />
+              <HomeIcon />
             </ListItemIcon>
 
             <ListItemText>Inicio</ListItemText>
@@ -103,7 +108,7 @@ function UserNavbar() {
       <ListItem disablePadding>
           <ListItemButton href='/productos' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
-              <InboxIcon />
+              <ProductionQuantityLimitsIcon />
             </ListItemIcon>
 
             <ListItemText>Productos</ListItemText>
@@ -113,7 +118,7 @@ function UserNavbar() {
       <ListItem disablePadding>
           <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
-              <MailIcon />
+              <ElectricalServicesIcon />
             </ListItemIcon>
 
             <ListItemText>Servicios</ListItemText>
@@ -126,7 +131,7 @@ function UserNavbar() {
         <ListItem disablePadding>
           <ListItemButton href='/UserProfile' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
-              <MailIcon />
+              <AccountCircleIcon />
             </ListItemIcon>
 
             <ListItemText>Perfil</ListItemText>
@@ -136,7 +141,7 @@ function UserNavbar() {
         <ListItem disablePadding>
           <ListItemButton href='/Home' sx={{ ":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
-              <InboxIcon />
+              <LockIcon />
             </ListItemIcon>
 
             <ListItemText>Cerrar Sesión</ListItemText>

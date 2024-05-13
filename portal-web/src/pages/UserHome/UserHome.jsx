@@ -19,35 +19,10 @@ import IMG3 from "../../assets/UserHome/Cliente.png";
 import Faq from '../Home/components/FAQ/Faq';
 import { styled } from '@mui/system';
 import "./UserHome.css";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import { useState } from "react";
-import TextField from "@mui/material/TextField";
+import DescripcionServicio from '../Service/DescripcionServicio';
 import { Link } from 'react-router-dom';
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Faq from "../Home/components/FAQ/Faq";
 
 function UserHome() {
-
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "#fff",
-  border: "12px solid #18a0a6",
-  boxShadow: 24,
-  p: 4,
-  borderRadius: "8px",
-  "& > :not(style)": { m: 1, width: "25ch" },
-};
 
   const Item = styled(Paper)(({ theme }) => ({
     textAlign: "center",
@@ -87,13 +62,11 @@ const style = {
                   <Button size="small" href="/productos" sx={{ color: "#fff" }}>
                     Ir al catálogo
                   </Button>
-                  <Button
-  size="small"
-  onClick={() => document.getElementById('productos').scrollIntoView({ behavior: 'smooth' })}
-  sx={{ color: "#fff" }}
->
-  Leer más1
-</Button>
+                  <Link to="/DescripcionServicio" style={{ textDecoration: 'none' }}>
+                  <Button size="small" sx={{ color: "#18a0a6" }}>
+                        Leer más
+                  </Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Item>
@@ -120,9 +93,11 @@ const style = {
                   <Button size="small" href="/FormServ" sx={{ color: "#18a0a6" }} >
                     Contratar servicio
                   </Button>
-                  <Button size="small" component={Link} to="/DescripcionServicio">
-  Leer más2
-</Button>
+                  <Link to="/DescripcionServicio" style={{ textDecoration: 'none' }}>
+                  <Button size="small" sx={{ color: "#18a0a6" }}>
+                        Leer más
+                  </Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Item>
@@ -148,9 +123,11 @@ const style = {
                   <Button size="small" href='/AtencionAlCliente' sx={{ color: "#fff" }} >
                     Ir a Atención al cliente
                   </Button>
-                  <Button size="small" component={Link} to="/DescripcionServicio#productos">
-  Leer más3
-</Button>
+                  <Link to="/DescripcionServicio" style={{ textDecoration: 'none' }}>
+                  <Button size="small" sx={{ color: "#18a0a6" }}>
+                        Leer más
+                  </Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Item>
