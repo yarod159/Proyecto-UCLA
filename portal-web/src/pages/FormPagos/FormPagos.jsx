@@ -25,28 +25,22 @@ const FormPagos = () => {
     tipoPared: "",
   });
 
-  const handleDireccionChange = (event) => {
-    setFormData({ ...formData, direccion: event.target.value });
-  };
+  
+  
 
-  const handleEstadoChange = (event) => {
-    setFormData({ ...formData, estado: event.target.value });
-  };
-
-  const handleCodigoPostalChange = (event) => {
-    setFormData({ ...formData, codigoPostal: event.target.value });
-  };
-
-  const handleTipoParedChange = (event) => {
-    setFormData({ ...formData, tipoPared: event.target.value });
-  };
-
-  const [selectedOption, setSelectedOption] = useState("");
+  const [metPago, setmetPago] = useState("");
   const [value, setvalue] = useState("");
+  const [banco, setbanco] = useState("");
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+  const HandleMetPago = (event) => {
+    setmetPago(event.target.value);
   };
+
+  const HandleBanco = (event) => {
+    setbanco(event.target.value);
+  };
+
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -77,8 +71,29 @@ const FormPagos = () => {
                   >
                     <InputLabel>Selecciona un método de pago</InputLabel>
                     <Select
-                      value={selectedOption}
-                      onChange={handleOptionChange}
+                      value={metPago}
+                      onChange={HandleMetPago}
+                    >
+                      <MenuItem value="">Selecciona una opción</MenuItem>
+                      <MenuItem value="TrMisBanc">
+                        Transferencia mismo banco
+                      </MenuItem>
+                      <MenuItem value="TrOtrBanc">
+                        Transferencia otros bancos
+                      </MenuItem>
+                      <MenuItem value="Págo móvil">Págo móvil</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                  <FormControl
+                    fullWidth
+                    variant="standard"
+                    sx={{ marginTop: 4 }}
+                  >
+                    <InputLabel>Selecciona un banco</InputLabel>
+                    <Select
+                      value={banco}
+                      onChange={HandleBanco}
                     >
                       <MenuItem value="">Selecciona una opción</MenuItem>
                       <MenuItem value="TrMisBanc">
