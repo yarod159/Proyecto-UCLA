@@ -7,12 +7,14 @@
     float: left;
   }
   .Hcontainer {
-    display: flex;
+    display: flex; /* Utilizamos flexbox para alinear elementos horizontalmente */
     align-items: center; /* Esto alinea verticalmente el texto y la imagen */
-   }
-   
-   .Hcontainer p {
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    padding: 0; /* Elimina cualquier padding innecesario */
+}
+
+.Hcontainer p {
     margin-right: 10px; /* Añade un poco de espacio entre el texto y la imagen */
-   }
+}
 
    

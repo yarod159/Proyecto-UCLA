@@ -70,9 +70,13 @@ class Login extends React.Component {
             />
             <label>Password</label>
           </div>
-          <button type="submit">
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             Ingresar
-          </button>
+          </a>
         </form>
       </div>
     );

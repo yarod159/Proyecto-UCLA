@@ -1,0 +1,27 @@
+.presentacion-descripcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+   font-size: 16px;
+   width: 50vw;
+}
+
+.presentacion-title-font{
+    font-size: 50px;
+    font-weight: bold;
+    
+}
+
+@media (max-width: 600px) {
+    .presentacion-descripcion {
+         font-size: 16px;
+         width: 70%; /* Ajusta el ancho al 100% para ocupar todo el ancho disponible en pantallas pequeñas */
+     }
+ 
+    .presentacion-title-font{
+         font-size: 35px;
+         font-weight: bold;
+     }
+ }
+ 
