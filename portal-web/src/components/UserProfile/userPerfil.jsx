@@ -56,19 +56,23 @@ const UserPerfil = () => {
                     </div>
                   
                   
-                  <div className="userUpdateItem">
+                  <div className="userUpdateItem1">
                     
-                      <Divider component="div" role="presentation" >
-                        <Typography sx={{
-                          borderRadius:'6px',
-                          border: '1px solid #18a0a6',
-                          margin: '2px',
-                          padding: '3px 10px 3px 10px'
-                        
-                      }}>Información General</Typography>
-                      </Divider>
+
 
                       <List component="nav">
+
+                      <ListItem sx={{textAlign:'center', 
+                      bgcolor:'#18a0a6', 
+                      marginTop:'-10px', 
+                      borderTopLeftRadius:'12px', 
+                      borderTopRightRadius:'12px',
+                      color:'#fff'}}>
+                        <ListItemText >
+                          Informacion General
+                        </ListItemText>
+                        
+                      </ListItem>
                         <ListItem>
                           <ListItemText primary="Nombre: " />
                           <IconButton edge="end" aria-label="comments">
@@ -108,17 +112,21 @@ const UserPerfil = () => {
                   </div>
                     
 
-                  <div className="userUpdateItem">
-                    <Divider component="div" role="presentation">
-                      <Typography sx={{
-                          
-                          margin: '2px',
-                          padding: '3px 10px 3px 10px'
-                        
-                      }}>Contacto</Typography>
-                    </Divider>
+                  <div className="userUpdateItem1">
 
                     <List component="nav">
+
+                    <ListItem sx={{textAlign:'center', 
+                      bgcolor:'#18a0a6', 
+                      marginTop:'-10px', 
+                      borderTopLeftRadius:'12px', 
+                      borderTopRightRadius:'12px',
+                      color:'#fff'}}>
+                        <ListItemText >
+                          Contacto
+                        </ListItemText>
+                        
+                      </ListItem>
                       <ListItem>
                         <ListItemText primary="Correo: " />
                           <IconButton edge="end" aria-label="comments">
@@ -151,7 +159,7 @@ const UserPerfil = () => {
                     <List component="nav">
 
                       <ListItem sx={{textAlign:'center', 
-                      bgcolor:'#888888', 
+                      bgcolor:'#18a0a6', 
                       marginTop:'-10px', 
                       borderTopLeftRadius:'12px', 
                       borderTopRightRadius:'12px',
@@ -182,7 +190,7 @@ const UserPerfil = () => {
 
                 </div>
                 
-                <Button variant="contained" color="primary" className="userUpdateButton" sx={{alignItems:'center'}}>
+                <Button variant="contained" color="primary"  sx={{alignItems:'center'}}>
                   Save Changes
                 </Button>
               </form>
