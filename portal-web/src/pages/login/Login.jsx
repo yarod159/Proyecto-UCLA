@@ -1,31 +1,30 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import axios from 'axios';
 
-
-
 function SuccessModal({ showModal, setShowModal }) {
+  const navigate = useNavigate();
+
   return (
-     showModal && (
-       <div className="modal">
-         <div className="modal-content">
-           <h2>¡Registro exitoso!</h2>
-           <p>Has sido registrado correctamente.</p>
-           <button onClick={() => setShowModal(false)}>Cerrar</button>
-         </div>
-       </div>
-     )
+    showModal && (
+      <div className="modal">
+        <div className="modal-content">
+          <h2>¡Registro exitoso!</h2>
+          <p>Has sido registrado correctamente.</p>
+          <button onClick={() => { setShowModal(false); navigate("/userHome"); }}>Ir al Home</button>
+        </div>
+      </div>
+    )
   );
- }
- 
+}
 
 function Login() {
   const [showModal, setShowModal] = useState(false);
-
   const [active, setActive] = useState(false);
-  const [error, setError] = useState(null); // Maneja los errores
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" }); // Maneja los datos del formulario
-
+  const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
   const handleToggle = () => {
     setActive(!active);
   };
@@ -37,62 +36,70 @@ function Login() {
     });
   };
 
-
   const handleRegistration = async (event) => {
-    event.preventDefault(); // Previene el envío del formulario
-   
-    try {
-       const response = await axios.post("http://localhost:3000/register", {
-         name: formData.name,
-         email: formData.email,
-         password: formData.password,
-       });
-   
-       console.log(response.data); // Maneja el registro exitoso
-       setError(null); // Limpia los errores
-       setShowModal(true); // Muestra el modal de éxito
-   
-    } catch (error) {
-       console.error(error.response.data); // Registra el error para depuración
-       setError(error.response.data?.message || "Registration failed"); // Mensaje de error para el usuario
-    }
-   };
-   
+    event.preventDefault();
+    console.log(formData); // Log the formData object
 
- return (
+    try {
+      const response = await axios.post("http://localhost:3000/auth/register", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      console.log(response.data);
+      setError(null);
+      setShowModal(true);
+    
+    } catch (error) {
+      console.error(error.response.data);
+      setError(error.response.data?.message || "Registration failed");
+    }
+  };
+
+
+  ////login
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3000/auth/login", {
+        email,
+        password,
+      });
+
+      console.log(response.data);
+
+      // Store the JWT token in local storage
+      localStorage.setItem('jwtToken', response.data.token);
+
+      // Navigate to a new page
+      navigate('/userHome');
+
+    } catch (error) {
+      console.error(error.response.data);
+      setErrorMessage(error.response.data?.message || "Login failed");
+    }
+  };
+
+
+  return (
     <div className="container-L">
       <div className={`container-login ${active ? "active" : ""}`}>
         <div className="form-container sign-up">
-        <form onSubmit={handleRegistration}>
-            <h1>Create Account</h1>
-            <div className="social-icons"></div>
-            <span>or use your email for registration</span>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              />
-            <button type="submit">Sign Up</button>
-          </form>
-        </div>
-        <div className="form-container sign-in">
-          <form>
+         <form onSubmit={handleSubmit}>
             <h1>Sign In</h1>
             <div className="social-icons">
               <a href="#" className="icon">
@@ -109,11 +116,49 @@ function Login() {
               </a>
             </div>
             <span>or use your email password</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" placeholder="Email" name="email"
+              value={email} 
+              onChange={handleEmailChange} />
+            <input type="password" placeholder="Password" name="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
             <a href="#">Forget Your Password?</a>
             <button>Sign In</button>
           </form>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+
+        
+        <div className="form-container sign-in">
+        <form onSubmit={handleSubmit}> 
+            <h1>Sign In</h1>
+            <div className="social-icons">
+              <a href="#" className="icon">
+                <i className="fa-brands fa-google-plus-g"></i>
+              </a>
+              <a href="#" className="icon">
+                <i className="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" className="icon">
+                <i className="fa-brands fa-github"></i>
+              </a>
+              <a href="#" className="icon">
+                <i className="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+            <span>or use your email password</span>
+            <input type="email" placeholder="Email" name="email"
+              value={email} 
+              onChange={handleEmailChange} />
+            <input type="password" placeholder="Password" name="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <a href="#">Forget Your Password?</a>
+            <button>Sign In</button>
+          </form>
+          <SuccessModal showModal={showModal} setShowModal={setShowModal} />
         </div>
         <div className="toggle-container">
           <div className="toggle">
@@ -136,10 +181,9 @@ function Login() {
           </div>
         </div>
       </div>
-      <SuccessModal showModal={showModal} setShowModal={setShowModal} />
-
+    
     </div>
- );
+  );
 }
 
 export default Login;

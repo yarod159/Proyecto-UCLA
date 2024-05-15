@@ -1,7 +1,4 @@
 node_modules
 .env
-<<<<<<< HEAD
 package-lock.json
-=======
-package-lock.js
->>>>>>> Staging
+node_modules/.vite/
