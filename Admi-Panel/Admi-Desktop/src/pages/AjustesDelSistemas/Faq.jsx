@@ -8,6 +8,8 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
+import Modal from "@mui/material/Modal";
+
 
 const isDesktopAdminPanel = true;
 
@@ -23,6 +25,11 @@ export default function Faq() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!PreguntaFaq.trim() ||!RespuestaFaq.trim()) {
+      alert("Por favor, llene todos los campos.");
+      return; 
+    }
     const faqData = {
       PreguntaFaq,
       RespuestaFaq,
@@ -33,7 +40,8 @@ export default function Faq() {
         .post("http://localhost:3000/instalador/post-faq", faqData)
         .then((response) => {
           console.log(response.data);
-          
+          setPreguntaFaq("");
+          setRespuestaFaq("");
           setOpen(true);
          
         })
@@ -67,6 +75,9 @@ export default function Faq() {
                     value={PreguntaFaq}
                     margin="normal"
                     onChange={(e) => setPreguntaFaq(e.target.value)}
+                    sx={{
+                      fontWeight: 'bold', // Aumenta el peso de la fuente aquí
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
@@ -79,6 +90,9 @@ export default function Faq() {
                     maxRows={4}
                     value={RespuestaFaq}
                     onChange={(e) => setRespuestaFaq(e.target.value)}
+                    sx={{
+                      fontWeight: 'bold', // Aumenta el peso de la fuente aquí
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
@@ -92,15 +106,19 @@ export default function Faq() {
           </form>
         </div>
       </div>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Guardado con éxito</DialogTitle>
-        <DialogContent>
-          <p>La pregunta FAQ ha sido guardada con éxito.</p>
-        </DialogContent>
-        <DialogActions>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <Box sx={{ width: 400, bgcolor: 'background.paper', p: 2, mx: 'auto', my: '20%', borderRadius: 1 }}>
+          <h2 id="modal-title">Guardado con éxito</h2>
+          <p id="modal-description">La pregunta FAQ ha sido guardada con éxito.</p>
           <Button onClick={handleClose}>Cerrar</Button>
-        </DialogActions>
-      </Dialog>
+        </Box>
+      </Modal>
+     
     </div>
   );
 }
