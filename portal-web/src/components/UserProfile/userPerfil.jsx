@@ -21,7 +21,7 @@ import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HttpsIcon from '@mui/icons-material/Https';
-
+import EditIcon from '@mui/icons-material/Edit';
 
 import './userPerfil.css'
 
@@ -85,34 +85,38 @@ const UserPerfil = () => {
                         
                       </ListItem>
                         <ListItem>
+                        <DriveFileRenameOutlineIcon />
                           <ListItemText primary="Nombre: " />
                           <IconButton edge="end" aria-label="comments">
-                            <DriveFileRenameOutlineIcon />
+                          <EditIcon />
                           </IconButton>
                         </ListItem>
                         
 
                         <Divider />
                         <ListItem>
+                        <PersonIcon />
                           <ListItemText primary="Apellido: " />
                           <IconButton edge="end" aria-label="comments">
-                            <PersonIcon />
+                          <EditIcon />
                           </IconButton>
                         </ListItem>
 
                         <Divider />
                         <ListItem>
+                        <BadgeIcon />
                           <ListItemText primary="Cédula: " />
                           <IconButton edge="end" aria-label="comments">
-                            <BadgeIcon />
+                          <EditIcon />
                           </IconButton>
                         </ListItem>
 
                         <Divider />
                         <ListItem>
+                          <CalendarMonthIcon />
                           <ListItemText primary="Fecha de nacimiento: " />
                           <IconButton edge="end" aria-label="comments">
-                            <CalendarMonthIcon />
+                          <EditIcon />
                           </IconButton>
                         </ListItem>
                       </List>
@@ -139,24 +143,27 @@ const UserPerfil = () => {
                         
                       </ListItem>
                       <ListItem>
+                         <MarkEmailReadIcon />
                         <ListItemText primary="Correo: " />
                           <IconButton edge="end" aria-label="comments">
-                            <MarkEmailReadIcon />
+                          <EditIcon /> 
                           </IconButton>
                         </ListItem>
                         <Divider />
                         <ListItem>
+                        <PhoneAndroidIcon />
                           <ListItemText primary="Teléfono: " />
                           <IconButton edge="end" aria-label="comments">
-                            <PhoneAndroidIcon />
+                          <EditIcon /> 
                           </IconButton>
                         </ListItem>
                       
                       <Divider />
                         <ListItem>
+                        <HomeIcon />
                           <ListItemText primary="Dirección: " />
                           <IconButton edge="end" aria-label="comments">
-                            <HomeIcon />
+                          <EditIcon /> 
                           </IconButton>
                         </ListItem>
                       </List>
@@ -183,16 +190,18 @@ const UserPerfil = () => {
                         
 
                       <ListItem>
+                      <AccountCircleIcon />
                         <ListItemText primary="Usuario: " />
                           <IconButton edge="end" aria-label="comments">
-                            <AccountCircleIcon />
+                          <EditIcon /> 
                           </IconButton>
                         </ListItem>
                         <Divider />
                         <ListItem>
+                        <HttpsIcon />
                           <ListItemText primary="Contraseña: " />
                           <IconButton edge="end" aria-label="comments">
-                            <HttpsIcon />
+                          <EditIcon /> 
                           </IconButton>
                         </ListItem>
                       </List>
