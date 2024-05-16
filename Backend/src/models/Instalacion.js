@@ -19,6 +19,13 @@ const instalacionSchema = new Schema({
     type: String,
     
  },
+ titulo: {
+   type: String,
+},
+quienesSomos: {
+   type: String,
+   
+},
  
 });
 

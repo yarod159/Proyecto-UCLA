@@ -11,6 +11,8 @@ const postInstalacion = async (req, res) => {
       numeroTelefono: req.body.numeroTelefono,
       mision: req.body.mision,
       vision: req.body.vision,
+      titulo: req.body.titulo,
+      quienesSomos: req.body.quienesSomos,
     });
 
     // Guardar el empleado en la base de datos
@@ -45,6 +47,64 @@ const getInstalacion = async (req, res) => {
     });
   }
 };
+const deleteInstalacion = async (req, res) => {
+  try {
+    
+     const instalacionId = req.params.id;
+     
+ 
+     
+     const result = await Instalacion.findByIdAndDelete(instalacionId);
+ 
+     if (!result) {
+       // Si no se encuentra la informacion, enviar un mensaje de error
+       return res.status(404).json({
+         success: false,
+         message: "No se encontró la instalacion con el ID proporcionado",
+       });
+     }
+ 
+
+     res.status(200).json({
+       success: true,
+       message: "Instalacion eliminado exitosamente",
+     });
+  } catch (error) {
+     // Enviar un mensaje de error
+     res.status(500).json({
+       success: false,
+       message: "Error al intentar eliminar la instalacion",
+       error: error.message,
+     });
+  }
+ };
+ const patchInstalacion = async (req, res) => {
+  try {
+     const instalacionId = req.params.id;
+     const updateFields = req.body;
+     const result = await Instalacion.findByIdAndUpdate(instalacionId, { $set: updateFields }, { new: true });
+ 
+     if (!result) {
+       return res.status(404).json({
+         success: false,
+         message: "No se encontró la instalacion con el ID proporcionado",
+       });
+     }
+ 
+     res.status(200).json({
+       success: true,
+       data: result,
+       message: "Instalacion actualizada exitosamente",
+     });
+  } catch (error) {
+     res.status(500).json({
+       success: false,
+       message: "Error al intentar actualizar la instalacion",
+       error: error.message,
+     });
+  }
+ };
+
 
 const postPreguntaFaq =async (req, res) => {
   try {
@@ -122,4 +182,4 @@ const deleteFaq = async (req, res) => {
  
 
 
-module.exports = { postInstalacion, getInstalacion,postPreguntaFaq,getFaq,deleteFaq };
+module.exports = { postInstalacion, getInstalacion, deleteInstalacion, patchInstalacion, postPreguntaFaq,getFaq,deleteFaq };
