@@ -12,6 +12,16 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CommentIcon from "@mui/icons-material/Comment";
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import BadgeIcon from '@mui/icons-material/Badge';
+import PersonIcon from '@mui/icons-material/Person';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HttpsIcon from '@mui/icons-material/Https';
+import EditIcon from '@mui/icons-material/Edit';
 import "./userPerfil.css";
 
 const Div = styled("div")(({ theme }) => ({
@@ -111,6 +121,7 @@ const UserPerfil = () => {
                       </ListItem>
                       
                       <ListItem>
+                        <DriveFileRenameOutlineIcon />
                         <ListItemText primary="Nombre: " />
                         {editing.nombre ? (
                           <TextField
@@ -132,13 +143,14 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("nombre")}
                         >
-                          <CommentIcon />
+                         <EditIcon />
                         </IconButton>
                       </ListItem>
 
                       <Divider />
 
                       <ListItem>
+                      <PersonIcon />
                         <ListItemText primary="Apellido: " />
                         {editing.apellido? (
                           <TextField
@@ -158,11 +170,12 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("apellido")}
                         >
-                          <CommentIcon />
+                          <EditIcon />
                         </IconButton>
                       </ListItem>
                       <Divider />
                       <ListItem>
+                      <BadgeIcon />
                         <ListItemText primary="Cédula: " />
                         {editing.cedula? (
                           <TextField
@@ -182,11 +195,12 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("cedula")}
                         >
-                          <CommentIcon />
+                           <EditIcon />
                         </IconButton>
                       </ListItem>
                       <Divider />
                       <ListItem>
+                      <CalendarMonthIcon />
                         <ListItemText primary="Fecha de nacimiento: " />
                         {editing.fechaNacimiento? (
                           <TextField
@@ -206,7 +220,7 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("fechaNacimiento")}
                         >
-                          <CommentIcon />
+                         <EditIcon />
                         </IconButton>
                       </ListItem>
                     </List>
@@ -250,13 +264,14 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("correo")}
                         >
-                          <CommentIcon />
+                          <EditIcon /> 
                         </IconButton>
                       </ListItem>
 
                       <Divider />
 
                       <ListItem>
+                      <PhoneAndroidIcon />
                         <ListItemText primary="Teléfono: " />
                         {editing.telefono? (
                           <TextField
@@ -276,11 +291,12 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("telefono")}
                         >
-                          <CommentIcon />
+                          <EditIcon /> 
                         </IconButton>
                       </ListItem>
                       <Divider />
                       <ListItem>
+                      <HomeIcon />
                         <ListItemText primary="Dirección: " />
                         {editing.direccion? (
                           <TextField
@@ -300,7 +316,7 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("direccion")}
                         >
-                          <CommentIcon />
+                          <EditIcon /> 
                         </IconButton>
                       </ListItem>
                       
@@ -323,6 +339,7 @@ const UserPerfil = () => {
                       </ListItem>
                       
                       <ListItem>
+                      <AccountCircleIcon />
                         <ListItemText primary="Usuario: " />
                         {editing.usuario ? (
                           <TextField
@@ -344,13 +361,14 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("usuario")}
                         >
-                          <CommentIcon />
+                          <EditIcon /> 
                         </IconButton>
                       </ListItem>
 
                       <Divider />
 
                       <ListItem>
+                        <HttpsIcon />
                         <ListItemText primary="Contraseña: " />
                         {editing.contraseña? (
                           <TextField
@@ -370,7 +388,7 @@ const UserPerfil = () => {
                           aria-label="comments"
                           onClick={() => handleEdit("contraseña")}
                         >
-                          <CommentIcon />
+                          <EditIcon />
                         </IconButton>
                       </ListItem>
                       
