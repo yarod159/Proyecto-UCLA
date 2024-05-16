@@ -1,17 +1,15 @@
-import React from "react";
-import { Typography, Grid, TextField, Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Typography, Grid, TextField, Button, Box, Select, MenuItem, FormControl, InputLabel, FormLabel, Card, CardContent } from "@mui/material";
 import UserNavBar from "../../components/UserNavBar/UserNavBar";
 import Footer from "../../components/footer/Footer";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import "./FormPagos.css";
-import { Box, Select, FormLabel } from "@mui/material";
-import { useState } from "react";
-import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import axios from 'axios';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
+  backgroundColor: theme.palette.mode === "dark"? "#1A2027" : "#fff",
+ ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
@@ -25,32 +23,40 @@ const FormPagos = () => {
     tipoPared: "",
   });
 
-  const handleDireccionChange = (event) => {
-    setFormData({ ...formData, direccion: event.target.value });
+  const [metPago, setmetPago] = useState("");
+  const [bancoSeleccionado, setBancoSeleccionado] = useState(null);
+  const [bancos, setBancos] = useState([]);
+
+  useEffect(() => {
+    const fetchBanks = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/instalador/get-metodoPago');
+        setBancos(response.data.data); // Actualiza la lista de bancos
+        setBancoSeleccionado("");
+        console.log(response.data)
+      } catch (error) {
+        console.error("Error al cargar los bancos:", error);
+      }
+    };
+
+    fetchBanks();
+  }, []);
+
+  const HandleMetPago = (event) => {
+    setmetPago(event.target.value);
   };
 
-  const handleEstadoChange = (event) => {
-    setFormData({ ...formData, estado: event.target.value });
-  };
-
-  const handleCodigoPostalChange = (event) => {
-    setFormData({ ...formData, codigoPostal: event.target.value });
-  };
-
-  const handleTipoParedChange = (event) => {
-    setFormData({ ...formData, tipoPared: event.target.value });
-  };
-
-  const [selectedOption, setSelectedOption] = useState("");
-  const [value, setvalue] = useState("");
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+  const HandleBanco = (event) => {
+    const selectedBankId = event.target.value;
+    const selectedBank = bancos.find(banco => banco._id === selectedBankId);
+    if (selectedBank) {
+      setBancoSeleccionado(selectedBank);
+    }
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({...formData, [name]: value });
   };
 
   return (
@@ -70,26 +76,50 @@ const FormPagos = () => {
                     Por favor rellene los datos
                   </Typography>
                   <hr />
-                  <FormControl
-                    fullWidth
-                    variant="standard"
-                    sx={{ marginTop: 4 }}
-                  >
+                  <FormControl fullWidth variant="standard" sx={{ marginTop: 4 }}>
                     <InputLabel>Selecciona un método de pago</InputLabel>
-                    <Select
-                      value={selectedOption}
-                      onChange={handleOptionChange}
-                    >
+                    <Select value={metPago} onChange={HandleMetPago}>
                       <MenuItem value="">Selecciona una opción</MenuItem>
-                      <MenuItem value="TrMisBanc">
-                        Transferencia mismo banco
-                      </MenuItem>
-                      <MenuItem value="TrOtrBanc">
-                        Transferencia otros bancos
-                      </MenuItem>
+                      <MenuItem value="TrMisBanc">Transferencia mismo banco</MenuItem>
+                      <MenuItem value="TrOtrBanc">Transferencia otros bancos</MenuItem>
                       <MenuItem value="Págo móvil">Págo móvil</MenuItem>
                     </Select>
                   </FormControl>
+
+                  <FormControl fullWidth variant="standard" sx={{ marginTop: 4 }}>
+                    <InputLabel>Selecciona un banco</InputLabel>
+                    <Select value={bancoSeleccionado? bancoSeleccionado._id : ""} onChange={HandleBanco}>
+                      <MenuItem value="">Selecciona una opción</MenuItem>
+                      {bancos.map(banco => (
+                        <MenuItem key={banco._id} value={banco._id}>{banco.Banco}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+
+                  {bancoSeleccionado && (
+                    <Card sx={{ marginTop: 2 }}>
+                      <CardContent>
+                        <Typography variant="h6" gutterBottom>
+                          Información del Banco Seleccionado
+                        </Typography>
+                        <Typography variant="body1">
+                          Nombre: {bancoSeleccionado.Banco}
+                        </Typography>
+                        <Typography variant="body1">
+                          Identificación: {bancoSeleccionado.Identificacion}
+                        </Typography>
+                        <Typography variant="body1">
+                          Beneficiario: {bancoSeleccionado.Beneficiario}
+                        </Typography>
+                        <Typography variant="body1">
+                          Teléfono: {bancoSeleccionado.NumeroTelefono}
+                        </Typography>
+                        <Typography variant="body1">
+                          Número de Cuenta: {bancoSeleccionado.NumeroCuenta}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  )}
 
                   <div className="form-pagos">
                     <div className="form-datos-de-pago">

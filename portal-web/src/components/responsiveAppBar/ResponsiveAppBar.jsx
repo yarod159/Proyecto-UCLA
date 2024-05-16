@@ -64,8 +64,8 @@ function Navbar() {
     { label: "Productos", path: "/productos" },
     { label: "Servicios", path: "/servicios" },
     { label: "Pagos", path: "/pagos" },
-    { label: "Registrarse", path: "/registrarse" },
-    { label: "Iniciar sesión", path: "/UserHome" }
+    { label: "Registrarse", path: "/register" },
+    { label: "Iniciar sesión", path: "/register" }
   ];
 
   return (

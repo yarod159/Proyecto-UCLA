@@ -158,7 +158,7 @@ function UserNavbar() {
 
         <Box sx={{display:'flex'}}>
         <CssBaseline />
-        <AppBar position="fixed" sx={{ bgcolor: '#18a0a6' }} open={open}>
+        <AppBar position="static" sx={{ bgcolor: '#18a0a6' }} open={open}>
           
           <Container>
             <Toolbar disableGutters>
