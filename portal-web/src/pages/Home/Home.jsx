@@ -26,9 +26,7 @@ function Home() {
     
     }}>
       <Navbar />
-      <Box>
-      <Presentacion/>
-      </Box>
+      <Presentacion />
       <Services />
       <NosotrosHomeMain/>
       

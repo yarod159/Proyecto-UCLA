@@ -1,9 +1,9 @@
-import { Button, Container, Grid, Typography, Box } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import miImagen from '../../../../assets/background/mircro.jpg';
 import miImagenDos from '../../../../assets/background/micro2.jpg';
 import ImgFibra from '../../../../assets/background/tipos-fibra-optica-internet.jpg';
-import './presentacion.css'
+import './presentacion.css';
 const IMAGE_INTERVAL = 4000; // Intervalo de tiempo para cambiar la imagen automáticamente
 
 function Presentacion() {
@@ -36,9 +36,10 @@ function Presentacion() {
           objectFit: 'cover',
           position: 'relative',
           top: '-80px',
-          left: '49%',
+          left: '50%',
           transform: 'translateX(-50%) scale(1)',
           transition: 'transform 0.5s ease-in-out',
+         
         }}
         src={images[currentIndex].src}
         alt={`Imagen ${currentIndex + 1}`}
@@ -63,12 +64,12 @@ function Presentacion() {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h1" component="div" gutterBottom className='presentacion-title-font'>
+            <Typography variant="h1" component="div" gutterBottom style={{ fontSize: '50px', fontWeight:"bold" }}>
               Servicio Técnico en Telefonía a Proveedores de Telecomunicaciones
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="body1" component="div" gutterBottom className='presentacion-descripcion'>
+            <Typography variant="body1" component="div" gutterBottom>
               Líderes en suministro de equipamiento y soluciones integrales de telecomunicaciones, adaptadas a tus necesidades de negocio y tecnología desde hace más de 15 años.
             </Typography>
           </Grid>
@@ -94,4 +95,4 @@ function Presentacion() {
   );
 }
 
-export default Presentacion;
+export default Presentacion;
