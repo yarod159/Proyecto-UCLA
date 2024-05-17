@@ -9,6 +9,8 @@ import Sidebar from "../../components/sideBar/SideBar";
 import axios from 'axios';
 import React, {  useEffect } from 'react';
 import SidebarMui from "../../components/sideBar/SidebarMui";
+import MUIDataTable from "mui-datatables";
+import { Box } from "@mui/material";
 
 function generarIdAleatorio() {
   var longitud = 8,
@@ -46,18 +48,16 @@ export default function UserList() {
  
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
+    { name: "_id", label: "ID", width: 90 },
     {
-      field: "name",
-      headerName: "Name",
-      width: 250,
+      name: "name",
+      label: "Nombre"
     },
-    { field: "email", headerName: "Email", width: 250 },
+    { name: "email", label: "Email" },
    
     {
-      field: "action",
-      headerName: "Action",
-      width: 200,
+      name: "action",
+      label: "Action",
       renderCell: (params) => {
         return (
           <>
@@ -80,15 +80,19 @@ export default function UserList() {
       <div className="container">
         <SidebarMui />
         <div className="userList">
-          <DataGrid
-           rows={data}
-           disableSelectionOnClick
-           columns={columns}
-           pageSize={10}
-           checkboxSelection
-           getRowId={(row) => row._id}
-           autoHeight={true}
-          />
+        <div className="empleado-button-container">
+            <Link to={"/#"}>
+              <div className="empleado-button-crear">
+                <button>Registrar un Empleado</button>
+              </div>
+            </Link>
+          </div>
+          <Box>
+           <MUIDataTable
+            data={data}
+            title="Usuarios"
+            columns={columns}
+          /></Box>
         </div>
       </div>
     </div>

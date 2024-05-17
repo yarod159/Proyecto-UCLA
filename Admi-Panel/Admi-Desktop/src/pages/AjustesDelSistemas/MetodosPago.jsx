@@ -19,6 +19,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import MUIDataTable from "mui-datatables";
 
 const StyledButton = styled(Button)({
  margin: "10px",
@@ -112,23 +113,23 @@ export default function MetodosPago() {
 
 
  const columns = [
-   { field: "_id", headerName: "ID", width: 90 },
+   { name: "_id", label: "ID", width: 90 },
    {
-     field: "Banco",
-     headerName: "Banco",
+     name: "Banco",
+     label: "Banco",
      width: 160,
    },
-   { field: "Identificacion", headerName: "Cedula / Rif", width: 100 },
+   { name: "Identificacion", label: "Cedula / Rif", width: 100 },
 
-   { field: "Beneficiario", headerName: "Beneficiario", width: 180 },
+   { name: "Beneficiario", label: "Beneficiario", width: 180 },
 
-   { field: "NumeroTelefono", headerName: "Numero de telefono", width: 120 },
+   { name: "NumeroTelefono", label: "Numero de telefono", width: 120 },
   
-   { field: "NumeroCuenta", headerName: "Numero de cuenta", width: 200 },
+   { name: "NumeroCuenta", label: "Numero de cuenta", width: 200 },
    
    {
-     field: "action",
-     headerName: "Action",
+     name: "action",
+     label: "Action",
      width: 200,
      renderCell: (params) => {
        return (
@@ -153,15 +154,12 @@ export default function MetodosPago() {
         <div className="newProduct">
           <h1 className="informacionGeneral-h1">MÉTODOS DE PAGO REGISTRADOS</h1>
 
-          <DataGrid
-           rows={data}
-           disableSelectionOnClick
-           columns={columns}
-           pageSize={10}
-           checkboxSelection
-           getRowId={(row) => row._id}
-           autoHeight={true}
-          />    
+          <Box>
+           <MUIDataTable
+            data={data}
+            title=""
+            columns={columns}
+          /></Box>
 
           <Button variant="contained" onClick={handleOpen} 
             sx={{ marginTop: 4, color: '#fff', bgcolor: '#18a0a6', 

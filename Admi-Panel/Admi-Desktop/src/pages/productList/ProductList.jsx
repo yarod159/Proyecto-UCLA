@@ -8,6 +8,8 @@ import { useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import SidebarMui from "../../components/sideBar/SidebarMui";
+import MUIDataTable from "mui-datatables";
+import { Box } from "@mui/material";
 
 export default function ProductList() {
   const [data, setData] = useState(ProductData);  
@@ -17,11 +19,10 @@ export default function ProductList() {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { name: "id", label: "ID", width: 90 },
     {
-      field: "product",
-      headerName: "Nombre del Producto",
-      width: 200,
+      name: "product",
+      label: "Nombre del Producto",
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -33,30 +34,28 @@ export default function ProductList() {
     },
    
     {
-      field: "cantidad",
-      headerName: "Cantidad",
-      width: 100,
+      name: "cantidad",
+      label: "Cantidad",
+ 
     },
     {
-      field: "caracteristicas",
-      headerName: "Caracteristicas",
-      width: 200,
+      name: "caracteristicas",
+      label: "Caracteristicas",
+ 
     },
     {
-      field: "color",
-      headerName: "Color",
-      width: 100,
+      name: "color",
+      label: "Color",
+ 
     },
     {
-      field: "precio",
-      headerName: "Precio",
-      width: 100,
+      name: "precio",
+      label: "Precio",
+
     },
     {
-      field: "foto",
-      headerName: "Foto",
-     
-      width: 100,
+      name: "foto",
+      label: "Foto",
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -68,13 +67,13 @@ export default function ProductList() {
       },
     },
     {
-      field: "categoria",
-      headerName: "Categoria",
+      name: "categoria",
+      label: "Categoria",
       width: 150,
     },
     {
-      field: "action",
-      headerName: "Action",
+      name: "action",
+      label: "Action",
       width: 150,
       renderCell: (params) => {
         return (
@@ -98,13 +97,18 @@ export default function ProductList() {
       <div className="container">
         <SidebarMui/>
       <div className="productList">
-        <DataGrid
-          rows={data}
-          disableSelectionOnClick
-          columns={columns}
-          pageSize={8}
-          checkboxSelection
-        />
+          <Link to={"/#"}>
+            <div className="empleado-button-crear">
+              <button>Registrar un Empleado</button>
+            </div>
+          </Link>
+        
+          <Box>
+           <MUIDataTable
+            data={data}
+            title="Productos"
+            columns={columns}
+          /></Box>
       </div>
       </div>
     </div>
