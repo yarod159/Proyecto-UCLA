@@ -80,13 +80,7 @@ export default function UserList() {
       <div className="container">
         <SidebarMui />
         <div className="userList">
-        <div className="empleado-button-container">
-            <Link to={"/#"}>
-              <div className="empleado-button-crear">
-                <button>Registrar un Empleado</button>
-              </div>
-            </Link>
-          </div>
+
           <Box>
            <MUIDataTable
             data={data}

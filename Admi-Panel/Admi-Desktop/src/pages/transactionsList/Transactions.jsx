@@ -82,11 +82,6 @@ export default function Transactions() {
       <div className="container">
         <SidebarMui />
         <div className="productList">
-        <Link to={"/#"}>
-            <div className="empleado-button-crear">
-              <button>Registrar un Empleado</button>
-            </div>
-          </Link>
         
           <Box>
            <MUIDataTable

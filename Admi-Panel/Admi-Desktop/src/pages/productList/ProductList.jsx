@@ -99,7 +99,7 @@ export default function ProductList() {
       <div className="productList">
           <Link to={"/#"}>
             <div className="empleado-button-crear">
-              <button>Registrar un Empleado</button>
+              <button>Registrar un Producto</button>
             </div>
           </Link>
         
