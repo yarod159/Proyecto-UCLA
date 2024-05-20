@@ -1,28 +1,20 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { loginRequest, registerRequest } from "../api/auth";
+import { loginRequest, registerRequest,verifyTokenRequest  } from "../api/auth";
 import axios from "../api/axios";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  console.log('context:',context)
+  console.log('prueba de context11:',context)
   if (!context) throw new Error("useAuth must be used within a AuthProvider");
   return context;
 };
 
-const verifyTokenRequest = async () => {
-  try {
-    const response = await axios.get('http://localhost:3000/auth/verify');
-    console.log(response);
-    return response.data;
-  } catch (error) {
-    console.error('Error verifying token:', error);
-    throw error;
-  }
-};
 
 export const AuthProvider = ({ children }) => {
+
+
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -37,11 +29,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, [errors]);
 
+
+  
+
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
 
-      console.info('Esto es un res: ',res);
+      console.log('Esto es un res: ',res);
 
       if (res.status === 200) {
         setUser(res.data);
@@ -50,6 +45,7 @@ export const AuthProvider = ({ children }) => {
         const token = res.data.token; // Ajuste según la estructura real de la respuesta
         localStorage.setItem('accessToken', token);
         console.log('Token almacenado:', localStorage.getItem('accessToken'));
+        setIsAuthenticated(true);
       }
     } catch (error) {
       console.error(error.response.data);
@@ -70,7 +66,9 @@ export const AuthProvider = ({ children }) => {
       // Extraer y almacenar el token de la misma manera
       const token = res?.token; // Ajuste según la estructura real de la respuesta
       localStorage.setItem('accessToken', token);
+      setIsAuthenticated(true);
       console.log('Token almacenado:', localStorage.getItem('accessToken'));
+     
     } catch (error) {
       console.error(error);
       // Considerar agregar manejo de errores aquí
@@ -88,6 +86,7 @@ export const AuthProvider = ({ children }) => {
       try {
         const res = await verifyTokenRequest();
         if (!res.data) {
+          console.log('aquiii:',res.data)
           setIsAuthenticated(false);
           return;
         }
@@ -112,6 +111,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         errors,
         loading,
+        
       }}
     >
       {children}
@@ -119,4 +119,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export default  AuthContext;

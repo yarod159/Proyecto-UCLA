@@ -25,6 +25,7 @@ function AppRoutes() {
   return (
     <AuthProvider>
     <BrowserRouter>
+    
       <Routes>
 
         <Route path="/Home" element={<Home />} />

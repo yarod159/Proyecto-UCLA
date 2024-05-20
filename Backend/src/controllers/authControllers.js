@@ -91,7 +91,7 @@ const verifyToken = async (req, res) => {
     // Devolver los detalles del usuario
     return res.json({
       id: userFound._id,
-      username: userFound.username,
+      name: userFound.name,
       email: userFound.email,
     });
   } catch (error) {
@@ -100,7 +100,33 @@ const verifyToken = async (req, res) => {
   }
 };
 
+
 module.exports = { register, login,verifyToken };
+
+
+/**
+ * 
+ * 
+const verifyToken = async (req, res) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader.split(' ')[1];
+
+  if (!token) return res.send(false);
+
+  jwt.verify(token,  process.env.JWT_SECRET, async (error, user) => {
+    if (error) return res.sendStatus(401);
+
+    const userFound = await User.findById(user._id);
+    if (!userFound) return res.sendStatus(401);
+    console.log(userFound)
+    return res.json({
+      id: userFound._id,
+      name: userFound.username,
+      email: userFound.email,
+    });
+  });
+};
+ */
 
 
 
