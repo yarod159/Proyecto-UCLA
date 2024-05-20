@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -13,6 +13,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../assets/Logos/logo1-hor-blanco.png";
+
+import { AuthContext } from '../../context/AuthContext'; // Asegúrate de ajustar la ruta de importación
 
 const styles = {
   button: {
@@ -34,6 +36,10 @@ function Navbar() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [navbarColor, setNavbarColor] = useState("transparent");
+
+  const { isAuthenticated } = useContext(AuthContext);
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +71,7 @@ function Navbar() {
     { label: "Servicios", path: "/servicios" },
     { label: "Pagos", path: "/pagos" },
     { label: "Registrarse", path: "/register" },
-    { label: "Iniciar sesión", path: "/register" }
+    { label: "Iniciar sesión", path: "/login" }
   ];
 
   return (
@@ -169,6 +175,23 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
+          {isAuthenticated && (
+  <>
+    <Button
+      sx={styles.button}
+      color="inherit"
+      onClick={() => navigate('/register')}
+    >
+      Registrarse
+    </Button>
+    <Button
+      sx={styles.button}
+      color="inherit"
+      onClick={() => navigate('/login')}
+    >
+      Iniciar sesión
+    </Button>
+  </>)}
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/login/Login.jsx";
+import RegisterPage from "../pages/login/RegisterPage.jsx";
 import Home from "../pages/Home/Home.jsx";
 import Error404 from "../components/404/Error404.jsx";
 import Product from "../pages/Product/Product.jsx";
@@ -16,12 +17,26 @@ import FormServ from "../pages/FormServicio/FormServ.jsx";
 import FormPagos from "../pages/FormPagos/FormPagos.jsx";
 import Reporte from "../pages/ServicioalCliente/Reporte/reporte.jsx";
 import ServCliente from "../pages/ServicioalCliente/servCliente.jsx";
+import { AuthProvider } from "../context/AuthContext.jsx";
+import { ProtectedRoutes } from "./ProtectedRoute.jsx";
+
 
 function AppRoutes() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/AtencionAlCliente" element={<ServCliente />} />
+
+        <Route path="/Home" element={<Home />} />
+        <Route path="/register" element={<RegisterPage/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/404" element={<Error404 />} />
+        <Route path="/productos" element={<Product />} />
+        <Route path="/producto/:productId" element={<ProductDetail />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+
+       <Route element={<ProtectedRoutes/>}> 
+       <Route path="/AtencionAlCliente" element={<ServCliente />} />
         <Route path="/newReport" element={<Reporte />} />
         <Route path="/FormPagos" element={<FormPagos />} />
         <Route path="/FormServ" element={<FormServ />} />
@@ -29,19 +44,16 @@ function AppRoutes() {
         <Route path="/UserFact" element={<UserFact />} />
         <Route path="/servicios" element={<UserService />} />
         <Route path="/userHome" element={<UserHome />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/register" element={<Login />} />
-        <Route path="/404" element={<Error404 />} />
-        <Route path="/productos" element={<Product />} />
-        <Route path="/producto/:productId" element={<ProductDetail />} />
+        
         <Route path="/servicios" element={<Service />} />
         <Route path="/servicio/:serviceId" element={<ServiceDetails />} />
-        <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/registrarse" element={<Register />} />
+       </Route>
 
 
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
