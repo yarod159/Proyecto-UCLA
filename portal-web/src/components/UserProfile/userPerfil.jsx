@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Button, IconButton } from "@mui/material";
 import PublishIcon from "@mui/icons-material/Publish";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -12,15 +12,16 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CommentIcon from "@mui/icons-material/Comment";
+
+import { getProfileRequest } from "../../api/profile";
+
 import "./userPerfil.css";
 
 const Div = styled("div")(({ theme }) => ({
- ...theme.typography.button,
+  ...theme.typography.button,
   backgroundColor: theme.palette.background.paper,
   padding: theme.spacing(1),
 }));
-
-
 
 const UserPerfil = () => {
   const [username, setUsername] = useState("");
@@ -29,29 +30,48 @@ const UserPerfil = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
- 
   const [editing, setEditing] = useState({
     nombre: false,
     apellido: false,
     cedula: false,
     fechaNacimiento: false,
+    direccion:false,
+    telefono:false,
   });
 
   const [userInfo, setUserInfo] = useState({
-    nombre: "John",
-    apellido: "Doe",
-    cedula: "123456789",
+    nombre: "",
+    apellido: "",
+    cedula: "",
     fechaNacimiento: "01/01/1990",
+    direccion:'',
+    telefono:'0424-1234567',
   });
 
+  const getProfileData = async () => {
+    const resp = await getProfileRequest(); 
+    setUserInfo({
+      nombre: resp.user.name,
+      apellido: resp.apellido,
+      cedula: resp.cedula,
+      fechaNacimiento: resp.dateCumple,
+      direccion: resp.direccion,
+      telefono: resp.telefono
+    });
+  };
+
+  useEffect(() => {
+    getProfileData();
+  }, []);
+
   const handleEdit = (field) => {
-    setEditing((prevEditing) => ({...prevEditing, [field]: true }));
+    setEditing((prevEditing) => ({ ...prevEditing, [field]: true }));
   };
 
   const handleSave = (field, value) => {
-    setUserInfo((prevUserInfo) => ({...prevUserInfo, [field]: value }));
+    setUserInfo((prevUserInfo) => ({ ...prevUserInfo, [field]: value }));
     setTimeout(() => {
-      setEditing((prevEditing) => ({...prevEditing, [field]: false }));
+      setEditing((prevEditing) => ({ ...prevEditing, [field]: false }));
     }, 4000); // Utiliza setTimeout para asegurar que editing se actualiza después de que el estado de userInfo se haya actualizado
   };
 
@@ -101,44 +121,48 @@ const UserPerfil = () => {
                       >
                         <ListItemText>Informacion General</ListItemText>
                       </ListItem>
-                      
-<ListItem>
-  <ListItemText primary="Nombre: " />
-  {editing.nombre ? (
-    <TextField
-      sx={{width:"85%"}}
-      value={userInfo.nombre}
-      onChange={(e) => handleSave("nombre", e.target.value)}
-      onBlur={() => handleSave("nombre", userInfo.nombre)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          handleSave("nombre", e.target.value);
-        }
-      }}
-    />
-  ) : (
-    <ListItemText primary={userInfo.nombre} />
-  )}
-  <IconButton
-    edge="end"
-    aria-label="comments"
-    onClick={() => handleEdit("nombre")}
-  >
-    <CommentIcon />
-  </IconButton>
-</ListItem>
+
+                      <ListItem>
+                        <ListItemText primary="Nombre: " />
+                        {editing.nombre ? (
+                          <TextField
+                            sx={{ width: "85%" }}
+                            value={userInfo.nombre}
+                            onChange={(e) =>
+                              handleSave("nombre", e.target.value)
+                            }
+                            onBlur={() => handleSave("nombre", userInfo.nombre)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                handleSave("nombre", e.target.value);
+                              }
+                            }}
+                          />
+                        ) : (
+                          <ListItemText primary={userInfo.nombre} />
+                        )}
+                        <IconButton
+                          edge="end"
+                          aria-label="comments"
+                          onClick={() => handleEdit("nombre")}
+                        >
+                          <CommentIcon />
+                        </IconButton>
+                      </ListItem>
                       <Divider />
                       <ListItem>
                         <ListItemText primary="Apellido: " />
-                        {editing.apellido? (
+                        {editing.apellido ? (
                           <TextField
-                          sx={{width:"85%"}}
+                            sx={{ width: "85%" }}
                             value={userInfo.apellido}
                             onChange={(e) => {
                               if (!editing.apellido) return; // Solo llama a handleSave si el campo no está siendo editado
                               handleSave("apellido", e.target.value);
                             }}
-                            onBlur={() => handleSave("apellido", userInfo.apellido)} // Guarda el valor al perder el foco
+                            onBlur={() =>
+                              handleSave("apellido", userInfo.apellido)
+                            } // Guarda el valor al perder el foco
                           />
                         ) : (
                           <ListItemText primary={userInfo.apellido} />
@@ -154,9 +178,9 @@ const UserPerfil = () => {
                       <Divider />
                       <ListItem>
                         <ListItemText primary="Cédula: " />
-                        {editing.cedula? (
+                        {editing.cedula ? (
                           <TextField
-                          sx={{width:"85%"}}
+                            sx={{ width: "85%" }}
                             value={userInfo.cedula}
                             onChange={(e) => {
                               if (!editing.cedula) return; // Solo llama a handleSave si el campo no está siendo editado
@@ -178,15 +202,20 @@ const UserPerfil = () => {
                       <Divider />
                       <ListItem>
                         <ListItemText primary="Fecha de nacimiento: " />
-                        {editing.fechaNacimiento? (
+                        {editing.fechaNacimiento ? (
                           <TextField
-                          sx={{width:"70%"}}
+                            sx={{ width: "70%" }}
                             value={userInfo.fechaNacimiento}
                             onChange={(e) => {
                               if (!editing.fechaNacimiento) return; // Solo llama a handleSave si el campo no está siendo editado
                               handleSave("fechaNacimiento", e.target.value);
                             }}
-                            onBlur={() => handleSave("fechaNacimiento", userInfo.fechaNacimiento)} // Guarda el valor al perder el foco
+                            onBlur={() =>
+                              handleSave(
+                                "fechaNacimiento",
+                                userInfo.fechaNacimiento
+                              )
+                            } // Guarda el valor al perder el foco
                           />
                         ) : (
                           <ListItemText primary={userInfo.fechaNacimiento} />
@@ -199,6 +228,70 @@ const UserPerfil = () => {
                           <CommentIcon />
                         </IconButton>
                       </ListItem>
+
+                      <Divider />
+                      <ListItem>
+                        <ListItemText primary="Direccion: " />
+                        {editing.direccion ? (
+                          <TextField
+                            sx={{ width: "70%" }}
+                            value={userInfo.direccion}
+                            onChange={(e) => {
+                              if (!editing.direccion) return; // Solo llama a handleSave si el campo no está siendo editado
+                              handleSave("direccion", e.target.value);
+                            }}
+                            onBlur={() =>
+                              handleSave(
+                                "direccion",
+                                userInfo.direccion
+                              )
+                            } // Guarda el valor al perder el foco
+                          />
+                        ) : (
+                          <ListItemText primary={userInfo.direccion} />
+                        )}
+                        <IconButton
+                          edge="end"
+                          aria-label="comments"
+                          onClick={() => handleEdit("direccion")}
+                        >
+                          <CommentIcon />
+                        </IconButton>
+                      </ListItem>
+
+                      <Divider />
+                      <ListItem>
+                        <ListItemText primary="telefono: " />
+                        {editing.telefono ? (
+                          <TextField
+                            sx={{ width: "70%" }}
+                            value={userInfo.telefono}
+                            onChange={(e) => {
+                              if (!editing.telefono) return; // Solo llama a handleSave si el campo no está siendo editado
+                              handleSave("telefono", e.target.value);
+                            }}
+                            onBlur={() =>
+                              handleSave(
+                                "telefono",
+                                userInfo.telefono
+                              )
+                            } // Guarda el valor al perder el foco
+                          />
+                        ) : (
+                          <ListItemText primary={userInfo.telefono} />
+                        )}
+                        <IconButton
+                          edge="end"
+                          aria-label="comments"
+                          onClick={() => handleEdit("telefono")}
+                        >
+                          <CommentIcon />
+                        </IconButton>
+                      </ListItem>
+
+
+
+                      
                     </List>
                   </div>
                 </div>

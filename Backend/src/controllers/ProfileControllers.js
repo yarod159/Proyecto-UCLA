@@ -2,11 +2,34 @@
 
 // Importar el modelo Profile
 const Profile = require('../models/Profile');
+const authenticateToken = require('../middlewares/authMiddleware');
 // Importar el modelo Profile
-
 
 // Método para obtener un perfil específico basado en el ID del usuario
 const getProfile = async (req, res) => {
+  try {
+    
+    const auth = await authenticateToken(req, res)
+
+    if (!auth) return res.status(403).json({ message: 'Usuario no autenticado.'});
+
+    // Buscar el perfil correspondiente al usuario
+    const profile = await Profile.findOne({ user: auth._id }).populate('user', '-password'); // Usamos populate para llenar el campo 'user' con información del usuario, excluyendo la contraseña
+
+    if (!profile) {
+      return res.status(404).json({ message: 'Perfil no encontrado' });
+    }
+
+    // Enviar el perfil encontrado
+    res.json(profile);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Hubo un error al procesar tu solicitud');
+  }
+};
+
+// Método para obtener un perfil específico basado en el ID del usuario
+const getUser = async (req, res) => {
   try {
     // Obtener el ID del usuario del objeto request
     const userId = req.params.userId; // Asegúrate de que el parámetro 'userId' esté presente en la URL
@@ -52,7 +75,7 @@ const createProfile = async (req, res) => {
       telefono,
       direccion,
       dateCumple,
-      user: userId, // Usa el userId extraído de la URL
+      user: req.user._id, // Usa el userId extraído de la URL
     });
 
     // Guardar el nuevo perfil en la base de datos
@@ -66,4 +89,4 @@ const createProfile = async (req, res) => {
   }
 };
 
-  module.exports = { getProfile, createProfile};
+  module.exports = { getProfile, createProfile, getUser };
