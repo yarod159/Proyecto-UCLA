@@ -25,6 +25,7 @@ export default function EmpleadosList() {
         const response = await axios.get(
           "http://localhost:3000/empleado/get-empleado"
         );
+       
         if (response.data.success) {
           setData(response.data.data);
         } else {
