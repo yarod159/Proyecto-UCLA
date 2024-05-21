@@ -30,11 +30,7 @@ const userSchema = new mongoose.Schema(
       minlength: 8, // Enforces minimum password length
       select: false,
     },
-    dateCumple: {
-      // Optional birthday field
-      type: Date,
-      required: false,
-    },
+   
     verified: {
       // Verification status (default: false)
       type: Boolean,

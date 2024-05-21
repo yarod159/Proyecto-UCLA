@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const tokenSign = async (user) => {
   return jwt.sign(
@@ -8,7 +9,7 @@ const tokenSign = async (user) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "2h",
+      expiresIn: "24h",
     }
   );
 };
@@ -16,9 +17,11 @@ const tokenSign = async (user) => {
 const verifyToken = async (token) => {
   try {
     return jwt.verify(token, process.env.JWT_SECRET);
+    
   } catch (e) {
     return null;
   }
+  
 };
 
 const decodeSign = (token) => {
