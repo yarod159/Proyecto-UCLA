@@ -9,8 +9,6 @@ import Sidebar from "../../components/sideBar/SideBar";
 import axios from 'axios';
 import React, {  useEffect } from 'react';
 import SidebarMui from "../../components/sideBar/SidebarMui";
-import MUIDataTable from "mui-datatables";
-import { Box } from "@mui/material";
 
 function generarIdAleatorio() {
   var longitud = 8,
@@ -48,16 +46,18 @@ export default function UserList() {
  
 
   const columns = [
-    { name: "_id", label: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 90 },
     {
-      name: "name",
-      label: "Nombre"
+      field: "name",
+      headerName: "Name",
+      width: 250,
     },
-    { name: "email", label: "Email" },
+    { field: "email", headerName: "Email", width: 250 },
    
     {
-      name: "action",
-      label: "Action",
+      field: "action",
+      headerName: "Action",
+      width: 200,
       renderCell: (params) => {
         return (
           <>
@@ -80,13 +80,15 @@ export default function UserList() {
       <div className="container">
         <SidebarMui />
         <div className="userList">
-
-          <Box>
-           <MUIDataTable
-            data={data}
-            title="Usuarios"
-            columns={columns}
-          /></Box>
+          <DataGrid
+           rows={data}
+           disableSelectionOnClick
+           columns={columns}
+           pageSize={10}
+           checkboxSelection
+           getRowId={(row) => row._id}
+           autoHeight={true}
+          />
         </div>
       </div>
     </div>
