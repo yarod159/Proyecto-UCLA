@@ -8,6 +8,8 @@ import { useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import SidebarMui from "../../components/sideBar/SidebarMui";
+import MUIDataTable from "mui-datatables";
+import { Box } from "@mui/material";
 
 export default function Transactions() {
   const [data, setData] = useState(TrasaccionesList);
@@ -17,42 +19,35 @@ export default function Transactions() {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { name: "id", label: "ID" },
     {
-      field: "id del producto",
-      headerName: "id del producto",
-      width: 100,
+      name: "id del producto",
+      label: "id del producto",
     },
     {
-      field: "Nombre del Producto",
-      headerName: "Nombre del Producto",
-      width: 200,
+      name: "Nombre del Producto",
+      label: "Nombre del Producto",
     },
 
     {
-      field: "fecha",
-      headerName: "Fecha",
-      width: 100,
+      name: "fecha",
+      label: "Fecha",
     },
     {
-      field: "cantidad",
-      headerName: "Cantidad",
-      width: 100,
+      name: "cantidad",
+      label: "Cantidad",
     },
     {
-      field: "Delivery",
-      headerName: "Delivery",
-      width: 150,
+      name: "Delivery",
+      label: "Delivery"
     },
     {
-      field: "Metodo de Pago",
-      headerName: "Metodo de Pago",
-      width: 150,
+      name: "Metodo de Pago",
+      label: "Metodo de Pago",
     },
     {
-      field: "Estatus de la trasacccion",
-      headerName: "Estatus de la trasacccion ",
-      width: 150,
+      name: "Estatus de la trasacccion",
+      label: "Estatus de la trasacccion ",
       renderCell: (params) => {
         // Determina el color de fondo basado en el valor de la celda
         const backgroundColor = params.value === 'Completado' ? '#65B741' : 
@@ -65,9 +60,8 @@ export default function Transactions() {
      }
     },
     {
-      field: "Estatus del delivery",
-      headerName: "Estatus del delivery ",
-      width: 150,
+      name: "Estatus del delivery",
+      label: "Estatus del delivery ",
       renderCell: (params) => {
         // Determina el color de fondo basado en el valor de la celda
         const backgroundColor = params.value === 'Entregado' ? '#65B741' : 
@@ -88,13 +82,13 @@ export default function Transactions() {
       <div className="container">
         <SidebarMui />
         <div className="productList">
-          <DataGrid
-            rows={data}
-            disableSelectionOnClick
+        
+          <Box>
+           <MUIDataTable
+            data={data}
+            title="Transacciones"
             columns={columns}
-            pageSize={8}
-            checkboxSelection
-          />
+          /></Box>
         </div>
       </div>
     </div>
