@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../../shemas/auth";
-import './login.css'; // Importa el archivo CSS
+import './login.css'; 
 
 const Login= function Login() {
   const {
@@ -25,38 +25,39 @@ const Login= function Login() {
       navigate("/home");
     }
   }, [isAuthenticated]);
+  
 
   return (
     <div>
-      <div>
+      <div className="login-box">
         
-        <h1 >Login</h1>
+        <h2 >Iniciar Sesión</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="email">Email:</label>
+        <div className="user-box">
+          
           <input
-            label="Write your email"
             type="email"
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Correo"
             {...register("email", { required: true })}
           />
           <p>{errors.email?.message}</p>
-
-          <label htmlFor="password">Password:</label>
+          </div>
+          <div className="user-box">
           <input
             type="password"
             name="password"
-            placeholder="Write your password"
+            placeholder="Contraseña"
             {...register("password", { required: true, minLength: 6 })}
           />
           <p>{errors.password?.message}</p>
-
-          <button>Login</button>
+          </div>
+          <button>Ingresar</button>
         </form>
-
+       
         <p>
-          Don't have an account? <Link to="/register" >Sign up</Link>
+          No estás registrado? <Link to="/register" >Registrate</Link>
         </p>
       </div>
     </div>
