@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const profileSchema = new mongoose.Schema(
   {
-   
+    
     apellido: {
       type: String,
        // Ensures unique names

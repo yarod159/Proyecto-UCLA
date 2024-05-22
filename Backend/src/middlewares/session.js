@@ -5,6 +5,7 @@ const authMiddleware = async (req, res, next) => {
     try {
         // Extraer el token del encabezado Authorization
         const authHeader = req.headers.authorization;
+        console.log('prueba de sesion:',authHeader)
         if (!authHeader) {
             handleHttpError(res, "NEED_SESSION", 401);
             return;

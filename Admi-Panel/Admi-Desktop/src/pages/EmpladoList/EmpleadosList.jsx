@@ -14,9 +14,9 @@ export default function EmpleadosList() {
   const [data, setData] = useState([]);
 
   const handleDelete = (id) => {
-    // Aquí va la lógica para eliminar el empleado por ID
+    // Implementar la lógica para eliminar el empleado por ID
     console.log("Eliminar empleado con ID:", id);
-   };
+ };
    
 
   useEffect(() => {
@@ -45,15 +45,9 @@ export default function EmpleadosList() {
   const columns = [
       { name: "_id", label: "ID" },
       {
-        name: "cedula",
-        label: "Cedula",
-       
-      },
+        name: "cedula",label: "Cedula",   },
       {
-        name: "nombre",
-        label: "Nombre",
-       
-      },
+        name: "nombre", label: "Nombre",},
       {
         name: "apellido",
         label: "Apellido",
@@ -70,40 +64,21 @@ export default function EmpleadosList() {
         
       },
       {
-        name: "dateCumple",
-        label: "Fecha de Nacimiento",
-       
-      },
-      
-      {
         name: "ocupacion",
         label: "Ocupacion",
        
       },
-      
+      {
+        name: "dateCumple",
+        label: "Fecha de Nacimiento",
+       
+      },
       {
         name: "estatus",
         label: "Estatus",
        
       },
       
-      {
-        name: "action",
-        label: "Action",
-        renderCell: (params) => {
-        return (
-          <>
-          <Link to={"/user/" + params.row._id}>
-            <button className="userListEdit">Edit</button>
-          </Link>
-          <DeleteOutlineIcon
-            className="userListDelete"
-            onClick={() => handleDelete(params.row._id)}
-          />
-        </>
-        );
-      },
-    },
   ];
 
   return (

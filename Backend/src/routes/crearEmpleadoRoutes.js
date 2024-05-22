@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
-// En tu archivo de rutas
+const authMiddleware = require("../middlewares/session");
+
 
 
 const { postEmpleado ,getEmpleados} = require("../controllers/EmpleadoControllers");
+const checkRoleAuth = require("../middlewares/rol");
 
 
-router.post("/post-empleado", postEmpleado  );
-router.get("/get-empleado", getEmpleados );
+
+router.post("/post-empleado",authMiddleware, postEmpleado  );
+router.get("/get-empleado",authMiddleware, getEmpleados );
 
 module.exports = router;

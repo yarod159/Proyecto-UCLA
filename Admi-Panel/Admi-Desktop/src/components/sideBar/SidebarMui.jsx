@@ -362,6 +362,63 @@ export default function SidebarMui() {
               <ListItemText primary=" Solicitudes" />
             </ListItem>
           </Link>
+          <Divider />
+
+            <List>
+
+            <h3
+            style={{ position: "relative", right: "-70px", paddingTop: "15px" }}
+            className="sidebarTitle"
+          >
+            Gestión de Solicitudes
+          </h3>
+            
+          <Link
+            to="/solicitudInstalacion"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <MailOutlineIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary=" Solicitud Instalacion" />
+            </ListItem>
+          </Link>
+
+          <Link
+            to="/solicitudMantenimiento"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <MailOutlineIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary=" Solicitud Mantenimiento" />
+            </ListItem>
+          </Link>
+
+          </List>
+          <Divider />
 
           <Link
             to="/atencion-cliente"

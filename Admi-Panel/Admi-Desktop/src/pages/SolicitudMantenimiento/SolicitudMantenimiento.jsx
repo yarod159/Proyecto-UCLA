@@ -12,7 +12,7 @@ import MUIDataTable from "mui-datatables";
 import { Box } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 
-export default function Transactions() {
+export default function SolicitudMantenimiento() {
   const [data, setData] = useState(SolicitudMantenimientos);
 
   const handleDelete = (id) => {
@@ -21,16 +21,16 @@ export default function Transactions() {
 
   const columns = [
     { name: "id", label: "ID", width: 80 },
-    { name: "id_solicitud", label: "Id Solicitud", width: 80 },
-    { name: "nombre_cliente", label: "Nombre del Usuario", width: 110 },
-    { name: "apellido_cliente", label: "Apellido", width: 120 },
+    { name: "nombre", label: "Nombre", width: 110 },
+    { name: "apellido", label: "Apellido", width: 120 },
     { name: "telefono", label: "Telefono", width: 150 },
-    { name: "fecha", label: "Fecha", width: 150 },
-    { name: "numero_referencia", label: "Numero de Referencia", width: 150 },
-    { name: "monto", label: "Monto", width: 150 },
-
-    
-   
+    { name: "estado", label: "Estado", width: 150 },
+    { name: "domicilio", label: "Domicilio", width: 150 },
+    { name: "tipoServicios", label: "Tipo Servicios", width: 150 },
+    { name: "descripcionProblema", label: "Descripcion del Problema", width: 250 },
+    { name: "producto", label: "Producto", width: 150 },
+    { name: "marca", label: "Marca", width: 150 },
+    { name: "modelo", label: "Modelo", width: 150 },
     {
         name: "action",
         label: "Acciones",
@@ -38,12 +38,17 @@ export default function Transactions() {
            customBodyRender: (value, tableMeta, updateRow) => (
             <div style={{ display: 'flex', alignItems: 'center'  }}>
             <CheckIcon
-              style={{ color: '#6EF51C', cursor: 'pointer', marginLeft:"40" }} // Add cursor: 'pointer'
+              style={{ color: '#6EF51C', cursor: 'pointer', gap:"10" }} // Add cursor: 'pointer'
               onClick={() => handleCheckIcon(tableMeta.rowData._id)} // Add handleCheckIcon function
               onMouseEnter={() => handleHoverInCheckIcon(tableMeta.rowData._id)} // Add handleHoverInCheckIcon function
               onMouseLeave={() => handleHoverOutCheckIcon(tableMeta.rowData._id)} // Add handleHoverOutCheckIcon function
             />
-           
+            <DeleteOutlineIcon
+              style={{ color: '#E30D06', cursor: 'pointer', marginLeft:"15" }} // Add cursor: 'pointer'
+              onClick={() => handleDelete(tableMeta.rowData._id)} // Replace with your handleDelete function
+              onMouseEnter={() => handleHoverInDeleteIcon(tableMeta.rowData._id)} // Add handleHoverInDeleteIcon function
+              onMouseLeave={() => handleHoverOutDeleteIcon(tableMeta.rowData._id)} // Add handleHoverOutDeleteIcon function
+            />
           </div>
            ),
         },
@@ -61,7 +66,7 @@ export default function Transactions() {
         <Box>
            <MUIDataTable
             data={data}
-            title="Transacciones "
+            title="Solicitud de Mantenimiento Y Reparaciones"
             columns={columns}
             options={{
                 responsiveMode: "vertical",
