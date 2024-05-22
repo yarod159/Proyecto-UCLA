@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../../shemas/auth";
 import './login.css'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Importa el ícono
 
-const Login= function Login() {
+const Login = function Login() {
   const {
     register,
     handleSubmit,
@@ -25,39 +27,52 @@ const Login= function Login() {
       navigate("/home");
     }
   }, [isAuthenticated]);
-  
+
+  // Función para manejar el clic en el botón "Atrás"
+  const goBackToHome = () => {
+    navigate('/home'); // Regresa al inicio
+  };
 
   return (
     <div>
       <div className="login-box">
-        
-        <h2 >Iniciar Sesión</h2>
+        <p className="back-button-container">
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <FontAwesomeIcon icon={faArrowLeft} /> Atrás
+          </Link>
+        </p>
+        <p>
 
+
+        </p>
+        <h2>Iniciar Sesión</h2>
+       
         <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="user-box">
-          
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo"
-            {...register("email", { required: true })}
-          />
-          <p>{errors.email?.message}</p>
+          <div className="user-box">
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo"
+              {...register("email", { required: true })}
+            />
+            <p>{errors.email?.message}</p>
           </div>
           <div className="user-box">
-          <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-            {...register("password", { required: true, minLength: 6 })}
-          />
-          <p>{errors.password?.message}</p>
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              {...register("password", { required: true, minLength: 6 })}
+            />
+            <p>{errors.password?.message}</p>
           </div>
           <button>Ingresar</button>
         </form>
-       
         <p>
-          No estás registrado? <Link to="/register" >Registrate</Link>
+         <Link to="/register">Olvidaste tu contraseña?</Link>
+        </p>
+        <p>
+          No estás registrado? <Link to="/register">Registrate</Link>
         </p>
       </div>
     </div>

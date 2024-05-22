@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registerSchema } from "../../shemas/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './register.css';
 import './login.css'; 
 
@@ -28,7 +30,11 @@ function RegisterPage() {
   
     return (
       <div className="login-box">
-        
+        <p className="back-button-container">
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <FontAwesomeIcon icon={faArrowLeft} /> Atrás
+          </Link>
+        </p>
           
           <h2>Registrate</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
