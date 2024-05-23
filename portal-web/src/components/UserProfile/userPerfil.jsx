@@ -29,34 +29,35 @@ const UserPerfil = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [savedChanges, setSavedChanges] = useState(false);
 
   const [editing, setEditing] = useState({
     nombre: false,
     apellido: false,
     cedula: false,
     fechaNacimiento: false,
-    direccion:false,
-    telefono:false,
+    direccion: false,
+    telefono: false,
   });
 
   const [userInfo, setUserInfo] = useState({
     nombre: "",
     apellido: "",
     cedula: "",
-    fechaNacimiento: "01/01/1990",
-    direccion:'',
-    telefono:'0424-1234567',
+    fechaNacimiento: "",
+    direccion: "",
+    telefono: "",
   });
 
   const getProfileData = async () => {
-    const resp = await getProfileRequest(); 
+    const resp = await getProfileRequest();
     setUserInfo({
       nombre: resp.user.name,
       apellido: resp.apellido,
       cedula: resp.cedula,
       fechaNacimiento: resp.dateCumple,
       direccion: resp.direccion,
-      telefono: resp.telefono
+      telefono: resp.telefono,
     });
   };
 
@@ -70,9 +71,7 @@ const UserPerfil = () => {
 
   const handleSave = (field, value) => {
     setUserInfo((prevUserInfo) => ({ ...prevUserInfo, [field]: value }));
-    setTimeout(() => {
-      setEditing((prevEditing) => ({ ...prevEditing, [field]: false }));
-    }, 4000); // Utiliza setTimeout para asegurar que editing se actualiza después de que el estado de userInfo se haya actualizado
+    setSavedChanges(true);
   };
 
   return (
@@ -241,10 +240,7 @@ const UserPerfil = () => {
                               handleSave("direccion", e.target.value);
                             }}
                             onBlur={() =>
-                              handleSave(
-                                "direccion",
-                                userInfo.direccion
-                              )
+                              handleSave("direccion", userInfo.direccion)
                             } // Guarda el valor al perder el foco
                           />
                         ) : (
@@ -271,10 +267,7 @@ const UserPerfil = () => {
                               handleSave("telefono", e.target.value);
                             }}
                             onBlur={() =>
-                              handleSave(
-                                "telefono",
-                                userInfo.telefono
-                              )
+                              handleSave("telefono", userInfo.telefono)
                             } // Guarda el valor al perder el foco
                           />
                         ) : (
@@ -288,10 +281,6 @@ const UserPerfil = () => {
                           <CommentIcon />
                         </IconButton>
                       </ListItem>
-
-
-
-                      
                     </List>
                   </div>
                 </div>
@@ -300,6 +289,7 @@ const UserPerfil = () => {
                   variant="contained"
                   color="primary"
                   sx={{ alignItems: "center" }}
+                 
                 >
                   Save Changes
                 </Button>

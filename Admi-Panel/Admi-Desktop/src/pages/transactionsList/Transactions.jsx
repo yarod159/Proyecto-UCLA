@@ -61,12 +61,13 @@ export default function Transactions() {
         <Box>
            <MUIDataTable
             data={data}
-            title="Transacciones "
+            title="Transacciones"
             columns={columns}
             options={{
                 responsiveMode: "vertical",
               }}
-          /></Box>
+          />
+          </Box>
         </Box>
       </Box>
     </Box>
