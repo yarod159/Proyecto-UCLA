@@ -595,7 +595,7 @@ export default function SidebarMui() {
             Configuracion
           </h3>
           <Link
-            to="/ajustes"
+            to="/configuracion"
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <ListItem sx={{

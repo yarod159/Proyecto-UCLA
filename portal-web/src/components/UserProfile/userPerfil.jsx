@@ -32,7 +32,7 @@ const UserPerfil = () => {
   const [savedChanges, setSavedChanges] = useState(false);
 
   const [editing, setEditing] = useState({
-    nombre: false,
+    name: false,
     apellido: false,
     cedula: false,
     fechaNacimiento: false,
@@ -41,7 +41,7 @@ const UserPerfil = () => {
   });
 
   const [userInfo, setUserInfo] = useState({
-    nombre: "",
+    name: "",
     apellido: "",
     cedula: "",
     fechaNacimiento: "",
@@ -52,10 +52,10 @@ const UserPerfil = () => {
   const getProfileData = async () => {
     const resp = await getProfileRequest();
     setUserInfo({
-      nombre: resp.user.name,
+      nombre: resp.name,
       apellido: resp.apellido,
       cedula: resp.cedula,
-      fechaNacimiento: resp.dateCumple,
+      fechaNacimiento: new Date(resp.dateCumple).toLocaleDateString(),
       direccion: resp.direccion,
       telefono: resp.telefono,
     });

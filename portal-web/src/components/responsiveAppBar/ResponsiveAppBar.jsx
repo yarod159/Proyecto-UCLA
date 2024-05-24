@@ -113,7 +113,7 @@ function Navbar() {
              
               <Button sx={styles.button} color="inherit" onClick={() => navigate('/add-task')}>Perfil de Usuario</Button>
               <Button sx={styles.button} color="inherit" onClick={() => logout()}>Cerrar Sesion</Button>
-              <Typography>Bienvenido {user.name}</Typography>
+              <Typography>Bienvenido {user.email}</Typography>
             </>
           ) : (
             <>

@@ -20,7 +20,7 @@ export default function UserList() {
     const fetchData = async () => {
       try {
         const response = await getUsuariosRequest();
-
+       
         if (response.data.success) {
           setData(response.data.data);
         } else {
@@ -36,6 +36,8 @@ export default function UserList() {
 
     fetchData();
   }, []);
+
+  
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item._id !== id));
@@ -68,20 +70,18 @@ export default function UserList() {
       },
     },
   ];
-
+  
   return (
-    <Box>
-      <Box className="container">
+    <Box >
+      <Box className="container" >
         <SidebarMui />
-        <Box className="productList">
-          <Box>
+        <Box className="productList" sx={{ flexGrow: 1, overflowX: "auto", padding: 2, marginTop: 8 }}>
+          <Box >
             <MUIDataTable
               data={data}
               title="Usuarios"
               columns={columns}
-              options={{
-                responsive: "vertical",
-              }}
+             
             />
           </Box>
         </Box>

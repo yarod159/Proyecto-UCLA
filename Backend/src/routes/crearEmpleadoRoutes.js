@@ -10,6 +10,6 @@ const checkRoleAuth = require("../middlewares/rol");
 
 
 router.post("/post-empleado",authMiddleware,checkRoleAuth(['user']), postEmpleado  );
-router.get("/get-empleado",authMiddleware, checkRoleAuth(['user']), getEmpleados );
+router.get("/get-empleado",authMiddleware, checkRoleAuth(['empleado']), getEmpleados );
 
 module.exports = router;

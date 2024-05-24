@@ -22,6 +22,7 @@ import SolicitudMantenimiento from "../pages/SolicitudMantenimiento/SolicitudMan
 import { ProtectedRoutes } from "./ProtectedRoute.jsx";
 import LoginDesktop from "../pages/Login/LoginDesktop.jsx";
 import { AuthProvider } from "../context/AuthContext.jsx";
+import MainAjustes from "../pages/AjustesDelSistemas/MainAjustes.jsx";
 
 function AppRoutes() {
   return (
@@ -33,7 +34,7 @@ function AppRoutes() {
        
         <Route path="/login" element={<LoginDesktop />} />
         <Route element={<ProtectedRoutes />}>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
           <Route path="/empleados" element={<EmpleadosList />} />
           <Route path="/crearEmpleado" element={<CrearEmpleado />} />
           <Route path="/ajustes" element={<Ajustes />} />
@@ -56,6 +57,8 @@ function AppRoutes() {
           <Route path="/solicitudes" element={<SolicitudList />} />
           <Route path="/solicitudInstalacion" element={<SolicitudInstalacion />} />
           <Route path="/solicitudMantenimiento" element={<SolicitudMantenimiento />} />
+          <Route path="/configuracion" element={<MainAjustes />} />
+
           </Route>
       </Routes>
       

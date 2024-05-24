@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-
+const fileUpload = require("express-fileupload");
 const app = express();
 
 // Configuración del puerto
@@ -13,6 +13,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}))
 
 // Connect to MongoDB using the exported mongoose object
 const mongoose = require("./src/config/db");

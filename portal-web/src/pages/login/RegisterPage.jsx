@@ -31,17 +31,7 @@ function RegisterPage() {
           
           <h1>Register</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="name">Username:</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Write your name"
-              {...register("name")}
-              autoFocus
-            />
-            {errors.name?.message && (
-              <p className="error-message">{errors.username?.message}</p>
-            )}
+           
   
             <label htmlFor="email">Email:</label>
             <input

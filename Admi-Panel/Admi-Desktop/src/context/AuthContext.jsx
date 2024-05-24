@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await registerRequest(user);
 
-      console.log('Esto es un res: ',res);
+     console.log("test:",res)
 
       if (res.status === 200) {
         setUser(res.data);

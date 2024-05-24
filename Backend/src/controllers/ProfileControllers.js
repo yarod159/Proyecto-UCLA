@@ -32,7 +32,7 @@ const getProfile = async (req, res) => {
 const getUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    const profile = await Profile.findOne({ user: userId });
+    const profile = await Profile.findOne({ user: userId }).populate('user', '-password');;
 
     if (!profile) {
       return res.status(404).json({
@@ -58,10 +58,10 @@ const getUser = async (req, res) => {
 const createProfile = async (req, res) => {
   try {
     // Extraer los datos del cuerpo de la solicitud
-    const { apellido, cedula, telefono, direccion, dateCumple } = req.body;
+    const {name, apellido, cedula, telefono, direccion, dateCumple } = req.body;
 
     // Validar los datos recibidos
-    if (!apellido ||!cedula ||!telefono ||!direccion) {
+    if (!name  || !apellido ||!cedula ||!telefono ||!direccion) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
     }
 
@@ -70,6 +70,7 @@ const createProfile = async (req, res) => {
 
     // Crear un nuevo perfil con los datos recibidos y el ID del usuario extraído de la URL
     const newProfile = new Profile({
+      name,
       apellido,
       cedula,
       telefono,

@@ -11,25 +11,35 @@ import { Link, useParams } from "react-router-dom";
 import "./user.css";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
-
+import BadgeIcon from '@mui/icons-material/Badge';
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import { getUsuarioProfileRequest } from "../../api/tablaProfile";
 import { userData } from "../../data";
-
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 const roles = [
   { label: "Admin", value: "admin" },
   { label: "User", value: "user" },
+  { label: "Empleado", value: "empleado" },
 ];
+
+const ocupacion=[
+  { label: "Limpieza", value: "limpieza" },
+  { label: "Tecnico", value: "tecnico" },
+  
+]
 
 export default function User() {
   const [selectedRole, setSelectedRole] = useState("");
+  const [selectedOcupacion, setSelectedOcupacion] = useState("");
 
   const [data, setData] = useState([]);
   let { userId } = useParams();
   console.log("holaaa", userId);
 
   const [userInfo, setUserInfo] = useState({
+    name:"",
     apellido: "",
+    email:"",
     cedula: "",
     fechaNacimiento: "",
     direccion: "",
@@ -39,9 +49,11 @@ export default function User() {
   const getProfileData = async () => {
     const resp = await getUsuarioProfileRequest(userId);
     setUserInfo({
+      name:resp.data.name,
       apellido: resp.data.apellido,
       cedula: resp.data.cedula,
-      fechaNacimiento: resp.data.dateCumple,
+      email:resp.data.user.email,
+      fechaNacimiento: new Date(resp.data.dateCumple).toLocaleDateString(),
       direccion: resp.data.direccion,
       telefono: resp.data.telefono,
     });
@@ -57,34 +69,36 @@ export default function User() {
     setSelectedRole(value);
   };
 
+  const handleChangeOcupacion = (event, value) => {
+    setSelectedOcupacion(value);
+  };
+
+
   return (
     <div>
       <div className="container">
         <SidebarMui />
 
         <div className="user">
-          <div className="userTitleContainer">
-            <h1 className="userTitle">Datos del Usuario</h1>
-           
-          </div>
+          
           <div className="userContainer">
             <div className="userShow" >
               <div className="userShowTop">
-                <img
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                  className="userShowImg"
-                />
+               
                 <div className="userShowTopTitle">
-                  <span className="userShowUsername">Nombre</span>
+                  <span className="userShowUsername">Datos del Usuario</span>
                 
                 </div>
               </div>
               <div className="userShowBottom">
-                <span className="userShowTitle">Account Details</span>
+                <span className="userShowTitle">Detalles de Cuenta</span>
                 <div className="userShowInfo">
                   <PermIdentityIcon className="userShowIcon" />
-                  <span className="userShowInfoTitle">{userInfo.apellido}</span>
+                  <span className="userShowInfoTitle">{userInfo.name} {userInfo.apellido}</span>
+                </div>
+                <div className="userShowInfo">
+                  <BadgeIcon className="userShowIcon" />
+                  <span className="userShowInfoTitle">{userInfo.cedula}</span>
                 </div>
                 <div className="userShowInfo">
                   <CalendarTodayIcon className="userShowIcon" />
@@ -92,7 +106,11 @@ export default function User() {
                     {userInfo.fechaNacimiento}
                   </span>
                 </div>
-                <span className="userShowTitle">Contact Details</span>
+                <span className="userShowTitle">Detalles de Contactos</span>
+                <div className="userShowInfo">
+                  <AlternateEmailIcon className="userShowIcon" />
+                  <span className="userShowInfoTitle">{userInfo.email}</span>
+                </div>
                 <div className="userShowInfo">
                   <PhoneAndroidIcon className="userShowIcon" />
                   <span className="userShowInfoTitle">{userInfo.telefono}</span>
@@ -109,7 +127,7 @@ export default function User() {
                     {userInfo.direccion}
                   </span>
                 </div>
-                <div className="userShowInfo">
+                <div className="userShowInfo" style={{display:'flex', flexDirection:'column'}}>
                   <div className="userUpdateItem">
                     <Autocomplete
                       id="role-selector"
@@ -117,6 +135,17 @@ export default function User() {
                       sx={{ width: 300 }}
                       renderInput={(params) => (
                         <TextField {...params} label="Seleccionar Rol" />
+                      )}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="userUpdateItem">
+                    <Autocomplete
+                      id="role-selector"
+                      options={ocupacion}
+                      sx={{ width: 300 }}
+                      renderInput={(params) => (
+                        <TextField {...params} label="Seleccionar " />
                       )}
                       onChange={handleChange}
                     />

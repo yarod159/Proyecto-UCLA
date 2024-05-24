@@ -9,3 +9,4 @@ export const getUsuarioProfileRequest = async (userId) => {
     throw error;
   }
 };
+

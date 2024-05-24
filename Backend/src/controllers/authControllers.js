@@ -30,6 +30,7 @@ try {
 
  } catch (error) {
     res.status(500).send({ error: error.message });
+    console.log(error)
  }
 };
  
@@ -91,7 +92,6 @@ const verifyToken = async (req, res) => {
     // Devolver los detalles del usuario
     return res.json({
       id: userFound._id,
-      name: userFound.name,
       email: userFound.email,
     });
   } catch (error) {
@@ -101,7 +101,25 @@ const verifyToken = async (req, res) => {
 };
 
 
-module.exports = { register, login,verifyToken };
+const putUserToEmpleados = async (req, res) => {
+  try {
+  const userId = req.params.userId;
+  const newRole = req.body.role;
+
+  const user = await User.findByIdAndUpdate(userId, { role: newRole }, { new: true });
+  res.json({ message: `Rol actualizado a ${newRole}` });
+  
+  } catch (error) {
+    console.error("Error fetching employees:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener los Empleados",
+    });
+  }
+};
+
+
+module.exports = { register, login,verifyToken, putUserToEmpleados  };
 
 
 /**

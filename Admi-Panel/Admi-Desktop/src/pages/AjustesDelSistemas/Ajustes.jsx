@@ -1,7 +1,5 @@
-import Sidebar from "../../components/sideBar/SideBar";
-import Topbar from "../../components/topBar/TopBar";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Button,
@@ -10,11 +8,10 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Grid,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import SidebarMui from "../../components/sideBar/SidebarMui";
 
-// Estilos personalizados para el botón de subida de archivos
 const StyledButton = styled(Button)({
   margin: "10px",
 });
@@ -27,6 +24,24 @@ export default function Ajustes() {
   const [mision, setMision] = useState("");
   const [vision, setVision] = useState("");
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/instalador/get-instalacion");
+        const data = response.data;
+
+        setNumeroTelefono(data.numeroTelefono);
+        setNombreEmpresa(data.nombreEmpresa);
+        setMision(data.mision);
+        setVision(data.vision);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const instalacionData = {
@@ -38,7 +53,7 @@ export default function Ajustes() {
 
     try {
       await axios
-        .post("http://localhost:3000/instalador/post-instalacion", instalacionData)
+        .put("http://localhost:3000/instalador/update-instalacion", instalacionData)
         .then((response) => {
           console.log(response.data);
         })
@@ -48,7 +63,6 @@ export default function Ajustes() {
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
     }
-
   };
 
   const handleColorChange = (event) => {
@@ -81,38 +95,95 @@ export default function Ajustes() {
 
   return (
     <div>
-    
-      <div className="container">
-        <SidebarMui />
+      <div>
         <div className="newProduct">
-          <h1>Ajustes del Sistema</h1>
-          <form onSubmit={handleSubmit}>  
-            <TextField
-              label="Nombre de la Empresa"
-              value={nombreEmpresa}
-              onChange={(e) => setNombreEmpresa(e.target.value)}
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              label="Número de Contacto"
-              value={numeroTelefono}
-              onChange={(e) => setNumeroTelefono(e.target.value)}
-              fullWidth
-              margin="normal"
-            />
-            <TextField label="Mision" value={mision} fullWidth margin="normal"  onChange={(e) => setMision(e.target.value)} />
-            <TextField label="Vision" value={vision} fullWidth margin="normal"  onChange={(e) => setVision(e.target.value)} />
-            <FormControl fullWidth margin="normal">
-              <InputLabel id="color-label">Color Corporativo</InputLabel>
-              <Select labelId="color-label" onChange={handleColorChange}>
-                <MenuItem value="#FF0000">Rojo</MenuItem>
-                <MenuItem value="#00FF00">Verde</MenuItem>
-                <MenuItem value="#0000FF">Azul</MenuItem>
-                <MenuItem value="#FFA500">Naranja</MenuItem>
-                {/* Agrega más colores según sea necesario */}
-              </Select>
-            </FormControl>
+          <h2 style={{ color: "#18a0a6" }}>Ajustes del Sistema</h2>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Titulo"
+                  value={nombreEmpresa}
+                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  fullWidth
+                  margin="normal"
+                />
+                
+                <TextField
+                  label="Eslogan"
+                  value={mision}
+                  fullWidth
+                  margin="normal"
+                  onChange={(e) => setMision(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Titulo - Sobre Nosotros "
+                  value={nombreEmpresa}
+                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Sobre Nosotros"
+                  value={mision}
+                  fullWidth
+                  margin="normal"
+                  onChange={(e) => setMision(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Mision"
+                  value={nombreEmpresa}
+                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Vision"
+                  value={mision}
+                  fullWidth
+                  margin="normal"
+                  onChange={(e) => setMision(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="facebook"
+                  value={nombreEmpresa}
+                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Instagram"
+                  value={mision}
+                  fullWidth
+                  margin="normal"
+                  onChange={(e) => setMision(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="correo"
+                  value={nombreEmpresa}
+                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="telefono"
+                  value={mision}
+                  fullWidth
+                  margin="normal"
+                  onChange={(e) => setMision(e.target.value)}
+                />
+              </Grid>
+          
+            </Grid>
+         
             <input
               accept="image/*"
               style={{ display: "none" }}

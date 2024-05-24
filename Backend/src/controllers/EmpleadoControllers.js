@@ -64,4 +64,7 @@ const getEmpleados = async (req, res) => {
 
 
 
-module.exports = { postEmpleado, getEmpleados };
+
+
+
+module.exports = { postEmpleado, getEmpleados};
