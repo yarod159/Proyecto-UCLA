@@ -43,7 +43,7 @@ function AppRoutes() {
             <Route path="/servicios" element={<UserService />} />
             <Route path="/userHome" element={<UserHome />} />
 
-            <Route path="/servicios" element={<Service />} />
+           
             <Route path="/servicio/:serviceId" element={<ServiceDetails />} />
             <Route path="/registrarse" element={<Register />} />
           </Route>

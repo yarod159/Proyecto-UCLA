@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const { getUsers} = require("../controllers/userController");
-const {getProfile,createProfile, getUser} = require("../controllers/ProfileControllers")
+const {getProfile,createProfile, getUser, getProfileAll} = require("../controllers/ProfileControllers")
 const authMiddleware = require("../middlewares/session");
 
 

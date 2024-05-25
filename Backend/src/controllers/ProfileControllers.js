@@ -5,6 +5,10 @@ const Profile = require('../models/Profile');
 const authenticateToken = require('../middlewares/authMiddleware');
 // Importar el modelo Profile
 
+
+
+
+
 // Método para obtener un perfil específico basado en el ID del usuario
 const getProfile = async (req, res) => {
   try {

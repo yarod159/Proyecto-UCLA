@@ -11,7 +11,7 @@ import React from "react";
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import MUIDataTable from "mui-datatables";
 import { Box } from "@mui/material";
-import { getUsuariosRequest } from "../../api/tablaUsuario";
+import { getUsuariosRequest, getUserProfileRequest } from "../../api/tablaUsuario";
 
 export default function UserList() {
   const [data, setData] = useState([]);

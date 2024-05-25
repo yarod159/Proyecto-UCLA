@@ -91,7 +91,7 @@ function UserNavbar() {
       <Divider />
       <List>
       <ListItem disablePadding>
-          <ListItemButton href='/inicio' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+          <ListItemButton href='/home' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <MailIcon />
             </ListItemIcon>
@@ -119,6 +119,8 @@ function UserNavbar() {
             <ListItemText>Servicios</ListItemText>
           </ListItemButton>
       </ListItem>
+
+      
 
       </List>
       <Divider />
@@ -161,7 +163,7 @@ function UserNavbar() {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/inicio"
+                href="/home"
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -207,7 +209,7 @@ function UserNavbar() {
                 variant="h5"
                 noWrap
                 component="a"
-                href="/inicio"
+                href="/home"
                 sx={{
                   mr: 2,
                   display: { xs: 'flex', md: 'none' },
