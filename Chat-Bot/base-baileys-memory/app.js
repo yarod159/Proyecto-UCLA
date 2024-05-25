@@ -1,51 +1,90 @@
+require("dotenv").config();
+const axios = require('axios');
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
 
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
 
-const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswer(
+
+const flowGracias = addKeyword(['']).addAnswer(
     [
-        '📄 Aquí encontras las documentación recuerda que puedes mejorarla',
-        'https://bot-whatsapp.netlify.app/',
-        '\n*2* Para siguiente paso.',
+        '🚀 Muchas gracias',
+        'Pronto nos comunicaremos contigo para brindarte la mejor atención que va a brindarte una asesoría especializada.', 
     ],
     null,
     null,
-    [flowSecundario]
 )
-
-const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
+const flowNoClienteCorreo = addKeyword(['']).addAnswer(
     [
-        '🙌 Aquí encontras un ejemplo rapido',
-        'https://bot-whatsapp.netlify.app/docs/example/',
-        '\n*2* Para siguiente paso.',
+        '🚀 Sigamos avanzando, ahora compártenos:',
+
+       ' ▪ Correo electrónico',
+        
+        'Escribe *0* para volver al menú anterior 🔙 ',
+
     ],
     null,
     null,
-    [flowSecundario]
+    [flowGracias]
 )
-
-const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
+const flowNoClienteCedula = addKeyword(['']).addAnswer(
     [
-        '🚀 Puedes aportar tu granito de arena a este proyecto',
-        '[*opencollective*] https://opencollective.com/bot-whatsapp',
-        '[*buymeacoffee*] https://www.buymeacoffee.com/leifermendez',
-        '[*patreon*] https://www.patreon.com/leifermendez',
-        '\n*2* Para siguiente paso.',
+        '¡Encantados de conocerte 🤩! Cada vez estamos más cerca de mostrarte todo lo que tenemos para ti. Ahora, necesitamos saber:',
+        '▪ Cédula de Identidad',  
+       ' Ejemplo: 12345678',  
+        'Escribe *0*para volver al menú anterior 🔙'
+
     ],
     null,
     null,
-    [flowSecundario]
+    [flowNoClienteCorreo]
+)
+const flowNoCliente = addKeyword(['#']).addAnswer(
+    [
+        '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩! Queremos conocerte para darte el servicio ajustado a tus necesidades 😊.',
+        'Nombre Apellido:',
+        'Ejemplo: Juan Peréz',
+        'Escribe *0* para volver al menu principal',
+
+    ],
+    null,
+    null,
+    [flowNoClienteCedula]
+)
+ 
+
+
+
+const flowProductos = addKeyword(['1']).addAnswer(
+    [
+        '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
+        '  Queremos que conozcas nuestros productos y que mejor que la de ingresar a nuestra pagina web "" o a nuestra app en playstore ""',
+    ],
+    null,
+    null,
+    [flowGracias]
 )
 
-const flowDiscord = addKeyword(['discord']).addAnswer(
-    ['🤪 Únete al discord', 'https://link.codigoencasa.com/DISCORD', '\n*2* Para siguiente paso.'],
+const flowServicios = addKeyword(['2']).addAnswer(
+    [
+        '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
+        '  Queremos que conozcas nuestros servicios y que mejor que la de ingresar a nuestra pagina web "" o a nuestra app en playstore ""',
+    ],
     null,
     null,
-    [flowSecundario]
+    [flowGracias]
+)
+
+const flowPreguntas = addKeyword(['3']).addAnswer(
+    [
+        '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
+        'Te compartiremos nuestras preguntas frecuentes, recuerda que para mas información puedes ingresar a ""',
+    ],
+    null,
+    null,
+    [flowGracias]
 )
 
 const flowPrincipal = addKeyword([''])
@@ -59,7 +98,7 @@ const flowPrincipal = addKeyword([''])
         ],
         null,
         null,
-        [flowDocs, flowGracias, flowTuto, flowDiscord]
+        [flowNoCliente, flowProductos, flowServicios, flowPreguntas]
     )
 
 const main = async () => {
