@@ -115,12 +115,7 @@ export default function User() {
                   <PhoneAndroidIcon className="userShowIcon" />
                   <span className="userShowInfoTitle">{userInfo.telefono}</span>
                 </div>
-                <div className="userShowInfo">
-                  <MailOutlineIcon className="userShowIcon" />
-                  <span className="userShowInfoTitle">
-                    annabeck99@gmail.com
-                  </span>
-                </div>
+                
                 <div className="userShowInfo">
                   <LocationSearchingIcon className="userShowIcon" />
                   <span className="userShowInfoTitle">
@@ -140,15 +135,8 @@ export default function User() {
                     />
                   </div>
                   <div className="userUpdateItem">
-                    <Autocomplete
-                      id="role-selector"
-                      options={ocupacion}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => (
-                        <TextField {...params} label="Seleccionar " />
-                      )}
-                      onChange={handleChange}
-                    />
+                  <TextField id="outlined-basic" label="Ocupacion de trabajo" variant="outlined"  sx={{width:'300px'}}/>
+                    
                   </div>
                 </div>
               </div>

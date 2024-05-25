@@ -94,4 +94,25 @@ const createProfile = async (req, res) => {
   }
 };
 
-  module.exports = { getProfile, createProfile, getUser };
+// Método para obtener un perfil completo con detalles del usuario
+const getCompleteProfile = async (req, res) => {
+  try {
+    // Buscar todos los perfiles
+    const profiles = await Profile.find()
+     .populate('user', '-password') // Llenar el campo 'user' con información del usuario, excluyendo la contraseña
+     .exec(); // Ejecutar la consulta
+
+    if (!profiles || profiles.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron perfiles' });
+    }
+
+    // Enviar todos los perfiles encontrados
+    res.json(profiles);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Hubo un error al procesar tu solicitud');
+  }
+};
+
+
+  module.exports = { getProfile, createProfile, getUser,getCompleteProfile };

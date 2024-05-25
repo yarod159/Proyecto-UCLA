@@ -14,6 +14,7 @@ const postEmpleado = async (req, res) => {
       ocupacion: req.body.ocupacion,
       dateCumple: req.body.dateCumple,
       estatus: req.body.estatus,
+      user: req.body.user,
     });
 
     // Guardar el empleado en la base de datos
@@ -43,11 +44,12 @@ const getEmpleados = async (req, res) => {
     if (!auth) return res.status(403).json({ message: 'Usuario no autenticado.'});
 
     // Buscar el perfil correspondiente al usuario
-    const empleados = await Empleado.find(); 
-   
+  
+    
+    const empleados = await Empleado.find().populate({path: 'user'});
     // Buscar todos los empleados en la base de datos
     
-
+    console.log('Empleados encontrados:', empleados);
     // Enviar la lista de empleados como respuesta
     res.status(200).json({
       success: true,

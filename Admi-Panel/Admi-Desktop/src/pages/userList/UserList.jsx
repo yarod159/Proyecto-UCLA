@@ -11,7 +11,7 @@ import React from "react";
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import MUIDataTable from "mui-datatables";
 import { Box } from "@mui/material";
-import { getUsuariosRequest, getUserProfileRequest } from "../../api/tablaUsuario";
+import { getUsuariosRequest,getUserAllRequest } from "../../api/tablaUsuario";
 
 export default function UserList() {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ export default function UserList() {
     const fetchData = async () => {
       try {
         const response = await getUsuariosRequest();
-       
+       console.log(response)
         if (response.data.success) {
           setData(response.data.data);
         } else {
@@ -45,7 +45,6 @@ export default function UserList() {
 
   const columns = [
     { name: "_id", label: "ID", width: 90 },
-    { name: "name", label: "Nombre", width: 250 },
     { name: "email", label: "Email", width: 250 },
     {
       name: "acciones",
