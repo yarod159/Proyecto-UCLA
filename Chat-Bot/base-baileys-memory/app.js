@@ -7,7 +7,6 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
 
-
 const flowGracias = addKeyword(['']).addAnswer(
     [
         '🚀 Muchas gracias',
@@ -60,7 +59,7 @@ const flowNoCliente = addKeyword(['#']).addAnswer(
 const flowProductos = addKeyword(['1']).addAnswer(
     [
         '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
-        '  Queremos que conozcas nuestros productos y que mejor que la de ingresar a nuestra pagina web "" o a nuestra app en playstore ""',
+        '  Queremos que conozcas nuestros productos y que mejor que la de ingresar a nuestra pagina web "www.kinetika.com" o a nuestra app en playstore ',
     ],
     null,
     null,
@@ -70,7 +69,7 @@ const flowProductos = addKeyword(['1']).addAnswer(
 const flowServicios = addKeyword(['2']).addAnswer(
     [
         '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
-        '  Queremos que conozcas nuestros servicios y que mejor que la de ingresar a nuestra pagina web "" o a nuestra app en playstore ""',
+        '  Queremos que conozcas nuestros servicios y que mejor que la de ingresar a nuestra pagina web "www.kinetika.com" o a nuestra app en playstore ',
     ],
     null,
     null,
@@ -80,7 +79,7 @@ const flowServicios = addKeyword(['2']).addAnswer(
 const flowPreguntas = addKeyword(['3']).addAnswer(
     [
         '¡Gracias por querer empezar a disfrutar de *Kinetika* 🤩!',
-        'Te compartiremos nuestras preguntas frecuentes, recuerda que para mas información puedes ingresar a ""',
+        'Te compartiremos nuestras preguntas frecuentes, recuerda que para mas información puedes ingresar a "www.kinetika.com"',
     ],
     null,
     null,
@@ -91,7 +90,7 @@ const flowPrincipal = addKeyword([''])
     .addAnswer('🙌 Hola bienvenido este es el chatBot *Kinetika*')
     .addAnswer(
         [
-            'Escribe *#* si aun no eres cliente *Kinetika*',
+            '👉 Escribe *#* si aun no eres cliente *Kinetika*',
             '👉 Escribe *1* Si quieres conocer nuestros Productos',
             '👉 Escribe *2* Si quieres conocer nuestros servicios',
             '👉 Escribe *3* Si quieres conocer las preguntas frecuentes',
