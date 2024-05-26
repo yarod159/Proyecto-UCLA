@@ -14,8 +14,12 @@ import Sidebar from "../../components/sideBar/SideBar";
 import BadgeIcon from '@mui/icons-material/Badge';
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import { getUsuarioProfileRequest } from "../../api/tablaProfile";
+import { putUsuarioEmpleadoRequest, getRolRequest } from "../../api/userAEmpleado";
 import { userData } from "../../data";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+
+
 const roles = [
   { label: "Admin", value: "admin" },
   { label: "User", value: "user" },
@@ -25,12 +29,16 @@ const roles = [
 const ocupacion=[
   { label: "Limpieza", value: "limpieza" },
   { label: "Tecnico", value: "tecnico" },
-  
 ]
+
+
+
 
 export default function User() {
   const [selectedRole, setSelectedRole] = useState("");
   const [selectedOcupacion, setSelectedOcupacion] = useState("");
+  const [availableRoles, setAvailableRoles] = useState(roles);
+
 
   const [data, setData] = useState([]);
   let { userId } = useParams();
@@ -46,8 +54,28 @@ export default function User() {
     telefono: "",
   });
 
+
+  // Función para cargar los roles disponibles
+  const fetchRoles = async () => {
+    try {
+      const response = await getRolRequest(userId);
+      // Actualiza availableRoles con el nuevo rol obtenido
+      setAvailableRoles(prevRoles => [...prevRoles, response.role]);
+    } catch (error) {
+      console.error("Error fetching user roles:", error);
+    }
+  };
+  
+
+  useEffect(() => {
+    getProfileData();
+    fetchRoles(); // Llama a fetchRoles para cargar los roles disponibles
+  }, []);
+
+
   const getProfileData = async () => {
     const resp = await getUsuarioProfileRequest(userId);
+    console.log(resp)
     setUserInfo({
       name:resp.data.name,
       apellido: resp.data.apellido,
@@ -56,7 +84,9 @@ export default function User() {
       fechaNacimiento: new Date(resp.data.dateCumple).toLocaleDateString(),
       direccion: resp.data.direccion,
       telefono: resp.data.telefono,
+      role:resp.data.user.role,
     });
+    setSelectedRole(resp.data.role || ""); 
   };
 
   useEffect(() => {
@@ -65,14 +95,25 @@ export default function User() {
 
   console.log("userInfo:", userInfo);
 
-  const handleChange = (event, value) => {
-    setSelectedRole(value);
+  const handleChange = async (event, value) => {
+    // Antes de llamar a putUsuarioEmpleadoRequest, extraemos el string del objeto seleccionado
+    const roleString = value? value.value : ""; // Si no se selecciona ninguna opción, usamos un string vacío o el valor predeterminado que prefieras
+  
+    setSelectedRole(roleString); // Actualizamos el estado con el string del rol
+    try {
+      const updatedData = await putUsuarioEmpleadoRequest(userId, roleString); // Pasamos el string del rol a la función de actualización
+      console.log('Rol actualizado exitosamente:', updatedData);
+      getProfileData();
+    } catch (error) {
+      console.error('Falló al actualizar el rol:', error);
+      // Maneja el error, por ejemplo, muestra un mensaje de error
+    }
   };
+  
 
   const handleChangeOcupacion = (event, value) => {
     setSelectedOcupacion(value);
   };
-
 
   return (
     <div>
@@ -120,6 +161,14 @@ export default function User() {
                   <LocationSearchingIcon className="userShowIcon" />
                   <span className="userShowInfoTitle">
                     {userInfo.direccion}
+                  </span>
+                </div>
+
+                 
+                <div className="userShowInfo">
+                  <AssignmentIndIcon className="userShowIcon" />
+                  <span className="userShowInfoTitle">
+                    {userInfo.role}
                   </span>
                 </div>
                 <div className="userShowInfo" style={{display:'flex', flexDirection:'column'}}>
