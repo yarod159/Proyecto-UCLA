@@ -1,0 +1,64 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A3CA507CA67EFD0BF77',
+    participant: undefined
+  },
+  messageTimestamp: 1716745593,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_8ec37fca-7104-4cbb-a641-a7f026c3ec1a',
+  keyword: 'key_74b7d2bf-651c-41e2-b71d-a797d989886b',
+  answer: [AsyncFunction (anonymous)],
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '8f923f99c0968e79f60f472ae5c193ba'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_3b8cdaa6-6e75-487e-ba4c-8e4a14c80af9',
+  keyword: 'ans_8ec37fca-7104-4cbb-a641-a7f026c3ec1a',
+  answer: '👉 Escribe *#* si aun no eres cliente *Kinetika*\n' +
+    '👉 Escribe *1* Si quieres conocer nuestros Productos\n' +
+    '👉 Escribe *2* Si quieres conocer nuestros servicios\n' +
+    '👉 Escribe *3* Si quieres conocer las preguntas frecuentes',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'bd68e828ce5c6814fa0e0db7477a7aef'
+}
