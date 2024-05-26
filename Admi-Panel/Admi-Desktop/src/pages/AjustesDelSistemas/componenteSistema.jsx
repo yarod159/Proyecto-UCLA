@@ -46,6 +46,13 @@ export default function ComponenteSistema() {
                     onChange={(event) => handleSwitchChange(event, 'installation')}
                     inputProps={{ 'aria-label': 'controlled' }}
                   />
+
+                    {/* Botón que se muestra u oculta según el estado del switch */}
+                    {formData.installation && (
+                      <Button variant="contained" color="primary">
+                        Mostrar Botón de instalaciones
+                      </Button>
+                    )}
                 </Grid>
                 <Grid item xs={12} sm={6} md={6}>
                   <Typography variant="h6">Productos</Typography>

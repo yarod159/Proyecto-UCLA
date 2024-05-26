@@ -11,29 +11,50 @@ import {
   Grid,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import {getAjustesSistemaRequest, putAjustesSistemaRequest} from "../../api/ajusSistema";
+
+
 
 const StyledButton = styled(Button)({
   margin: "10px",
 });
 
 export default function Ajustes() {
+  
   const [numeroTelefono, setNumeroTelefono] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
-
+  {/*const [selectedFile, setSelectedFile] = useState(null);*/}
   const [nombreEmpresa, setNombreEmpresa] = useState("");
+  const [titulo, setTitulo] = useState("");
+  const [eslogan, setEslogan] = useState("");
+  const [nTitulo, setNTitulo] = useState("");
+  const [nosotros, setNosotros] = useState("");
   const [mision, setMision] = useState("");
   const [vision, setVision] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [id, setId] = useState("");
+  
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/instalador/get-instalacion");
-        const data = response.data;
+        const response = await getAjustesSistemaRequest(); // Utiliza la función específica aquí
+        console.log('aqui,',response)
+        if (response.data.success) {
+          const data = response.data.data;
+          setId(data[0]._id)
+          setTitulo(data[0].titulo)
+          setNTitulo(data[0].nTitulo);
+          setNosotros(data[0].nosotros);
+          setMision(data[0].mision);
+          setVision(data[0].vision);
+          setEslogan(data[0].eslogan);
+          setNumeroTelefono(data[0].numeroTelefono)
 
-        setNumeroTelefono(data.numeroTelefono);
-        setNombreEmpresa(data.nombreEmpresa);
-        setMision(data.mision);
-        setVision(data.vision);
+        } else {
+          console.error("Error al obtener los ajusts del sistema:", response.data.message);
+        }
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
@@ -44,24 +65,30 @@ export default function Ajustes() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    // Asumiendo que tienes variables de estado para cada uno de los campos de instalación
     const instalacionData = {
+      titulo,
+      eslogan,
+      nTitulo,
+      nosotros,
       numeroTelefono,
       nombreEmpresa,
       mision,
       vision,
     };
-
+  
     try {
-      await axios
-        .put("http://localhost:3000/instalador/update-instalacion", instalacionData)
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.error("Error al enviar la solicitud:", error.response.data);
-        });
+      // Realiza la petición PUT para actualizar los datos de instalación
+      const response = await putAjustesSistemaRequest(instalacionData, id);
+  
+      console.log('Por aca',response.data); // Imprime la respuesta de la petición
+  
+      // Aquí puedes manejar la respuesta exitosa, por ejemplo, actualizar el estado local de tu componente
+      // con los datos actualizados recibidos de la respuesta, si es necesario
+  
     } catch (error) {
-      console.error("Error al enviar la solicitud:", error);
+      console.error("Error al enviar la solicitud:", error.response? error.response.data : error.message);
     }
   };
 
@@ -103,66 +130,67 @@ export default function Ajustes() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Titulo"
-                  value={nombreEmpresa}
-                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  value={titulo}
+                  onChange={(e) => setTitulo(e.target.value)}
                   fullWidth
                   margin="normal"
                 />
                 
                 <TextField
                   label="Eslogan"
-                  value={mision}
+                  value={eslogan}
                   fullWidth
                   margin="normal"
-                  onChange={(e) => setMision(e.target.value)}
+                  placeholder={eslogan}
+                  onChange={(e) => setEslogan(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Titulo - Sobre Nosotros "
-                  value={nombreEmpresa}
-                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  value={nTitulo}
+                  onChange={(e) => setNTitulo(e.target.value)}
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   label="Sobre Nosotros"
-                  value={mision}
+                  value={nosotros}
                   fullWidth
                   margin="normal"
-                  onChange={(e) => setMision(e.target.value)}
+                  onChange={(e) => setNosotros(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Mision"
-                  value={nombreEmpresa}
-                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  value={mision}
+                  onChange={(e) => setMision(e.target.value)}
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   label="Vision"
-                  value={mision}
+                  value={vision}
                   fullWidth
                   margin="normal"
-                  onChange={(e) => setMision(e.target.value)}
+                  onChange={(e) => setVision(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="facebook"
-                  value={nombreEmpresa}
-                  onChange={(e) => setNombreEmpresa(e.target.value)}
+                  value={facebook}
+                  onChange={(e) => setFacebook(e.target.value)}
                   fullWidth
                   margin="normal"
                 />
                 <TextField
                   label="Instagram"
-                  value={mision}
+                  value={instagram}
                   fullWidth
                   margin="normal"
-                  onChange={(e) => setMision(e.target.value)}
+                  onChange={(e) => setInstagram(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -175,10 +203,10 @@ export default function Ajustes() {
                 />
                 <TextField
                   label="telefono"
-                  value={mision}
+                  value={numeroTelefono}
                   fullWidth
                   margin="normal"
-                  onChange={(e) => setMision(e.target.value)}
+                  onChange={(e) => setNumeroTelefono(e.target.value)}
                 />
               </Grid>
           

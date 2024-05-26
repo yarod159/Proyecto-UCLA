@@ -7,6 +7,22 @@ const instalacionSchema = new Schema({
     type: String,
    
  },
+ titulo: {
+   type: String,
+  
+},
+eslogan: {
+   type: String,
+  
+},
+nTitulo: {
+   type: String,
+  
+},
+nosotros: {
+   type: String,
+  
+},
  numeroTelefono: {
     type: String,
     

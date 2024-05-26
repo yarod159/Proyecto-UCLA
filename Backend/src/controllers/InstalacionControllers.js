@@ -8,6 +8,10 @@ const postInstalacion = async (req, res) => {
     // Crear una nueva instancia de Empleado con los datos del formulario
     const instalacion = new Instalacion({
       nombreEmpresa: req.body.nombreEmpresa,
+      titulo: req.body.titulo,
+      eslogan: req.body.eslogan,
+      nTitulo: req.body.nTitulo,
+      nosotros: req.body.nosotros,
       numeroTelefono: req.body.numeroTelefono,
       mision: req.body.mision,
       vision: req.body.vision,
@@ -29,6 +33,50 @@ const postInstalacion = async (req, res) => {
     });
   }
 };
+
+
+const putInstalacion = async (req, res) => {
+  try {
+    // Buscar el registro de instalación por su ID
+    const instalacion = await Instalacion.findById(req.params.id);
+
+    if (!instalacion) {
+      // Si no se encuentra la instalación, enviar un error
+      return res.status(404).json({
+        success: false,
+        error: "Instalación no encontrada",
+      });
+    }
+
+    // Actualizar los campos de la instalación con los nuevos valores recibidos
+    instalacion.set({
+      nombreEmpresa: req.body.nombreEmpresa || instalacion.nombreEmpresa,
+      titulo: req.body.titulo || instalacion.titulo,
+      eslogan: req.body.eslogan || instalacion.eslogan,
+      nTitulo: req.body.nTitulo || instalacion.nTitulo,
+      nosotros: req.body.nosotros || instalacion.nosotros,
+      numeroTelefono: req.body.numeroTelefono || instalacion.numeroTelefono,
+      mision: req.body.mision || instalacion.mision,
+      vision: req.body.vision || instalacion.vision,
+    });
+
+    // Guardar la instalación actualizada en la base de datos
+    await instalacion.save();
+
+    // Enviar una respuesta al cliente indicando éxito
+    res.status(200).json({
+      success: true,
+      data: instalacion,
+    });
+  } catch (error) {
+    // Enviar un mensaje de error al cliente
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
 
 const getInstalacion = async (req, res) => {
   try {
@@ -119,7 +167,51 @@ const deleteFaq = async (req, res) => {
      });
   }
  };
+
+ const postMetPago = async (req, res) => {
+  try {
+    // Crear una nueva instancia de Empleado con los datos del formulario
+    const metodoPago = new MetPago({
+      Banco: req.body.Banco,
+      Identificacion: req.body.Identificacion,
+      Beneficiario: req.body.Beneficiario,
+      NumeroTelefono: req.body.NumeroTelefono,
+      NumeroCuenta: req.body.NumeroCuenta,
+    });
+
+    // Guardar el empleado en la base de datos
+    await metodoPago.save();
+
+    // Enviar una respuesta al cliente
+    res.status(201).json({
+      success: true,
+      data: metodoPago,
+    });
+  } catch (error) {
+    // Enviar un mensaje de error al cliente
+    res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
+const getMetPago = async (req, res) => {
+  try {
+    const metodoPago = await MetPago.find();
+    res.status(200).json({
+      success: true,
+      data: metodoPago,
+    });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener la informacion",
+    });
+  }
+};
  
 
 
-module.exports = { postInstalacion, getInstalacion,postPreguntaFaq,getFaq,deleteFaq };
+module.exports = { postInstalacion, getInstalacion,postPreguntaFaq,getFaq,deleteFaq, putInstalacion, postMetPago,  getMetPago };
