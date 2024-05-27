@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../../shemas/auth";
-import './login.css'; // Importa el archivo CSS
+import './login.css'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Importa el ícono
 
-const Login= function Login() {
+const Login = function Login() {
   const {
     register,
     handleSubmit,
@@ -26,37 +28,48 @@ const Login= function Login() {
     }
   }, [isAuthenticated]);
 
+  // Función para manejar el clic en el botón "Atrás"
+  const goBackToHome = () => {
+    navigate('/home'); // Regresa al inicio
+  };
+
   return (
     <div>
-      <div>
-        
-        <h1 >Login</h1>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="email">Email:</label>
-          <input
-            label="Write your email"
-            type="email"
-            name="email"
-            placeholder="youremail@domain.tld"
-            {...register("email", { required: true })}
-          />
-          <p>{errors.email?.message}</p>
-
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Write your password"
-            {...register("password", { required: true, minLength: 6 })}
-          />
-          <p>{errors.password?.message}</p>
-
-          <button>Login</button>
-        </form>
-
+      <div className="login-box">
+        <p className="back-button-container">
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <FontAwesomeIcon icon={faArrowLeft} /> Atrás
+          </Link>
+        </p>
         <p>
-          Don't have an account? <Link to="/register" >Sign up</Link>
+
+
+        </p>
+        <h2 style={{color:'#18a0a6'}}>Iniciar Sesión</h2>
+       
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="user-box">
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo"
+              {...register("email", { required: true })}
+            />
+            <p>{errors.email?.message}</p>
+          </div>
+          <div className="user-box">
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              {...register("password", { required: true, minLength: 6 })}
+            />
+            <p>{errors.password?.message}</p>
+          </div>
+          <button style={{background:'#18a0a6'}}>Ingresar</button>
+        </form>
+        <p style={{marginTop: 26}}>
+          No estás registrado? <Link to="/register">Registrate</Link>
         </p>
       </div>
     </div>
