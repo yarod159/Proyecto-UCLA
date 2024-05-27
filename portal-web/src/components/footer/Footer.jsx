@@ -1,6 +1,6 @@
 import React from 'react';
 import "./footer.css"; // Asegúrate de que el archivo CSS esté importado correctamente
-import logo from "../../assets/Logos/logo-blanco.png";
+import logo from "../../assets/Logos/logo1-hor-blanco.png";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
@@ -10,15 +10,19 @@ const Footer = () => {
       <div className="grupo-1">
         <div className="box">
           <figure>
-            <a href="#">
+            <a href="/home">
             <img src={logo} alt="" />
             </a>
           </figure>
         </div>
         <div className="box">
           <h2>SOBRE NOSOTROS</h2>
-          <p>Kinetika</p>
-          <p></p>
+          <div style={{flexDirection:'column'}}>
+          <a href="/home"><p>Inicio</p></a>
+          <a href="/servicios"><p>Servicios</p></a>
+          <a href="/AtencionAlCliente"><p>Atención al Cliente</p></a>
+          <a href="/UserProfile"><p>Perfil</p></a>
+          </div>
         </div>
         <div className="box">
           <h2>SIGUENOS</h2>
