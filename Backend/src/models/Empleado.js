@@ -20,6 +20,7 @@ const empleadoSchema = new Schema({
   },
    
    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+   profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
 
 });
 

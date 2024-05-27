@@ -15,6 +15,7 @@ const postEmpleado = async (req, res) => {
       dateCumple: req.body.dateCumple,
       estatus: req.body.estatus,
       user: req.body.user,
+      profile:req.body.profile
     });
 
     // Guardar el empleado en la base de datos
@@ -45,8 +46,9 @@ const getEmpleados = async (req, res) => {
 
     // Buscar el perfil correspondiente al usuario
   
-    
-    const empleados = await Empleado.find().populate({path: 'user'});
+  
+
+    const empleados = await Empleado.find().populate('user').populate('profile');
     // Buscar todos los empleados en la base de datos
     
     console.log('Empleados encontrados:', empleados);
