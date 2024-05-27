@@ -103,6 +103,7 @@ const postServOfrecido = async (req, res) => {
     const servOfrecido = new ServOfrecido({
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
+      precio: req.body.precio,
     });
 
     // Guardar el empleado en la base de datos

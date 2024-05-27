@@ -6,8 +6,9 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import './FormServ.css'
 import { Box, Select, FormLabel,} from '@mui/material';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FormControl, InputLabel, MenuItem } from '@mui/material';
+import axios from 'axios';
 
 
 
@@ -28,6 +29,8 @@ const FormServ = () => {
         codigoPostal: "",
         tipoPared: "",
     });
+
+    const [servicios, setServicios] = useState([]);
   
     const handleDireccionChange = (event) => {
         setFormData({ ...formData, direccion: event.target.value });
@@ -79,6 +82,22 @@ const FormServ = () => {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });}
+
+    useEffect(() => {
+        const fetchServicios = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/instalador/get-servOfrecido');
+                if (response.data.success) {
+                    setServicios(response.data.data);
+                }
+
+            } catch (error) {
+                console.error("Error al obtener servicios ofrecidos:", error);
+            }
+            };
+        
+            fetchServicios();
+        }, []);
 
   return (
     
@@ -218,17 +237,15 @@ const FormServ = () => {
                                     <FormLabel sx={{marginTop: 4}}>Datos para la instalación</FormLabel>
                                     
                                     <div className="form-tipInstalacion-tipVivienda">
-                                        <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
+                                    <FormControl variant="standard" sx={{ marginTop: 2, width: 310 }}>
                                         <InputLabel>Tipo de servicio</InputLabel>
                                         <Select value={tipServicio} onChange={handleOptionChangeTip}>
-                                            
                                             <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Inst1">Internet y televisión por cable</MenuItem>
-                                            <MenuItem value="Inst2">Internet</MenuItem>
-                                            <MenuItem value="Inst3">Televisión por cable</MenuItem>
-                                            
+                                            {servicios.map((service) => (
+                                                <MenuItem key={service._id} value={service.titulo}>{service.titulo}</MenuItem>
+                                            ))}
                                         </Select>
-                                        </FormControl>
+                                    </FormControl>
 
                                         <FormControl variant="standard" sx={{marginTop: 2, marginBottom: 4, width: 310}}>
                                         <InputLabel>Tipo de vivienda</InputLabel>

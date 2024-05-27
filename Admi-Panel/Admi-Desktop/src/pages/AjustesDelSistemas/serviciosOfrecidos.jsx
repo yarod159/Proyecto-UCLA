@@ -22,9 +22,11 @@ export default function servicioOfrecido() {
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
+  const [precio, setPrecio] = useState("");
   const [servicios, setServicios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+   const [deleteOfre,setDeleteOfre] = useState([]);
 
   const handleClose = () => {
     setOpen(false);
@@ -33,13 +35,14 @@ export default function servicioOfrecido() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!titulo.trim() ||!descripcion.trim()) {
+    if (!titulo.trim() ||!descripcion.trim() || !precio.trim()) {
       alert("Por favor, llene todos los campos.");
       return;
     }
     const servOfrecidoData = {
       titulo,
       descripcion,
+      precio
     };
 
     try {
@@ -49,7 +52,9 @@ export default function servicioOfrecido() {
           console.log(response.data);
           setTitulo("");
           setDescripcion("");
+          setPrecio("");
           setOpen(true); // Abre el modal de éxito
+          setServicios(updatedServices);
         })
        .catch((error) => {
           console.error("Error al enviar la solicitud:", error.response.data);
@@ -72,14 +77,20 @@ export default function servicioOfrecido() {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (Deleteid) => {
     try {
-      await axios.delete(`http://localhost:3000/instalador/delete-servOfrecido/${id}`);
-      // Refresca los datos después de eliminar
-      fetchAndSetServices(); // Asumiendo que tienes una función para refrescar los datos
+      await axios.delete(`http://localhost:3000/instalador/delete-servOfrecido/${Deleteid}`);
+      
+      const updatedServices = servicios.filter(service => service._id!== Deleteid);
+      setServicios(updatedServices);
     } catch (error) {
       console.error("Error al eliminar el servicio:", error);
     }
+  };
+  
+
+  const handleAccordionClick = (Deleteid) => {
+    setDeleteOfre(Deleteid);
   };
 
   const columns = [
@@ -87,32 +98,32 @@ export default function servicioOfrecido() {
     {
       field: "titulo",
       headerName: "titulo",
-      width: 240,
+      width: 220,
     },
-    { field: "descripcion", headerName: "Descripción", width: 360 },
- 
-    
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <>
+    { field: "descripcion", headerName: "Descripción", width: 280 },
 
+    { field: "precio", headerName: "Precio del servicio", width: 180 },
+ 
+    {
+    field: "action",
+    headerName: "Action",
+    width: 200,
+    renderCell: (params) => {
+      return (
+        <>
+          <div>
             
-            <DeleteOutlineIcon
-                className="userListDelete"
-                onClick={(event) => {
-                    event.stopPropagation();
-                    handleDelete(id);
-                }}
-            />
-            
-          </>
-        );
-      },
+            <button className="userListDelete" onClick={(event) => {
+                event.stopPropagation();
+                handleDelete(params.id); 
+            }}>
+              Delete
+            </button>
+          </div>
+        </>
+      );
     },
+  }
   ];
 
   useEffect(() => { // Efecto secundario para cargar los datos al montar el componente
@@ -176,6 +187,21 @@ export default function servicioOfrecido() {
                     maxRows={4}
                     value={descripcion}
                     onChange={(e) => setDescripcion(e.target.value)}
+                    sx={{
+                      fontWeight: "bold", // Aumenta el peso de la fuente aquí
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                  <TextField
+                    label="Por favor ingrese el precio del servicio."
+                    name="precio"
+                    fullWidth
+                    margin="normal"
+                    multiline
+                    maxRows={4}
+                    value={precio}
+                    onChange={(e) => setPrecio(e.target.value)}
                     sx={{
                       fontWeight: "bold", // Aumenta el peso de la fuente aquí
                     }}

@@ -10,7 +10,11 @@ const servOfrecidoSchema = new Schema({
      descripcion: {
         type: String,
         required: true, // Make this field required
-     }
+     },
+     precio: {
+      type: String,
+      required: true, // Make this field required
+   }
 });
 
 // Creación del modelo
