@@ -49,11 +49,11 @@ const ServCliente = () => {
     const columns = [
         { field: "_id", headerName: "ID", width: 120 },
         {
-            field: "tituloProblema",
-            headerName: "Titulo",
+            field: "fecha",
+            headerName: "Fecha de al solicitud o reclamo",
             width: 350,
         },
-        { field: "descripcionProblema", headerName: "Descripción", width: 380 },
+        { field: "message", headerName: "Descripción de la solicitud o reclamo", width: 380 },
    
         {
         field: "action",
@@ -82,6 +82,7 @@ const ServCliente = () => {
       <UserNavBar />
 
       <div className="wrapper-servicio-cliente">
+        <h1 style={{color: '#18a0a6', marginTop:30}}>Atención al Cliente</h1>
         <div>
             <DataGrid
             rows={data}
@@ -91,14 +92,25 @@ const ServCliente = () => {
             checkboxSelection
             getRowId={(row) => row._id}
             autoHeight={true}
+            sx={{maxWidth: '100%', margin:4}}
             />
         </div>
 
-        <div>
+        <div style={{flexDirection: "row"}}>
             <Button variant="contained" type="submit" 
-            sx={{ marginTop: 4, color: '#fff', bgcolor: '#18a0a6', 
+            sx={{ marginTop: 2, marginBottom: 4, color: '#fff', bgcolor: '#18a0a6', 
                     ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/newReport">
-                Enviar
+                Nueva solicitud
+            </Button>
+            <Button variant="contained" type="submit" 
+            sx={{ marginTop: 2, marginBottom: 4, marginLeft: 4, marginRight: 4, color: '#fff', bgcolor: '#18a0a6', 
+                    ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/solGarant">
+                Solicitar garantía
+            </Button>
+            <Button variant="contained" type="submit" 
+            sx={{ marginTop: 2, marginBottom: 4, color: '#fff', bgcolor: '#18a0a6', 
+                    ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/faqSeccion">
+                Preguntas Frecuentes
             </Button>
         </div>
  

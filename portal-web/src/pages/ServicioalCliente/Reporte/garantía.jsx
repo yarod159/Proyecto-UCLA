@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const Reporte = () => {
+const garantía = () => {
 
      
     const [name, setName] = useState("");
@@ -67,7 +67,7 @@ const Reporte = () => {
                 <Grid item xs={12} sm={12} md={12}>
                     <Item sx={{ padding: 4, borderRadius: '12px', maxWidth: '700px', alignContent: "center" }}>
                         <form onSubmit={handleSubmit}>
-                            <Typography variant="h5" gutterBottom>Solicitudes o Reclamos</Typography>
+                            <Typography variant="h5" gutterBottom>Solicitud de Garantía</Typography>
                             <Typography variant="h8" gutterBottom>Por favor rellene los datos</Typography>
                             <hr />
                             <br />
@@ -79,7 +79,7 @@ const Reporte = () => {
                                     name="nombreCompleto"
                                     variant="standard"
                                     value={name}
-                                    placeholder="Ingrese su nombre completo"
+                                    placeholder="Ingrese sus nombres y apellidos"
                                     onChange={(e) => setName(e.target.value)}
                                     sx={{ marginTop: 2, width: '100%' }}
                                 />
@@ -90,7 +90,7 @@ const Reporte = () => {
                                     name="email"
                                     variant="standard"
                                     value={email}
-                                    placeholder="Ej: kinetica@gmail.com"
+                                    placeholder="Ingrese su correo. Ej: kinetica@gmail.com"
                                     onChange={(e) => setEmail(e.target.value)}
                                     sx={{ marginTop: 2, width: '100%' }}
                                 />
@@ -101,7 +101,7 @@ const Reporte = () => {
                                     name="phone"
                                     variant="standard"
                                     value={phone}
-                                    placeholder="Ej. 04245555555"
+                                    placeholder="Ingrese un teléfono de contacto. Ej. 04245555555"
                                     onChange={(e) => setPhone(e.target.value)}
                                     sx={{ marginTop: 2, width: '100%' }}
                                 />
@@ -112,7 +112,7 @@ const Reporte = () => {
                                     name="fecha"
                                     variant="standard"
                                     value={fecha}
-                                    placeholder="Ingrese la fecha"
+                                    placeholder="Ingrese la fecha de realización del servicio"
                                     onChange={(e) => setFecha(e.target.value)}
                                     sx={{ marginTop: 2, width: '100%' }}
                                 />
@@ -125,7 +125,7 @@ const Reporte = () => {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     multiline
-                                    placeholder="Describa aqui su problema"
+                                    placeholder="Breve descripción del problema"
                                     maxRows={10}
                                     sx={{ marginTop: 4, width: '100%' }}
                                 />
@@ -160,4 +160,4 @@ const Reporte = () => {
 
 };
 
-export default Reporte;
+export default garantía;

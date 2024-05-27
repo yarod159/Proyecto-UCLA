@@ -84,7 +84,7 @@ const UserPerfil = () => {
               <form className="userUpdateForm">
                 <div className="userUpdateLeft">
                   <div className="userUpdateRight">
-                    <div className="userUpdateUpload">
+                   {/*  <div className="userUpdateUpload">
                       <img
                         className="userUpdateImg"
                         src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -103,7 +103,7 @@ const UserPerfil = () => {
                         id="file"
                         style={{ display: "none" }}
                       />
-                    </div>
+                    </div>*/}
                   </div>
 
                   <div className="userUpdateItem1">
@@ -291,7 +291,7 @@ const UserPerfil = () => {
                   sx={{ alignItems: "center" }}
                  
                 >
-                  Save Changes
+                  Guardar Cambios
                 </Button>
               </form>
             </div>

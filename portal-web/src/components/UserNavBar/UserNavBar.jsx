@@ -26,7 +26,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-const pages = ['Inicio', 'Productos', 'Servicios'];
+const pages = ['Inicio', 'Servicios', 'Atención al Cliente'];
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -101,22 +101,22 @@ function UserNavbar() {
       </ListItem>
 
       <ListItem disablePadding>
-          <ListItemButton href='/productos' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+          <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
 
-            <ListItemText>Productos</ListItemText>
+            <ListItemText>Servicios</ListItemText>
           </ListItemButton>
       </ListItem>
 
       <ListItem disablePadding>
-          <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+          <ListItemButton href='/AtencionAlCliente' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <MailIcon />
             </ListItemIcon>
 
-            <ListItemText>Servicios</ListItemText>
+            <ListItemText>Atención al cleinte</ListItemText>
           </ListItemButton>
       </ListItem>
 

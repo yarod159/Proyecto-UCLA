@@ -3,14 +3,26 @@ const { Schema } = mongoose;
 
 // Definición del esquema
 const ReporteClienteSchema = new Schema({
-    tituloProblema: {
+    name: {
         type: String,
         required: true, // Make this field required
      },
-     descripcionProblema: {
+     email: {
         type: String,
         required: true, // Make this field required
-     }
+     },
+     phone: {
+      type: String,
+      required: true, // Make this field required
+      },
+      fecha: {
+         type: String,
+         required: true, // Make this field required
+      },
+      message: {
+         type: String,
+         required: true, // Make this field required
+      },
 });
 
 // Creación del modelo
