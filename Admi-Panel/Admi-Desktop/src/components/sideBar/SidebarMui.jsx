@@ -33,6 +33,11 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 
@@ -113,6 +118,21 @@ export default function SidebarMui() {
     setOpen(false);
   };
 
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
+ const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+ const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+ const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -130,9 +150,40 @@ export default function SidebarMui() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" >
             Kinetika Admi
           </Typography>
+
+          <Box sx={{ flexGrow: 0, marginLeft: '1100px' }}>
+                <Tooltip title="Abrir opciones">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/broken-image.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/Home'><Typography textAlign="center">Cerrar sesión</Typography></Button>
+                  </MenuItem>
+                </Menu>
+              </Box>
         </Toolbar>
       </AppBar>
 
