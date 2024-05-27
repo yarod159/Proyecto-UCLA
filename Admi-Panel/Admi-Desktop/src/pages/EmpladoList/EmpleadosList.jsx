@@ -110,23 +110,14 @@ export default function EmpleadosList() {
         options: {
           customBodyRender: (value, tableMeta, updateValue) => {
             // Extracting userId from the current row's data
-            const userId = tableMeta.rowData.userId;
             
-            // Constructing the URL with the userId
-            const url = `/user/${userId}`;
-      
-            console.log('aquii:', userId);
             return (
-              <div style={{ display: "flex", alignItems: "center" }}>
-                {/* Updated Link to include the constructed URL */}
-                <Link to={url}>
-                  <button className="userListEdit">Editar</button>
-                </Link>
+              
                 <DeleteOutlineIcon
                   className="userListDelete"
                   onClick={() => handleDelete(userId)}
                 />
-              </div>
+              
             );
           },
         },

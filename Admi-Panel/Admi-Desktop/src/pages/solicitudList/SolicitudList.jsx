@@ -82,11 +82,11 @@ export default function SolicitudList() {
           return (
             <div
               style={{
-                background: backgroundColor,
-                color: "white", // Color del texto
+                
+                 // Color del texto
                 borderRadius: "5px",
                 padding: "5px",
-                width: "90px",
+                width: "130px",
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',

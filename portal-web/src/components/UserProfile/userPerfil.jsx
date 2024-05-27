@@ -13,7 +13,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CommentIcon from "@mui/icons-material/Comment";
 
-import { getProfileRequest } from "../../api/profile";
+import { getProfileRequest ,createProfileRequest} from "../../api/profile";
 
 import "./userPerfil.css";
 
