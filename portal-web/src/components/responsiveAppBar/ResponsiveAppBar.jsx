@@ -87,11 +87,10 @@ function Navbar() {
   };
 
   const menuItems = [
-    { label: "Inicio", path: "/" },
-    { label: "Nosotros", path: "/nosotros" },
-    ...(installation? [{label: "Productos", path: "/productos"}] : []),
+    { label: "Inicio", path: "/home" },
     { label: "Servicios", path: "/servicios" },
-    { label: "Pagos", path: "/pagos" },
+    { label: "Atencion al cliente", path: "/AtencionAlCliente" },
+    
     
   ];
 
@@ -132,7 +131,7 @@ function Navbar() {
           {isAuthenticated? (
             <>
              
-              <Button sx={styles.button} color="inherit" onClick={() => navigate('/add-task')}>Perfil de Usuario</Button>
+              <Button sx={styles.button} color="inherit" onClick={() => navigate('/UserProfile')}>Perfil de Usuario</Button>
               <Button sx={styles.button} color="inherit" onClick={() => logout()}>Cerrar Sesion</Button>
               <Typography>Bienvenido {user.email}</Typography>
             </>
