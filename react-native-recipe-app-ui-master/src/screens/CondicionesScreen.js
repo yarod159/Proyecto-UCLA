@@ -11,6 +11,8 @@ const CondicionesScreen = ({ navigation }) => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    console.log("paso")
+
     return (
         <SafeAreaView style={{ flex: 1, marginHorizontal: 20, marginTop: 44 }}>
             {/* render header */}
