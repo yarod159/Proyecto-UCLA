@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import { Box, Button, Grid, Tab, Tabs } from "@mui/material";
 import Faq from "./Faq";
+import ServicioOfrecido from "./serviciosOfrecidos";
 import MetodosPago from "./MetodosPago";
 import ComponenteSistema from "./componenteSistema";
 import Ajustes from "./Ajustes";
@@ -46,12 +47,17 @@ const MainAjustes = () => {
                   label="Instalacion de la Web"
                   sx={{ color: value === 3 ? "#88ce28" : "inherit" }}
                 />
+                <Tab
+                  label="Servicios de instalación ofrecidos"
+                  sx={{ color: value === 4 ? "#88ce28" : "inherit" }}
+                />
               </Tabs>
             </Box>
             {value === 0 && <MetodosPago />}
             {value === 1 && <Faq />}
             {value === 2 && <ComponenteSistema />}
             {value === 3 && <Ajustes />}
+            {value === 4 && <ServicioOfrecido />}
 
           </Box>
         </Box>
