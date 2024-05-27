@@ -53,6 +53,7 @@ const Login = function Login() {
               type="email"
               name="email"
               placeholder="Correo"
+              style={{color:'#000'}}
               {...register("email", { required: true })}
             />
             <p>{errors.email?.message}</p>
@@ -62,6 +63,7 @@ const Login = function Login() {
               type="password"
               name="password"
               placeholder="Contraseña"
+              style={{color:'#000'}}
               {...register("password", { required: true, minLength: 6 })}
             />
             <p>{errors.password?.message}</p>

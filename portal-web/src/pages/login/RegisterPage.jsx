@@ -44,6 +44,7 @@ function RegisterPage() {
               name="name"
               placeholder="Ingresa tu nombre"
               {...register("name")}
+              style={{color:'#000'}}
               autoFocus
             />
             {errors.name?.message && (
@@ -53,6 +54,7 @@ function RegisterPage() {
               name="email"
               placeholder="ejemplo@gmail.com"
               {...register("email")}
+              style={{color:'#000'}}
             />
             {errors.email?.message && (
               <p className="error-message">{errors.email?.message}</p>
@@ -62,6 +64,7 @@ function RegisterPage() {
               name="password"
               placeholder="contraseña"
               {...register("password")}
+              style={{color:'#000'}}
             />
             {errors.password?.message && (
               <p className="error-message">{errors.password?.message}</p>
@@ -70,10 +73,11 @@ function RegisterPage() {
               type="password"
               name="confirmPassword"
               placeholder="Confirmar contraseña"
+              style={{color:'#000'}}
               {...register("confirmPassword")}
             />
             {errors.confirmPassword?.message && (
-              <p className="error-message">{errors.confirmPassword?.message}</p>
+              <p className="error-message"  style={{color:'#000'}} >{errors.confirmPassword?.message}</p>
             )}
             </div>
             <button style={{background:'#18a0a6'}}>Registrar</button>
