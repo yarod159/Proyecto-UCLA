@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Link } from "react-router-dom";
@@ -7,127 +7,146 @@ import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import "./empleadosList.css";
 import SidebarMui from "../../components/sideBar/SidebarMui";
-import { Box } from "@mui/material";
+import { Box, Switch } from "@mui/material";
 import MUIDataTable from "mui-datatables";
+import { getEmpleadosRequest } from "../../api/tableEmpleados";
+
+
 
 export default function EmpleadosList() {
   const [data, setData] = useState([]);
 
   const handleDelete = (id) => {
-    // Aquí va la lógica para eliminar el empleado por ID
+    // Implementar la lógica para eliminar el empleado por ID
     console.log("Eliminar empleado con ID:", id);
-   };
+ };
    
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3000/empleado/get-empleado"
-        );
-       
-        if (response.data.success) {
-          setData(response.data.data);
-        } else {
-          console.error(
-            "Error al obtener los Empleados:",
-            response.data.message
-          );
-        }
-      } catch (error) {
-        console.error("Error al realizar la solicitud:", error);
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await getEmpleadosRequest(); // Utiliza la función específica aquí
+      console.log('holaaa,',response)
+      if (response.data.success) {
+        setData(response.data.data);
+      } else {
+        console.error("Error al obtener los Empleados:", response.data.message);
       }
-    };
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
+  };
 
-    fetchData();
-  }, []); // El array vacío como segundo argumento asegura que la función solo se ejecute una vez al montar el componente
+  fetchData();
+}, []);
+
 
   const columns = [
-      { name: "_id", label: "ID" },
+      { name: "_id", label: "ID",width: 80  },
       {
-        name: "cedula",
-        label: "Cedula",
-       
+        name: "email",
+        label: "Email",
+        width: 150,
+        options: {
+          customBodyRender: (value, tableMeta, updateValue) => {
+            const rowMeta = tableMeta.rowMeta;
+            if (rowMeta && rowMeta.rowData) {
+              const user = rowMeta.rowData.find((item) => item.hasOwnProperty("user"));
+              return user ? data.user.email : "";
+            }
+            return "";
+          },
+        },
       },
       {
-        name: "nombre",
-        label: "Nombre",
-       
-      },
+        name: "cedula",label: "Cedula", width: 80   },
+      {
+        name: "nombre", label: "Nombre",width: 80 },
       {
         name: "apellido",
-        label: "Apellido",
+        label: "Apellido",width: 80 
        
       },
       {
         name: "telefono",
-        label: "Telefono",
+        label: "Telefono",width: 80 
        
       },
       {
         name: "direccion",
-        label: "Direccion",
+        label: "Direccion",width: 80 
         
+      },
+      {
+        name: "ocupacion",
+        label: "Ocupacion",
+        width: 80 
       },
       {
         name: "dateCumple",
         label: "Fecha de Nacimiento",
-       
+        width: 80 ,
+        options: {
+          customBodyRender: (value, tableMeta, updateValue) => {
+            return new Date(value).toLocaleDateString();
+          },
+        },
       },
-      
-      {
-        name: "ocupacion",
-        label: "Ocupacion",
-       
-      },
-      
       {
         name: "estatus",
         label: "Estatus",
-       
-      },
+        width: 80,
+        options: {
+          customBodyRender: (value, tableMeta, updateValue) => {
+            const id = tableMeta.rowData[0]; // Access the _id from the rowData
+    
+            return (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Link to={`/user/${id}`} >
+                  <button className="userListEdit">Editar</button>
+                </Link>
+                <DeleteOutlineIcon
+                  className="userListDelete"
+                  onClick={() => handleDelete(id)}
+                />
+              </div>
+            );
+          },
+        },
+      }
       
-      {
-        name: "action",
-        label: "Action",
-        renderCell: (params) => {
-        return (
-          <>
-          <Link to={"/user/" + params.row._id}>
-            <button className="userListEdit">Edit</button>
-          </Link>
-          <DeleteOutlineIcon
-            className="userListDelete"
-            onClick={() => handleDelete(params.row._id)}
-          />
-        </>
-        );
-      },
-    },
   ];
 
   return (
-    <div>
+    <Box >
       
-      <div className="container">
-        <SidebarMui />
-        <div className="userList">
-          <div className="empleado-button-container">
-            <Link to={"/crearEmpleado/"}>
-              <div className="empleado-button-crear">
-                <button>Registrar un Empleado</button>
-              </div>
-            </Link>
-          </div>
-         <Box>
+    <Box className="container">
+      <SidebarMui />
+      <Box className="productList">
+        
+     
+     
+      <Box>
            <MUIDataTable
             data={data}
-            title="Empleados"
+            title="Empleados "
             columns={columns}
+            options={{
+                responsiveMode: "vertical",
+              }}
           /></Box>
          
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }
+
+/** <Link to={"/crearEmpleado/"}>
+             
+
+
+                <div className="empleado-button-container">
+           
+          </div>
+            </Link> */

@@ -2,101 +2,74 @@ import "../productList/productList.css";
 import { DataGrid } from "@mui/x-data-grid/DataGrid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { productRows } from "../../data";
-import TrasaccionesList from "../../utils/TrasaccionesList";
+import SolicitudMantenimientos from "../../utils/SolicitudMantenimiento";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import SidebarMui from "../../components/sideBar/SidebarMui";
+import MUIDataTable from "mui-datatables";
+import { Box } from "@mui/material";
+import CheckIcon from '@mui/icons-material/Check';
 
 export default function Transactions() {
-  const [data, setData] = useState(TrasaccionesList);
+  const [data, setData] = useState(SolicitudMantenimientos);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    {
-      field: "id del producto",
-      headerName: "id del producto",
-      width: 100,
-    },
-    {
-      field: "Nombre del Producto",
-      headerName: "Nombre del Producto",
-      width: 200,
-    },
+    { name: "id", label: "ID", width: 80 },
+    { name: "id_solicitud", label: "Id Solicitud", width: 80 },
+    { name: "nombre_cliente", label: "Nombre del Usuario", width: 110 },
+    { name: "apellido_cliente", label: "Apellido", width: 120 },
+    { name: "telefono", label: "Telefono", width: 150 },
+    { name: "fecha", label: "Fecha", width: 150 },
+    { name: "numero_referencia", label: "Numero de Referencia", width: 150 },
+    { name: "monto", label: "Monto", width: 150 },
 
-    {
-      field: "fecha",
-      headerName: "Fecha",
-      width: 100,
-    },
-    {
-      field: "cantidad",
-      headerName: "Cantidad",
-      width: 100,
-    },
-    {
-      field: "Delivery",
-      headerName: "Delivery",
-      width: 150,
-    },
-    {
-      field: "Metodo de Pago",
-      headerName: "Metodo de Pago",
-      width: 150,
-    },
-    {
-      field: "Estatus de la trasacccion",
-      headerName: "Estatus de la trasacccion ",
-      width: 150,
-      renderCell: (params) => {
-        // Determina el color de fondo basado en el valor de la celda
-        const backgroundColor = params.value === 'Completado' ? '#65B741' : 
-                                 params.value === 'En proceso' ? '#5FBDFF' : 'transparent';
     
-        // Retorna un elemento con el estilo aplicado
-        return <div style={{ backgroundColor: backgroundColor, color: 'white', borderRadius: '5px' , padding:'5px', width:'90px' }}>
-                 {params.value}
-               </div>;
-     }
-    },
+   
     {
-      field: "Estatus del delivery",
-      headerName: "Estatus del delivery ",
-      width: 150,
-      renderCell: (params) => {
-        // Determina el color de fondo basado en el valor de la celda
-        const backgroundColor = params.value === 'Entregado' ? '#65B741' : 
-                                 params.value === 'En camino' ? '#5FBDFF' : 'transparent';
-    
-        // Retorna un elemento con el estilo aplicado
-        return <div style={{ backgroundColor: backgroundColor, color: 'white', borderRadius: '5px' , padding:'5px', width:'90px' }}>
-                 {params.value}
-               </div>;
-     }
-      
-    },
+        name: "action",
+        label: "Acciones",
+        options: {
+           customBodyRender: (value, tableMeta, updateRow) => (
+            <div style={{ display: 'flex', alignItems: 'center'  }}>
+            <CheckIcon
+              style={{ color: '#6EF51C', cursor: 'pointer', marginLeft:"40" }} // Add cursor: 'pointer'
+              onClick={() => handleCheckIcon(tableMeta.rowData._id)} // Add handleCheckIcon function
+              onMouseEnter={() => handleHoverInCheckIcon(tableMeta.rowData._id)} // Add handleHoverInCheckIcon function
+              onMouseLeave={() => handleHoverOutCheckIcon(tableMeta.rowData._id)} // Add handleHoverOutCheckIcon function
+            />
+           
+          </div>
+           ),
+        },
+     },
+   
   ];
+  
 
   return (
-    <div>
-     
-      <div className="container">
+    <Box>
+      
+      <Box className="container">
         <SidebarMui />
-        <div className="productList">
-          <DataGrid
-            rows={data}
-            disableSelectionOnClick
+        <Box className="productList">
+        <Box>
+           <MUIDataTable
+            data={data}
+            title="Transacciones"
             columns={columns}
-            pageSize={8}
-            checkboxSelection
+            options={{
+                responsiveMode: "vertical",
+              }}
           />
-        </div>
-      </div>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

@@ -1,4 +1,6 @@
 const Empleado = require('../models/Empleado'); // Asegúrate de ajustar la ruta según la estructura de tu proyecto
+const authenticateToken = require('../middlewares/authMiddleware');
+
 
 const postEmpleado = async (req, res) => {
  try {
@@ -12,6 +14,7 @@ const postEmpleado = async (req, res) => {
       ocupacion: req.body.ocupacion,
       dateCumple: req.body.dateCumple,
       estatus: req.body.estatus,
+      user: req.body.user,
     });
 
     // Guardar el empleado en la base de datos
@@ -31,16 +34,29 @@ const postEmpleado = async (req, res) => {
  }
 };
 
-
 const getEmpleados = async (req, res) => {
   try {
-    const empleado = await Empleado.find();
+    // Verificar si el usuario está autenticado
+   
+    const auth = await authenticateToken(req, res)
+   
+
+    if (!auth) return res.status(403).json({ message: 'Usuario no autenticado.'});
+
+    // Buscar el perfil correspondiente al usuario
+  
+    
+    const empleados = await Empleado.find().populate({path: 'user'});
+    // Buscar todos los empleados en la base de datos
+    
+    console.log('Empleados encontrados:', empleados);
+    // Enviar la lista de empleados como respuesta
     res.status(200).json({
       success: true,
-      data: empleado,
+      data: empleados,
     });
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("Error fetching employees:", error);
     res.status(500).json({
       success: false,
       message: "Error al obtener los Empleados",
@@ -48,4 +64,9 @@ const getEmpleados = async (req, res) => {
   }
 };
 
-module.exports = { postEmpleado, getEmpleados };
+
+
+
+
+
+module.exports = { postEmpleado, getEmpleados};

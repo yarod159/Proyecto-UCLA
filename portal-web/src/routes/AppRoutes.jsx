@@ -18,6 +18,8 @@ import FormPagos from "../pages/FormPagos/FormPagos.jsx";
 import DescripcionServicio from "../pages/Service/DescripcionServicio.jsx";
 import Reporte from "../pages/ServicioalCliente/Reporte/reporte.jsx";
 import ServCliente from "../pages/ServicioalCliente/servCliente.jsx";
+import Garantía from "../pages/ServicioalCliente/Reporte/garantía.jsx";
+import FaqSeccion from "../pages/ServicioalCliente/faqSeccion.jsx";
 import { AuthProvider } from "../context/AuthContext.jsx";
 import { ProtectedRoutes } from "./ProtectedRoute.jsx";
 
@@ -43,8 +45,10 @@ function AppRoutes() {
             <Route path="/UserFact" element={<UserFact />} />
             <Route path="/servicios" element={<UserService />} />
             <Route path="/userHome" element={<UserHome />} />
+            <Route path="/solGarant" element={<Garantía />} />
+            <Route path="/faqSeccion" element={<FaqSeccion />} />
 
-            <Route path="/servicios" element={<Service />} />
+           
             <Route path="/servicio/:serviceId" element={<ServiceDetails />} />
             <Route path="/registrarse" element={<Register />} />
           </Route>

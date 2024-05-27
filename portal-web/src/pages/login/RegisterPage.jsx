@@ -38,6 +38,7 @@ function RegisterPage() {
           
           <h2>Registrate</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+<<<<<<< HEAD
           <div className="user-box">
             <input
               type="text"
@@ -49,6 +50,11 @@ function RegisterPage() {
             {errors.name?.message && (
               <p className="error-message">{errors.username?.message}</p>
             )}
+=======
+           
+  
+            <label htmlFor="email">Email:</label>
+>>>>>>> web-Hector
             <input
               name="email"
               placeholder="ejemplo@gmail.com"

@@ -10,7 +10,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Modal from "@mui/material/Modal";
 
-
 const isDesktopAdminPanel = true;
 
 export default function Faq() {
@@ -26,9 +25,9 @@ export default function Faq() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!PreguntaFaq.trim() ||!RespuestaFaq.trim()) {
+    if (!PreguntaFaq.trim() || !RespuestaFaq.trim()) {
       alert("Por favor, llene todos los campos.");
-      return; 
+      return;
     }
     const faqData = {
       PreguntaFaq,
@@ -43,7 +42,6 @@ export default function Faq() {
           setPreguntaFaq("");
           setRespuestaFaq("");
           setOpen(true);
-         
         })
         .catch((error) => {
           console.error("Error al enviar la solicitud:", error.response.data);
@@ -55,13 +53,13 @@ export default function Faq() {
 
   return (
     <div>
-      <div className="container">
-        <SidebarMui />
+      <div>
+       
         <div className="newProduct">
-          <h1 className="informacionGeneral-h1">Preguntas Frecuentes</h1>
+          <h1 className="informacionGeneral-h1"> Crear una Pregunta Frecuente</h1>
 
           <form onSubmit={handleSubmit}>
-            <Box sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } }}>
+          <Box sx={{ flexGrow: 1, padding: { xs: 5, sm: 10, md: 10 } , boxShadow: 2 , borderRadius:"15px"}}>
               <Grid
                 container
                 rowSpacing={1}
@@ -76,7 +74,7 @@ export default function Faq() {
                     margin="normal"
                     onChange={(e) => setPreguntaFaq(e.target.value)}
                     sx={{
-                      fontWeight: 'bold', // Aumenta el peso de la fuente aquí
+                      fontWeight: "bold", // Aumenta el peso de la fuente aquí
                     }}
                   />
                 </Grid>
@@ -91,7 +89,7 @@ export default function Faq() {
                     value={RespuestaFaq}
                     onChange={(e) => setRespuestaFaq(e.target.value)}
                     sx={{
-                      fontWeight: 'bold', // Aumenta el peso de la fuente aquí
+                      fontWeight: "bold", // Aumenta el peso de la fuente aquí
                     }}
                   />
                 </Grid>
@@ -112,13 +110,23 @@ export default function Faq() {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <Box sx={{ width: 400, bgcolor: 'background.paper', p: 2, mx: 'auto', my: '20%', borderRadius: 1 }}>
+        <Box
+          sx={{
+            width: 400,
+            bgcolor: "background.paper",
+            p: 2,
+            mx: "auto",
+            my: "20%",
+            borderRadius: 1,
+          }}
+        >
           <h2 id="modal-title">Guardado con éxito</h2>
-          <p id="modal-description">La pregunta FAQ ha sido guardada con éxito.</p>
+          <p id="modal-description">
+            La pregunta FAQ ha sido guardada con éxito.
+          </p>
           <Button onClick={handleClose}>Cerrar</Button>
         </Box>
       </Modal>
-     
     </div>
   );
 }

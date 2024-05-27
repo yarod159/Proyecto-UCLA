@@ -18,6 +18,9 @@ const empleadoSchema = new Schema({
     enum: ["Activo", "Inactivo"],
     required: true,
   },
+   
+   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+
 });
 
 const Empleado = mongoose.model("Empleado", empleadoSchema);

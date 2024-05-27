@@ -1,6 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
 import Home from "../pages/home/Home.jsx";
 import UserList from "../pages/userList/UserList.jsx";
 import User from "../pages/user/User.jsx";
@@ -19,13 +17,25 @@ import MetodosPago from "../pages/AjustesDelSistemas/MetodosPago.jsx";
 import ComponenteSistema from "../pages/AjustesDelSistemas/componenteSistema.jsx";
 import Faq from "../pages/AjustesDelSistemas/Faq.jsx";
 import ReporteClienteList from "../pages/ServicioAlCliente/ReporteClienteList.jsx";
+<<<<<<< HEAD
 import Login from "../pages/login/login.jsx";
 import InformacionGeneralList from "../pages/AjustesDelSistemas/InformacionGeneral.jsx";
+=======
+import SolicitudInstalacion from "../pages/SolicitudInstalacion/SolicitudInstalacion.jsx";
+import SolicitudMantenimiento from "../pages/SolicitudMantenimiento/SolicitudMantenimiento.jsx";
+import { ProtectedRoutes } from "./ProtectedRoute.jsx";
+import LoginDesktop from "../pages/Login/LoginDesktop.jsx";
+import { AuthProvider } from "../context/AuthContext.jsx";
+import MainAjustes from "../pages/AjustesDelSistemas/MainAjustes.jsx";
+>>>>>>> web-Hector
 
 function AppRoutes() {
   return (
+    <AuthProvider>
+   
     <BrowserRouter>
       <Routes>
+<<<<<<< HEAD
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
@@ -44,8 +54,42 @@ function AppRoutes() {
         <Route path="/ComponenteSistema" element={<ComponenteSistema />} />
         <Route path="/InformacionGeneralList" element={<InformacionGeneralList />} />
         <Route path="/Login" element={<Login />} />
+=======
+        
+       
+        <Route path="/login" element={<LoginDesktop />} />
+        <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<Home />} />
+          <Route path="/empleados" element={<EmpleadosList />} />
+          <Route path="/crearEmpleado" element={<CrearEmpleado />} />
+          <Route path="/ajustes" element={<Ajustes />} />
+          <Route path="/instalacion" element={<Instalacion />} />
+          <Route path="/InformacionGeneral" element={<InformacionGeneral />} />
+          <Route path="/InformacionEmpresa" element={<InformacionEmpresa />} />
+          <Route path="/MetodosPago" element={<MetodosPago />} />
+          <Route path="/ComponenteSistema" element={<ComponenteSistema />} />
+
+          <Route path="/reports" element={<ReporteClienteList />} />
+          <Route path="/faq" element={<Faq />} />
+          
+          <Route path="/users" element={<UserList />} />
+          <Route path="/user/:userId" element={<User />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/newProduct" element={<NewProduct />} />
+          <Route path="/transacciones" element={<Transactions />} />
+
+          <Route path="/solicitudes" element={<SolicitudList />} />
+          <Route path="/solicitudInstalacion" element={<SolicitudInstalacion />} />
+          <Route path="/solicitudMantenimiento" element={<SolicitudMantenimiento />} />
+          <Route path="/configuracion" element={<MainAjustes />} />
+
+          </Route>
+>>>>>>> web-Hector
       </Routes>
+      
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

@@ -4,7 +4,7 @@
   .wrapper-user-profile {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1200px;
+  
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,8 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
+
   .userAddButton {
     width: 80px;
     border: none;
@@ -32,10 +33,7 @@
     font-size: 16px;
   }
   
-  .userContainer {
-    display: flex;
-    margin-top: 20px;
-  }
+
   
   .userShow {
     flex: 1;

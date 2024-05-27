@@ -2,14 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      unique: true, // Ensures unique names
-      required: true, // Name is mandatory
-      trim: true, // Removes leading/trailing whitespace
-      minlength: 3, // Minimum name length enforce
-      maxlength: 50, // Maximum name length enforce
-    },
+    
     email: {
       type: String,
       required: true, // Email is mandatory
@@ -41,7 +34,8 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     role: {
-      type: ["user", "admin"],
+      type: ["user", "admin","empleado"],
+      default: "user",
      
     },
   },

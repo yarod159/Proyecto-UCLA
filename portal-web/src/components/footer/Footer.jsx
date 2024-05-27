@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./footer.css";
 import logo from "../../assets/Logos/logo-blanco.png";
+=======
+import React from 'react';
+import "./footer.css"; // Asegúrate de que el archivo CSS esté importado correctamente
+import logo from "../../assets/Logos/logo1-hor-blanco.png";
+>>>>>>> web-Hector
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
@@ -45,14 +51,28 @@ const Footer = () => {
       <div className="grupo-1">
         <div className="box">
           <figure>
+<<<<<<< HEAD
             <a href="#">
               <img src={logo} alt="" />
+=======
+            <a href="/home">
+            <img src={logo} alt="" />
+>>>>>>> web-Hector
             </a>
           </figure>
         </div>
         <div className="box">
           <h2>SOBRE NOSOTROS</h2>
+<<<<<<< HEAD
           <p>{footerGet.nombreEmpresa}</p>
+=======
+          <div style={{flexDirection:'column'}}>
+          <a href="/home"><p>Inicio</p></a>
+          <a href="/servicios"><p>Servicios</p></a>
+          <a href="/AtencionAlCliente"><p>Atención al Cliente</p></a>
+          <a href="/UserProfile"><p>Perfil</p></a>
+          </div>
+>>>>>>> web-Hector
         </div>
         <div className="box">
           <h2>SIGUENOS</h2>

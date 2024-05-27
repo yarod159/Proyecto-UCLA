@@ -33,6 +33,7 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+<<<<<<< HEAD
 import Payments from "@mui/icons-material/Payments";
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
@@ -40,6 +41,13 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import InfoIcon from '@mui/icons-material/Info';
 import AppsIcon from '@mui/icons-material/Apps';
+=======
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+>>>>>>> web-Hector
 
 const drawerWidth = 240;
 
@@ -120,6 +128,21 @@ export default function SidebarMui() {
     setOpen(false);
   };
 
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
+ const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+ const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+ const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -137,9 +160,40 @@ export default function SidebarMui() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" >
             Kinetika Admi
           </Typography>
+
+          <Box sx={{ flexGrow: 0, marginLeft: '1100px' }}>
+                <Tooltip title="Abrir opciones">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/broken-image.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/UserProfile'><Typography textAlign="center">Perfil</Typography></Button>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Button href='/Home'><Typography textAlign="center">Cerrar sesión</Typography></Button>
+                  </MenuItem>
+                </Menu>
+              </Box>
         </Toolbar>
       </AppBar>
 
@@ -369,6 +423,63 @@ export default function SidebarMui() {
               <ListItemText primary=" Solicitudes" />
             </ListItem>
           </Link>
+          <Divider />
+
+            <List>
+
+            <h3
+            style={{ position: "relative", right: "-70px", paddingTop: "15px" }}
+            className="sidebarTitle"
+          >
+            Gestión de Solicitudes
+          </h3>
+            
+          <Link
+            to="/solicitudInstalacion"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <MailOutlineIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary=" Solicitud Instalacion" />
+            </ListItem>
+          </Link>
+
+          <Link
+            to="/solicitudMantenimiento"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItem sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.04)", // Cambia el color de fondo al pasar el cursor
+                  ".MuiListItemIcon-root": {
+                    color: "#129b7d", // Cambia el color del ícono al pasar el cursor
+                  },
+                  ".MuiListItemText-primary": {
+                    color: "#129b7d", // Cambia el color del texto al pasar el cursor
+                  },
+                },
+              }}>
+              <ListItemIcon>
+                <MailOutlineIcon className="sidebarIcon" />
+              </ListItemIcon>
+              <ListItemText primary=" Solicitud Mantenimiento" />
+            </ListItem>
+          </Link>
+
+          </List>
+          <Divider />
 
           <Link
             to="/atencion-cliente"
@@ -545,7 +656,7 @@ export default function SidebarMui() {
             Configuracion
           </h3>
           <Link
-            to="/ajustes"
+            to="/configuracion"
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <ListItem sx={{

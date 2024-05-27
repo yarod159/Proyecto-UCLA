@@ -24,16 +24,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const Reporte = () => {
 
      
-    const [tituloProblema, setTituloProblema] = useState("");
-    const [descripcionProblema, setDescripcionProblema] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [fecha, setFecha] = useState("");
+    const [message, setMessage] = useState("");
 
  
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const reporteData = {
-            tituloProblema,
-            descripcionProblema,
+            name, email, phone, fecha, message
       };
         try {
             const response = await axios.post('http://localhost:3000/ServCliente/post-reporteCliente', reporteData);
@@ -41,10 +43,7 @@ const Reporte = () => {
             console.log(response.data); // Puedes ver la respuesta del servidor aquí
     
             // Limpiar el formulario después de enviar los datos
-            setFormData({
-                titProblema: "",
-                descProblema: ""
-            });
+          
     
             // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrando un mensaje de éxito
             // handleClickOpen(); // Si esta función es para mostrar un mensaje, asegúrate de que esté definida
@@ -68,7 +67,7 @@ const Reporte = () => {
                 <Grid item xs={12} sm={12} md={12}>
                     <Item sx={{ padding: 4, borderRadius: '12px', maxWidth: '700px', alignContent: "center" }}>
                         <form onSubmit={handleSubmit}>
-                            <Typography variant="h5" gutterBottom>FORMULARIO DE RECLAMO</Typography>
+                            <Typography variant="h5" gutterBottom>Solicitudes o Reclamos</Typography>
                             <Typography variant="h8" gutterBottom>Por favor rellene los datos</Typography>
                             <hr />
                             <br />
@@ -76,21 +75,55 @@ const Reporte = () => {
                             <div className="form-titulo-descripcion">
                                 <TextField
                                     fullWidth
-                                    label="Titulo del problema"
-                                    name="tituloProblema"
+                                    label="Nombre completo"
+                                    name="nombreCompleto"
                                     variant="standard"
-                                    value={tituloProblema}
-                                    onChange={(e) => setTituloProblema(e.target.value)}
+                                    value={name}
+                                    placeholder="Ingrese su nombre completo"
+                                    onChange={(e) => setName(e.target.value)}
+                                    sx={{ marginTop: 2, width: '100%' }}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    label="Correo Electrónico"
+                                    name="email"
+                                    variant="standard"
+                                    value={email}
+                                    placeholder="Ej: kinetica@gmail.com"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    sx={{ marginTop: 2, width: '100%' }}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    label="Numero de teléfono"
+                                    name="phone"
+                                    variant="standard"
+                                    value={phone}
+                                    placeholder="Ej. 04245555555"
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    sx={{ marginTop: 2, width: '100%' }}
+                                />
+
+                                <TextField
+                                    fullWidth
+                                    label="Fecha"
+                                    name="fecha"
+                                    variant="standard"
+                                    value={fecha}
+                                    placeholder="Ingrese la fecha"
+                                    onChange={(e) => setFecha(e.target.value)}
                                     sx={{ marginTop: 2, width: '100%' }}
                                 />
 
                                 <TextField
                                     fullWidth
                                     label="Describa su problema"
-                                    name="descripcionProblema"
+                                    name="message"
                                     variant="standard"
-                                    value={descripcionProblema}
-                                    onChange={(e) => setDescripcionProblema(e.target.value)}
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
                                     multiline
                                     placeholder="Describa aqui su problema"
                                     maxRows={10}

@@ -31,7 +31,7 @@ import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import HomeIcon from '@mui/icons-material/Home';
 
-const pages = ['Inicio', 'Productos', 'Servicios'];
+const pages = ['Inicio', 'Servicios', 'Atención al Cliente'];
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -96,7 +96,7 @@ function UserNavbar() {
       <Divider />
       <List>
       <ListItem disablePadding>
-          <ListItemButton href='/inicio' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+          <ListItemButton href='/home' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
@@ -106,6 +106,7 @@ function UserNavbar() {
       </ListItem>
 
       <ListItem disablePadding>
+<<<<<<< HEAD
           <ListItemButton href='/productos' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <ProductionQuantityLimitsIcon />
@@ -119,11 +120,28 @@ function UserNavbar() {
           <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
             <ListItemIcon>
               <ElectricalServicesIcon />
+=======
+          <ListItemButton href='/servicios' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <InboxIcon />
+>>>>>>> web-Hector
             </ListItemIcon>
 
             <ListItemText>Servicios</ListItemText>
           </ListItemButton>
       </ListItem>
+
+      <ListItem disablePadding>
+          <ListItemButton href='/AtencionAlCliente' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+
+            <ListItemText>Atención al cleinte</ListItemText>
+          </ListItemButton>
+      </ListItem>
+
+      
 
       </List>
       <Divider />
@@ -166,7 +184,7 @@ function UserNavbar() {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/inicio"
+                href="/home"
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -212,7 +230,7 @@ function UserNavbar() {
                 variant="h5"
                 noWrap
                 component="a"
-                href="/inicio"
+                href="/home"
                 sx={{
                   mr: 2,
                   display: { xs: 'flex', md: 'none' },

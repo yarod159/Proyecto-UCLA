@@ -1,0 +1,122 @@
+export default [
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "telefono": "+123456789",
+        "estado": "Estado1",
+        "municipio": "Municipio1",
+        "direccionDeLaInstalacion": "Calle 1, Ciudad1",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "200" // Agregado
+    },
+    {
+        "id": 2,
+        "nombre": "Ana",
+        "apellido": "Garcia",
+        "telefono": "+234567890",
+        "estado": "Estado2",
+        "municipio": "Municipio2",
+        "direccionDeLaInstalacion": "Avenida 2, Ciudad2",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Apartamento",
+        "precio": "250" // Agregado
+    },
+    {
+        "id": 3,
+        "nombre": "Carlos",
+        "apellido": "Rodriguez",
+        "telefono": "+345678901",
+        "estado": "Estado3",
+        "municipio": "Municipio3",
+        "direccionDeLaInstalacion": "Boulevard 3, Ciudad3",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "300" // Agregado
+    },
+    {
+        "id": 4,
+        "nombre": "Maria",
+        "apellido": "Lopez",
+        "telefono": "+456789012",
+        "estado": "Estado4",
+        "municipio": "Municipio4",
+        "direccionDeLaInstalacion": "Carretera 4, Ciudad4",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "350" // Agregado
+    },
+    {
+        "id": 5,
+        "nombre": "Pedro",
+        "apellido": "Martinez",
+        "telefono": "+567890123",
+        "estado": "Estado5",
+        "municipio": "Municipio5",
+        "direccionDeLaInstalacion": "Autopista 5, Ciudad5",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Apartamento",
+        "precio": "400" // Agregado
+    },
+    {
+        "id": 6,
+        "nombre": "Laura",
+        "apellido": "Rojas",
+        "telefono": "+678901234",
+        "estado": "Estado6",
+        "municipio": "Municipio6",
+        "direccionDeLaInstalacion": "Calzada 6, Ciudad6",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "450" // Agregado
+    },
+    {
+        "id": 7,
+        "nombre": "Sofia",
+        "apellido": "Torres",
+        "telefono": "+789012345",
+        "estado": "Estado7",
+        "municipio": "Municipio7",
+        "direccionDeLaInstalacion": "Transversal 7, Ciudad7",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Apartamento",
+        "precio": "500" // Agregado
+    },
+    {
+        "id": 8,
+        "nombre": "Fernando",
+        "apellido": "Morales",
+        "telefono": "+890123456",
+        "estado": "Estado8",
+        "municipio": "Municipio8",
+        "direccionDeLaInstalacion": "Intersección 8, Ciudad8",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "550" // Agregado
+    },
+    {
+        "id": 9,
+        "nombre": "Gabriela",
+        "apellido": "Hernandez",
+        "telefono": "+901234567",
+        "estado": "Estado9",
+        "municipio": "Municipio9",
+        "direccionDeLaInstalacion": "Diagonal 9, Ciudad9",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Apartamento",
+        "precio": "600" // Agregado
+    },
+    {
+        "id": 10,
+        "nombre": "Jorge",
+        "apellido": "Gomez",
+        "telefono": "+012345678",
+        "estado": "Estado10",
+        "municipio": "Municipio10",
+        "direccionDeLaInstalacion": "Circunvalación 10, Ciudad10",
+        "tipoDeServicios": "Internet",
+        "tipoDeVivienda": "Casa",
+        "precio": "650" // Agregado
+    }
+];

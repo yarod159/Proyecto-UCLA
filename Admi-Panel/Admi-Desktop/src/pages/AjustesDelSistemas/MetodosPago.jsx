@@ -148,8 +148,8 @@ export default function MetodosPago() {
 
  return (
     <div>
-      <div className="container">
-        <SidebarMui />
+      <div >
+       
         <div className="newProduct">
           <h1 className="informacionGeneral-h1">MÉTODOS DE PAGO REGISTRADOS</h1>
 

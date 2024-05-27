@@ -1,5 +1,6 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import { getAjustesSistemaRequest } from "../../../../api/ajustesSistema";
 import miImagen from '../../../../assets/background/mircro.jpg';
 import miImagenDos from '../../../../assets/background/micro2.jpg';
 import ImgFibra from '../../../../assets/background/tipos-fibra-optica-internet.jpg';
@@ -8,6 +9,9 @@ const IMAGE_INTERVAL = 4000; // Intervalo de tiempo para cambiar la imagen autom
 
 function Presentacion() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [titulo, setTitulo] = useState("");
+  const [eslogan, setEslogan] = useState("");
+ 
 
   const images = [
     { src: miImagen, interval: IMAGE_INTERVAL },
@@ -26,6 +30,27 @@ function Presentacion() {
     const timer = setTimeout(changeImageAutomatically, IMAGE_INTERVAL);
     return () => clearTimeout(timer); // Limpiar el timeout al desmontar el componente
   }, [currentIndex]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAjustesSistemaRequest(); // Utiliza la función específica aquí
+        console.log('holaaa,',response)
+        if (response.data.success) {
+          const data = response.data.data;
+          setTitulo(data[0].titulo);
+          setEslogan(data[0].eslogan);
+          
+        } else {
+          console.error("Error al obtener los ajusts del sistema:", response.data.message);
+        }
+      } catch (error) {
+        console.error("Error al realizar la solicitud:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
 
   return (
     <Container>
@@ -65,12 +90,12 @@ function Presentacion() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h3" component="div" gutterBottom className='presentacion-title-font'>
-              Servicio Técnico en Telefonía a Proveedores de Telecomunicaciones
+              {titulo}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" component="div" gutterBottom className='presentacion-descripcion'>
-              Líderes en suministro de equipamiento y soluciones integrales de telecomunicaciones, adaptadas a tus necesidades de negocio y tecnología desde hace más de 15 años.
+              {eslogan}
             </Typography>
           </Grid>
           <Grid item xs={12}>

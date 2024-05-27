@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../assets/Logos/logo1-hor-blanco.png";
+import { getCompSistemaRequest } from '../../api/ajustesSistema';
 
 import { useAuth } from '../../context/AuthContext';
 
@@ -36,6 +37,7 @@ function Navbar() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [navbarColor, setNavbarColor] = useState("transparent");
+  const [installation, setInstallation] = useState("false");
 
   const { isAuthenticated, logout, user, setIsAuthenticated, setUser } = useAuth();
 
@@ -57,6 +59,25 @@ function Navbar() {
     };
   }, []);
 
+  {/*useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getCompSistemaRequest(); // Utiliza la función específica aquí
+        console.log('CompSistema,',response)
+        if (response.data.success) {
+          const data = response.data.data;
+          setInstallation(data[0].installation)
+        } else {
+          console.error("Error al obtener los ajusts del sistema:", response.data.message);
+        }
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);*/}
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -68,7 +89,7 @@ function Navbar() {
   const menuItems = [
     { label: "Inicio", path: "/" },
     { label: "Nosotros", path: "/nosotros" },
-    { label: "Productos", path: "/productos" },
+    ...(installation? [{label: "Productos", path: "/productos"}] : []),
     { label: "Servicios", path: "/servicios" },
     { label: "Pagos", path: "/pagos" },
     
@@ -113,7 +134,7 @@ function Navbar() {
              
               <Button sx={styles.button} color="inherit" onClick={() => navigate('/add-task')}>Perfil de Usuario</Button>
               <Button sx={styles.button} color="inherit" onClick={() => logout()}>Cerrar Sesion</Button>
-              <Typography>Bienvenido {user.name}</Typography>
+              <Typography>Bienvenido {user.email}</Typography>
             </>
           ) : (
             <>

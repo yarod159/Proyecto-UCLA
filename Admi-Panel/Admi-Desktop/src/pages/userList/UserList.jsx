@@ -3,94 +3,88 @@ import { DataGrid } from "@mui/x-data-grid/DataGrid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { userRows } from "../../data";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
-import axios from 'axios';
-import React, {  useEffect } from 'react';
+import axios from "axios";
+import React from "react";
 import SidebarMui from "../../components/sideBar/SidebarMui";
-
-function generarIdAleatorio() {
-  var longitud = 8,
-      caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      retVal = "";
-  for (var i = 0, n = caracteres.length; i < longitud; ++i) {
-      retVal += caracteres.charAt(Math.floor(Math.random() * n));
-  }
-  return retVal;
-}
+import MUIDataTable from "mui-datatables";
+import { Box } from "@mui/material";
+import { getUsuariosRequest,getUserAllRequest } from "../../api/tablaUsuario";
 
 export default function UserList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         const response = await axios.get('http://localhost:3000/users/get-users');
-         if (response.data.success) {
-           setData(response.data.data);
-         } else {
-           console.error("Error al obtener los usuarios:", response.data.message);
-         }
-       } catch (error) {
-         console.error("Error al realizar la solicitud:", error);
-       }
-     };
- 
-     fetchData();
-  }, []); // El array vacío como segundo argumento asegura que la función solo se ejecute una vez al montar el componente
- 
+    const fetchData = async () => {
+      try {
+        const response = await getUsuariosRequest();
+       console.log(response)
+        if (response.data.success) {
+          setData(response.data.data);
+        } else {
+          console.error(
+            "Error al obtener los Empleados:",
+            response.data.message
+          );
+        }
+      } catch (error) {
+        console.error("Error al realizar la solicitud:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  
+
   const handleDelete = (id) => {
-     setData(data.filter((item) => item.id !== id));
+    setData(data.filter((item) => item._id !== id));
   };
- 
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
+    { name: "_id", label: "ID", width: 90 },
+    { name: "email", label: "Email", width: 250 },
     {
-      field: "name",
-      headerName: "Name",
-      width: 250,
-    },
-    { field: "email", headerName: "Email", width: 250 },
-   
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={"/user/" + params.row._id}>
-              <button className="userListEdit">Edit</button>
-            </Link>
-            <DeleteOutlineIcon
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
-          </>
-        );
+      name: "acciones",
+      label: "Acciones",
+      width: 150,
+      options: {
+        customBodyRender: (value, tableMeta, updateValue) => {
+          const id = tableMeta.rowData[0]; // Access the _id from the rowData
+  
+          return (
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Link to={`/user/${id}`} >
+                <button className="userListEdit">Editar</button>
+              </Link>
+              <DeleteOutlineIcon
+                className="userListDelete"
+                onClick={() => handleDelete(id)}
+              />
+            </div>
+          );
+        },
       },
     },
   ];
-
+  
   return (
-    <div>
-    
-      <div className="container">
+    <Box >
+      <Box className="container" >
         <SidebarMui />
-        <div className="userList">
-          <DataGrid
-           rows={data}
-           disableSelectionOnClick
-           columns={columns}
-           pageSize={10}
-           checkboxSelection
-           getRowId={(row) => row._id}
-           autoHeight={true}
-          />
-        </div>
-      </div>
-    </div>
+        <Box className="productList" sx={{ flexGrow: 1, overflowX: "auto", padding: 2, marginTop: 8 }}>
+          <Box >
+            <MUIDataTable
+              data={data}
+              title="Usuarios"
+              columns={columns}
+             
+            />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
