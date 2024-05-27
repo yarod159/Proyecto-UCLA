@@ -4,7 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registerSchema } from "../../shemas/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import './register.css'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './register.css';
+import './login.css'; 
 
 function RegisterPage() {
     const { signup, errors: registerErrors, isAuthenticated } = useAuth();
@@ -26,54 +29,65 @@ function RegisterPage() {
     }, [isAuthenticated]);
   
     return (
-      <div className="register-container">
-        <div>
+      <div className="login-box">
+        <p className="back-button-container">
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <FontAwesomeIcon icon={faArrowLeft} /> Atrás
+          </Link>
+        </p>
           
-          <h1>Register</h1>
+          <h2 style={{color:'#18a0a6'}}>Registrate</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-           
-  
-            <label htmlFor="email">Email:</label>
+          <div className="user-box">
+            <input
+              type="text"
+              name="name"
+              placeholder="Ingresa tu nombre"
+              {...register("name")}
+              autoFocus
+            />
+            {errors.name?.message && (
+              <p className="error-message">{errors.username?.message}</p>
+            )}
             <input
               name="email"
-              placeholder="youremail@domain.tld"
+              placeholder="ejemplo@gmail.com"
               {...register("email")}
             />
             {errors.email?.message && (
               <p className="error-message">{errors.email?.message}</p>
             )}
-  
-            <label htmlFor="password">Password:</label>
             <input
               type="password"
               name="password"
-              placeholder="********"
+              placeholder="contraseña"
               {...register("password")}
             />
             {errors.password?.message && (
               <p className="error-message">{errors.password?.message}</p>
             )}
-  
-            <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
               type="password"
               name="confirmPassword"
-              placeholder="********"
+              placeholder="Confirmar contraseña"
               {...register("confirmPassword")}
             />
             {errors.confirmPassword?.message && (
               <p className="error-message">{errors.confirmPassword?.message}</p>
             )}
-            <button>Submit</button>
+            </div>
+            <button style={{background:'#18a0a6'}}>Registrar</button>
           </form>
-          <p>
-            Already Have an Account?
-            <Link className="link" to="/home">Login</Link>
+          <p style={{marginTop:40}}> 
+            ¿Estas Registrado?
+            <Link className="link" to="/login" style={{color:'#18a0a6'}}> Ingresar</Link>
 
           </p>
         </div>
-      </div>
+      
     );
   }
+  
+
   
   export default RegisterPage;

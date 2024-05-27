@@ -1,29 +1,29 @@
 /* styles.css */
 .register-container {
-    height: calc(100vh - 100px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .card {
-    width: 400px; /* Ajusta según sea necesario */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: white;
-  }
-  
-  .input-field {
-    margin-bottom: 10px;
-  }
-  
-  .error-message {
-    color: red;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-  }
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 400px; /* Ajusta según sea necesario */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.input-field {
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+.link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
