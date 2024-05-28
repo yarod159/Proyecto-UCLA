@@ -18,28 +18,10 @@ const StyledButton = styled(Button)({
 });
 
 export default function faq() {
-<<<<<<< Updated upstream
-  const [logo, setLogo] = useState(null);
-  const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    companyName: "",
-    rif: "",
-    mission: "",
-    vision: "",
-    corporateColor: "",
-  });
-
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-=======
 
   const [PreguntaFaq, setPreguntaFaq] = useState("");
   const [RespuestaFaq, setRespuestaFaq] = useState("");
   const [errors, setErrors] = useState({});
->>>>>>> Stashed changes
 
 
   const handleSubmit = async (e) => {
