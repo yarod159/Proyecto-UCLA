@@ -2,35 +2,79 @@ import "../productList/productList.css";
 import { DataGrid } from "@mui/x-data-grid/DataGrid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { productRows } from "../../data";
-import SolicitudMantenimientos from "../../utils/SolicitudMantenimiento";
+
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Topbar from "../../components/topBar/TopBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import SidebarMui from "../../components/sideBar/SidebarMui";
 import MUIDataTable from "mui-datatables";
 import { Box } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
+import { getSolicitudDeServiciosRequest } from "../../api/solicitudDeServicios";
 
 export default function SolicitudMantenimiento() {
-  const [data, setData] = useState(SolicitudMantenimientos);
+  
+  const [data, setData] = useState([]);
+  
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    // Implementar la lógica para eliminar el empleado por ID
+    console.log("Eliminar empleado con ID:", id);
+ };
+   
+
+
+  
+
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await getSolicitudDeServiciosRequest(); 
+      console.log(response)
+      const data = response.data.data.map((item) => {
+        return {
+          _id: item._id,
+          estado: item.estado ,
+          municipios:  item.municipios ,
+          codigoPostal:  item.codigoPostal,
+          Direccion: item.Direccion ,
+          servicio: item.servicio,
+          marcaEquipo: item.marcaEquipo ,
+          modeloEquipo:  item.modeloEquipo ,
+          numeroSerie:  item.numeroSerie ,
+          descripcion: item.descripcion,
+          estatus: item.estatus ,
+          name: item.profile ? item.profile.name: "",
+          apellido: item.profile ? item.profile.apellido: "",
+          cedula: item.profile ? item.profile.cedula: "",
+          telefono: item.profile ? item.profile.telefono: "",
+        };
+      }).filter((item) => item.servicio !== 'Instalación');
+      setData(data);
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
   };
 
+  fetchData();
+}, []);
+
+
+
   const columns = [
-    { name: "id", label: "ID", width: 80 },
-    { name: "nombre", label: "Nombre", width: 110 },
+    { name: "_id", label: "ID", width: 80 },
+    { name: "name", label: "Nombre", width: 110 },
     { name: "apellido", label: "Apellido", width: 120 },
     { name: "telefono", label: "Telefono", width: 150 },
     { name: "estado", label: "Estado", width: 150 },
-    { name: "domicilio", label: "Domicilio", width: 150 },
-    { name: "tipoServicios", label: "Tipo Servicios", width: 150 },
-    { name: "descripcionProblema", label: "Descripcion del Problema", width: 250 },
-    { name: "producto", label: "Producto", width: 150 },
-    { name: "marca", label: "Marca", width: 150 },
-    { name: "modelo", label: "Modelo", width: 150 },
+    { name: "municipios", label: "Municipio", width: 150 },
+    { name: "Direccion", label: "Direccion", width: 150 },
+    { name: "servicio", label: "Tipo Servicios", width: 150 },
+    { name: "descripcion", label: "Descripcion del Problema", width: 250 },
+    { name: "marcaEquipo", label: "Marca del Equipo", width: 150 },
+    { name: "modeloEquipo", label: "Modelo", width: 150 },
+    { name: "numeroSerie", label: "Numero de Serie", width: 150 },
     {
         name: "action",
         label: "Acciones",

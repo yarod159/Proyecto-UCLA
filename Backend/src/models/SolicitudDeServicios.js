@@ -53,7 +53,8 @@ const solicitudDeServiciosSchema = new Schema({
     enum: ["Activo", "Inactivo"],
     required: true,
   },
-  profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
+   profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
+  
 });
 
 // Creación del modelo

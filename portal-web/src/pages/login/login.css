@@ -52,7 +52,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 500px;
   padding: 40px;
   transform: translate(-50%, -50%);
    background: #fafafae8;
@@ -84,7 +84,7 @@ body {
   color: #fff;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #18a0a6;
   outline: none;
   background: transparent;
 }
@@ -217,7 +217,7 @@ body {
 }
 
 .social-container2 a {
-border: 1px solid #ddd;
+border: 1px solid #e43b3b;
 border-radius: 50%;
 display: inline-flex;
 justify-content: center;
