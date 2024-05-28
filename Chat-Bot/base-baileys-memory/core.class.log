@@ -1,0 +1,92 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A6770B7C2F0BFD1C9F4',
+    participant: undefined
+  },
+  messageTimestamp: 1716861933,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: 'Te',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Te',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_efda36cd-6024-42d8-ab3e-67ebf339d4cf',
+  keyword: 'key_fc3cf141-bb62-454b-8345-5bb7d3085888',
+  answer: '🙌 Hola bienvenido este es el chatBot de *Kinetika*\n' +
+    '👉 Escribe # si aun no eres cliente Kinetika\n' +
+    '👉 Escribe 1 Si quieres conocer nuestros Productos\n' +
+    '👉 Escribe 2 Si quieres conocer nuestros servicios\n' +
+    '👉 Escribe 3 Si quieres conocer las preguntas frecuentes',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a0ad1193e8888040c2fef10a738d0ce6'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A306886519F7C62C26A',
+    participant: undefined
+  },
+  messageTimestamp: 1716861935,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_8bf8764c-2c6d-4269-8cff-86cb37c52498',
+  keyword: 'key_b2dc611b-342b-4d9a-a708-62c76accf541',
+  answer: '¡Gracias por querer empezar a disfrutar de Kinetika 🤩!\n' +
+    'Te compartiremos nuestras preguntas frecuentes\n' +
+    '*DESEO SUSPENDER MI SERVICIO, QUÉ DEBO HACER?*\n' +
+    'RESPUESTA: Debe realizar su solicitud por escrito, dirigiendo una carta (la cual puede ser escrita a mano si lo deseas) exponiendo el motivo por el cual deseas darte de baja. Dicha solicitud debe ser entregada por nuestras oficinas del 1° al 15 de cada mes. Recuerda que debes estar al día con tus pagos, anexar copia de la C.I y de poseer equipos en alquiler debes hacer entrega de los mismos.\n' +
+    '*¿QUÉ DEBO HACER PARA QUE MI CONTRATO SALGA A NOMBRE DE OTRA PERSONA?*\n' +
+    'Para lograr esto debe realizar la solicitud directamente por nuestras oficinas antes de la fecha de facturación la cual se realiza los 22 de cada mes. Además, debe tener su saldo al día, anexar fotocopia de la C.I de ambas personas, y una autorización por escrito del abonado en caso de que éste no sea el que solicite personalmente el cambio.\n' +
+    '*¿A QUE REFIERE DOMICILIAR PAGOS?*\n' +
+    'Es un medio de cobranza que ofrece Inter para facilitarte el pago de tus facturas, se caracteriza por ser un proceso automático donde se realizan los descuentos entre el 01 al 05 de cada mes luego de emitida la factura.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [ [Object], [Object] ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '5e9dfe81a2d6fc81fd7b7a28e519c406'
+}

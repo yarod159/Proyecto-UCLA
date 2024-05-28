@@ -76,25 +76,15 @@ const SerVis = () => {
             width: 350,
         },
         { field: "message", headerName: "Descripción de la solicitud o reclamo", width: 380 },
-   
+    ];
+    const columns3 = [
+        { field: "_id", headerName: "ID", width: 120 },
         {
-        field: "action",
-        headerName: "Action",
-        width: 200,
-        renderCell: (params) => {
-            return (
-            <>
-                <Link to={"/user/" + params.row._id}>
-                <button className="userListEdit">Edit</button>
-                </Link>
-                <DeleteOutlineIcon
-                className="userListDelete"
-                onClick={() => handleDelete2(params.row.id)}
-                />
-            </>
-            );
+            field: "fecha",
+            headerName: "Fecha de garantía",
+            width: 350,
         },
-        },
+        { field: "message", headerName: "Descripción de la garantía", width: 380 },
     ];
     const columns2 = [
         { field: "Nro", headerName: "Nro Solicitud", width: 120 },
@@ -183,6 +173,25 @@ const SerVis = () => {
             </Button>
         </div>
  
+      </div>
+
+      <div className="wrapper-servicio-vis">
+        <h1 style={{color: '#18a0a6'}}>Mis Garantías</h1>
+
+        <div>
+            <DataGrid
+            rows={data}
+            disableSelectionOnClick
+            columns={columns3}
+            pageSize={10}
+            checkboxSelection
+            getRowId={(row) => row._id}
+            autoHeight={true}
+            sx={{maxWidth: '100%', margin:4}}
+            />
+        </div>
+
+
       </div>
       <Footer />
     </div>
