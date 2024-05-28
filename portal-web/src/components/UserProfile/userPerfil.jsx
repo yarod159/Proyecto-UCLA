@@ -13,7 +13,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CommentIcon from "@mui/icons-material/Comment";
 
-import { getProfileRequest ,createProfileRequest} from "../../api/profile";
+import { getProfileRequest, createProfileRequest } from "../../api/profile";
 
 import "./userPerfil.css";
 
@@ -24,18 +24,18 @@ const Div = styled("div")(({ theme }) => ({
 }));
 
 const UserPerfil = () => {
-  const [username, setUsername] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [fullName, setFullName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [address, setAddress] = useState("");
   const [savedChanges, setSavedChanges] = useState(false);
 
   const [editing, setEditing] = useState({
     name: false,
     apellido: false,
     cedula: false,
-    fechaNacimiento: false,
+    dateCumple: false,
     direccion: false,
     telefono: false,
   });
@@ -44,24 +44,26 @@ const UserPerfil = () => {
     name: "",
     apellido: "",
     cedula: "",
-    fechaNacimiento: "",
+    dateCumple: "",
     direccion: "",
     telefono: "",
   });
 
   const getProfileData = async () => {
     const resp = await getProfileRequest();
+    console.log("resp", resp);
     setUserInfo({
-      nombre: resp.name,
+      name: resp.name,
       apellido: resp.apellido,
       cedula: resp.cedula,
-      fechaNacimiento: new Date(resp.dateCumple).toLocaleDateString(),
+      dateCumple: new Date(resp.dateCumple).toLocaleDateString(),
       direccion: resp.direccion,
       telefono: resp.telefono,
     });
   };
 
   useEffect(() => {
+    console.log('user', userInfo.name)
     getProfileData();
   }, []);
 
@@ -84,7 +86,7 @@ const UserPerfil = () => {
               <form className="userUpdateForm">
                 <div className="userUpdateLeft">
                   <div className="userUpdateRight">
-                   {/*  <div className="userUpdateUpload">
+                    {/*  <div className="userUpdateUpload">
                       <img
                         className="userUpdateImg"
                         src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -123,27 +125,27 @@ const UserPerfil = () => {
 
                       <ListItem>
                         <ListItemText primary="Nombre: " />
-                        {editing.nombre ? (
+                        {editing.name ? (
                           <TextField
                             sx={{ width: "85%" }}
-                            value={userInfo.nombre}
+                            value={userInfo.name}
                             onChange={(e) =>
-                              handleSave("nombre", e.target.value)
+                              handleSave("name", e.target.value)
                             }
-                            onBlur={() => handleSave("nombre", userInfo.nombre)}
+                            onBlur={() => handleSave("name", userInfo.name)}
                             onKeyDown={(e) => {
                               if (e.key === "Enter") {
-                                handleSave("nombre", e.target.value);
+                                handleSave("name", e.target.value);
                               }
                             }}
                           />
                         ) : (
-                          <ListItemText primary={userInfo.nombre} />
+                          <ListItemText primary={userInfo.name} />
                         )}
                         <IconButton
                           edge="end"
                           aria-label="comments"
-                          onClick={() => handleEdit("nombre")}
+                          onClick={() => handleEdit("name")}
                         >
                           <CommentIcon />
                         </IconButton>
@@ -201,28 +203,28 @@ const UserPerfil = () => {
                       <Divider />
                       <ListItem>
                         <ListItemText primary="Fecha de nacimiento: " />
-                        {editing.fechaNacimiento ? (
+                        {editing.dateCumple ? (
                           <TextField
                             sx={{ width: "70%" }}
-                            value={userInfo.fechaNacimiento}
+                            value={userInfo.dateCumple}
                             onChange={(e) => {
-                              if (!editing.fechaNacimiento) return; // Solo llama a handleSave si el campo no está siendo editado
-                              handleSave("fechaNacimiento", e.target.value);
+                              if (!editing.dateCumple) return; // Solo llama a handleSave si el campo no está siendo editado
+                              handleSave("dateCumple", e.target.value);
                             }}
                             onBlur={() =>
                               handleSave(
-                                "fechaNacimiento",
-                                userInfo.fechaNacimiento
+                                "dateCumple",
+                                userInfo.dateCumple
                               )
                             } // Guarda el valor al perder el foco
                           />
                         ) : (
-                          <ListItemText primary={userInfo.fechaNacimiento} />
+                          <ListItemText primary={userInfo.dateCumple} />
                         )}
                         <IconButton
                           edge="end"
                           aria-label="comments"
-                          onClick={() => handleEdit("fechaNacimiento")}
+                          onClick={() => handleEdit("dateCumple")}
                         >
                           <CommentIcon />
                         </IconButton>
@@ -289,7 +291,10 @@ const UserPerfil = () => {
                   variant="contained"
                   color="primary"
                   sx={{ alignItems: "center" }}
-                 
+                  onClick={() => {
+                    console.log(userInfo)
+                    createProfileRequest(userInfo)
+                  }}
                 >
                   Guardar Cambios
                 </Button>

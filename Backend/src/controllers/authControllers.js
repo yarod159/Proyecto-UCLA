@@ -1,51 +1,52 @@
-const jwt = require('jsonwebtoken'); // Make sure to import jwt
-const crypto = require('crypto'); // Import crypto module
+const jwt = require("jsonwebtoken"); // Make sure to import jwt
+const crypto = require("crypto"); // Import crypto module
 const { secretKey } = require("../config/secret"); // Import secretKey
 require("dotenv").config();
 const sendVerificationEmail = require("../utils/email");
 //aqui
 const User = require("../models/User");
-const express = require("express")
-const {matchedData} = require("express-validator")
-const {compare,encrypt} = require("../utils/handleJwt");  
-const { tokenSign } = require('../utils/handleToken');
+const Profile = require("../models/Profile");
 
-
+const express = require("express");
+const { matchedData } = require("express-validator");
+const { compare, encrypt } = require("../utils/handleJwt");
+const { tokenSign } = require("../utils/handleToken");
 
 const register = async (req, res) => {
-try {
+  try {
     const password = await encrypt(req.body.password);
     const body = {
       ...req.body, // Assuming you want to include other fields from the request body
       password,
     };
     const dataUser = await User.create(body);
-    
+
     const data = {
-      token : await tokenSign(dataUser) , 
-      user : dataUser
-    }
+      token: await tokenSign(dataUser),
+      user: dataUser,
+    };
 
     res.send(data); // Directly sending the data object
-
- } catch (error) {
+  } catch (error) {
     res.status(500).send({ error: error.message });
-    console.log(error)
- }
+    console.log(error);
+  }
 };
- 
 
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-   
-    const user = await User.findOne({ email }).select('+password');
 
-    if (!user) {  
+    const user = await User.findOne({ email }).select("+password");
+
+    if (!user) {
       return res.status(404).json({ message: "El usuario  ya existe" });
     }
     if (!password || !user.password) {
-      console.log('Password or user password is undefined:', { password, userPassword: user.password });
+      console.log("Password or user password is undefined:", {
+        password,
+        userPassword: user.password,
+      });
       return res.status(400).json({ message: "falta la contrasena" });
     }
 
@@ -54,10 +55,9 @@ const login = async (req, res) => {
     if (!checkPassword) {
       return res.status(401).json({ message: "password incorrecta" });
     }
-     
 
     const tokenJwt = await tokenSign(user);
-    user.set('password', undefined, {strict:false})
+    user.set("password", undefined, { strict: false });
     const data = {
       token: tokenJwt,
       user: user,
@@ -66,29 +66,31 @@ const login = async (req, res) => {
     res.send({ data });
   } catch (error) {
     console.log("Error al registrar al usuario", error);
-     res.status(500).json({ message: error.message || "Inicio de sesion fallido" });
+    res
+      .status(500)
+      .json({ message: error.message || "Inicio de sesion fallido" });
   }
 };
 
 const verifyToken = async (req, res) => {
   // Extraer el token del encabezado Authorization
   const authHeader = req.headers.authorization;
-  
-  if (!authHeader) return res.status(401).send({ message: 'No tok provided' });
+
+  if (!authHeader) return res.status(401).send({ message: "No tok provided" });
 
   // Dividir el encabezado por espacio y tomar el segundo elemento (el token)
-  const token = authHeader.split(' ')[1];
-  if (!token) return res.status(401).send({ message: 'No token provided' });
-  console.log('token:', token);
+  const token = authHeader.split(" ")[1];
+  if (!token) return res.status(401).send({ message: "No token provided" });
+  console.log("token:", token);
   try {
     // Verificar el token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Buscar al usuario en la base de datos usando el ID decodificado del token
     const userFound = await User.findById(decoded._id);
-    if (!userFound) return res.status(401).send({ message: 'User not found' });
-   
-    console.log('user:', userFound);
+    if (!userFound) return res.status(401).send({ message: "User not found" });
+
+    console.log("user:", userFound);
     // Devolver los detalles del usuario
     return res.json({
       id: userFound._id,
@@ -96,19 +98,21 @@ const verifyToken = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    return res.status(401).send({ message: 'Invalid token' });
+    return res.status(401).send({ message: "Invalid token" });
   }
 };
 
-
 const putUserToEmpleados = async (req, res) => {
   try {
-  const userId = req.params.userId;
-  const newRole = req.body.role;
+    const userId = req.params.userId;
+    const newRole = req.body.role;
 
-  const user = await User.findByIdAndUpdate(userId, { role: newRole }, { new: true });
-  res.json({ message: `Rol actualizado a ${newRole}` });
-  
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { role: newRole },
+      { new: true }
+    );
+    res.json({ message: `Rol actualizado a ${newRole}` });
   } catch (error) {
     console.error("Error fetching employees:", error);
     res.status(500).json({
@@ -118,7 +122,6 @@ const putUserToEmpleados = async (req, res) => {
   }
 };
 
-
 const getUserRole = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -127,7 +130,7 @@ const getUserRole = async (req, res) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+      return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
     // Devolver el rol del usuario
@@ -143,9 +146,62 @@ const getUserRole = async (req, res) => {
   }
 };
 
+const registerFull = async (req, res) => {
+  try {
+    const password = await encrypt(req.body.password);
+    const userBody = {
+      email: req.body.email, // Assuming you want to include other fields from the request body
+      password,
+    };
+    const dataUser = await User.create(userBody);
 
-module.exports = { register, login,verifyToken, putUserToEmpleados,getUserRole  };
+    const { name, apellido, cedula, telefono, direccion, dateCumple } =
+      req.body;
 
+    // Validar los datos recibidos
+    if (!name || !apellido || !cedula || !telefono || !direccion) {
+      return res
+        .status(400)
+        .json({ message: "Todos los campos son obligatorios." });
+    }
+
+    const userId = dataUser._id;
+
+    // Crear un nuevo perfil con los datos recibidos y el ID del usuario extraído de la URL
+    const newProfile = new Profile({
+      name,
+      apellido,
+      cedula,
+      telefono,
+      direccion,
+      dateCumple,
+      user: userId,
+    });
+
+    // Guardar el nuevo perfil en la base de datos
+    await newProfile.save();
+
+    const data = {
+      token: await tokenSign(dataUser),
+      user: dataUser,
+      profile: newProfile,
+    };
+
+    res.send(data); // Directly sending the data object
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+    console.log(error);
+  }
+};
+
+module.exports = {
+  register,
+  login,
+  verifyToken,
+  putUserToEmpleados,
+  getUserRole,
+  registerFull,
+};
 
 /**
  * 
@@ -170,6 +226,3 @@ const verifyToken = async (req, res) => {
   });
 };
  */
-
-
-

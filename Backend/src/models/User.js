@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    
     email: {
       type: String,
       required: true, // Email is mandatory
@@ -15,7 +14,6 @@ const userSchema = new mongoose.Schema(
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email),
         message: "Please enter a valid email address.",
       },
-      
     },
     password: {
       type: String,
@@ -23,7 +21,7 @@ const userSchema = new mongoose.Schema(
       minlength: 8, // Enforces minimum password length
       select: false,
     },
-   
+
     verified: {
       // Verification status (default: false)
       type: Boolean,
@@ -34,14 +32,13 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     role: {
-      type: ["user", "admin","empleado"],
+      type: ["user", "admin", "empleado"],
       default: "user",
-     
     },
   },
   {
     timestamps: true,
-    versionKey:false,
+    versionKey: false,
   }
 );
 
