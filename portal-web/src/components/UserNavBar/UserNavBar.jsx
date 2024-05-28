@@ -25,8 +25,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
-const pages = ['Inicio', 'Servicios', 'Atención al Cliente'];
+import { useAuth } from '../../context/AuthContext';
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -48,6 +47,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 function UserNavbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { isAuthenticated, logout, user, setIsAuthenticated, setUser } = useAuth();
 
 
  const handleOpenUserMenu = (event) => {
@@ -124,27 +124,33 @@ function UserNavbar() {
 
       </List>
       <Divider />
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton href='/UserProfile' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
+      {isAuthenticated? (
+            <>
+            
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton href='/UserProfile' sx={{":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+                    <ListItemIcon>
+                      <MailIcon />
+                    </ListItemIcon>
 
-            <ListItemText>Perfil</ListItemText>
-          </ListItemButton>
-        </ListItem>
+                    <ListItemText>Perfil</ListItemText>
+                  </ListItemButton>
+                </ListItem>
 
-        <ListItem disablePadding>
-          <ListItemButton href='/Home' sx={{ ":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
+                <ListItem disablePadding>
+                  <ListItemButton onClick={() => logout()} sx={{ ":hover":{bgcolor: '#18a0a6', color:'#fff'}}}>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
 
-            <ListItemText>Cerrar Sesión</ListItemText>
-          </ListItemButton>
-        </ListItem>
-      </List>
+                    <ListItemText>Cerrar Sesión</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </>
+            
+          ) : (<></>)}
     </Box>
   );
 
@@ -194,16 +200,31 @@ function UserNavbar() {
 
               </Box>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page) => (
-                  <Button
-                    key={page}
+                
+                <Button
+                    
                     onClick={handleCloseNavMenu}
-                    href={`/${page.toLowerCase()}`}
+                    href='/Home'
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
-                    {page}
+                    Inicio
                   </Button>
-                ))}
+                  <Button
+                    
+                    onClick={handleCloseNavMenu}
+                    href='/servicios'
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    Servicios
+                  </Button>
+                  <Button
+                    
+                    onClick={handleCloseNavMenu}
+                    href='/AtencionAlCliente'
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    Atención al Cliente
+                  </Button>
               </Box>
               <Typography
                 variant="h5"
