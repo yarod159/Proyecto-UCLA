@@ -9,9 +9,9 @@ import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import IMG1 from "../../assets/UserHome/instalacion.png";
-import IMG2 from "../../assets/UserHome/reparacion.png";
-import IMG3 from "../../assets/UserHome/mantenimiento.png";
+import IMG1 from "../../assets/UserHome/faq.png";
+import IMG2 from "../../assets/UserHome/contacto.png";
+import IMG3 from "../../assets/UserHome/garantia.png";
 
 
 
