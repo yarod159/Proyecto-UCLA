@@ -20,6 +20,8 @@ async function updateEmpleadoWhenRoleChanges(req, res, next) {
           direccion: userProfile.direccion,
           dateCumple: userProfile.dateCumple,
           ocupacion: '', // puedes agregar un valor predeterminado o dejarlo vacío
+          user:userId,
+          profile:userProfile._id,
           estatus: 'Activo', // puedes agregar un valor predeterminado o dejarlo vacío
         };
   

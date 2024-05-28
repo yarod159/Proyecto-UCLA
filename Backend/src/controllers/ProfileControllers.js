@@ -80,7 +80,7 @@ const createProfile = async (req, res) => {
       telefono,
       direccion,
       dateCumple,
-      user: req.user._id, // Usa el userId extraído de la URL
+      user: req.user._id, 
     });
 
     // Guardar el nuevo perfil en la base de datos

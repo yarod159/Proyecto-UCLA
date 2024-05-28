@@ -17,10 +17,10 @@ function ServiceCard({ icon, heading, description }) {
 export default function Services() {
 
     const services = [
-        { icon: 'fas fa-phone', heading: 'Telefonía móvil', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-tv', heading: 'Telefonía móvil', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-globe', heading: 'Internet', description: 'Lorem ipsum dolor...' },
-        { icon: 'fas fa-tv', heading: 'Televisión por cable', description: 'Lorem ipsum dolor...' },
+        { icon: 'fas fa-phone', heading: 'Nuestros Servicios', description: 'Contamos con servicios de:' },
+        { icon: 'fas fa-tv', heading: 'Mis Solicitudes', description: 'Traemos para ti la posibilidad de manejar todas tus solicitudes de servicios' },
+        { icon: 'fas fa-globe', heading: 'Necesitas ayuda?', description: 'Acude a nuestra area de Atencion al cliente para cualquier duda o reclamo' },
+        { icon: 'fas fa-tv', heading: 'Deseas Realizar un pago?', description: 'Puedes pagar en cualquier momento y lugar' },
        
       ];
   return (

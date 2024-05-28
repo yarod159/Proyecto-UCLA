@@ -119,7 +119,32 @@ const putUserToEmpleados = async (req, res) => {
 };
 
 
-module.exports = { register, login,verifyToken, putUserToEmpleados  };
+const getUserRole = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    // Buscar al usuario en la base de datos usando el ID proporcionado
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    // Devolver el rol del usuario
+    res.json({
+      role: user.role,
+    });
+  } catch (error) {
+    console.error("Error al obtener el rol del usuario:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener el rol del usuario",
+    });
+  }
+};
+
+
+module.exports = { register, login,verifyToken, putUserToEmpleados,getUserRole  };
 
 
 /**

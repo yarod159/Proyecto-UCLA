@@ -9,6 +9,9 @@ import { Box, Select, FormLabel,} from '@mui/material';
 import { useState, useEffect } from "react";
 import { FormControl, InputLabel, MenuItem } from '@mui/material';
 import axios from 'axios';
+import { getEstadosTokenRequest } from "../../api/FormServ";
+
+import { getProfileRequest } from "../../api/profile";
 
 
 
@@ -57,7 +60,33 @@ const FormServ = () => {
     const [tipVivienda, setTipVivienda] = useState('');
     const [value, setvalue] = useState('');
     const [value2, setvalue2] = useState('');
-    
+    const [estadosGrupo, setEstadosGrupo] = useState([]);
+  const [municipioGrupo, setMunicipioGrupo] = useState([])
+
+
+  
+  const getMunicipios=()=> {
+    const data=estadosGrupo.filter(value => value?.estado == estado)
+      console.log(data[0])
+      setMunicipioGrupo(data[0]?.municipios ?? [])
+  
+      }
+  
+    useEffect(() => {
+      getMunicipios();
+    }, [estado]);
+  
+  
+    const getEstadosData = async () => {
+      const resp =  await getEstadosTokenRequest();
+      setEstadosGrupo(resp?.data.data);
+     
+    };
+  
+    useEffect(() => {
+      getEstadosData();
+    }, []);
+  
 
     const handleOptionChange = (event) => {
     setservicio(event.target.value);
@@ -82,6 +111,36 @@ const FormServ = () => {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });}
+
+        
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    apellido: "",
+    email: "",
+    fechaNacimiento: "",
+    direccion: "",
+    telefono: "",
+  });
+
+  
+  const getProfileData = async () => {
+    const resp = await getProfileRequest();
+    console.log(resp)
+    setUserInfo({
+      nombre: resp.name,
+      apellido: resp.apellido,
+      email: resp.user.email,
+      fechaNacimiento: new Date(resp.dateCumple).toLocaleDateString(),
+      direccion: resp.direccion,
+      telefono: resp.telefono,
+    });
+  };
+
+  useEffect(() => {
+    getProfileData();
+  }, []);
+
+
 
     useEffect(() => {
         const fetchServicios = async () => {
@@ -125,6 +184,8 @@ const FormServ = () => {
                                         label="Nombre"
                                         name="nombre"
                                         variant="standard"
+                                        value={userInfo.nombre}
+
                                         onChange={handleInputChange}
                                         sx={{marginTop: 0, width: 310}}
                                     />
@@ -134,6 +195,8 @@ const FormServ = () => {
                                         label="Apellido"
                                         name="apellido"
                                         variant="standard"
+                                        value={userInfo.apellido}
+
                                         onChange={handleInputChange}
                                         sx={{marginTop: 0, width: 310}}
                                     />
@@ -147,46 +210,51 @@ const FormServ = () => {
                                     name="telf"
                                     variant="standard"
                                     onChange={handleInputChange}
+                                    value={userInfo.telefono}
+
                                     sx={{marginTop: 2, width: 310}}
                                     />
 
                                     <TextField
                                     
                                     label="Correo electrónico"
-                                    name="correo"
+                                    name="email"
                                     variant="standard"
+                                    value={userInfo.email}
                                     onChange={handleInputChange}
                                     sx={{marginTop: 2, width: 310}}
                                     />
                                 </div>
 
                                 <div className="Form-estado-municipio">
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Estado</InputLabel>
-                                        <Select value={estado} onChange={handleEstado}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Lara">Lara</MenuItem>
-                                            <MenuItem value="Otro">Otro</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
+                                <FormControl
+                      variant="standard"
+                      sx={{ marginTop: 2, width: 310 }}
+                    >
+                      <InputLabel>Estado</InputLabel>
+                      <Select value={estado} onChange={handleEstado}>
+                        <MenuItem value="">Selecciona una opción</MenuItem>
+                       { estadosGrupo.map((value,key)=>(
+                         <MenuItem index={key} value={value.estado}>{value.estado}</MenuItem>
+                       ))}
+                       
+                      </Select>
+                    </FormControl>
 
-                                    <FormControl variant="standard" sx={{marginTop: 2, width: 310}}>
-                                        <InputLabel>Municipio</InputLabel>
-                                        <Select value={municipio} onChange={handleMunicipio}>
-                                            <MenuItem value="">Selecciona una opción</MenuItem>
-                                            <MenuItem value="Andrés Eloy Blanco">Andrés Eloy Blanco</MenuItem>
-                                            <MenuItem value="Crespo">Crespo</MenuItem>
-                                            <MenuItem value="Iribarren">Iribarren</MenuItem>
-                                            <MenuItem value="Jiménez">Jiménez</MenuItem>
-                                            <MenuItem value="Morán">Morán</MenuItem>
-                                            <MenuItem value="Palavecino">Palavecino</MenuItem>
-                                            <MenuItem value="Simón Planas">Simón Planas</MenuItem>
-                                            <MenuItem value="Torres">Torres</MenuItem>
-                                            <MenuItem value="Urdaneta">Urdaneta</MenuItem>
-                                                                                    
-                                        </Select>
-                                    </FormControl>
+
+                    <FormControl
+                      variant="standard"
+                      sx={{ marginTop: 2, width: 310 }}
+                    >
+                      <InputLabel>Municipio</InputLabel>
+                      <Select value={municipio} onChange={handleMunicipio}>
+                        <MenuItem value="">Selecciona una opción</MenuItem>
+                       { municipioGrupo.map((value,key)=>(
+                         <MenuItem index={key} value={value.municipio}>{value.municipio}</MenuItem>
+                       ))}
+                      </Select>
+                    </FormControl>
+
                                 </div>
                                     
                                 <TextField

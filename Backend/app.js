@@ -32,6 +32,8 @@ app.use("/auth", require("./src/routes/authRoutes"));
 app.use("/empleado", require('./src/routes/crearEmpleadoRoutes'))
 app.use("/instalador", require('./src/routes/instalacionRoutes'))
 app.use("/servCliente", require('./src/routes/servClienteRoutes'))
+app.use("/pais", require('./src/routes/EstadosRoutes'))
+app.use("/solicitud", require('./src/routes/solicitudDeServicios'))
 app.use("/users", userRouter); // Usa userRouter como middleware
 
 // Inicio del servidor
