@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button,Box, Stack, CardActionArea, Card, CardMedia, CardContent, Typography } from "@mui/material";
 import UserNavBar from "../../components/UserNavBar/UserNavBar.jsx";
 import Footer from "../../components/footer/Footer";
 import Paper from "@mui/material/Paper";
@@ -9,7 +9,9 @@ import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
+import IMG1 from "../../assets/UserHome/instalacion.png";
+import IMG2 from "../../assets/UserHome/reparacion.png";
+import IMG3 from "../../assets/UserHome/mantenimiento.png";
 
 
 
@@ -80,41 +82,116 @@ const ServCliente = () => {
     <div className="container-servicio-cliente">
       
       <UserNavBar />
+     
+      <div>
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "80px",
+          flexWrap: "wrap",
+        }}
+      >
+        <Stack
+          direction="column"
+          spacing={0}
+          sx={{ marginBottom: "8px", marginTop: "0px", marginBottom: "60px",display:'flex',flexWrap:'wrap', alignItems:'center', justifyContent:'center' ,gap:'20px'}}
+        >
+              <CardActionArea href="/serviciosVis">
+                <Card sx={{ display: 'flex', bgcolor: '#18a0a6', color: '#fff', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
+                    
+                    <CardMedia
+                            component="img"
+                            sx={{ width: 200, height: 200, display: "flex" }}
+                            image={IMG1}
+                            alt="Live from space album cover"
+                          />
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      
+                      <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
+                        <Typography component="div" variant="h5">
+                          ¿Tienes Preguntas?
+                        </Typography>
+                        <Typography variant="subtitle1" color="#fff" component="div">
+                            En esta sección podrás encontrar respuesta a las preguntas realizadas frecuentemente por los usuarios.
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    
 
-      <div className="wrapper-servicio-cliente">
-        <h1 style={{color: '#18a0a6', marginTop:30}}>Atención al Cliente</h1>
-        <div>
-            <DataGrid
-            rows={data}
-            disableSelectionOnClick
-            columns={columns}
-            pageSize={10}
-            checkboxSelection
-            getRowId={(row) => row._id}
-            autoHeight={true}
-            sx={{maxWidth: '100%', margin:4}}
-            />
-        </div>
+                  </Card>
 
-        <div style={{flexDirection: "row"}}>
-            <Button variant="contained" type="submit" 
-            sx={{ marginTop: 2, marginBottom: 4, color: '#fff', bgcolor: '#18a0a6', 
-                    ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/newReport">
-                Nueva solicitud
-            </Button>
-            <Button variant="contained" type="submit" 
-            sx={{ marginTop: 2, marginBottom: 4, marginLeft: 4, marginRight: 4, color: '#fff', bgcolor: '#18a0a6', 
-                    ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/solGarant">
-                Solicitar garantía
-            </Button>
-            <Button variant="contained" type="submit" 
-            sx={{ marginTop: 2, marginBottom: 4, color: '#fff', bgcolor: '#18a0a6', 
-                    ":hover": { bgcolor: '#fff', color: '#18a0a6' }}} href="/faqSeccion">
-                Preguntas Frecuentes
-            </Button>
-        </div>
- 
+                </CardActionArea>
+
+                <CardActionArea href="/faqSeccion">
+                    <Card sx={{ display: 'flex', color: '#18a0a6', height: 240, alignItems: "center", padding: 4, borderRadius: 8, }}>
+                      
+
+                      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                        
+                        <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
+                          <Typography component="div" variant="h5">
+                           ¡Contactanos!
+                          </Typography>
+                          <Typography variant="subtitle1" color="#454545" component="div">
+                              ¿Necesitas contactarnos? A través de este formulario podremos contactarte y atender tu solicitud.
+                          </Typography>
+                        </CardContent>
+                      </Box>
+
+                      <CardMedia
+                              component="img"
+                              sx={{ width: 200, height: 200, display: "flex" }}
+                              image={IMG2}
+                              alt="Live from space album cover"
+                      />
+                      
+
+                    </Card>
+
+                </CardActionArea>
+
+                
+                <CardActionArea href="/solGarant">
+                  <Card sx={{ display: 'flex', bgcolor: '#70decd', color: '#454545', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
+                    
+                    <CardMedia
+                            component="img"
+                            sx={{ width: 200, height: 200, display: "flex" }}
+                            image={IMG3}
+                            alt="Live from space album cover"
+                          />
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      
+                      <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
+                        <Typography component="div" variant="h5">
+                          Garantías
+                        </Typography>
+                        <Typography variant="subtitle1" color="#454545" component="div">
+                            Aquí podras encontrar la información sobre las garantías que ofrecemos y además solicitar el uso de la misma.
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    
+
+                  </Card>
+
+                </CardActionArea>
+
+        </Stack>
+      </Box>
+
+      
+
+
+
       </div>
+
+
+
+
+
       <Footer />
     </div>
   );
