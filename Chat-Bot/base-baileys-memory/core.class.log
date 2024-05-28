@@ -90,3 +90,214 @@
   },
   refSerialize: '5e9dfe81a2d6fc81fd7b7a28e519c406'
 }
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A704E12B07868B9FEFB',
+    participant: undefined
+  },
+  messageTimestamp: 1716863941,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: '#',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '#',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c5e60abf-b70b-4029-8e6f-4c699b1a6b27',
+  keyword: 'key_5a128bba-b5ac-46f7-aa16-13a90111b8c8',
+  answer: '🚀 Muchas gracias\n' +
+    'Pronto nos comunicaremos contigo para brindarte la mejor atención que va a brindarte una asesoría especializada.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '0d2a5e78d240805647b82ce59074aecd'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A49427F851E2A34BE33',
+    participant: undefined
+  },
+  messageTimestamp: 1716863949,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: '#',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '#',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_efda36cd-6024-42d8-ab3e-67ebf339d4cf',
+  keyword: 'key_fc3cf141-bb62-454b-8345-5bb7d3085888',
+  answer: '🙌 Hola bienvenido este es el chatBot de *Kinetika*\n' +
+    '👉 Escribe # si aun no eres cliente Kinetika\n' +
+    '👉 Escribe 1 Si quieres conocer nuestros Productos\n' +
+    '👉 Escribe 2 Si quieres conocer nuestros servicios\n' +
+    '👉 Escribe 3 Si quieres conocer las preguntas frecuentes',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a0ad1193e8888040c2fef10a738d0ce6'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A00B14E8CE4392312E6',
+    participant: undefined
+  },
+  messageTimestamp: 1716863954,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_214d498d-cddd-4281-8ca1-5cae6e9855fa',
+  keyword: 'key_9ca9e1ea-82d9-4ba3-b06d-ab5ede9cb74e',
+  answer: '¡Gracias por querer empezar a disfrutar de Kinetika 🤩!\n' +
+    '  Queremos que conozcas nuestros productos y que mejor que la de ingresar a nuestra pagina web *www.kinetika.com¨* apartado productos o a nuestra app en playstore ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [ [Object], [Object] ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'f320a5964ad65156df80b9889cb5d6b7'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3A6698CDB62B42381AC1',
+    participant: undefined
+  },
+  messageTimestamp: 1716863957,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: 'D',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'D',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c5e60abf-b70b-4029-8e6f-4c699b1a6b27',
+  keyword: 'key_5a128bba-b5ac-46f7-aa16-13a90111b8c8',
+  answer: '🚀 Muchas gracias\n' +
+    'Pronto nos comunicaremos contigo para brindarte la mejor atención que va a brindarte una asesoría especializada.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '0d2a5e78d240805647b82ce59074aecd'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '584245824206@s.whatsapp.net',
+    fromMe: false,
+    id: '3AE7BAC6641A23CD6772',
+    participant: undefined
+  },
+  messageTimestamp: 1716863961,
+  pushName: 'Yonny Barrios',
+  broadcast: false,
+  message: Message {
+    conversation: '4',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '4',
+  from: '584245824206'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_efda36cd-6024-42d8-ab3e-67ebf339d4cf',
+  keyword: 'key_fc3cf141-bb62-454b-8345-5bb7d3085888',
+  answer: '🙌 Hola bienvenido este es el chatBot de *Kinetika*\n' +
+    '👉 Escribe # si aun no eres cliente Kinetika\n' +
+    '👉 Escribe 1 Si quieres conocer nuestros Productos\n' +
+    '👉 Escribe 2 Si quieres conocer nuestros servicios\n' +
+    '👉 Escribe 3 Si quieres conocer las preguntas frecuentes',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'a0ad1193e8888040c2fef10a738d0ce6'
+}
