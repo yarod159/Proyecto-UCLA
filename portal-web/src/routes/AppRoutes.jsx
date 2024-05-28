@@ -21,6 +21,7 @@ import Garantía from "../pages/ServicioalCliente/Reporte/garantía.jsx";
 import FaqSeccion from "../pages/ServicioalCliente/faqSeccion.jsx";
 import { AuthProvider } from "../context/AuthContext.jsx";
 import { ProtectedRoutes } from "./ProtectedRoute.jsx";
+import UserServiceVis from "../pages/UserService/UserServVis.jsx";
 
 function AppRoutes() {
   return (
@@ -43,6 +44,7 @@ function AppRoutes() {
             <Route path="/UserProfile" element={<UserProfile />} />
             <Route path="/UserFact" element={<UserFact />} />
             <Route path="/servicios" element={<UserService />} />
+            <Route path="/serviciosVis" element={<UserServiceVis />} />
             <Route path="/userHome" element={<UserHome />} />
             <Route path="/solGarant" element={<Garantía />} />
             <Route path="/faqSeccion" element={<FaqSeccion />} />

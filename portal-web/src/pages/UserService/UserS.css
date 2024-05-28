@@ -1,8 +1,35 @@
-.CardHome1{
-    width: 300px;
-    background: #18a0a6;
-    max-width: 300px;
-    border-radius: 4px;
-    color: #fff;
+.container-servicio-cliente {
     position: relative;
+  }
+  .wrapper-servicio-cliente {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    min-Height: 100vh;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper-servicio-vis {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    min-Height: 100vh;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .userListDelete{
+    color: red;
+    cursor: pointer;
+}
+
+.userListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
 }
