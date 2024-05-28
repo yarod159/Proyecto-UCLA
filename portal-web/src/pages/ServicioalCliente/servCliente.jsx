@@ -98,7 +98,7 @@ const ServCliente = () => {
           spacing={0}
           sx={{ marginBottom: "8px", marginTop: "0px", marginBottom: "60px",display:'flex',flexWrap:'wrap', alignItems:'center', justifyContent:'center' ,gap:'20px'}}
         >
-              <CardActionArea href="/serviciosVis">
+              <CardActionArea href="/faqSeccion">
                 <Card sx={{ display: 'flex', bgcolor: '#18a0a6', color: '#fff', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
                     
                     <CardMedia
@@ -124,7 +124,7 @@ const ServCliente = () => {
 
                 </CardActionArea>
 
-                <CardActionArea href="/faqSeccion">
+                <CardActionArea href="/newReport">
                     <Card sx={{ display: 'flex', color: '#18a0a6', height: 240, alignItems: "center", padding: 4, borderRadius: 8, }}>
                       
 

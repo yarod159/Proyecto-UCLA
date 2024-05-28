@@ -100,7 +100,7 @@ function UserService() {
           spacing={0}
           sx={{ marginBottom: "8px", marginTop: "0px", marginBottom: "60px",display:'flex',flexWrap:'wrap', alignItems:'center', justifyContent:'center' ,gap:'20px'}}
         >
-              <CardActionArea href="/Home">
+              <CardActionArea href="/FormServ">
                 <Card sx={{ display: 'flex', bgcolor: '#18a0a6', color: '#fff', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
                     
                     <CardMedia
@@ -109,14 +109,17 @@ function UserService() {
                             image={IMG1}
                             alt="Live from space album cover"
                           />
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
                       
-                      <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
-                        <Typography component="div" variant="h5">
-                          Instalación
+                      <CardContent sx={{ flex: '1 0 auto', padding: 4}}>
+                        <Typography component="div" variant="h5" >
+                          Servicio de Instalación
                         </Typography>
-                        <Typography variant="subtitle1" color="#fff" component="div">
-                            Realizamos la instalación del servicio en tu hogar u oficina.
+                        <Typography variant="subtitle1" color="#fff" component="div" sx={{textAlign: "justify"}}>
+                        Somos expertos en la puesta en marcha de tus sistemas y equipos, desde la configuración inicial 
+                        hasta las primeras pruebas de funcionamiento. Nos aseguramos de que todo esté instalado correctamente 
+                        y según las especificaciones del fabricante para que puedas disfrutar de tu inversión desde el primer 
+                        momento.
                         </Typography>
                       </CardContent>
                     </Box>
@@ -126,18 +129,20 @@ function UserService() {
 
                 </CardActionArea>
 
-                <CardActionArea href="/UserProfile">
+                <CardActionArea href="/FormServ">
                     <Card sx={{ display: 'flex', color: '#18a0a6', height: 240, alignItems: "center", padding: 4, borderRadius: 8, }}>
                       
 
-                      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
                         
                         <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
                           <Typography component="div" variant="h5">
-                            Reparación
+                            Servicio de Reparación
                           </Typography>
-                          <Typography variant="subtitle1" color="#454545" component="div">
-                              Realizamos la instalación del servicio en tu hogar u oficina.
+                          <Typography variant="subtitle1" color="#454545" component="div" sx={{textAlign: "justify"}}>
+                              Contamos con un equipo técnico altamente cualificado para diagnosticar rápidamente 
+                              la causa de la avería y repararla de forma eficiente. Trabajamos con las herramientas 
+                              y repuestos originales para garantizarte una reparación duradera y de calidad.
                           </Typography>
                         </CardContent>
                       </Box>
@@ -155,7 +160,7 @@ function UserService() {
                 </CardActionArea>
 
                 
-                <CardActionArea href="/AtencionAlCliente">
+                <CardActionArea href="/FormServ">
                   <Card sx={{ display: 'flex', bgcolor: '#70decd', color: '#454545', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
                     
                     <CardMedia
@@ -164,14 +169,17 @@ function UserService() {
                             image={IMG3}
                             alt="Live from space album cover"
                           />
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
                       
                       <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
                         <Typography component="div" variant="h5">
-                          Mantenimiento
+                          Servicio de Mantenimiento
                         </Typography>
-                        <Typography variant="subtitle1" color="#454545" component="div">
-                            Realizamos la instalación del servicio en tu hogar u oficina.
+                        <Typography variant="subtitle1" color="#454545" component="div" sx={{textAlign: "justify"}}>
+                        Con nuestros planes de mantenimiento preventivo, nos encargamos de revisar periódicamente tu sistema o 
+                        equipo para detectar posibles fallos antes de que te causen problemas. 
+                        De esta manera, alargamos la vida útil de tu inversión, reducimos el riesgo de averías inesperadas 
+                        y optimizamos su rendimiento al máximo.
                         </Typography>
                       </CardContent>
                     </Box>
