@@ -10,7 +10,15 @@
     justify-content: center;
     align-items: center;
   }
+  .wrapper-servicio-vis {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
 
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
   .userListDelete{
     color: red;
     cursor: pointer;

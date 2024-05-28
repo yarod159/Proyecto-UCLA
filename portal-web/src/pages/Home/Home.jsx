@@ -13,6 +13,10 @@ import { Box } from "@mui/material";
 import Presentacion from "./components/Presentacion/Presentacion";
 import BackgroundHomeUno from "../../assets/background/backgroundHome.png";
 import NosotrosHomeMain from "./components/nosotros/NosotrosHomeMain";
+import SliderUser from "../UserHome/Component/slider/SliderUser"
+import { width } from "@mui/system";
+
+
 
 function Home() {
   return (
@@ -28,11 +32,12 @@ function Home() {
       <Navbar />
       <Presentacion/>
       <Services />
+      <Box sx={{marginTop: -40, marginBottom: 30,}}>
+      <SliderUser />
+      </Box>
       <NosotrosHomeMain/>
       
-      <Box>
-        <Faq/>
-      </Box>
+      
 
       <Footer />
     </Box>

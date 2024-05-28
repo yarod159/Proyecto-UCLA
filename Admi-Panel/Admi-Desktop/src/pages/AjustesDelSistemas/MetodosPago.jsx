@@ -58,10 +58,41 @@ export default function MetodosPago() {
   const [Beneficiario, setBeneficiario] = useState("");
   const [NumeroTelefono, setNumeroTelefono] = useState("");
   const [NumeroCuenta, setNumeroCuenta] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let tempErrors = {};
+  
+    // Verificar que el campo Beneficiario no esté vacío y solo contenga letras
+    if (!/^[A-Za-z\s]*$/.test(Beneficiario) ||!Beneficiario.trim()) {
+      tempErrors.Beneficiario = "El campo beneficiario debe contener solo letras y no estar vacío.";
+    }
+  
+    // Verificar que el campo Identificacion solo contenga números y no esté vacío
+    if (!Identificacion.trim()) {
+      tempErrors.Identificacion = "El campo identificación permite letras y números pero no debe estar vacio no estar vacío.";
+    }
+  
+    // Verificar que el campo NumeroTelefono solo contenga números y no esté vacío
+    if (!/^[\d]+$/.test(NumeroTelefono) ||!NumeroTelefono.trim()) {
+      tempErrors.NumeroTelefono = "El campo teléfono debe contener solo números y no estar vacío.";
+    }
+  
+    // Verificar que el campo NumeroCuenta solo contenga números y no esté vacío
+    if (!/^[\d]+$/.test(NumeroCuenta) ||!NumeroCuenta.trim()) {
+      tempErrors.NumeroCuenta = "El campo cuenta debe contener solo números y no estar vacío.";
+    }
+  
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return; // No proceder si hay errores
+    }
     const metPagoData = {
       Banco,
       Identificacion,
@@ -199,45 +230,53 @@ export default function MetodosPago() {
                     
                     </Grid>
                     <Grid  item xs={12} sm={6} md={6}>
-                      <TextField
-                        label="Ingrese Cedula o Rif"
-                        name="Identificacion"
-                        fullWidth
-                        margin="normal"
-                        value={Identificacion}
-                        onChange={(e) => setIdentificacion(e.target.value)}
-                      />
-                    </Grid>
-                    <Grid  item xs={12} sm={6} md={6}>
-                      <TextField
-                        label="Ingrese el nombre del beneficiario"
-                        name="Beneficiario"
-                        fullWidth
-                        margin="normal"
-                        value={Beneficiario}
-                        onChange={(e) => setBeneficiario(e.target.value)}
-                      />
+                    <TextField
+                      label="Ingrese Cedula o Rif"
+                      name="Identificacion"
+                      fullWidth
+                      margin="normal"
+                      value={Identificacion}
+                      onChange={(e) => setIdentificacion(e.target.value)}
+                      pattern="\d*"
+                    />
+                    {errors.Identificacion && <p>{errors.Identificacion}</p>}
                     </Grid>
                     <Grid  item xs={12} sm={6} md={6}>
                     <TextField
-                        label="Ingrese el número de teléfono "
-                        name="telefono"
-                        fullWidth
-                        margin="normal"
-                        value={NumeroTelefono}
-                        onChange={(e) => setNumeroTelefono(e.target.value)}
-                      />
+                      label="Ingrese el nombre del beneficiario"
+                      name="Beneficiario"
+                      fullWidth
+                      margin="normal"
+                      value={Beneficiario}
+                      onChange={(e) => setBeneficiario(e.target.value)}
+                      pattern="[A-Za-z\s]*"
+                    />
+                    {errors.Beneficiario && <p>{errors.Beneficiario}</p>}
+                    </Grid>
+                    <Grid  item xs={12} sm={6} md={6}>
+                    <TextField
+                      label="Ingrese el número de teléfono"
+                      name="telefono"
+                      fullWidth
+                      margin="normal"
+                      value={NumeroTelefono}
+                      onChange={(e) => setNumeroTelefono(e.target.value)}
+                      pattern="\d*"
+                    />
+                    {errors.NumeroTelefono && <p>{errors.NumeroTelefono}</p>}
                     
                     </Grid>
                     <Grid  item xs={12} sm={12} md={12}>
-                      <TextField
-                        label="Ingrese el numero de cuenta "
-                        name="cuenta"
-                        fullWidth
-                        margin="normal"
-                        value={NumeroCuenta}
-                        onChange={(e) => setNumeroCuenta(e.target.value)}
-                      />
+                    <TextField
+                      label="Ingrese el numero de cuenta"
+                      name="cuenta"
+                      fullWidth
+                      margin="normal"
+                      value={NumeroCuenta}
+                      onChange={(e) => setNumeroCuenta(e.target.value)}
+                      pattern="\d*"
+                    />
+                    {errors.NumeroCuenta && <p>{errors.NumeroCuenta}</p>}
                     </Grid>
                     
                     <Grid  item xs={12} sm={6} md={6}>

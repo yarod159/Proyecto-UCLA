@@ -1,5 +1,5 @@
 import UserNavbar from "../../components/UserNavBar/UserNavBar";
-import "./UserS.css";
+
 import * as React from "react";
 import Footer from "../../components/footer/Footer";
 import Card from "@mui/material/Card";
@@ -7,9 +7,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import IMG1 from "../../assets/UserHome/Servicio.png";
-import IMG2 from "../../assets/UserHome/Mantenimiento.jpeg";
-import IMG3 from "../../assets/UserHome/Reparacion.jpg";
+import IMG1 from "../../assets/UserHome/instalacion.png";
+import IMG2 from "../../assets/UserHome/reparacion.png";
+import IMG3 from "../../assets/UserHome/mantenimiento.png";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -30,40 +30,18 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import { Margin } from "@mui/icons-material";
+import IconButton from '@mui/material/IconButton';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { useTheme } from '@mui/material/styles';
 
-const columns = [
-  { id: "servicio", label: "Servicio", minWidth: 170 },
-
-  {
-    id: "numFact",
-    label: "N.\u00a0Factura",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "monto",
-    label: "Precio",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-];
-
-function createData(servicio, numFact, monto) {
-  return { servicio, numFact, monto };
-}
-
-const rows = [
-  createData("Mantenimiento", 1244, 440.0),
-  createData("Instalacion", 1284, 550.42),
-  createData("Mantenimeinto", 1315, 448.25),
-];
 
 function UserService() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const theme = useTheme();
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -118,230 +96,103 @@ function UserService() {
         }}
       >
         <Stack
-          direction="row"
+          direction="column"
           spacing={0}
-          sx={{ marginBottom: "8px", marginTop: "8px", marginBottom: "40px",display:'flex',flexWrap:'wrap', alignItems:'center', justifyContent:'center' ,gap:'20px'}}
+          sx={{ marginBottom: "8px", marginTop: "0px", marginBottom: "60px",display:'flex',flexWrap:'wrap', alignItems:'center', justifyContent:'center' ,gap:'20px'}}
         >
-          <Box sx={{ backgroundColor: "#18a0a6" , borderRadius:'15px'}}>
-            <Card class="CardHome1">
-              {/*onClick={handleOpen}*/}
               <CardActionArea href="/FormServ">
-                <CardMedia
-                  sx={{ height: 180, borderRadius: "4px" }}
-                  image={IMG1}
-                  title="Instalación"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Instalación
-                  </Typography>
-                  <Typography variant="body2" color="#fff">
-                    Realizamos la instalación del servicio en tu hogar u
-                    oficina.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Box>
+                <Card sx={{ display: 'flex', bgcolor: '#18a0a6', color: '#fff', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
+                    
+                    <CardMedia
+                            component="img"
+                            sx={{ width: 200, height: 200, display: "flex" }}
+                            image={IMG1}
+                            alt="Live from space album cover"
+                          />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
+                      
+                      <CardContent sx={{ flex: '1 0 auto', padding: 4}}>
+                        <Typography component="div" variant="h5" >
+                          Servicio de Instalación
+                        </Typography>
+                        <Typography variant="subtitle1" color="#fff" component="div" sx={{textAlign: "justify"}}>
+                        Somos expertos en la puesta en marcha de tus sistemas y equipos, desde la configuración inicial 
+                        hasta las primeras pruebas de funcionamiento. Nos aseguramos de que todo esté instalado correctamente 
+                        y según las especificaciones del fabricante para que puedas disfrutar de tu inversión desde el primer 
+                        momento.
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    
 
-          <Box sx={{ borderRadius:'15px'}}>
-            <Card class="CardHome2">
-              <CardActionArea href="/FormServ">
-                <CardMedia
-                  sx={{ height: 180, borderRadius: "4px" }}
-                  image={IMG2}
-                  title="Mantenimiento de equipos"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Mantenimiento
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Mantén tus equipos en optimas condiciones con nuestro
-                    servicio.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Box>
+                  </Card>
 
-          <Box sx={{ backgroundColor: "#70decd",borderRadius:'15px' }}>
-            <Card class="CardHome3">
-              <CardActionArea href="/FormServ">
-                <CardMedia
-                  sx={{ height: 180, borderRadius: "4px" }}
-                  image={IMG3}
-                  title="Reparación de equipos"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Reparación
-                  </Typography>
-                  <Typography variant="body2" color="#454545">
-                    ¿Tienes algún equipo que no funciona? Lo reparamos sin
-                    problemas.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Box>
+                </CardActionArea>
+
+                <CardActionArea href="/FormServ">
+                    <Card sx={{ display: 'flex', color: '#18a0a6', height: 240, alignItems: "center", padding: 4, borderRadius: 8, }}>
+                      
+
+                      <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
+                        
+                        <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
+                          <Typography component="div" variant="h5">
+                            Servicio de Reparación
+                          </Typography>
+                          <Typography variant="subtitle1" color="#454545" component="div" sx={{textAlign: "justify"}}>
+                              Contamos con un equipo técnico altamente cualificado para diagnosticar rápidamente 
+                              la causa de la avería y repararla de forma eficiente. Trabajamos con las herramientas 
+                              y repuestos originales para garantizarte una reparación duradera y de calidad.
+                          </Typography>
+                        </CardContent>
+                      </Box>
+
+                      <CardMedia
+                              component="img"
+                              sx={{ width: 200, height: 200, display: "flex" }}
+                              image={IMG2}
+                              alt="Live from space album cover"
+                      />
+                      
+
+                    </Card>
+
+                </CardActionArea>
+
+                
+                <CardActionArea href="/FormServ">
+                  <Card sx={{ display: 'flex', bgcolor: '#70decd', color: '#454545', height: 240, alignItems: "center", padding: 4, borderRadius: 8 }}>
+                    
+                    <CardMedia
+                            component="img"
+                            sx={{ width: 200, height: 200, display: "flex" }}
+                            image={IMG3}
+                            alt="Live from space album cover"
+                          />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', maxWidth: 620 }}>
+                      
+                      <CardContent sx={{ flex: '1 0 auto', padding: 4 }}>
+                        <Typography component="div" variant="h5">
+                          Servicio de Mantenimiento
+                        </Typography>
+                        <Typography variant="subtitle1" color="#454545" component="div" sx={{textAlign: "justify"}}>
+                        Con nuestros planes de mantenimiento preventivo, nos encargamos de revisar periódicamente tu sistema o 
+                        equipo para detectar posibles fallos antes de que te causen problemas. 
+                        De esta manera, alargamos la vida útil de tu inversión, reducimos el riesgo de averías inesperadas 
+                        y optimizamos su rendimiento al máximo.
+                        </Typography>
+                      </CardContent>
+                    </Box>
+                    
+
+                  </Card>
+
+                </CardActionArea>
+
         </Stack>
       </Box>
 
-      <Paper
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          maxWidth: "950px",
-          margin: "0 auto",
-        }}
-      >
-        <TableContainer sx={{ height: 240}}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </Paper>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box>
-          <Typography
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
-            color="#18a0a6"
-            textAlign={"center"}
-          >
-            Contratación de servicio
-          </Typography>
-
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2, width: "80px" }}
-          >
-            Por favor rellene este formulario con sus datos para realizar la
-            contratación del servicio.
-          </Typography>
-
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label">
-              Servicio
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              value={Servicio}
-              onChange={handleChange}
-              label="Servicio"
-            >
-              <MenuItem value="">
-                <em>--</em>
-              </MenuItem>
-              <MenuItem value="Instalación">Instalación</MenuItem>
-              <MenuItem value="Mantenimiento">Mantenimiento</MenuItem>
-              <MenuItem value="Reparacion">Reparación</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label">
-              Método de Pago
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              value={metPago}
-              onChange={handleChanged}
-              label="MetPago"
-            >
-              <MenuItem value="">
-                <em>--</em>
-              </MenuItem>
-              <MenuItem value="Transferencia">Transferencia Bancaria</MenuItem>
-              <MenuItem value="PagoMovil">Pago móvil</MenuItem>
-            </Select>
-          </FormControl>
-
-          <TextField
-            id="standard-basic"
-            label="Referencia de Pago"
-            variant="standard"
-          />
-
-          <TextField id="standard-basic" label="Monto" variant="standard" />
-
-          <TextField
-            id="standard-basic"
-            label="Descripción"
-            variant="standard"
-          />
-
-          <Button
-            type="submit"
-            variant="outlined"
-            sx={{
-              bgcolor: "#18a0a6",
-              color: "#fff",
-              marginTop: "40px",
-              ":hover": { color: "#18a0a6" },
-            }}
-          >
-            Contratar
-          </Button>
-        </Box>
-      </Modal>
+      
 
       <Footer />
     </div>

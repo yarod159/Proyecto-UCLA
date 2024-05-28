@@ -19,6 +19,7 @@ const isDesktopAdminPanel = true;
 export default function servicioOfrecido() {
 
   const [open, setOpen] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
