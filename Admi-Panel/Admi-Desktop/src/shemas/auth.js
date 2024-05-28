@@ -2,32 +2,32 @@ import { z } from "zod";
 
 export const loginSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address",
+    message: "Por favot ingresa una dirección de correo valida recuerda que debe tener un @",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters",
+    message: "La contraseña debe tener minimo 6 caracteres",
   }),
 });
 export const registerSchema = z
   .object({
     name: z
       .string({
-        required_error: "Username is required",
+        required_error: "El nombre usuario es requerido",
       })
       .min(3, {
-        message: "Username must be at least 3 characters",
+        message: "El nombre de usuario debe tener minimo 3 caracteres",
       }),
     email: z.string().email({
-      message: "Please enter a valid email address",
+      message: "Por favor ingresa un correo valido",
     }),
     password: z.string().min(6, {
-      message: "Password must be at least 6 characters",
+      message: "La contraseña debe tener minimo 6 caracteres",
     }),
     confirmPassword: z.string().min(6, {
-      message: "Password must be at least 6 characters",
+      message: "La contraseña debe tener minimo 6 caracteres",
     }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
+    message: "Las contraseñas no coinciden",
     path: ["confirmPassword"],
   });

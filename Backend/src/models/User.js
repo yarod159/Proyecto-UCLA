@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
         // Email address validation
         validator: (email) =>
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email),
-        message: "Please enter a valid email address.",
+        message: "Por favor ingresa un correo valido",
       },
       
     },
