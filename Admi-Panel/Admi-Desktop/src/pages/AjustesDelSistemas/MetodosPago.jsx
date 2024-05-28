@@ -69,8 +69,8 @@ export default function MetodosPago() {
     }
   
     // Verificar que el campo Identificacion solo contenga números y no esté vacío
-    if (!/^[\d]+$/.test(Identificacion) ||!Identificacion.trim()) {
-      tempErrors.Identificacion = "El campo identificación debe contener solo números y no estar vacío.";
+    if (!Identificacion.trim()) {
+      tempErrors.Identificacion = "El campo identificación permite letras y números pero no debe estar vacio no estar vacío.";
     }
   
     // Verificar que el campo NumeroTelefono solo contenga números y no esté vacío

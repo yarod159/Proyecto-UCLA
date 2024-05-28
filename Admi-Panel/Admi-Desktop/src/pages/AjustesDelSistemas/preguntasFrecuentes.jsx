@@ -19,6 +19,7 @@ const StyledButton = styled(Button)({
 
 export default function faq() {
   const [logo, setLogo] = useState(null);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     companyName: "",
     rif: "",
@@ -26,6 +27,7 @@ export default function faq() {
     vision: "",
     corporateColor: "",
   });
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
