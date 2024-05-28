@@ -18,6 +18,7 @@ const StyledButton = styled(Button)({
 });
 
 export default function faq() {
+<<<<<<< Updated upstream
   const [logo, setLogo] = useState(null);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -33,14 +34,46 @@ export default function faq() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
+=======
 
-  const handleFileChange = (event) => {
-    setLogo(event.target.files[0]);
-  };
+  const [PreguntaFaq, setPreguntaFaq] = useState("");
+  const [RespuestaFaq, setRespuestaFaq] = useState("");
+  const [errors, setErrors] = useState({});
+>>>>>>> Stashed changes
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formData, logo);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validar que PreguntaFaq y RespuestaFaq no estén vacíos
+  if (!PreguntaFaq.trim() ||!RespuestaFaq.trim()) {
+    setErrors({
+      PreguntaFaq: PreguntaFaq.trim()? "" : "Este campo no puede estar vacío.",
+      RespuestaFaq: RespuestaFaq.trim()? "" : "Este campo no puede estar vacío.",
+    });
+    return; // Detener la ejecución si hay errores
+  }
+
+    const faqData = {
+     PreguntaFaq,
+     RespuestaFaq
+    };
+
+    try {
+      await axios
+       .post("http://localhost:3000/instalador/post-faq", faqData)
+       .then((response) => {
+          console.log(response.data);
+          setPreguntaFaq("");
+          setRespuestaFaq("");
+
+        })
+       .catch((error) => {
+          console.error("Error al enviar la solicitud:", error.response? error.response.data : error.message);
+        });
+    } catch (error) {
+      console.error("Error al enviar la solicitud:", error);
+    }
   };
 
   return (
@@ -59,7 +92,9 @@ export default function faq() {
                     name="preg"
                     fullWidth
                     margin="normal"
-                    onChange={handleInputChange}
+                    onChange={(e) => setPreguntaFaq(e.target.value)}
+                    error={!!errors.preg}
+                    helperText={errors.preg}
                   />
                 </Grid>
                 <Grid  item xs={12} sm={12} md={12}>
@@ -70,7 +105,9 @@ export default function faq() {
                     margin="normal"
                     multiline
                     maxRows={4}
-                    onChange={handleInputChange}
+                    onChange={(e) => setRespuestaFaq(e.target.value)}
+                    error={!!errors.resp}
+                    helperText={errors.resp}
                   />
                 </Grid>
                 <Grid  item xs={12} sm={12} md={12}>
